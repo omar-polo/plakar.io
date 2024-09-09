@@ -2,9 +2,12 @@
 
 ## HOWTO MAKE CHANGES TO FRONT PAGE
 
-1- install hugo: `brew install hugo`
-2- clone this repo:  `git clone ssh://git@github.com/PlakarLabs/plakar.io`
-3- change content in `content/_index.html`
+- install hugo: `brew install hugo`
+- clone this repo:  `git clone ssh://git@github.com/PlakarLabs/plakar.io`
+- `hugo server -D` at the root of the project to launch a dev server at `http://localhost:1313`
+- change content in `content/_index.html`
+
+Changes are reflected automatically on the dev server which reloads the page.
 
 commits to main branch trigger an action that rebuilds the website to gh-pages branch and deploys to prod one minute later.
 
