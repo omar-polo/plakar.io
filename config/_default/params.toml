@@ -10,15 +10,13 @@ giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 smartTOC = true
 smartTOCHideUnfocusedChildren = false
-copyright = "Plakar Corp &copy; 2024"
-
 
 [header]
 layout = "basic"
 
 [footer]
 showMenu = true
-showCopyright = true
+showCopyright = false
 showThemeAttribution = false
 showAppearanceSwitcher = true
 showScrollToTop = true
