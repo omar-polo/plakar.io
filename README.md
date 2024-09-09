@@ -5,7 +5,7 @@
 - install hugo: `brew install hugo`
 - clone this repo:  `git clone ssh://git@github.com/PlakarLabs/plakar.io`
 - `hugo server -D` at the root of the project to launch a dev server at `http://localhost:1313`
-- change content in `content/_index.html`
+- change content in `layouts/index.html`
 
 Changes are reflected automatically on the dev server which reloads the page.
 
