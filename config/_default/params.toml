@@ -10,6 +10,8 @@ giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 smartTOC = true
 smartTOCHideUnfocusedChildren = false
+copyright = "Plakar Corp &copy; 2024"
+
 
 [header]
 layout = "basic"
@@ -17,12 +19,12 @@ layout = "basic"
 [footer]
 showMenu = true
 showCopyright = true
-showThemeAttribution = true
+showThemeAttribution = false
 showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]
-layout = "hero"
+layout = "page"
 showRecent = false
 showRecentItems = 5
 showMoreLink = false
@@ -30,7 +32,7 @@ showMoreLinkDest = "/posts/"
 cardView = false
 cardViewScreenWidth = false
 layoutBackgroundBlur = false
-homepageImage = "https://plakar.io/images/gopher.png"
+homepageImage = "/images/gopher-w-bg.png"
 
 [article]
 showDate = true
@@ -71,7 +73,7 @@ orderByWeight = false
 groupByYear = true
 cardView = false
 cardViewScreenWidth = false
-constrainItemsWidth = false
+constrainItemsWidth = true
 
 [sitemap]
 excludedKinds = [ "taxonomy", "term" ]
