@@ -167,9 +167,9 @@ $ plakar on /safe/place push /critical/data
                     <div class="alert alert-danger">WARNING: Plakar is currently NOT production ready yet but it is most definitely stable enough to be tested by others. We expect to release a prod ready version by November 2024.</div>
                     <div class="alert alert-info">We expect to release a production-ready version by November 2024. Subscribe to our newsletter to stay updated!
                         <div style="margin-top: 10px;" class="col-8">
-                            <form action="#" method="get" target="_blank" class="newsletter-form">
+                            <form action="/api/subscribe" method="POST" target="_blank" class="newsletter-form">
                                 <label>Stay updated</label>
-                                <input name="EMAIL" placeholder="Email address" required="required" type="email"/>
+                                <input name="email" placeholder="Email address" required="required" type="email"/>
                                 <div class="button">
                                     <button class="sub-btn">
                                         <i class="lni lni-envelope"></i>
@@ -706,7 +706,7 @@ $ plakar on /safe/place push /critical/data
                             </div>
                         </div>
                     </div>
-                    <form action="#" method="POST" class="contact-form">
+                    <form action="/api/contact" method="POST" class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" name="name" id="name" placeholder="Name" required/>
@@ -774,8 +774,8 @@ $ plakar on /safe/place push /critical/data
                         <div class="footer-widget newsletter">
                             <h5>Subscribe</h5>
                             <p>Subscribe to our newsletter for the latest updates</p>
-                            <form action="#" method="get" target="_blank" class="newsletter-form">
-                                <input name="EMAIL" placeholder="Email address" required="required" type="email"/>
+                            <form action="/api/subscribe" method="POST" target="_blank" class="newsletter-form">
+                                <input name="email" placeholder="Email address" required="required" type="email"/>
                                 <div class="button">
                                     <button class="sub-btn">
                                         <i class="lni lni-envelope"></i>
