@@ -998,7 +998,7 @@ $ plakar on /safe/place push /critical/data
                 })
                 .then(data => {
                     const successMessage = form.getAttribute("data-success-message") || "Form submitted successfully!";
-                    showModal(successMessage);
+                    showModal(data.message || successMessage);
                 })
                 .catch(error => {
                     const errorMessage = form.getAttribute("data-error-message") || "An error occurred while submitting the form.";
