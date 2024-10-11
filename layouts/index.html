@@ -1006,9 +1006,12 @@ $ plakar on /safe/place push /critical/data
                 });
             }
 
-            // Attach event listeners to all forms with the class 'generic-form'
             const forms = document.querySelectorAll(".newsletter-form");
             forms.forEach(form => {
+                form.addEventListener("submit", handleFormSubmission);
+            });
+            const forms2 = document.querySelectorAll(".contact-form");
+            forms2.forEach(form => {
                 form.addEventListener("submit", handleFormSubmission);
             });
         });
