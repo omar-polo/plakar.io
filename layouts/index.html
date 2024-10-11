@@ -50,6 +50,47 @@
 
     <link rel="stylesheet" href="/assets/css/style.css"/>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Modal styling */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0); /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            text-align: center;
+        }
+
+        .modal-close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-close:hover,
+        .modal-close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
 </head>
 
 
@@ -167,7 +208,7 @@ $ plakar on /safe/place push /critical/data
                     <div class="alert alert-danger"><b>WARNING:</b> Plakar is currently NOT production ready yet but it is most definitely stable enough to be tested by others.</div>
                     <div class="alert alert-info"><b>We expect to release a production-ready version by the end of 2024. Subscribe to our newsletter to stay updated!</b>
                         <div style="margin-top: 10px;" class="col-8">
-                            <form action="/api/subscribe" method="POST" target="_blank" class="newsletter-form">
+                            <form action="/api/newsletter/subscribe" method="POST" target="_blank" class="newsletter-form" data-success-message="Thank you for subscribing to our newsletter!" data-error-message="Failed to subscribe. Please try again." id="newsletterForm">
                                 <label>Stay updated</label>
                                 <input name="email" placeholder="Email address" required="required" type="email"/>
                                 <div class="button">
@@ -707,7 +748,7 @@ $ plakar on /safe/place push /critical/data
                             </div>
                         </div>
                     </div>
-                    <form action="/api/contact" method="POST" class="contact-form">
+                    <form action="/api/contact/submit" method="POST" class="contact-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <input type="text" name="name" id="name" placeholder="Name" required/>
@@ -775,7 +816,7 @@ $ plakar on /safe/place push /critical/data
                         <div class="footer-widget newsletter">
                             <h5>Subscribe</h5>
                             <p>Subscribe to our newsletter for the latest updates</p>
-                            <form action="/api/subscribe" method="POST" target="_blank" class="newsletter-form">
+                            <form action="/api/newsletter/subscribe" method="POST" target="_blank" class="newsletter-form">
                                 <input name="email" placeholder="Email address" required="required" type="email"/>
                                 <div class="button">
                                     <button class="sub-btn">
@@ -892,6 +933,87 @@ $ plakar on /safe/place push /critical/data
         width: 900,
     });
 </script>
+
+
+
+    <!-- Modal -->
+    <div id="responseModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <p id="modalMessage">Modal message goes here.</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const modal = document.getElementById("responseModal");
+            const modalMessage = document.getElementById("modalMessage");
+            const closeModalButton = document.querySelector(".modal-close");
+
+            // Show modal with a message
+            function showModal(message) {
+                modalMessage.textContent = message;
+                modal.style.display = "block";
+            }
+
+            // Close modal when the close button is clicked
+            closeModalButton.onclick = function () {
+                modal.style.display = "none";
+            }
+
+            // Close modal when clicking outside of it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+
+            // Generic form submission handler
+            function handleFormSubmission(event) {
+                event.preventDefault(); // Prevent the default form submission behavior
+
+                const form = event.target; // Get the form that triggered the event
+                const action = form.action; // Get the form's action attribute (the endpoint URL)
+                const formData = new FormData(form); // Collect form data
+
+                // Convert form data to a JSON object
+                const data = {};
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                // Send POST request to the form's action URL
+                fetch(action, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(data)
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        return response.json().then(err => Promise.reject(err));
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const successMessage = form.getAttribute("data-success-message") || "Form submitted successfully!";
+                    showModal(successMessage);
+                })
+                .catch(error => {
+                    const errorMessage = form.getAttribute("data-error-message") || "An error occurred while submitting the form.";
+                    showModal(error);
+                });
+            }
+
+            // Attach event listeners to all forms with the class 'generic-form'
+            const forms = document.querySelectorAll(".newsletter-form");
+            forms.forEach(form => {
+                form.addEventListener("submit", handleFormSubmission);
+            });
+        });
+    </script>
+
 </body>
 
 </html>
