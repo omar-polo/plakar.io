@@ -1002,7 +1002,7 @@ $ plakar on /safe/place push /critical/data
                 })
                 .catch(error => {
                     const errorMessage = form.getAttribute("data-error-message") || "An error occurred while submitting the form.";
-                    showModal(error);
+                    showModal(error.message || errorMessage);
                 });
             }
 
