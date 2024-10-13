@@ -1,5 +1,5 @@
 ---
-title: "Introducing Plakup's Chronicles: A Journey Through Recent Plakar Developments"
+title: "Plakup's Chronicles: A Journey Through Recent Plakar Developments"
 date: 2024-10-12 21:00:00 +0100
 authors:
  - "plakup"
