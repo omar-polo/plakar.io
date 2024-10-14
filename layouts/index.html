@@ -201,13 +201,20 @@ $ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
                         <pre><code class="bash">
 $ plakar on /safe/place create
 $ plakar on /safe/place push /critical/data
+$ plakar on /safe/place ls
+2024-10-14T13:45:55Z  934f46ab      4 GB        9s /critical/data
+$
                         </code></pre>
                     </div>
                     <p>Restore your data</p>
                     <div class="code-container">
 
                         <pre><code class="bash">
-$ plakar on /safe/place pull
+$ plakar on /safe/place pull 934f46ab
+$ ls -l critical/data
+total 0
+drwxr-xr-x  21 gilles  staff  672 Oct 10 14:11 PlakarKorp
+$
                         </code></pre>
                     </div>
                     <p>Alright, your data are safer! Now read our quick start and implement the 3-2-1 rule!</p>
