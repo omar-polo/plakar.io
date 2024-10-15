@@ -25,7 +25,7 @@ Mail: Plakar SAS, 149 avenue du Maine, 75014 Paris, France
 To report illegal content or if you are the victim of fraudulent use of our services, please contact us at: <a href="mailto:help@plakar.io">help@plakar.io</a>
 
 
-## Intellectual Propert
+## Intellectual Property
 This website and all its content (including data, information, photos, logos, and trademarks) are the exclusive property of Plakar SAS or its partners. Any reproduction, representation, translation, adaptation, or citation, whether partial or complete, regardless of the process or medium, is strictly prohibited except as provided by law or expressly authorized by their owner. Non-contractual photos.
 
 
