@@ -204,7 +204,7 @@
                     <p>Install Plakar (requires a Golang toolchain installed until first release)</p>
                     <div class="code-container">
                         <pre><code class="bash">
-$ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
+$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest
                         </code></pre>
                     </div>
                     <p>Backup your data</p>
@@ -212,7 +212,7 @@ $ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
 
                         <pre><code class="bash">
 $ plakar on /safe/place create
-$ plakar on /safe/place push /critical/data
+$ plakar on /safe/place backup /critical/data
 $ plakar on /safe/place ls
 2024-10-14T13:45:55Z  934f46ab      4 GB        9s /critical/data
 $
@@ -222,7 +222,7 @@ $
                     <div class="code-container">
 
                         <pre><code class="bash">
-$ plakar on /safe/place pull 934f46ab
+$ plakar on /safe/place restore 934f46ab
 $ ls -l critical/data
 total 0
 drwxr-xr-x  21 gilles  staff  672 Oct 10 14:11 PlakarKorp
@@ -650,7 +650,7 @@ $
             <div class="col-lg-4 col-sm-6">
                 <div class="team-style-six text-center">
                     <div class="team-image">
-                        <img src="/assets/images/team/gilles-2.jpg" alt="Team"/>
+                        <img src="/assets/images/team/gchehade.jpg" alt="Team"/>
                     </div>
                     <div class="team-content">
                         <div class="team-social">
@@ -676,7 +676,7 @@ $
             <div class="col-lg-4 col-sm-6">
                 <div class="team-style-six text-center">
                     <div class="team-image">
-                        <img src="/assets/images/team/julien.jpg" alt="Team"/>
+                        <img src="/assets/images/team/jmangeard.jpg" alt="Team"/>
                     </div>
                     <div class="team-content">
                         <div class="team-social">
@@ -698,6 +698,7 @@ $
                     </div>
                 </div>
                 <!-- single team -->
+            </div>
             </div>
         </div>
         <!-- row -->
