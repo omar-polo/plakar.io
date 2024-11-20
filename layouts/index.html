@@ -35,6 +35,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs-copy/dist/highlightjs-copy.min.css">
     <script src="https://cdn.jsdelivr.net/npm/highlightjs-copy/dist/highlightjs-copy.min.js"></script>
 
+    <meta property='og:title' content='Plakar | Secure, Fast, Reliable.'/>
+    <meta property='og:image' content='https://plakar.io/assets/images/logo.png'/>
+    <meta property='og:description' content='Still using rsync for your backups? That is cute. At Plakar, we believe in a simpler way—no more endless flags or missing files. Just plakar push and you are safe.'/>
+    <meta property='og:url' content='https://plakar.io'/>
+
     <script>
         // Init copy plugin and hack the plugin to remove '$ '
         hljs.addPlugin(
@@ -52,6 +57,10 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        body {
+            text-align: justify;
+        }
+
         /* Modal styling */
         .modal {
             display: none; /* Hidden by default */
@@ -196,7 +205,7 @@
                     <p>Install Plakar (requires a Golang toolchain installed until first release)</p>
                     <div class="code-container">
                         <pre><code class="bash">
-$ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
+$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest
                         </code></pre>
                     </div>
                     <p>Backup your data</p>
@@ -204,7 +213,7 @@ $ go install github.com/PlakarLabs/plakar/cmd/plakar@latest
 
                         <pre><code class="bash">
 $ plakar on /safe/place create
-$ plakar on /safe/place push /critical/data
+$ plakar on /safe/place backup /critical/data
 $ plakar on /safe/place ls
 2024-10-14T13:45:55Z  934f46ab      4 GB        9s /critical/data
 $
@@ -214,7 +223,7 @@ $
                     <div class="code-container">
 
                         <pre><code class="bash">
-$ plakar on /safe/place pull 934f46ab
+$ plakar on /safe/place restore 934f46ab
 $ ls -l critical/data
 total 0
 drwxr-xr-x  21 gilles  staff  672 Oct 10 14:11 PlakarKorp
@@ -616,7 +625,33 @@ $
             <div class="col-lg-4 col-sm-6">
                 <div class="team-style-six text-center">
                     <div class="team-image">
-                        <img src="/assets/images/team/gilles-2.jpg" alt="Team"/>
+                        <img src="/assets/images/team/plakup.png" alt="Team"/>
+                    </div>
+                    <div class="team-content">
+                        <div class="team-social">
+                            <ul class="social">
+                                <li>
+                                    <a href="https://x.com/PlakarKorp">
+                                        <i class="lni lni-twitter-original"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/company/plakarkorp">
+                                        <i class="lni lni-linkedin-original"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="team-name">Plakup</h4>
+                        <span class="sub-title">Co-founder</span>
+                    </div>
+                </div>
+                <!-- single team -->
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <div class="team-style-six text-center">
+                    <div class="team-image">
+                        <img src="/assets/images/team/gchehade.jpg" alt="Team"/>
                     </div>
                     <div class="team-content">
                         <div class="team-social">
@@ -642,7 +677,7 @@ $
             <div class="col-lg-4 col-sm-6">
                 <div class="team-style-six text-center">
                     <div class="team-image">
-                        <img src="/assets/images/team/julien.jpg" alt="Team"/>
+                        <img src="/assets/images/team/jmangeard.jpg" alt="Team"/>
                     </div>
                     <div class="team-content">
                         <div class="team-social">
@@ -665,31 +700,6 @@ $
                 </div>
                 <!-- single team -->
             </div>
-            <div class="col-lg-4 col-sm-6">
-                <div class="team-style-six text-center">
-                    <div class="team-image">
-                        <img src="/assets/images/team/plakup.png" alt="Team"/>
-                    </div>
-                    <div class="team-content">
-                        <div class="team-social">
-                            <ul class="social">
-                                <li>
-                                    <a href="https://x.com/PlakarKorp">
-                                        <i class="lni lni-twitter-original"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https://www.linkedin.com/company/plakarkorp">
-                                        <i class="lni lni-linkedin-original"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <h4 class="team-name">Plakup</h4>
-                        <span class="sub-title">Co-founder</span>
-                    </div>
-                </div>
-                <!-- single team -->
             </div>
         </div>
         <!-- row -->
