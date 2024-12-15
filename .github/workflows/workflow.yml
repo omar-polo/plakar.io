@@ -20,13 +20,3 @@ jobs:
         with:
           githubToken: ${{ github.token }}
           hugoVersion: 'extended_0.133.1'
-
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_DEPLOY_KEY }}
-
-      - name: Deploy to server
-        run: |
-          ssh -o StrictHostKeyChecking=no github_www@51.158.104.33 'cd /var/www/html/plakar.io && git pull'
-    
