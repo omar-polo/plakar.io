@@ -9,5 +9,5 @@ displayName = "EN"
 isoCode = "en"
 rtl = false
 dateFormat = "2 January 2006"
-logo = "img/Plakar_Effortless_Backup.png"
+logo = "img/Plakar_Effortless_Backup.svg"
 description = "Plakar is an open-source data protection solution offering high-performance, secure backup and recovery. Discover innovative technology that combines simplicity, efficiency, and compatibility to meet the needs of modern businesses."

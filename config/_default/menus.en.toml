@@ -5,19 +5,19 @@ none = "none"
 name = "Home"
 pageRef = "/"
 identifier = "fol5ytJZFj"
-weight = 9999
+weight = 10
 
 [[main]]
 name = "Team"
 pageRef = "/team"
 identifier = "qtkGQejmCU"
-weight = 9999
+weight = 20
 
 [[main]]
 name = "Community"
 pageRef = "/communitiy"
 identifier = "pWMBXKNJge"
-weight = 9999
+weight = 30
 
 [[footer]]
 none = "none"
