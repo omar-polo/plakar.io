@@ -107,3 +107,9 @@ cardViewScreenWidth = false
 [verification]
 
 [rssnext]
+
+[axeptio]
+clientId = "670b04f487d8b40de2e7f22c"
+cookiesVersion = "plakar-fr-EU-2"
+enabled = true
+
