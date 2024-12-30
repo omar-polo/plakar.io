@@ -15,9 +15,10 @@ weight = 20
 
 [[main]]
 name = "Community"
-pageRef = "/communitiy"
+pageRef = "Community News"
 identifier = "pWMBXKNJge"
-weight = 30
+weight = 15
+
 
 [[footer]]
 none = "none"

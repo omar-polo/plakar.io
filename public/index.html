@@ -325,10 +325,10 @@
 
             
             
-  <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  <a href="/community-news/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
-    <p class="text-base font-medium" title="">
-        Team
+    <p class="text-base font-medium" title="Plakar community updates">
+        Community
     </p>
 </a>
 
@@ -339,7 +339,7 @@
   <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
     
     <p class="text-base font-medium" title="">
-        Community
+        Team
     </p>
 </a>
 
@@ -433,10 +433,10 @@
 
                     
   <li class="mt-1">
-    <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    <a href="/community-news/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
-        <p class="text-bg font-bg" title="">
-            Team
+        <p class="text-bg font-bg" title="Plakar community updates">
+            Community
         </p>
     </a>
 </li>
@@ -451,7 +451,7 @@
     <a href=""  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
         
         <p class="text-bg font-bg" title="">
-            Community
+            Team
         </p>
     </a>
 </li>
@@ -487,6 +487,16 @@
 
 
 
+
+<script>
+    (function () {
+        var $mainmenu = $('.main-menu');
+        var path = window.location.pathname;
+        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
+            $(e).children('p').addClass('active');
+        });
+    })();
+</script>
 
 
   </div>
@@ -564,14 +574,6 @@
     
 
     
-    
-    <p class="text-xs text-neutral-500 dark:text-neutral-400">
-      
-      
-      Powered by <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
-        href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a>
-    </p>
     
 
   </div>

@@ -9,6 +9,7 @@ disableTextInHeader = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 defaultBackgroundImage = "."
+highlightCurrentMenuArea = true
 
 [header]
 layout = "fixed"
@@ -16,7 +17,7 @@ layout = "fixed"
 [footer]
 showMenu = true
 showCopyright = false
-showThemeAttribution = "plop"
+showThemeAttribution = false
 showAppearanceSwitcher = false
 showScrollToTop = true
 
@@ -38,7 +39,7 @@ showLikes = false
 showDateOnlyInArticle = false
 showDateUpdated = false
 showAuthor = true
-showHero = false
+showHero = true
 layoutBackgroundBlur = true
 layoutBackgroundHeaderSpace = true
 showBreadcrumbs = false
@@ -50,11 +51,11 @@ showHeadingAnchors = true
 showPagination = true
 invertPagination = false
 showReadingTime = true
-showTableOfContents = false
+showTableOfContents = true
 showTaxonomies = false
 showAuthorsBadges = false
 showWordCount = true
-showZenMode = false
+showZenMode = true
 
 [list]
 showHero = false
