@@ -8,8 +8,9 @@ disableImageOptimization = false
 disableTextInHeader = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
-defaultBackgroundImage = "."
 highlightCurrentMenuArea = true
+defaultBackgroundImage = "img/background.svg"
+
 
 [header]
 layout = "fixed"
@@ -22,15 +23,17 @@ showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
-layout = "profile"
+layout = "background"
 showRecent = false
 showRecentItems = 5
-showMoreLink = false
+showMoreLink = true
 showMoreLinkDest = "/posts/"
-cardView = false
+cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
-homepageImage = "Plakar\\ Effortless\\ Backup.png "
+
+#homepageImage = "img/Plakar_Effortless_Backup.svg"
+
 
 [article]
 showDate = true
@@ -58,9 +61,10 @@ showWordCount = true
 showZenMode = true
 
 [list]
-showHero = false
+showHero = true
+heroStyle = "background"
 layoutBackgroundBlur = true
-layoutBackgroundHeaderSpace = true
+layoutBackgroundHeaderSpace = false
 showBreadcrumbs = false
 showSummary = false
 showViews = false
