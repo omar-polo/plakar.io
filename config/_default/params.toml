@@ -1,4 +1,4 @@
-colorScheme = "blowfish"
+colorScheme = "plakar"
 defaultAppearance = "dark"
 autoSwitchAppearance = false
 enableSearch = false
@@ -9,8 +9,7 @@ disableTextInHeader = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 highlightCurrentMenuArea = true
-defaultBackgroundImage = "img/background.svg"
-
+#defaultBackgroundImage = "img/background.svg"
 
 [header]
 layout = "fixed"
@@ -23,17 +22,14 @@ showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
-layout = "background"
+layout = "custom"
 showRecent = false
 showRecentItems = 5
 showMoreLink = true
-showMoreLinkDest = "/posts/"
+showMoreLinkDest = "/community-news/"
 cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
-
-#homepageImage = "img/Plakar_Effortless_Backup.svg"
-
 
 [article]
 showDate = true

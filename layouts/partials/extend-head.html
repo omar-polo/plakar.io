@@ -22,3 +22,16 @@
 </script>
 {{ end }}
 
+{{ $highlightCSS := resources.Get "css/highlight.js/night-owl.min.css" | resources.Fingerprint }}
+{{ $highlightJS := resources.Get "js/highlight.js/highlight.min.js" | resources.Fingerprint }}
+{{ $highlightBashJS := resources.Get "js/highlight.js/languages/bash.min.js" | resources.Fingerprint }}
+
+<link rel="stylesheet" href="{{ $highlightCSS.Permalink }}"/>
+<script src="{{ $highlightJS.Permalink }}"></script>
+<script src="{{ $highlightBashJS.Permalink }}"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        hljs.highlightAll();
+    });
+</script>

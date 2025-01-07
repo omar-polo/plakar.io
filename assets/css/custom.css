@@ -2,3 +2,22 @@
     height: 2rem;
     width: 9rem;
 }
+
+.title-dash {
+    position: relative;
+    padding-left: 30px;
+}
+.title-dash::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 50%;
+    background-color: rgb(var(--color-neutral-900));
+    height: 2px;
+    width: 20px;
+    margin-top: -1px;
+}
+
+.title-dash.white::before {
+    background-color: white;
+}
