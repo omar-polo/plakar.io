@@ -29,8 +29,8 @@
     </div>
     <section class="py-12 px-6 bg-primary-800 text-white">
         <div class="container mx-auto max-w-7xl">
-            <h1 class="text-4xl font-bold text-white">Effortless Open-Source Backup</h1>
-            <p class="mt-4 text-lg font-bold">
+            <h1 class="sm:text-5xl text-2xl font-bold text-white">Effortless Open-Source Backup</h1>
+            <p class="mt-4 text-lg sm:font-bold italic sm:text-2xl" >
                 No more excuses, backup and secure your data in 30 seconds.
             </p>
             <p class="mt-2">
@@ -336,6 +336,7 @@ $</code></pre>
             </div>
         </div>
     </section>
+
     <section id="about-secure" class="py-12 px-6 bg-white text-black">
         <div class="container mx-auto max-w-7xl">
             <div class="grid grid-cols-12">
@@ -449,6 +450,7 @@ $</code></pre>
             </div>
         </div>
     </section>
+
     {{ $discordInviteCode := .Site.Params.discord.inviteCode | default "" }}
     <section id="call-action" class="relative overlay-img py-12 px-6 text-white"
              style="background: linear-gradient(45deg, rgb(var(--color-primary-600)), rgb(var(--color-primary-900))); z-index:1">
@@ -473,6 +475,96 @@ $</code></pre>
             </div>
         </div>
     </section>
+
+    <section id="contact" class="py-12 px-6 bg-gray-50 text-black">
+        <div class="container mx-auto max-w-7xl">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Contact Information -->
+                <div class="col-span-1 md:col-span-1">
+                    <div class="space-y-6">
+                        <div class="bg-white p-6 shadow rounded-lg">
+                            <div class="flex items-center space-x-4">
+                                <div class="text-blue-500 text-3xl">
+                                    <i class="lni lni-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-semibold">Contact</h4>
+                                    <p>1 (415) 802-2316</p>
+                                    <p>
+                                        <a href="mailto:hello@plakar.io" class="text-blue-500 hover:underline">
+                                            hello@plakar.io
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Form -->
+                <div class="col-span-1 md:col-span-2">
+                    <div class="bg-white p-8 shadow rounded-lg">
+                        <div class="text-center mb-6">
+                            <span class="text-blue-500 uppercase tracking-wider">Get in Touch</span>
+                            <h2 class="text-2xl font-bold">Ask us anything!</h2>
+                        </div>
+                        <form action="/api/contact/submit" method="POST" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <input
+                                        type="text"
+                                        name="name"
+                                        id="name"
+                                        placeholder="Name"
+                                        required
+                                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                />
+                                <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        placeholder="Email"
+                                        required
+                                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                />
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <input
+                                        type="text"
+                                        name="phone"
+                                        id="phone"
+                                        placeholder="Phone"
+                                        required
+                                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                />
+                                <input
+                                        type="text"
+                                        name="subject"
+                                        id="subject"
+                                        placeholder="Subject"
+                                        required
+                                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                />
+                            </div>
+                            <textarea
+                                    name="message"
+                                    id="message"
+                                    placeholder="Type Message"
+                                    rows="5"
+                                    class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                            ></textarea>
+                            <div class="text-center">
+                                <button
+                                        type="submit"
+                                        class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="prose dark:prose-invert">{{ .Content }}</section>
 </article>
 <section>

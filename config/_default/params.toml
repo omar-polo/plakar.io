@@ -8,7 +8,7 @@ disableImageOptimization = false
 disableTextInHeader = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
-highlightCurrentMenuArea = true
+highlightCurrentMenuArea = false
 #defaultBackgroundImage = "img/background.svg"
 
 [header]
