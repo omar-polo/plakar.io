@@ -13,12 +13,14 @@ highlightCurrentMenuArea = true
 
 [header]
 layout = "fixed"
+showGithubBadge = true
+
 
 [footer]
 showMenu = true
 showCopyright = false
 showThemeAttribution = false
-showAppearanceSwitcher = true
+showAppearanceSwitcher = false
 showScrollToTop = true
 
 [homepage]
@@ -113,4 +115,8 @@ cardViewScreenWidth = false
 clientId = "670b04f487d8b40de2e7f22c"
 cookiesVersion = "plakar-fr-EU-2"
 enabled = true
+
+[github]
+organization = "PlakarKorp"
+repository = "plakar"
 

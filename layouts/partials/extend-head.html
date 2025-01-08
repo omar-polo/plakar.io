@@ -35,3 +35,29 @@
         hljs.highlightAll();
     });
 </script>
+
+{{ if .Params.header.showGithubBadge | default false }}
+{{ $githubOrganization := .Params.github.organization | default "" }}
+{{ $githubRepository := .Params.github.repository | default "" }}
+<script>
+    async function fetchGitHubStars() {
+        const url = `https://api.github.com/repos/{{$githubOrganization}}/{{$githubRepository}}`;
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) {
+                throw new Error("GitHub API request failed");
+            }
+            const data = await response.json();
+            document.querySelectorAll(`#github-stars-count`)
+                .forEach((element) => {
+                    element.textContent = data.stargazers_count;
+                });
+        } catch (error) {
+            console.error("Error fetching GitHub data:", error);
+        }
+    }
+
+    fetchGitHubStars();
+</script>
+{{ end }}
