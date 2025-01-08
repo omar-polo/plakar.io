@@ -12,7 +12,7 @@
     content: "";
     left: 0;
     top: 50%;
-    background-color: rgb(var(--color-neutral-900));
+    background-color: rgb(var(--color-primary-700));
     height: 2px;
     width: 20px;
     margin-top: -1px;

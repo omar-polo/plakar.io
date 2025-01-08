@@ -1,38 +1,49 @@
 :root {
-
-        --color-neutral: 255, 255, 255; /* #FFFFFF */
-        --color-neutral-50: 240, 245, 255; /* #F0F5FF */
-        --color-neutral-100: 220, 230, 250; /* #DCE6FA */
-        --color-neutral-200: 180, 200, 240; /* #B4C8F0 */
-        --color-neutral-300: 140, 170, 230; /* #8CAAE6 */
-        --color-neutral-400: 100, 135, 210; /* #6487D2 */
-        --color-neutral-500: 70, 100, 190; /* #4664BE */
-        --color-neutral-600: 50, 80, 180; /* #3250B4 */
-        --color-neutral-700: 40, 70, 175; /* #2846AF */
-        --color-neutral-800: 30, 64, 175; /* #1E40AF */
-        --color-neutral-900: 20, 50, 130; /* #143282 */
+    --color-neutral: 255, 255, 255; /* #FFFFFF */
+    --color-neutral-50: 245, 245, 245; /* #F5F5F5 */
+    --color-neutral-100: 230, 230, 230; /* #E6E6E6 */
+    --color-neutral-200: 200, 200, 200; /* #C8C8C8 */
+    --color-neutral-300: 170, 170, 170; /* #AAAAAA */
+    --color-neutral-400: 140, 140, 140; /* #8C8C8C */
+    --color-neutral-500: 110, 110, 110; /* #6E6E6E */
+    --color-neutral-600: 80, 80, 80; /* #505050 */
+    --color-neutral-700: 50, 50, 50; /* #323232 */
+    --color-neutral-800: 30, 30, 30; /* #1E1E1E */
+    --color-neutral-900: 0, 0, 0; /* #000000 */
 
     --color-primary: 255, 255, 255; /* #FFFFFF */
-    --color-primary-50: 240, 255, 248; /* #F0FFF8 */
-    --color-primary-100: 220, 250, 235; /* #DCFADB */
-    --color-primary-200: 180, 240, 215; /* #B4F0D7 */
-    --color-primary-300: 140, 230, 195; /* #8CE6C3 */
-    --color-primary-400: 100, 220, 175; /* #64DCAF */
-    --color-primary-500: 70, 210, 155; /* #46D29B */
-    --color-primary-600: 50, 200, 145; /* #32C891 */
-    --color-primary-700: 35, 190, 140; /* #23BE8C */
-    --color-primary-800: 22, 222, 137; /* #16DE89 */
-    --color-primary-900: 15, 150, 100; /* #0F9664 */
+    --color-primary-50: 240, 245, 255; /* #F0F5FF */
+    --color-primary-100: 220, 230, 250; /* #DCE6FA */
+    --color-primary-200: 180, 200, 240; /* #B4C8F0 */
+    --color-primary-300: 140, 170, 230; /* #8CAAE6 */
+    --color-primary-400: 100, 135, 210; /* #6487D2 */
+    --color-primary-500: 70, 100, 190; /* #4664BE */
+    --color-primary-600: 50, 80, 180; /* #3250B4 */
+    --color-primary-700: 35, 85, 195; /* #2355C3 */
+    --color-primary-800: 21, 91, 213; /* #155BD5 */
+    --color-primary-900: 15, 70, 170; /* #0F46AA */
 
     --color-secondary: 255, 255, 255; /* #FFFFFF */
-    --color-secondary-50: 240, 250, 255; /* #F0FAFF */
-    --color-secondary-100: 220, 245, 255; /* #DCF5FF */
-    --color-secondary-200: 180, 235, 250; /* #B4EBFA */
-    --color-secondary-300: 140, 225, 245; /* #8CE1F5 */
-    --color-secondary-400: 100, 215, 240; /* #64D7F0 */
-    --color-secondary-500: 70, 205, 235; /* #46CDEB */
-    --color-secondary-600: 50, 200, 230; /* #32C8E6 */
-    --color-secondary-700: 40, 202, 232; /* #28CAE8 */
-    --color-secondary-800: 32, 204, 234; /* #20CCEA */
-    --color-secondary-900: 25, 160, 185; /* #19A0B9 */
+    --color-secondary-50: 240, 255, 248; /* #F0FFF8 */
+    --color-secondary-100: 220, 250, 235; /* #DCFADB */
+    --color-secondary-200: 180, 240, 215; /* #B4F0D7 */
+    --color-secondary-300: 140, 230, 195; /* #8CE6C3 */
+    --color-secondary-400: 100, 220, 175; /* #64DCAF */
+    --color-secondary-500: 70, 210, 155; /* #46D29B */
+    --color-secondary-600: 50, 200, 145; /* #32C891 */
+    --color-secondary-700: 35, 190, 140; /* #23BE8C */
+    --color-secondary-800: 22, 222, 137; /* #16DE89 */
+    --color-secondary-900: 15, 150, 100; /* #0F9664 */
+
+    --color-tertiary: 255, 255, 255; /* #FFFFFF */
+    --color-tertiary-50: 240, 250, 255; /* #F0FAFF */
+    --color-tertiary-100: 220, 245, 255; /* #DCF5FF */
+    --color-tertiary-200: 180, 235, 250; /* #B4EBFA */
+    --color-tertiary-300: 140, 225, 245; /* #8CE1F5 */
+    --color-tertiary-400: 100, 215, 240; /* #64D7F0 */
+    --color-tertiary-500: 70, 205, 235; /* #46CDEB */
+    --color-tertiary-600: 50, 200, 230; /* #32C8E6 */
+    --color-tertiary-700: 40, 202, 232; /* #28CAE8 */
+    --color-tertiary-800: 32, 204, 234; /* #20CCEA */
+    --color-tertiary-900: 25, 160, 185; /* #19A0B9 */
 }

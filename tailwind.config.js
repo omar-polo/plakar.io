@@ -34,6 +34,7 @@ module.exports = {
                 900: "rgba(var(--color-neutral-900), <alpha-value>)",
             },
             primary: {
+                DEFAULT: "rgba(var(--color-primary), <alpha-value>)",
                 50: "rgba(var(--color-primary-50), <alpha-value>)",
                 100: "rgba(var(--color-primary-100), <alpha-value>)",
                 200: "rgba(var(--color-primary-200), <alpha-value>)",
@@ -56,6 +57,18 @@ module.exports = {
                 700: "rgba(var(--color-secondary-700), <alpha-value>)",
                 800: "rgba(var(--color-secondary-800), <alpha-value>)",
                 900: "rgba(var(--color-secondary-900), <alpha-value>)",
+            },
+            tertiary: {
+                50: "rgba(var(--color-tertiary-50), <alpha-value>)",
+                100: "rgba(var(--color-tertiary-100), <alpha-value>)",
+                200: "rgba(var(--color-tertiary-200), <alpha-value>)",
+                300: "rgba(var(--color-tertiary-300), <alpha-value>)",
+                400: "rgba(var(--color-tertiary-400), <alpha-value>)",
+                500: "rgba(var(--color-tertiary-500), <alpha-value>)",
+                600: "rgba(var(--color-tertiary-600), <alpha-value>)",
+                700: "rgba(var(--color-tertiary-700), <alpha-value>)",
+                800: "rgba(var(--color-tertiary-800), <alpha-value>)",
+                900: "rgba(var(--color-tertiary-900), <alpha-value>)",
             },
         },
         extend: {

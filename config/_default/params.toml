@@ -1,5 +1,5 @@
 colorScheme = "plakar"
-defaultAppearance = "dark"
+defaultAppearance = "light"
 autoSwitchAppearance = false
 enableSearch = false
 enableCodeCopy = false
@@ -18,7 +18,7 @@ layout = "fixed"
 showMenu = true
 showCopyright = false
 showThemeAttribution = false
-showAppearanceSwitcher = false
+showAppearanceSwitcher = true
 showScrollToTop = true
 
 [homepage]

@@ -9,7 +9,7 @@ weight = 10
 
 [[main]]
 name = "Team"
-pageRef = "/team"
+pageRef = "Team"
 identifier = "qtkGQejmCU"
 weight = 20
 

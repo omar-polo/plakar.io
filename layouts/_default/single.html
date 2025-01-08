@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ .Scratch.Set "scope" "single" }}
 
-<article  class="mx-auto max-w-7xl">
+<article  class="mx-auto max-w-6xl px-6">
   {{ if .Params.showHero | default (.Site.Params.article.showHero | default false) }}
   {{ $heroStyle := .Params.heroStyle }}
   {{ if not $heroStyle }}{{ $heroStyle = .Site.Params.article.heroStyle }}{{ end }}
