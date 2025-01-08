@@ -21,3 +21,19 @@
 .title-dash.white::before {
     background-color: white;
 }
+
+.overlay-img:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('/img/overlay.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-position-x: center;
+    background-position-y: top;
+    z-index: -1;
+}

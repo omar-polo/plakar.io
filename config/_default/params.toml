@@ -14,6 +14,7 @@ highlightCurrentMenuArea = true
 [header]
 layout = "fixed"
 showGithubBadge = true
+showDiscordBadge = true
 
 
 [footer]
@@ -119,4 +120,7 @@ enabled = true
 [github]
 organization = "PlakarKorp"
 repository = "plakar"
+
+[discord]
+inviteCode = "uuegtnF2Q5"
 
