@@ -17,7 +17,7 @@ weight = 20
 name = "Community"
 pageRef = "Community News"
 identifier = "pWMBXKNJge"
-weight = 15
+weight = 30
 
 
 [[footer]]

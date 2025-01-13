@@ -15,7 +15,7 @@ highlightCurrentMenuArea = false
 layout = "fixed"
 showGithubBadge = true
 showDiscordBadge = true
-
+showBlueskyBadge = true
 
 [footer]
 showMenu = true
@@ -33,6 +33,7 @@ showMoreLinkDest = "/community-news/"
 cardView = true
 cardViewScreenWidth = false
 layoutBackgroundBlur = true
+
 
 [article]
 showDate = true
@@ -124,3 +125,5 @@ repository = "plakar"
 [discord]
 inviteCode = "uuegtnF2Q5"
 
+[bluesky]
+account = "plakar.bsky.social"
