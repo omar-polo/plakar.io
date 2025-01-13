@@ -1,7 +1,7 @@
 
-{{ if .Site.Params.header.showBlueskyBadge | default false }}
+{{ if .Site.Params.footer.showBlueskyBadge | default false }}
 {{ $blueskyAccount := .Site.Params.bluesky.account | default "" }}
 <a class="flex items-center space-x-2" href="https://bsky.app/profile/{{ $blueskyAccount }}" target="_blank">
-    <i class="ri-bluesky-fill hover:bluesky-color text-xl hover:text-tertiary-500"></i>
+    <i class="ri-bluesky-fill hover:text-neutral-900 bluesky-color"></i>
 </a>
 {{ end }}

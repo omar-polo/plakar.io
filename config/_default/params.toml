@@ -9,6 +9,7 @@ disableTextInHeader = true
 giteaDefaultServer = "https://git.fsfe.org"
 forgejoDefaultServer = "https://v8.next.forgejo.org"
 highlightCurrentMenuArea = false
+debugPagesInMeta = false
 #defaultBackgroundImage = "img/background.svg"
 
 [header]
@@ -19,10 +20,14 @@ showBlueskyBadge = true
 
 [footer]
 showMenu = true
-showCopyright = false
+showCopyright = true
 showThemeAttribution = false
 showAppearanceSwitcher = false
 showScrollToTop = true
+showDiscordBadge = true
+showBlueskyBadge = true
+showGithubBadge = true
+showLinkedinBadge = true
 
 [homepage]
 layout = "custom"
@@ -127,3 +132,6 @@ inviteCode = "uuegtnF2Q5"
 
 [bluesky]
 account = "plakar.bsky.social"
+
+[linkedin]
+account = "company/plakarkorp"

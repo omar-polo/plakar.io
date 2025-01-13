@@ -1,24 +1,19 @@
 [[main]]
-none = "none"
-
-[[main]]
-name = "Home"
-pageRef = "/"
-identifier = "fol5ytJZFj"
-weight = 10
-
-[[main]]
 name = "Team"
 pageRef = "Team"
-identifier = "qtkGQejmCU"
-weight = 20
+weight = 10
 
 [[main]]
 name = "Community"
 pageRef = "Community News"
-identifier = "pWMBXKNJge"
-weight = 30
+weight = 20
 
+[[footersupport]]
+name = "Legal notice"
+pageRef = "Legal notice"
+weight = 10
 
-[[footer]]
-none = "none"
+[[footerresources]]
+name = "Community news"
+pageRef = "Community News"
+weight = 10

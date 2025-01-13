@@ -483,16 +483,18 @@ $</code></pre>
                 <div class="col-span-1 md:col-span-1">
                     <div class="space-y-6">
                         <div class="bg-white p-6 shadow rounded-lg">
-                            <div class="flex items-center space-x-4">
-                                <div class="text-blue-500 text-3xl">
-                                    <i class="lni lni-phone"></i>
+                            <div class="flex space-x-4">
+                                <div class="text-primary-800 text-4xl mt-6">
+                                    <i class="ri-phone-fill"></i>
                                 </div>
-                                <div>
-                                    <h4 class="text-lg font-semibold">Contact</h4>
-                                    <p>1 (415) 802-2316</p>
+                                <div class="items-center">
+                                    <h4 class="text-lg font-semibold text-primary-800">Contact</h4>
+                                    {{ $contactPhoneNumber := .Site.Params.contactPhoneNumber | default "" }}
+                                    <p>{{$contactPhoneNumber}}</p>
+                                    {{ $contactEmail := .Site.Params.contactEmail | default "" }}
                                     <p>
                                         <a href="mailto:hello@plakar.io" class="text-blue-500 hover:underline">
-                                            hello@plakar.io
+                                            {{ $contactEmail }}
                                         </a>
                                     </p>
                                 </div>

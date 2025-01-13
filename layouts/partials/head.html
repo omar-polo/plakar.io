@@ -153,10 +153,12 @@
   {{ end }}
   {{ end }}
 
-  {{ if hugo.IsServer -}}
+  {{ if .Site.Params.debugPagesInMeta -}}
+  {{ if hugo.IsServer  -}}
   {{ print "<!-- Debug info only available when running a local server -->" | safeHTML }}
   {{ partial "debug_meta_tags" .Page }}
   {{ print "<!-- End debug info -->" | safeHTML -}}
+  {{- end }}
   {{- end }}
 
 </head>
