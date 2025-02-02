@@ -63,13 +63,13 @@ $</code></pre>
                 <b>We expect to release a beta version in February 2025. Subscribe to our
                     newsletter to stay updated!</b>
                 <div class="mt-4">
-                    <form method="POST" target="_blank" class="flex items-center space-x-4" id="newsletterForm">
+                    <form method="POST" target="_blank" class="flex items-center space-x-4 newsletterForm" id="homeNewsletterForm">
                         <label for="email" class="text-green-800 whitespace-nowrap">Stay updated</label>
                         <div class="relative w-full max-w-md flex-1">
                             <input
                                     id="email"
                                     name="email"
-                                    type="text"
+                                    type="email"
                                     placeholder="Enter your email"
                                     class="w-full p-4 pr-16 rounded-r-lg rounded-l-lg border border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
@@ -508,19 +508,28 @@ $</code></pre>
                 <div class="col-span-1 md:col-span-2">
                     <div class="bg-white p-8 shadow rounded-lg">
                         <div class="text-center mb-6">
-                            <span class="text-blue-500 uppercase tracking-wider">Get in Touch</span>
-                            <h2 class="text-2xl font-bold">Ask us anything!</h2>
+                            <h2 class="text-2xl font-semi-bold text-primary-800 mt-0">Let's chat!</h2>
                         </div>
-                        <form action="/api/contact/submit" method="POST" class="space-y-6">
+                        <form method="POST" class="space-y-6" id="contactForm">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <input
                                         type="text"
-                                        name="name"
-                                        id="name"
-                                        placeholder="Name"
+                                        name="firstname"
+                                        id="firstname"
+                                        placeholder="First name"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                                 />
+                                <input
+                                        type="text"
+                                        name="lastname"
+                                        id="lastname"
+                                        placeholder="Last name"
+                                        required
+                                        class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
+                                />
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
                                 <input
                                         type="email"
                                         name="email"
@@ -541,25 +550,18 @@ $</code></pre>
                                 />
                                 <input
                                         type="text"
-                                        name="subject"
-                                        id="subject"
-                                        placeholder="Subject"
+                                        name="company"
+                                        id="company"
+                                        placeholder="Company name"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
                                 />
                             </div>
-                            <textarea
-                                    name="message"
-                                    id="message"
-                                    placeholder="Type Message"
-                                    rows="5"
-                                    class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
-                            ></textarea>
                             <div class="text-center">
                                 <button
                                         type="submit"
                                         class="px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600">
-                                    Send Message
+                                    Contact Us
                                 </button>
                             </div>
                         </form>
@@ -576,37 +578,37 @@ $</code></pre>
 </section>
 
 <script>
+    // Wait until the DOM is fully loaded
     document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("newsletterForm").addEventListener("submit", async function (event) {
+        document.getElementById("contactForm").addEventListener("submit", async function (event) {
             event.preventDefault();
 
-            let formData = new FormData(this);
-            let data = {};
+            const formData = new FormData(this);
+            const data = {};
 
             formData.forEach((value, key) => {
                 data[key] = value;
             });
 
-            const email = data.email || "";
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
+            if (!emailRegex.test(data.email || "")) {
+                // If the email is invalid, show an error toast and stop form submission
                 addToast({
                     title: "Error!",
                     message: "Please enter a valid email address.",
                     iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-                    </svg>`,
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                     </svg>`,
                     duration: 5000
                 });
                 return;
             }
-
+            // Define HubSpot API endpoint with your portal and form IDs
             const portalId = "48034556";
-            const formId = "a65a0673-a43b-41cc-ba1c-a7084f704685";
-
+            const formId = "3ac805bd-3625-455e-b8d4-f92316d1682e";
             const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
 
-            let payload = {
+            const payload = {
                 fields: Object.keys(data).map(key => ({
                     name: key,
                     value: data[key]
@@ -614,7 +616,8 @@ $</code></pre>
             };
 
             try {
-                let response = await fetch(url, {
+                // Send a POST request to HubSpot API with the form payload
+                const response = await fetch(url, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
@@ -623,30 +626,33 @@ $</code></pre>
                 });
 
                 if (response.ok) {
+                    // On success, display a success toast and reset the form
                     addToast({
-                        title: "Succeed !",
-                        message: "Your subscription has been successfully registered.",
+                        title: "Success!",
+                        message: "Your contact request has been submitted successfully.",
                         duration: 5000
                     });
                     this.reset();
                 } else {
-                    throw new Error("Something wrong occurred ! Sorry about that.");
+                    // If the response is not OK, throw an error to be caught below
+                    throw new Error("Submission failed.");
                 }
             } catch (error) {
-                console.error("Erreur:", error);
+                console.error("Error:", error);
+                // Display an error toast if the API call fails
                 addToast({
-                    title: "Error !",
-                    message: "Something wrong occurred ! Sorry about that.",
+                    title: "Error!",
+                    message: "An error occurred while submitting the form. Please try again.",
                     iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-             </svg>`,
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                     </svg>`,
                     duration: 5000
                 });
             }
         });
     });
-
 </script>
+
 
 {{ if .Site.Params.homepage.layoutBackgroundBlur | default false }}
     <div id="background-blur"

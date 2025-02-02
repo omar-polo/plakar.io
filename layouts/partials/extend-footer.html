@@ -72,3 +72,83 @@
             window.addToast = addToast;
         })();
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const forms = document.querySelectorAll(".newsletterForm");
+
+        // Loop over each form and add the submit event listener
+        forms.forEach(form => {
+            form.addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                let formData = new FormData(this);
+                console.log(formData);
+                let data = {};
+
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                const email = data.email || "";
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    addToast({
+                        title: "Error!",
+                        message: "Please enter a valid email address.",
+                        iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>`,
+                        duration: 5000
+                    });
+                    return;
+                }
+
+                const portalId = "48034556";
+                const formId = "a65a0673-a43b-41cc-ba1c-a7084f704685";
+
+                const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+                let payload = {
+                    fields: Object.keys(data).map(key => ({
+                        name: key,
+                        value: data[key]
+                    }))
+                };
+
+                try {
+                    let response = await fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        addToast({
+                            title: "Succeed !",
+                            message: "Your subscription has been successfully registered.",
+                            duration: 5000
+                        });
+                        this.reset();
+                    } else {
+                        throw new Error("Something wrong occurred ! Sorry about that.");
+                    }
+                } catch (error) {
+                    console.error("Erreur:", error);
+                    addToast({
+                        title: "Error !",
+                        message: "Something wrong occurred ! Sorry about that.",
+                        iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+             </svg>`,
+                        duration: 5000
+                    });
+                }
+            });
+        });
+    });
+
+</script>
+
