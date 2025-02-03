@@ -6,6 +6,7 @@ buildDrafts = false
 buildFuture = false
 enableEmoji = true
 googleAnalytics = "G-4EJ3HLL4HS"
+baseURL = "https://plakar.io"
 
 [pagination]
 pagerSize = 100
