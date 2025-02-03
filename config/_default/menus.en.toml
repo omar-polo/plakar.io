@@ -13,6 +13,11 @@ name = "Legal notice"
 pageRef = "Legal notice"
 weight = 10
 
+[[footersupport]]
+name = "Cookies"
+url = "javascript:openAxeptioCookies();"
+weight = 20
+
 [[footerresources]]
 name = "Community news"
 pageRef = "Community News"

@@ -3,33 +3,33 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div id="contact" class="flex flex-col items-center justify-center">
                 <div id="footer-logo" class="flex">
-                {{ if .Site.Params.logoDark }}
-                {{ $logo := resources.Get .Site.Params.logoDark }}
-                {{ if $logo }}
+                    {{ if .Site.Params.logoDark }}
+                        {{ $logo := resources.Get .Site.Params.logoDark }}
+                        {{ if $logo }}
 
-                <a href="{{ "" | relLangURL }}" class="md:w-44 w-28">
-                    <span class="sr-only">{{ .Site.Title | markdownify }}</span>
+                            <a href="{{ "" | relLangURL }}" class="md:w-44 w-28">
+                                <span class="sr-only">{{ .Site.Title | markdownify }}</span>
 
-                    {{ if eq $logo.MediaType.SubType "svg" }}
-                        <span class="object-scale-down object-left nozoom">
+                                {{ if eq $logo.MediaType.SubType "svg" }}
+                                    <span class="object-scale-down object-left nozoom">
                 {{ $logo.Content | safeHTML }}
             </span>
-                    {{ else }}
-                        <img src="{{ $logo.RelPermalink }}" width="{{ div $logo.Width 2 }}"
-                             height="{{ div $logo.Height 2 }}"
-                             class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom"
-                             alt="{{ .Site.Title }}"/>
-                    {{ end }}
+                                {{ else }}
+                                    <img src="{{ $logo.RelPermalink }}" width="{{ div $logo.Width 2 }}"
+                                         height="{{ div $logo.Height 2 }}"
+                                         class="logo max-h-[5rem] max-w-[5rem] object-scale-down object-left nozoom"
+                                         alt="{{ .Site.Title }}"/>
+                                {{ end }}
 
-                </a>
-                {{ end }}
-                {{ end }}
+                            </a>
+                        {{ end }}
+                    {{ end }}
                 </div>
                 <div id="footer-social" class="flex space-x-3 pt-2 text-2xl items-center">
-                {{ partial "footer/bluesky-badge.html" . }}
-                {{ partial "footer/github-badge.html" . }}
-                {{ partial "footer/linkedin-badge.html" . }}
-                {{ partial "footer/discord-badge.html" . }}
+                    {{ partial "footer/bluesky-badge.html" . }}
+                    {{ partial "footer/github-badge.html" . }}
+                    {{ partial "footer/linkedin-badge.html" . }}
+                    {{ partial "footer/discord-badge.html" . }}
                 </div>
                 {{ $contactPhoneNumber := .Site.Params.contactPhoneNumber | default "" }}
                 <div id="footer-contact pt-2">
@@ -37,27 +37,27 @@
                 </div>
             </div>
             <div id="support" class="flex flex-col items-center justify-center md:items-start md:justify-start">
-                    <h1 class="font-bold">Support</h1>
-                    {{ if .Site.Menus.footersupport }}
-                        <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-                            <ul class="flex flex-col list-none sm:flex-row">
-                                {{ range .Site.Menus.footersupport }}
-                                    <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-                                        <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
-                                           href="{{ .URL }}"
-                                           title="{{ .Title }}">
-                                            {{ if .Pre }}
-                                                <span {{ if and .Pre .Name }} class="mr-1" {{ end }}>
-                {{ partial "icon.html" .Pre }}
-            </span>
-                                            {{ end }}
-                                            {{ .Name | markdownify }}
-                                        </a>
-                                    </li>
-                                {{ end }}
-                            </ul>
-                        </nav>
-                    {{ end }}
+                <h1 class="font-bold">Support</h1>
+                {{ if .Site.Menus.footersupport }}
+                    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
+                        <ul class="flex flex-col list-none">
+                            {{ range .Site.Menus.footersupport }}
+                                <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
+                                    <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center"
+                                       href="{{ .URL | safeURL }}"
+                                       title="{{ .Title }}">
+                                        {{ if .Pre }}
+                                            <span {{ if and .Pre .Name }} class="mr-1" {{ end }}>
+                                                {{ partial "icon.html" .Pre }}
+                                            </span>
+                                        {{ end }}
+                                        {{ .Name | markdownify }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                        </ul>
+                    </nav>
+                {{ end }}
             </div>
             <div id="resources" class="flex flex-col items-center justify-center md:items-start md:justify-start">
                 <h1 class="font-bold">Resources</h1>
@@ -71,8 +71,8 @@
                                        title="{{ .Title }}">
                                         {{ if .Pre }}
                                             <span {{ if and .Pre .Name }} class="mr-1" {{ end }}>
-                {{ partial "icon.html" .Pre }}
-            </span>
+                                                {{ partial "icon.html" .Pre }}
+                                            </span>
                                         {{ end }}
                                         {{ .Name | markdownify }}
                                     </a>
