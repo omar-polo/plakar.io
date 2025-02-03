@@ -1,7 +1,8 @@
 {{ if .Site.Params.footer.showGithubBadge | default false }}
 {{ $githubOrganization := .Site.Params.github.organization | default "" }}
 {{ $githubRepository := .Site.Params.github.repository | default "" }}
-<a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}" target="_blank">
+<a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
+   target="_blank" aria-label="Visit us on Github">
     <i class="ri-github-fill hover:text-neutral-900 github-color"></i>
 </a>
 {{ end }}

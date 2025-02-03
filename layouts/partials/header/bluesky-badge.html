@@ -1,7 +1,8 @@
 
 {{ if .Site.Params.header.showBlueskyBadge | default false }}
 {{ $blueskyAccount := .Site.Params.bluesky.account | default "" }}
-<a class="flex items-center space-x-2" href="https://bsky.app/profile/{{ $blueskyAccount }}" target="_blank">
+<a class="flex items-center space-x-2" href="https://bsky.app/profile/{{ $blueskyAccount }}" target="_blank"
+   aria-label="Visit us on Bluesky">
     <i class="ri-bluesky-fill hover:bluesky-color text-xl hover:text-tertiary-500"></i>
 </a>
 {{ end }}

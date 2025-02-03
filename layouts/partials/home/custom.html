@@ -67,7 +67,7 @@ $</code></pre>
                         <label for="email" class="text-green-800 whitespace-nowrap">Stay updated</label>
                         <div class="relative w-full max-w-md flex-1">
                             <input
-                                    id="email"
+                                    id="email-home"
                                     name="email"
                                     type="email"
                                     placeholder="Enter your email"
@@ -75,6 +75,7 @@ $</code></pre>
                             />
                             <button
                                     type="submit"
+                                    aria-label="Subscribe to our newsletter"
                                     class="absolute inset-y-0 right-0 px-4 bg-blue-500 text-white font-semibold rounded-r-lg flex items-center justify-center hover:bg-blue-600"
                             >
                                 <!-- Email Icon -->
@@ -486,11 +487,11 @@ $</code></pre>
                     <div class="space-y-6">
                         <div class="bg-white p-6 shadow rounded-lg">
                             <div class="flex space-x-4">
-                                <div class="text-primary-800 text-4xl mt-6">
+                                <div class="text-primary-800 text-4xl mt-1">
                                     <i class="ri-phone-fill"></i>
                                 </div>
                                 <div class="items-center">
-                                    <h4 class="text-lg font-semibold text-primary-800">Contact</h4>
+                                    <h2 class="text-2xl mt-1 font-semibold text-primary-800">Contact</h2>
                                     {{ $contactPhoneNumber := .Site.Params.contactPhoneNumber | default "" }}
                                     <p>{{ $contactPhoneNumber }}</p>
                                     {{ $contactEmail := .Site.Params.contactEmail | default "" }}
@@ -508,14 +509,14 @@ $</code></pre>
                 <div class="col-span-1 md:col-span-2">
                     <div class="bg-white p-8 shadow rounded-lg">
                         <div class="text-center mb-6">
-                            <h2 class="text-2xl font-semi-bold text-primary-800 mt-0">Let's chat!</h2>
+                            <h2 class="text-2xl font-semi-bold text-primary-800 mt-0"><i class="ri-chat-1-fill mr-1"></i> Let's chat!</h2>
                         </div>
                         <form method="POST" class="space-y-6" id="contactForm">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <input
                                         type="text"
                                         name="firstname"
-                                        id="firstname"
+                                        id="firstname-contact"
                                         placeholder="First name"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
@@ -523,7 +524,7 @@ $</code></pre>
                                 <input
                                         type="text"
                                         name="lastname"
-                                        id="lastname"
+                                        id="lastname-contact"
                                         placeholder="Last name"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
@@ -533,7 +534,7 @@ $</code></pre>
                                 <input
                                         type="email"
                                         name="email"
-                                        id="email"
+                                        id="email-contact"
                                         placeholder="Email"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
@@ -543,7 +544,7 @@ $</code></pre>
                                 <input
                                         type="text"
                                         name="phone"
-                                        id="phone"
+                                        id="phone-contact"
                                         placeholder="Phone"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"
@@ -551,7 +552,7 @@ $</code></pre>
                                 <input
                                         type="text"
                                         name="company"
-                                        id="company"
+                                        id="company-contact"
                                         placeholder="Company name"
                                         required
                                         class="w-full p-4 border border-gray-300 rounded-lg focus:ring focus:ring-blue-500 focus:outline-none"

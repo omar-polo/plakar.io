@@ -1,7 +1,7 @@
 {{ if .Site.Params.footer.showLinkedinBadge | default false }}
-{{ $githubOrganization := .Site.Params.github.organization | default "" }}
-{{ $githubRepository := .Site.Params.github.repository | default "" }}
-<a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}" target="_blank">
+{{ $linkedinSccount := .Site.Params.linkedin.account | default "" }}
+<a class="github-stars flex items-center space-x-2" href="https://www.linkedin.com/{{$linkedinSccount}}" target="_blank"
+   aria-label="Visit us on LinkedIn">
     <i class="ri-linkedin-fill hover:text-neutral-900 linkedin-color"></i>
 </a>
 {{ end }}
