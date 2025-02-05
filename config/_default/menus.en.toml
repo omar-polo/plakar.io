@@ -8,6 +8,11 @@ name = "Community"
 pageRef = "Community News"
 weight = 20
 
+[[main]]
+name = "Insights"
+pageRef = "Insights"
+weight = 20
+
 [[footersupport]]
 name = "Legal notice"
 pageRef = "Legal notice"
@@ -22,3 +27,9 @@ weight = 20
 name = "Community news"
 pageRef = "Community News"
 weight = 10
+
+
+[[footerresources]]
+name = "Insights"
+pageRef = "Insights"
+weight = 20
