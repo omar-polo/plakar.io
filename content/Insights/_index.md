@@ -1,5 +1,5 @@
 ---
-title: "Welcome to Our Backup Insights Section"
+title: "Ready to get some insights?"
 
 
 cascade:
