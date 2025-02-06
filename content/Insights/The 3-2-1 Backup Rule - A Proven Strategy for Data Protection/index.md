@@ -1,13 +1,14 @@
 ---
 title: "The 3-2-1 Backup Rule: A Proven Strategy for Data Protection"
-date: 2025-02-05 00:00:00 +0100
+date: 2025-02-06 11:23:00 +0100
 authors:
  - "Plakup"
 categories:
  - technology
 tags:
  - plakar
- - backups
+ - backup
+ - back to basic
 ---
 
 Data loss can happen in many ways—whether due to accidental deletion, cyberattacks, hardware failure, or even a catastrophic event like a **data center fire**. To protect against these risks, IT professionals have long relied on the **3-2-1 backup rule**, a fundamental strategy for ensuring data resilience.
@@ -37,9 +38,9 @@ This approach **guarantees that even if one or two copies are lost, a third copy
 
 Let’s say you run a critical business application storing important customer data:
 
-1.  **Primary Copy** – The data lives on your production server (e.g., an on-premise storage system).
+1.  **Primary Copy** – The data lives on your production server (e.g., an on-premise storage system, an S3 storage).
 
-2.  **Secondary Copy** – A backup is stored on a separate local NAS or another disk-based system.
+2.  **Secondary Copy** – A backup is stored on a separate NAS, another cloud storage or another disk-based system.
 
 3.  **Tertiary Copy (Off-Site & Air-Gapped)** – A cloud backup stored in **AWS Glacier with a multi-day deletion delay**, or a **tape backup stored in a secure facility with robotic retrieval**.
 
@@ -97,6 +98,8 @@ Imagine an admin **accidentally deletes a critical database**. If your system on
 
 
 In contrast, **a proper backup solution with versioning allows recovery from an earlier, uncorrupted state**.
+
+Read more about this topic: [Understanding Why Replication Is Not a Substitute for Backup]({{< ref "Insights/Understanding Why Replication Is Not a Substitute for Backup/index.md" >}})
 
 ___
 

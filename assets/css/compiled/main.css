@@ -3020,6 +3020,26 @@ select {
   color:rgb(255 255 255 / var(--tw-text-opacity, 1))
 }
 
+.text-tertiary-900 {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-tertiary-900), var(--tw-text-opacity, 1))
+}
+
+.text-secondary-300 {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-secondary-300), var(--tw-text-opacity, 1))
+}
+
+.text-secondary-200 {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-secondary-200), var(--tw-text-opacity, 1))
+}
+
+.text-secondary-400 {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-secondary-400), var(--tw-text-opacity, 1))
+}
+
 .\!no-underline {
   text-decoration-line:none !important
 }
@@ -4943,6 +4963,21 @@ pre {
 .hover\:text-white:hover {
   --tw-text-opacity:1;
   color:rgb(255 255 255 / var(--tw-text-opacity, 1))
+}
+
+.hover\:text-secondary-900:hover {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-secondary-900), var(--tw-text-opacity, 1))
+}
+
+.hover\:text-tertiary-900:hover {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-tertiary-900), var(--tw-text-opacity, 1))
+}
+
+.hover\:text-tertiary-100:hover {
+  --tw-text-opacity:1;
+  color:rgba(var(--color-tertiary-100), var(--tw-text-opacity, 1))
 }
 
 .hover\:underline:hover {
