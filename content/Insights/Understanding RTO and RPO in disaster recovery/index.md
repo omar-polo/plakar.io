@@ -11,7 +11,7 @@ tags:
  - back to basic
 ---
 In today’s digital landscape, where **downtime can cost businesses thousands of dollars per minute**, having a robust **disaster recovery (DR) strategy** is non-negotiable. Two fundamental metrics in any **business continuity plan** are **recovery time objective (RTO)** and **recovery point objective (RPO)**. These determine how quickly a system can recover after a failure and how much data a company is willing to lose in the process.
-
+<!--more-->
 A **low RTO** means your business aims for fast recovery, ensuring minimal service disruption, while a **low RPO** means you prioritize frequent backups to prevent significant data loss. Understanding these concepts is crucial for designing an **effective backup strategy** that aligns with your **risk tolerance, budget, and operational needs**.
 
 > **Note:** Both **RTO** (and TSO, as it is sometimes referred) must be defined by the business considering business impact but taking also into account technical constraints, such as the ability to perform backups at any moment in production, as well as the capacity and cost associated with backup storage.
