@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: exec
 weight: 23
+summary: "Execute a file from a Plakar snapshot"
 ---
 PLAKAR-EXEC(1) - General Commands Manual
 

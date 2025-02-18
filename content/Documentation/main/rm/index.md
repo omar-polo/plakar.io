@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: rm
 weight: 15
+summary: "Remove snapshots from the Plakar repository"
 ---
 PLAKAR-RM(1) - General Commands Manual
 

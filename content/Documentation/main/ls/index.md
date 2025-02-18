@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: ls
 weight: 18
+summary: "List snapshots and their contents in a Plakar repository"
 ---
 PLAKAR-LS(1) - General Commands Manual
 

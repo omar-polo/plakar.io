@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: backup
 weight: 33
+summary: "Create a new snapshot of a directory in a Plakar repository"
 ---
 PLAKAR-BACKUP(1) - General Commands Manual
 

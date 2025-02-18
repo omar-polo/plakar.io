@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: cleanup
 weight: 30
+summary: "Remove unused data from a Plakar repository"
 ---
 PLAKAR-CLEANUP(1) - General Commands Manual
 

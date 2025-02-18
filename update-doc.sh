@@ -21,6 +21,10 @@ cat <<EOF > ./content/Documentation/${VERSION}/_index.md
 ---
 date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
 title: ${VERSION}
+cascade:
+    - showDate: false
+    - showReadingTime: false
+    - showWordCount: false
 ---
 EOF
 
@@ -32,6 +36,8 @@ done
 I=10
 for DOCUMENT in ${DOCUMENTS}; do
     DOC_NAME=`echo ${DOCUMENT} | cut -d'.' -f1 |cut -d'-' -f2`
+    SUMMARY=`grep '# NAME' -A 2 ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} | tail -1 | cut -d'-' -f2 | sed 's/^ *//g'`
+    echo $SUMMARY
 
     echo "generating documentation for ${DOC_NAME}"
     mkdir -p ./content/Documentation/${VERSION}/${DOC_NAME}
@@ -41,6 +47,7 @@ for DOCUMENT in ${DOCUMENTS}; do
 date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
 title: ${DOC_NAME}
 weight: ${I}
+summary: "${SUMMARY}"
 ---
 EOF
     cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} >> ./content/Documentation/${VERSION}/${DOC_NAME}/index.md

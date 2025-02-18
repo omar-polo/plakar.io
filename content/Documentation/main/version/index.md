@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: version
 weight: 10
+summary: "Display the current version of Plakar"
 ---
 PLAKAR-VERSION(1) - General Commands Manual
 

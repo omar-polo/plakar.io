@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: locate
 weight: 19
+summary: "Find filenames in a Plakar snapshot"
 ---
 PLAKAR-LOCATE(1) - General Commands Manual
 

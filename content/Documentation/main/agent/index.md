@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: agent
 weight: 35
+summary: "Run the Plakar agent"
 ---
 PLAKAR-AGENT(1) - General Commands Manual
 

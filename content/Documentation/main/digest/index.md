@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: digest
 weight: 24
+summary: "Calculate digests for files in a Plakar snapshot"
 ---
 PLAKAR-DIGEST(1) - General Commands Manual
 

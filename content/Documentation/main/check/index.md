@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: check
 weight: 31
+summary: "Check data integrity in a Plakar repository or snapshot"
 ---
 PLAKAR(CHECK) - CHECK (1)
 

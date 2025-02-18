@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: mount
 weight: 17
+summary: "Mount a Plakar snapshot as a read"
 ---
 PLAKAR-MOUNT(1) - General Commands Manual
 

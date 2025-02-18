@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: diff
 weight: 25
+summary: "Show differences between files in Plakar snapshots"
 ---
 PLAKAR-DIFF(1) - General Commands Manual
 

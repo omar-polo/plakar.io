@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: config
 weight: 28
+summary: "Manages plakar configuration"
 ---
 PLAKAR-CONFIG(1) - General Commands Manual
 

@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: diag
 weight: 26
+summary: "Display detailed information about Plakar internal structures"
 ---
 PLAKAR-DIAG(1) - General Commands Manual
 

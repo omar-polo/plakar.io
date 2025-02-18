@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: find
 weight: 22
+summary: "Search for files or directories in Plakar snapshots"
 ---
 PLAKAR-FIND(1) - General Commands Manual
 

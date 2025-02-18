@@ -1,7 +1,7 @@
 colorScheme = "plakar"
 defaultAppearance = "light"
 autoSwitchAppearance = false
-enableSearch = false
+enableSearch = true
 enableCodeCopy = false
 replyByEmail = false
 disableImageOptimization = false

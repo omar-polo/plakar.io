@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: stdio
 weight: 13
+summary: "Start Plakar server in stdio mode"
 ---
 PLAKAR-STDIO(1) - General Commands Manual
 

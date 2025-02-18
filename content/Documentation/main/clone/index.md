@@ -1,7 +1,8 @@
 ---
-date: 2025-02-18T19:41:41Z
+date: 2025-02-18T19:59:32Z
 title: clone
 weight: 29
+summary: "Clone a Plakar repository to a new location"
 ---
 PLAKAR-CLONE(1) - General Commands Manual
 
