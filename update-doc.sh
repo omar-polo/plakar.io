@@ -13,14 +13,24 @@ mkdir -p ${TMPDIR}
 
 git clone https://github.com/PlakarKorp/plakar.git -b ${VERSION} ${TMPDIR}
 
-echo rm  -rf ./content/Documentation/${VERSION}/*
+echo
+    cd ${TMPDIR}
+    commit=`git log ${VERSION} | head -4 |  grep ^commit | cut -d' ' -f2`
+    date=`git log ${VERSION} | head -4 |  grep ^Date: | cut -d' ' -f2`
+    author=`git log ${VERSION} | head -4 |  grep ^Author: | cut -d' ' -f2,3,4,5`
+    cd -  
+echo
+
+rm  -rf ./content/docs/plakar/${VERSION}/*
 
 echo "generating documentation for ${VERSION}"
-mkdir -p ./content/Documentation/${VERSION}/
-cat <<EOF > ./content/Documentation/${VERSION}/_index.md
+mkdir -p ./content/docs/plakar/${VERSION}/
+cat <<EOF > ./content/docs/plakar/${VERSION}/_index.md
 ---
-date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+date: ${date}
+author: ${author}
 title: ${VERSION}
+summary: "commit ${commit}"
 cascade:
     - showDate: false
     - showReadingTime: false
@@ -40,9 +50,9 @@ for DOCUMENT in ${DOCUMENTS}; do
     echo $SUMMARY
 
     echo "generating documentation for ${DOC_NAME}"
-    mkdir -p ./content/Documentation/${VERSION}/${DOC_NAME}
+    mkdir -p ./content/docs/plakar/${VERSION}/${DOC_NAME}
 
-    cat <<EOF > ./content/Documentation/${VERSION}/${DOC_NAME}/index.md
+    cat <<EOF > ./content/docs/plakar/${VERSION}/${DOC_NAME}/index.md
 ---
 date: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
 title: ${DOC_NAME}
@@ -50,7 +60,7 @@ weight: ${I}
 summary: "${SUMMARY}"
 ---
 EOF
-    cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} >> ./content/Documentation/${VERSION}/${DOC_NAME}/index.md
+    cat ${TMPDIR}/cmd/plakar/subcommands/help/docs/${DOCUMENT} >> ./content/docs/plakar/${VERSION}/${DOC_NAME}/index.md
     I=`expr $I + 1`
 done
 
