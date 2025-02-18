@@ -38,15 +38,18 @@
                 Install Plakar (requires a Golang toolchain installed until first release)
             </p>
             <pre class="not-prose"><code class="bash hljs language-bash">$ go install github.com/PlakarKorp/plakar/cmd/plakar@latest</code></pre>
+            <p class="mt-4">Create your data repository</p>
+            <pre class="not-prose"><code class="bash hljs language-bash">$ plakar at /mnt/nas create
+repository passphrase: 
+repository passphrase (confirm):
+$</code></pre>
             <p class="mt-4">Backup your data</p>
-            <pre class="not-prose"><code class="bash hljs language-bash">$ plakar create /safe/place
-$ plakar on /safe/place backup /critical/data
-$ plakar on /safe/place ls
-2024-10-14T13:45:55Z  934f46ab      4 GB        9s /critical/data
+            <pre class="not-prose"><code class="bash hljs language-bash">$ plakar at /mnt/nas backup ~/Wip/github.com/PlakarKorp
+info: created unsigned snapshot a60c2b2d with root BKmDbgTUFULd1B+fbl4WA4PecMxvi25E6/F95QN8Nng of size 1.3 GB in 5.1022575s
 $</code></pre>
             <p class="mt-4">Restore your data</p>
-            <pre class="not-prose"><code class="text-sm text-gray-800">$ plakar on /safe/place restore 934f46ab
-$ ls -l critical/data
+            <pre class="not-prose"><code class="text-sm text-gray-800">$ plakar at /mnt/nas restore a60c2b2d:./
+$ ls -l
 total 0
 drwxr-xr-x  21 gilles  staff  672 Oct 10 14:11 PlakarKorp
 $</code></pre>

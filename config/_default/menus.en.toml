@@ -11,7 +11,13 @@ weight = 20
 [[main]]
 name = "Insights"
 pageRef = "Insights"
-weight = 20
+weight = 25
+
+[[main]]
+name = "Documentation"
+pageRef = "Documentation"
+weight = 30
+
 
 [[footersupport]]
 name = "Legal notice"
