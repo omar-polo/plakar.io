@@ -74,7 +74,7 @@ $
 ```
 
 > Be extra careful when chosing the passphrase: 
-> it is the master key protecting your plakar repository.
+> it is the secret protecting your data.
 > People with both access to the repository and knowledge of the passphrase can read your backups.
 >
 > **DO NOT LOSE OR FORGET THE PASSPHRASE:**
@@ -198,6 +198,10 @@ we're currently at 5% chances of losing data this year if the drive dies !
 
 Let's create another repository on my remote NAS over SFTP !
 
+> 
+
+
+
 This can be done by creating a new repository there,
 with its own passphrase:
 
@@ -218,7 +222,7 @@ using the recorded data,
 and performing necessary decryption and encryption to produce a similar copy:
 
 ```tt
-$ plakar on /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
+$ plakar at /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
 peer repository passphrase: 
 peer repository passphrase (confirm):
 sync: synchronized 1 snapshot
@@ -264,7 +268,7 @@ $
 Let's do another synchronization !
 
 ```tt
-$ plakar on /var/backups sync to s3://minio.plakar.io:9001/mybackups
+$ plakar at /var/backups sync to s3://minio.plakar.io:9001/mybackups
 peer repository passphrase: 
 peer repository passphrase (confirm):
 sync: synchronized 1 snapshot
