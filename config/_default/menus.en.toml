@@ -13,10 +13,10 @@ name = "Insights"
 pageRef = "Insights"
 weight = 25
 
-[[main]]
-name = "Quick start"
-pageRef = "quickstart"
-weight = 27
+#[[main]]
+#name = "Quick start"
+#pageRef = "quickstart"
+#weight = 27
 
 [[main]]
 name = "Documentation"
