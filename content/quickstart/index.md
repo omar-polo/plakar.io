@@ -198,8 +198,7 @@ we're currently at 5% chances of losing data this year if the drive dies !
 
 Let's create another repository on my remote NAS over SFTP !
 
-> 
-
+> SFTP is the Secure File Transfer Protocol that comes with OpenSSH.
 
 
 This can be done by creating a new repository there,
