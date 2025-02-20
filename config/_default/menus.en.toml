@@ -4,14 +4,9 @@ pageRef = "team"
 weight = 10
 
 [[main]]
-name = "Community"
-pageRef = "community"
+name = "Articles"
+pageRef = "articles"
 weight = 20
-
-[[main]]
-name = "Insights"
-pageRef = "insights"
-weight = 25
 
 #[[main]]
 #name = "Quick start"

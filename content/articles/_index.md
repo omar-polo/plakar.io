@@ -1,5 +1,5 @@
 ---
-title: "Plakar community updates"
+title: "Plakar articles"
 description: "Read about Plakar latest development update."
 
 cascade:
