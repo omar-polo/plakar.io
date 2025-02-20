@@ -1,16 +1,16 @@
 [[main]]
 name = "Team"
-pageRef = "Team"
+pageRef = "team"
 weight = 10
 
 [[main]]
 name = "Community"
-pageRef = "Community News"
+pageRef = "community"
 weight = 20
 
 [[main]]
 name = "Insights"
-pageRef = "Insights"
+pageRef = "insights"
 weight = 25
 
 #[[main]]
@@ -26,7 +26,7 @@ weight = 30
 
 [[footersupport]]
 name = "Legal notice"
-pageRef = "Legal notice"
+pageRef = "legal"
 weight = 10
 
 [[footersupport]]

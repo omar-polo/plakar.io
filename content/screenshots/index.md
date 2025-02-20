@@ -3,7 +3,6 @@ title: "Screenshots"
 date: 2025-02-19 21:00:00 +0100
 authors:
  - "Gilles Chehade"
-
 ---
 
 This page is here to show various screenshots of `plakar` in action !
