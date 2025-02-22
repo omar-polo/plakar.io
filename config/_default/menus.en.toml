@@ -30,8 +30,8 @@ url = "javascript:openAxeptioCookies();"
 weight = 20
 
 [[footerresources]]
-name = "Community news"
-pageRef = "Community News"
+name = "Articles"
+pageRef = "articles"
 weight = 10
 
 
