@@ -22,4 +22,6 @@ Light mode             | Dark mode
 
 ## The CLI
 
-TBD
+![](plakar-create.png)
+![](plakar-backup.png)
+![](plakar-ls.png)
