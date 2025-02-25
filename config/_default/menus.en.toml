@@ -15,7 +15,7 @@ weight = 20
 
 [[main]]
 name = "Documentation"
-pageRef = "docs"
+pageRef = "https://docs.plakar.io"
 weight = 30
 
 
