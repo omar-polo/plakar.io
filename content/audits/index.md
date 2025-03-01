@@ -3,7 +3,6 @@ title: "Audit of Plakar cryptography"
 date: 2025-02-28 21:00:00 +0100
 authors:
  - "gilles"
-
 ---
 
 --- 
