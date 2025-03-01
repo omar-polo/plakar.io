@@ -5,16 +5,6 @@ authors:
  - "gilles"
 ---
 
----
-**Listen to this article as an AI-generated podcast as you read !**
-<center>
-    <audio controls>
-    <source src="notebooklm.wav" type="audio/wav">
-    Your browser does not support the audio element.
-    </audio>
-</center>
-
---- 
 Before releasing a usable version,
 we wanted an expert to examine our cryptographic design and confirm we hadn’t made any regrettable choices.
 We were delighted to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) take care of the review—a true privilege given the high level of confidence we have in his skills.
