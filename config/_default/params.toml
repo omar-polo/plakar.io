@@ -1,6 +1,5 @@
 colorScheme = "plakar"
 defaultAppearance = "light"
-#autoSwitchAppearance = false
 autoSwitchAppearance = false
 enableSearch = true
 enableCodeCopy = true

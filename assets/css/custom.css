@@ -205,3 +205,7 @@
 .team-style-six:hover .team-content .sub-title {
     color: rgb(var(--color-neutral));
 }
+
+.article-content {
+    text-align: justify;
+}

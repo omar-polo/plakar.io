@@ -1,7 +1,7 @@
 theme = "blowfish"
 defaultContentLanguage = "en"
 enableRobotsTXT = true
-summaryLength = 0
+summaryLength = 20
 buildDrafts = false
 buildFuture = false
 enableEmoji = true
@@ -10,6 +10,9 @@ baseURL = "https://plakar.io"
 
 [pagination]
 pagerSize = 100
+
+[permalinks]
+  articles = "/articles/:year-:month-:day/:slug"
 
 [imaging]
 anchor = "Center"

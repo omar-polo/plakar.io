@@ -19,7 +19,7 @@ The first step is to install the software.
 At the time of this writing, we do not yet provide packages and **plakar** has to be installed manually:
 
 ```tt
-$ go install https://github.com/PlakarKorp/plakar@latest
+$ go install https://github.com/PlakarKorp/plakar/cmd/plakar@latest
 ```
 
 This will ensure that dependencies are installed and you should be able to verify the command is properly installed:
@@ -374,9 +374,5 @@ More information can be found in the [documentation](/commands/sync/).
 
 
 ## Automating backup and synchronization
-
-TBD
-
-## Setting up monitoring and alerting
 
 TBD

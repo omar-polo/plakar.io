@@ -3,8 +3,8 @@ title: "Plakar articles"
 description: "Read about Plakar latest development update."
 
 cascade:
-  showDate: false
-  showAuthor: false
+  showDate: true
+  showAuthor: true
   invertPagination: true
 
 ---
