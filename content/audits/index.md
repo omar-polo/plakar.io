@@ -7,11 +7,9 @@ authors:
 ---
 
 --- 
-Before tagging a first usable release,
-we decided to have the cryptography of plakar reviewed by a professional cryptographer to ensure we didn't make unfortunate decisions with regard to its design.
-
-We were lucky enough to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) do the review and I personally could not have hoped for a more competent person:
-thank you !
+Before releasing a usable version,
+we wanted an expert to examine our cryptographic design and confirm we hadn’t made any regrettable choices.
+We were delighted to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) take care of the review—a true privilege given the high level of confidence we have in his skills.
 
 _Below is the unedited review after of our original submission,_
 _followed by the unedited remediation review after corrective steps._
