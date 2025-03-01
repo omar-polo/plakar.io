@@ -11,7 +11,7 @@ we wanted an expert to examine our cryptographic design and confirm we hadn’t 
 We were delighted to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) take care of the review—a true privilege given the high level of confidence we have in his skills.
 
 _Below is the unedited review after of our original submission,_
-_followed by the unedited remediation review after corrective steps._
+_followed by the unedited remediation review after our corrective steps._
 _Comments are inlined in to provide clarifications where needed._
 
 ---
