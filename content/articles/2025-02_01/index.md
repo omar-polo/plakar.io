@@ -1,5 +1,5 @@
 ---
-title: "Plakar first beta release !"
+title: "Plakar beta release !"
 date: 2025-02-26 00:00:00 +0100
 authors:
 - "gilles"
@@ -8,7 +8,6 @@ categories:
 tags:
  - plakar
  - backups
-draft: true
 ---
 
 
@@ -169,7 +168,7 @@ ec6f019c: ✓ /
 
 Despite having a good internal understanding of what we’re doing,
 we decided to contract a cryptographer to perform an independent review and provide suggestions for improvements.
-The [audit](/audits) confirmed that our design is sound and provided suggestions,
+The [audit](/docs/audits) confirmed that our design is sound and provided suggestions,
 all of which were implemented,
 to strengthen our approach further and make `plakar` future-proof from a cryptographic standpoint.
 

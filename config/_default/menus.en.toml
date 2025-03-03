@@ -1,22 +1,27 @@
 [[main]]
-name = "Team"
-pageRef = "team"
+name = "Quickstart"
+url = "https://docs.plakar.io/en/quickstart"
 weight = 10
-
-[[main]]
-name = "Articles"
-pageRef = "articles"
-weight = 20
-
-#[[main]]
-#name = "Quick start"
-#pageRef = "quickstart"
-#weight = 27
 
 [[main]]
 name = "Documentation"
 url = "https://docs.plakar.io"
+weight = 20
+
+[[main]]
+name = "Audits"
+pageRef = "docs/audits"
+weight = 25
+
+[[main]]
+name = "Articles"
+pageRef = "articles"
 weight = 30
+
+[[main]]
+name = "Team"
+pageRef = "team"
+weight = 40
 
 
 [[footersupport]]
