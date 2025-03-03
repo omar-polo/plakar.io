@@ -7,7 +7,8 @@ authors:
 
 Before releasing a usable version,
 we wanted an expert to examine our cryptographic design and confirm we hadn’t made any regrettable choices.
-We were delighted to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) take care of the review—a true privilege given the high level of confidence we have in his skills.
+We were delighted to have [Jean-Philippe Aumasson](https://www.aumasson.jp/) take care of the review—a true privilege given the high level of confidence we have in his skills:
+he is a recognized cryptographer who created various widely-used algorithms and authored great books on the topic.
 
 _Below is the unedited review after of our original submission,_
 _followed by the unedited remediation review after our corrective steps._
