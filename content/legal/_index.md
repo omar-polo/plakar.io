@@ -6,10 +6,10 @@ draft: false
 
 ## Publisher
 **Plakar**
-<br />Simplified Joint-Stock Company (SAS) with a capital of 1,000 euros
+<br />Simplified Joint-Stock Company (SAS) with a capital of 1,264.01 euros
 <br />SIREN: 933 509 754 RCS Paris
 <br />Head office: 149 avenue du Maine, 75014 Paris, France
-<br />EU VAT number: FR XX 933509754
+<br />EU VAT number: FR79933509754
 <br />Host: KANDBAZ SAS, 1 rue de Stockholm, 75008 Paris, France
 
 
