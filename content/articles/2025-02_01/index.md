@@ -431,7 +431,7 @@ removing the need for scripting tools to control `plakar`.
 
 You can install and test `plakar` right away following these simple two steps:
 
-1. Read the simple [Quickstart guide](/quickstart) that will hold your hand and help you get started
+1. Read the simple [Quickstart guide](https://docs.plakar.io/en/quickstart) that will hold your hand and help you get started
 2. that's all actually, no need for more :-)
 
 
