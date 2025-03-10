@@ -13,6 +13,7 @@ highlightCurrentMenuArea = true
 baseURL = "https://plakar.io/"
 #defaultBackgroundImage = "img/background.svg"
 
+
 [header]
 layout = "fixed"
 showGithubBadge = true
@@ -65,6 +66,7 @@ showTaxonomies = false
 showAuthorsBadges = false
 showWordCount = true
 showZenMode = true
+sharingLinks = ["linkedin", "bluesky", "mastodon", "twitter", "reddit", "facebook", "email", "whatsapp", "telegram"]
 
 [list]
 showHero = true
