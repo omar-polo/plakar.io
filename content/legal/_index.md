@@ -6,7 +6,7 @@ draft: false
 
 ## Publisher
 **Plakar**
-<br />Simplified Joint-Stock Company (SAS) with a capital of 1,264.01 euros
+<br />Simplified Joint-Stock Company (SAS) with a capital of 1,289.86 euros
 <br />SIREN: 933 509 754 RCS Paris
 <br />Head office: 149 avenue du Maine, 75014 Paris, France
 <br />EU VAT number: FR79933509754
