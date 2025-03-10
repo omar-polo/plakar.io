@@ -10,18 +10,6 @@ tags:
  - backups
 ---
 
-
----
-**Listen to this article as an AI-generated podcast as you read !**
-<center>
-    <audio controls>
-    <source src="notebooklm.wav" type="audio/wav">
-    Your browser does not support the audio element.
-    </audio>
-</center>
-
----
-
 We were thrilled to release our first beta in late February,
 but we weren’t just going to sit back and rest on our laurels.
 
