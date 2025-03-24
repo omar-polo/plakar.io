@@ -313,7 +313,7 @@ but a server operator with access to the Range request will see different offset
 Of course given enough trafic they could defeat this through a statistical analysis,
 but this makes it harder than just having the fixed base offset and it comes for free.
 
-Here's an example of it applied to 
+Here's an example of it applied to a file access:
 ```tt
 $ ./plakar cat 2f:/private/etc/passwd >/dev/null
 off=126916 (-7) length=1085 (+17)
