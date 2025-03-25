@@ -46,7 +46,7 @@ We have extended the UI to allow filtering the snapshots per source type:
 
 ![](importer-selection.png)
 
-It is the first filtering out of a series of criterias matching to ease identifying relevant snapshots.
+It is the first filtering out of a series of criteria matching to ease identifying relevant snapshots.
 
 
 ### Content browsing
@@ -221,7 +221,7 @@ parameters are therefore already known and our security model relies on protecti
 
 The Post-Parametrization attacks are more interesting to us as we are in this scenario.
 If we assume that an attacker knows the parameters of a chunker and can observe storage or traffic,
-they can obtain some level of informations about a backup repository.
+they can obtain some level of information about a backup repository.
 
 
 ### Information leak
@@ -310,7 +310,7 @@ As long as the shift does not exceed the overhead,
 the window is guaranteed to contain the full chunk.
 This will produce the same size as a Padmé scheme for an attacker observing traffic,
 but a server operator with access to the Range request will see different offsets at each request targeting the same chunks.
-Of course given enough trafic they could defeat this through a statistical analysis,
+Of course given enough traffic they could defeat this through a statistical analysis,
 but this makes it harder than just having the fixed base offset and it comes for free.
 
 Here's an example of it applied to a file access:

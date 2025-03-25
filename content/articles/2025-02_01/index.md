@@ -111,7 +111,7 @@ Benchmark_PlakarKorp_JC_Split-8          13734.42 MB/s    4033 chunks
 Benchmark_PlakarKorp_JC_Next-8           13739.79 MB/s    4033 chunks
 ```
 
-Github user [@glycerine](https://github.com/glycerine) performed independant benchmarks,
+Github user [@glycerine](https://github.com/glycerine) performed independent benchmarks,
 testing other algorithms such as Google's FastCDC implementation for Stadia,
 [which we also outperformed](https://github.com/PlakarKorp/go-cdc-chunkers/pull/5#issuecomment-2614533912).
 
@@ -393,7 +393,7 @@ on a remote filesystem via SFTP,
 in an S3 bucket powered by MinIO, Vultr, Scaleway, or AWS,
 and even offers experimental support for databases with SQLite.
 
-We will continue implementing new backends to expand the varity of storage solutions available to `plakar` users.
+We will continue implementing new backends to expand the variety of storage solutions available to `plakar` users.
 
 
 ### Multi-backend importer and exporter layer
