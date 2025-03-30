@@ -4,11 +4,11 @@
         {{ $logo := resources.Get .Site.Params.Logo }}
         {{ if $logo }}
 
-            <a href="{{ "" | relLangURL }}" class="md:w-44 w-28">
+            <a href="{{ "" | relLangURL }}" class="md:w-48 w-32">
                 <span class="sr-only">{{ .Site.Title | markdownify }}</span>
 
                 {{ if eq $logo.MediaType.SubType "svg" }}
-                    <span class="logo object-scale-down object-left nozoom">
+                    <span class="logo object-left object-scale-dow nozoom">
                 {{ $logo.Content | safeHTML }}
             </span>
                 {{ else }}
