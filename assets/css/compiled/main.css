@@ -1443,6 +1443,10 @@ select {
   pointer-events:auto
 }
 
+.visible {
+  visibility:visible
+}
+
 .invisible {
   visibility:hidden
 }
