@@ -1,7 +1,0 @@
-{{ if .Site.Params.footer.showLinkedinBadge | default false }}
-{{ $linkedinSccount := .Site.Params.linkedin.account | default "" }}
-<a class="github-stars flex items-center space-x-2" href="https://www.linkedin.com/{{$linkedinSccount}}" target="_blank"
-   aria-label="Visit us on LinkedIn">
-    <i class="ri-linkedin-fill hover:text-gray-300 dark:hover:text-gray-700 linkedin-color"></i>
-</a>
-{{ end }}
