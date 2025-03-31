@@ -9,6 +9,9 @@ module.exports = {
         "./node_modules/tw-elements/js/**/*.js"
     ],
     darkMode: "class",
+    corePlugins: {
+        logical: true,
+    },
     theme: {
         screens: {
             'sm': '640px',
@@ -72,6 +75,9 @@ module.exports = {
             },
         },
         extend: {
+            maxWidth: {
+                prose: '100ch',
+            },
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
@@ -193,6 +199,6 @@ module.exports = {
     plugins: [
         require("@tailwindcss/typography"),
         require('@tailwindcss/forms'),
-        require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements' }),
+        require('tailwind-scrollbar')({ preferredStrategy: 'pseudoelements' })
     ],
 };
