@@ -4,6 +4,9 @@
   {{ partial "head.html" . }}
 </head>
 <body>
+{{ if .IsHome }}
+  <div id="react-root"></div>
+{{ else }}
   <header>
     {{ partial "header.html" . }}
   </header>
@@ -13,7 +16,8 @@
   <footer>
     {{ partial "footer.html" . }}
   </footer>
-  <div id="react-root"></div>
-  <script src="/js/bundle.js"></script>
+{{ end }}
+  {{ $react := resources.Get "js/bundle.js" | js.Build (dict "minify" true) }}
+  <script src="{{ $react.RelPermalink }}"></script>
 </body>
 </html>
