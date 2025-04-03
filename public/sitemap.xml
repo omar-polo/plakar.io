@@ -6,6 +6,8 @@
   </url><url>
     <loc>//localhost:1313/</loc>
   </url><url>
+    <loc>//localhost:1313/_reload/</loc>
+  </url><url>
     <loc>//localhost:1313/plop/</loc>
   </url><url>
     <loc>//localhost:1313/tags/backups/</loc>
