@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="relative w-full">
-    <div class="relative z-10 max-w-[1400px] mx-auto px-4 bg-neutral-100 border border-neutral-300">
+    <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
         <!-- Left column decoration -->
         <div class="absolute inset-y-0 left-0 w-[48px] hidden border xl:block md:block z-0">
         <div class="absolute inset-y-0 left-0 w-[32px]
@@ -33,7 +33,11 @@
         bg-[size:10px_10px] bg-fixed
         border-s border-neutral-300"></div>
         </div>
-        <div class="relative z-10 ">
+        <div class="relative z-10 px-[48px]
+            bg-[repeating-linear-gradient(90deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_1px,transparent_100%)]
+            bg-[length:calc((100%-96px)/6)_100%]
+            bg-[position:48px_0]
+            bg-repeat-x">
             <!-- Fixed Navbar -->
             <header class="fixed top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 px-8 pr-4 py-4 border border-neutral-300">
                 <div class="flex justify-between items-center">
@@ -61,7 +65,7 @@
                     <div class="flex items-center space-x-2">
                         <div class="flex">
                             <a class="flex items-center gap-2  pr-4 py-[2px] rounded-sm border uppercase font-dm-mono
-                 border-neutral-300 bg-white"
+                            border-neutral-300 bg-white"
                                href="https://github.com/PlakarKorp/plakar" target="_blank" aria-label="Visit us on Github">
                                 <div class="flex items-center gap-1 px-2 pr-4 rounded-sm bg-[#F5F4FB] text-primary-500">
                                     <i class="ri-github-fill text-2xl "></i>
@@ -89,17 +93,66 @@
 
             <!-- Navbar placeholder -->
             <div class="h-16 my-0.5"></div>
+            <div class=" pt-20 flex justify-between items-end">
+                <div class="flex flex-col justify-start items-start">
+                    <!--div class="self-stretch p-8 flex justify-center items-center">
+                        <div class="flex-1 justify-start  text-5xl font-medium font-['Space_Grotesk']">
+                            <div class="flex items-end gap-2">
+                                <div class="relative h-[60px] w-[300px] overflow-hidden text-right">
+                                    <div class="absolute inset-0 animate-fade-words-backup text-primary-500">
+                                        <span class="block h-[60px]">Effortless</span>
+                                        <span class="block h-[60px]">Secure</span>
+                                        <span class="block h-[60px]">Reliable</span>
+                                        <span class="block h-[60px]">Open Source</span>
+                                        <span class="block h-[60px]">Effortless</span>
+                                    </div>
+                                </div>
+                                <div class="h-[60px]"> backup,</div>
+                            </div>
+                            <div class="flex items-end gap-2">
+                                <div class="relative h-[60px] w-[300px] overflow-hidden text-right">
+                                    <div class="absolute inset-0 animate-fade-words-recovery text-primary-500">
+                                        <span class="block h-[60px]">Instant</span>
+                                        <span class="block h-[60px]">Granular</span>
+                                        <span class="block h-[60px]">Anywhere</span>
+                                        <span class="block h-[60px]">Instant</span>
+                                    </div>
+                                </div>
+                                <div class="h-[60px]"> recovery.</div>
+                            </div>
+                        </div>
+                    </div-->
+                    <div class="self-stretch p-8 flex justify-center items-center">
+                        <div class="flex-1 justify-start text-5xl font-medium font-['Space_Grotesk']">
+                            <div class="flex items-end gap-2">
+                                <div class="relative h-[60px] w-[300px] overflow-hidden">
+                                    <div class="absolute inset-0 text-primary-500">
+                                        <span class="fade-word-hero opacity-0 fade-delay-0 block">Effortless</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-1 block">Secure</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-2 block ">Reliable</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-3 block">Open Source</span>
+                                    </div>
+                                </div>
+                                <div class="h-[60px]">backup,</div>
+                            </div>
 
-            <div class="self-stretch px-12 inline-flex justify-between items-end">
-                <div class="inline-flex flex-col justify-start items-start gap-20">
-                    <div class="self-stretch p-8 inline-flex justify-center items-center gap-2.5">
-                        <div class="flex-1 justify-start text-zinc-900 text-5xl font-medium font-['Space_Grotesk'] leading-[49.92px]">
-                            Effortless backup,<br/>instant recovery.
+                            <div class="flex items-end gap-2">
+                                <div class="relative h-[60px] w-[350px] overflow-hidden">
+                                    <div class="absolute inset-0 text-primary-500">
+                                        <span class="fade-word-hero opacity-0 fade-delay-0 block">Instant</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-1 block">Granular</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-2 block">Cross-platform</span>
+                                        <span class="fade-word-hero opacity-0 fade-delay-3 block">Testable</span>
+                                    </div>
+                                </div>
+                                <div class="h-[60px]">recovery.</div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                <div class="w-96 p-8 bg-violet-50 border-r border-t border-zinc-200 inline-flex flex-col justify-start items-start gap-10">
-                    <div class="self-stretch justify-start text-neutral-600 text-xl font-medium font-['Space_Grotesk'] leading-normal">
+                <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
+                    <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
                         Plakar, enhanced data protection, optimiPlakar cost.
                     </div>
                     <div class="h-14 px-5 py-4  bg-neutral-900 rounded-sm inline-flex justify-center items-center gap-3">
