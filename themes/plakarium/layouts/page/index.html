@@ -39,7 +39,7 @@
             bg-[position:48px_0]
             bg-repeat-x">
             <!-- Fixed Navbar -->
-            <header class="fixed top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 px-8 pr-4 py-4 border border-neutral-300">
+            <header class="fixed top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 px-8 pr-4 py-4 border border-neutral-300 z-50">
                 <div class="flex justify-between items-center">
                     <div class="flex items-center space-x-2">
                         <a href="/" class="md:w-28 w-24 items-center">
@@ -93,35 +93,10 @@
 
             <!-- Navbar placeholder -->
             <div class="h-16 my-0.5"></div>
+
+            <!-- Title -->
             <div class=" pt-20 flex justify-between items-end">
                 <div class="flex flex-col justify-start items-start">
-                    <!--div class="self-stretch p-8 flex justify-center items-center">
-                        <div class="flex-1 justify-start  text-5xl font-medium font-['Space_Grotesk']">
-                            <div class="flex items-end gap-2">
-                                <div class="relative h-[60px] w-[300px] overflow-hidden text-right">
-                                    <div class="absolute inset-0 animate-fade-words-backup text-primary-500">
-                                        <span class="block h-[60px]">Effortless</span>
-                                        <span class="block h-[60px]">Secure</span>
-                                        <span class="block h-[60px]">Reliable</span>
-                                        <span class="block h-[60px]">Open Source</span>
-                                        <span class="block h-[60px]">Effortless</span>
-                                    </div>
-                                </div>
-                                <div class="h-[60px]"> backup,</div>
-                            </div>
-                            <div class="flex items-end gap-2">
-                                <div class="relative h-[60px] w-[300px] overflow-hidden text-right">
-                                    <div class="absolute inset-0 animate-fade-words-recovery text-primary-500">
-                                        <span class="block h-[60px]">Instant</span>
-                                        <span class="block h-[60px]">Granular</span>
-                                        <span class="block h-[60px]">Anywhere</span>
-                                        <span class="block h-[60px]">Instant</span>
-                                    </div>
-                                </div>
-                                <div class="h-[60px]"> recovery.</div>
-                            </div>
-                        </div>
-                    </div-->
                     <div class="self-stretch p-8 flex justify-center items-center">
                         <div class="flex-1 justify-start text-5xl font-medium font-['Space_Grotesk']">
                             <div class="flex items-end gap-2">
@@ -162,6 +137,41 @@
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <!-- Screenshot section -->
+            <div class="relative flex justify-between items-end">
+                <div class="w-5/6">
+                    {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
+                    <img src="{{ $dashboard1.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
+                </div>
+                <div class="absolute top-1/2 right-0 translate-y-[-50%] w-2/6 h-full">
+                    {{ $plakaCreate := resources.Get "img/plakar-create.svg" }}
+                    <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard" class="w-full h-full object-contain rounded-sm">
+                </div>
+            </div>
+
+            <!-- Sponsor section -->
+            <div class="relative flex justify-between items-end py-12 px-8">
+                    <div class="flex-1 justify-start text-neutral-600 font-space">
+                        More than 500 businesses trust us.
+                    </div>
+                    <div class="size- flex justify-start items-center gap-8">
+                        <div class="w-20 h-4 bg-neutral-400"></div>
+                        <div class="size-7 bg-neutral-400"></div>
+                    </div>
+                    <div class="size- flex justify-start items-center gap-8">
+                        <div class="w-20 h-4 bg-neutral-400"></div>
+                        <div class="size-7 bg-neutral-400"></div>
+                    </div>
+                    <div class="w-20 h-4 bg-neutral-400"></div>
+                    <div class="size-7 bg-neutral-400"></div>
+                    <div class="size- flex justify-start items-center gap-8">
+                        <div class="w-20 h-4 bg-neutral-400"></div>
+                        <div class="size-7 bg-neutral-400"></div>
+                    </div>
+                    <div class="w-20 h-4 bg-neutral-400"></div>
+                    <div class="size-7 bg-neutral-400"></div>
             </div>
 
             <main class="flex items-center justify-center min-h-[80vh] px-4 border border-neutral-200">
