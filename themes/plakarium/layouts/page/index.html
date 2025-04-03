@@ -17,8 +17,61 @@
 <body>
 <div class="relative w-full">
     <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
+        <!-- Fixed Navbar -->
+        <header class="fixed top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 px-8 pr-4 py-4 border border-neutral-300 z-50">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <a href="/" class="md:w-28 w-24 items-center">
+                        {{ $logoLight := resources.Get .Site.Params.logoLight }}
+                        {{ $logoDark := resources.Get .Site.Params.logoDark }}
+                        <!-- Light mode -->
+                        <span class="block dark:hidden items-center">
+                        {{ $logoLight.Content | safeHTML }}
+                    </span>
+
+                        <!-- Dark mode -->
+                        <span class="block dark:block items-center">
+                        {{ $logoDark.Content | safeHTML }}
+                    </span>
+                    </a>
+                </div>
+                <nav class="space-x-8">
+                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Solution</a>
+                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
+                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
+                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
+                </nav>
+                <div class="flex items-center space-x-2">
+                    <div class="flex">
+                        <a class="flex items-center gap-2  pr-4 py-[2px] rounded-sm border uppercase font-dm-mono
+                            border-neutral-300 bg-white"
+                           href="https://github.com/PlakarKorp/plakar" target="_blank" aria-label="Visit us on Github">
+                            <div class="flex items-center gap-1 px-2 pr-4 rounded-sm bg-[#F5F4FB] text-primary-500">
+                                <i class="ri-github-fill text-2xl "></i>
+                                <span class="">star</span>
+                            </div>
+                            <span id="github-stars-count" data-github-stars="" data-organization="PlakarKorp"
+                                  data-repository="plakar">149</span>
+                        </a>
+                    </div>
+                    <div class="self-stretch px-2  pr-4 rounded-sm outline outline-1 outline-offset-[-1px] outline-neutral-900 inline-flex justify-center items-center gap-2">
+                        <i class="ri-corner-down-right-line text-2xl"></i>
+                        <div class="text-center justify-center text-neutral-900 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                            Get started
+                        </div>
+                    </div>
+                    <div class="self-stretch px-2 pr-4  bg-neutral-900 rounded-sm inline-flex justify-center items-center gap-3">
+                        <i class="ri-corner-down-right-line text-2xl text-neutral-50"></i>
+                        <div class="text-center justify-center text-neutral-50 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                            Book a demo
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         <!-- Left column decoration -->
-        <div class="absolute inset-y-0 left-0 w-[48px] hidden border xl:block md:block z-0">
+        <div class="absolute inset-y-0 left-0 w-[48px] hidden border xl:block md:block z-[1]">
         <div class="absolute inset-y-0 left-0 w-[32px]
         bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
         bg-[size:10px_10px] bg-fixed
@@ -26,70 +79,21 @@
         </div>
 
         <!-- Right column decoration -->
-        <div class="absolute inset-y-0 right-0 w-[48px] hidden border xl:block md:block z-0
+        <div class="absolute inset-y-0 right-0 w-[48px] hidden border xl:block md:block z-1
         border-neutral-300">
         <div class="absolute inset-y-0 right-0 w-[32px]
         bg-[repeating-linear-gradient(315deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_0,transparent_50%)]
         bg-[size:10px_10px] bg-fixed
         border-s border-neutral-300"></div>
         </div>
+
+
         <div class="relative z-10 px-[48px]
             bg-[repeating-linear-gradient(90deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_1px,transparent_100%)]
             bg-[length:calc((100%-96px)/6)_100%]
             bg-[position:48px_0]
             bg-repeat-x">
-            <!-- Fixed Navbar -->
-            <header class="fixed top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 px-8 pr-4 py-4 border border-neutral-300 z-50">
-                <div class="flex justify-between items-center">
-                    <div class="flex items-center space-x-2">
-                        <a href="/" class="md:w-28 w-24 items-center">
-                            {{ $logoLight := resources.Get .Site.Params.logoLight }}
-                            {{ $logoDark := resources.Get .Site.Params.logoDark }}
-                            <!-- Light mode -->
-                            <span class="block dark:hidden items-center">
-                        {{ $logoLight.Content | safeHTML }}
-                    </span>
 
-                            <!-- Dark mode -->
-                            <span class="block dark:block items-center">
-                        {{ $logoDark.Content | safeHTML }}
-                    </span>
-                        </a>
-                    </div>
-                    <nav class="space-x-8">
-                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Solution</a>
-                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
-                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
-                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
-                    </nav>
-                    <div class="flex items-center space-x-2">
-                        <div class="flex">
-                            <a class="flex items-center gap-2  pr-4 py-[2px] rounded-sm border uppercase font-dm-mono
-                            border-neutral-300 bg-white"
-                               href="https://github.com/PlakarKorp/plakar" target="_blank" aria-label="Visit us on Github">
-                                <div class="flex items-center gap-1 px-2 pr-4 rounded-sm bg-[#F5F4FB] text-primary-500">
-                                    <i class="ri-github-fill text-2xl "></i>
-                                    <span class="">star</span>
-                                </div>
-                                <span id="github-stars-count" data-github-stars="" data-organization="PlakarKorp"
-                                      data-repository="plakar">149</span>
-                            </a>
-                        </div>
-                        <div class="self-stretch px-2  pr-4 rounded-sm outline outline-1 outline-offset-[-1px] outline-neutral-900 inline-flex justify-center items-center gap-2">
-                            <i class="ri-corner-down-right-line text-2xl"></i>
-                            <div class="text-center justify-center text-neutral-900 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                Get started
-                            </div>
-                        </div>
-                        <div class="self-stretch px-2 pr-4  bg-neutral-900 rounded-sm inline-flex justify-center items-center gap-3">
-                            <i class="ri-corner-down-right-line text-2xl text-neutral-50"></i>
-                            <div class="text-center justify-center text-neutral-50 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                Book a demo
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
 
             <!-- Navbar placeholder -->
             <div class="h-16 my-0.5"></div>
@@ -152,35 +156,128 @@
             </div>
 
             <!-- Sponsor section -->
-            <div class="relative flex justify-between items-end py-12 px-8">
+            <div class="flex justify-between items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
                     <div class="flex-1 justify-start text-neutral-600 font-space">
-                        More than 500 businesses trust us.
+                        Trusted by businesses.
                     </div>
-                    <div class="size- flex justify-start items-center gap-8">
-                        <div class="w-20 h-4 bg-neutral-400"></div>
-                        <div class="size-7 bg-neutral-400"></div>
+                    <div class="flex justify-start items-center gap-2">
+                        <div class="w-10">
+                            {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
+                            <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton" class="w-full h-full object-contain rounded-sm">
+                        </div>
+                        <div class="">Holberton</div>
                     </div>
-                    <div class="size- flex justify-start items-center gap-8">
-                        <div class="w-20 h-4 bg-neutral-400"></div>
-                        <div class="size-7 bg-neutral-400"></div>
+                    <div class="flex justify-start items-center gap-2">
+                        <div class="w-10">
+                            {{ $logoRF:= resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
+                            <img src="{{ $logoRF.RelPermalink }}" alt="La République Française" class="w-full h-full object-contain rounded-sm">
+                        </div>
+                        <div class="">République Française</div>
                     </div>
-                    <div class="w-20 h-4 bg-neutral-400"></div>
-                    <div class="size-7 bg-neutral-400"></div>
-                    <div class="size- flex justify-start items-center gap-8">
-                        <div class="w-20 h-4 bg-neutral-400"></div>
-                        <div class="size-7 bg-neutral-400"></div>
+                    <div class="flex justify-start items-center gap-2">
+                        <div class="w-10">
+                            {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
+                            <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle" class="w-full h-full object-contain rounded-sm">
+                        </div>
+                        <div class="">Spark Angle</div>
                     </div>
-                    <div class="w-20 h-4 bg-neutral-400"></div>
-                    <div class="size-7 bg-neutral-400"></div>
+                    <div class="flex justify-start items-center gap-2">
+                        <div class="w-10">
+                            {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
+                            <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom" class="w-full h-full object-contain rounded-sm">
+                        </div>
+                        <div class="">Moose & Toom</div>
+                    </div>
+                    <div class="flex justify-start items-center gap-2">
+                        <div class="w-10">
+                            {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
+                            <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie" class="w-full h-full object-contain rounded-sm">
+                        </div>
+                        <div class="">Hoodie</div>
+                    </div>
             </div>
 
-            <main class="flex items-center justify-center min-h-[80vh] px-4 border border-neutral-200">
-                <div class="max-w-3xl text-center">
-                    <h1 class="text-3xl font-bold underline">
-                        Hello world!
-                    </h1>
-                </div>
-            </main>
+            <!-- Placeholder -->
+            <div class="relative flex justify-between items-end h-[600px]">
+
+            </div>
+
+        </div>
+        <div class="relative z-0 px-[48px]
+            bg-[repeating-linear-gradient(90deg,var(--pattern-fg)_0,var(--pattern-fg)_1px,transparent_1px,transparent_100%)]
+            bg-[length:calc((100%-96px)/6)_100%]
+            bg-[position:48px_0]
+            bg-repeat-x bg-primary-500
+            flex flex-col justify-between z-0" >
+            <!-- Footer -->
+                    <div class="self-stretch px-8 inline-flex justify-start items-start gap-8">
+                        <div class="w-48 inline-flex flex-col justify-start items-start gap-3">
+                            <div class="self-stretch justify-start text-white text-base font-semibold font-['Space_Text'] leading-snug">Pages</div>
+                            <div class="self-stretch flex flex-col justify-start items-start gap-1">
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Home</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Features</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Pricing</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Resources</div>
+                            </div>
+                        </div>
+                        <div class="w-48 inline-flex flex-col justify-start items-start gap-3">
+                            <div class="self-stretch justify-start text-white text-base font-semibold font-['Space_Text'] leading-snug">Solutions</div>
+                            <div class="self-stretch flex flex-col justify-start items-start gap-1">
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Lorem ipsum</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Lorem ipsum</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Lorem ipsum</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Lorem ipsum</div>
+                            </div>
+                        </div>
+                        <div class="w-48 inline-flex flex-col justify-start items-start gap-3">
+                            <div class="self-stretch justify-start text-white text-base font-semibold font-['Space_Text'] leading-snug">Support</div>
+                            <div class="self-stretch flex flex-col justify-start items-start gap-1">
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Legal notice</div>
+                                <div class="self-stretch justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Cookies</div>
+                            </div>
+                        </div>
+                        <div class="w-48 inline-flex flex-col justify-start items-start gap-3">
+                            <div class="self-stretch justify-start text-white text-base font-semibold font-['Space_Text'] leading-snug">Ressources</div>
+                            <div class="self-stretch flex flex-col justify-start items-start gap-1">
+                                <div class="w-40 justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Articles</div>
+                                <div class="w-40 justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Insights</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="self-stretch px-8 inline-flex justify-between items-start">
+                        <div class="size- flex justify-start items-start gap-8">
+                            <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">©Plakar 2025</div>
+                            <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Tous droits réservés</div>
+                        </div>
+                        <div class="size- flex justify-start items-center gap-10">
+                            <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Charte de confidentialité</div>
+                            <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">CGVU/CGV</div>
+                            <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Mentions légales</div>
+                            <div class="size- flex justify-start items-center gap-2">
+                                <div class="justify-start text-white text-sm font-medium font-['Space_Text'] leading-tight">Français</div>
+                                <div class="size-5 relative overflow-hidden">
+                                    <div class="size-5 left-0 top-0 absolute"></div>
+                                    <div class="w-2.5 h-1.5 left-[4.70px] top-[6.85px] absolute bg-white"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-[48px] h-60 relative overflow-hidden">
+                        <div class="left-0 top-[-43px] absolute justify-start text-white text-[326.63px] font-black font-['Inter'] uppercase leading-[326.63px]">Plakar</div>
+                        <!--img class="w-56 h-80 left-[1033.50px] top-[-7px] absolute" src="https://placehold.co/225x315" />
+                        <div class="w-52 h-60 left-[1033.50px] top-[26.39px] absolute bg-orange-400"></div>
+                        <img class="w-56 h-80 left-[1033.50px] top-[-7px] absolute" src="https://placehold.co/225x315" />
+                        <div class="w-52 h-60 left-[1033.50px] top-[26.39px] absolute bg-white"></div>
+                        <img class="w-52 h-28 left-[1045.05px] top-[137.13px] absolute" src="https://placehold.co/208x117" />
+                        <div class="w-44 h-48 left-[1065.44px] top-[54.06px] absolute bg-orange-600"></div>
+                        <img class="w-32 h-24 left-[1083.92px] top-[34.81px] absolute" src="https://placehold.co/124x97" />
+                        <div class="size-16 left-[1118.22px] top-[49.49px] absolute bg-orange-600"></div>
+                        <img class="w-56 h-80 left-[1033.50px] top-[-7px] absolute" src="https://placehold.co/225x315" />
+                        <div class="w-52 h-60 left-[1033.50px] top-[26.39px] absolute bg-white"></div>
+                        <img class="w-56 h-80 left-[1033.50px] top-[-7px] absolute" src="https://placehold.co/225x315" />
+                        <div class="w-52 h-60 left-[1033.50px] top-[26.39px] absolute bg-black"></div>
+                        <div class="left-[1154px] top-[-43px] absolute justify-start text-white text-[326.63px] font-black font-['Inter'] uppercase leading-[326.63px]">r</div-->
+                    </div>
         </div>
 </div>
 </div>
