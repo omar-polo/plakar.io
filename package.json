@@ -11,5 +11,8 @@
   },
   "scripts": {
     "dev:css": "tailwindcss -c tailwind.config.js -i themes/plakarium/assets/css/main.css -o themes/plakarium/assets/css/main-compiled.css --watch"
+  },
+  "dependencies": {
+    "lenis": "^1.2.3"
   }
 }

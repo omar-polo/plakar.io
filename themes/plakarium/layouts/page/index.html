@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="/fonts/remixicon/remixicon.css" rel="stylesheet">
 </head>
 <body class="overflow-x-hidden">
@@ -76,6 +79,8 @@
         <!-- Navbar placeholder -->
         <div class="h-16 my-0.5"></div>
 
+
+
         <!-- Title -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
@@ -115,7 +120,7 @@
                     </div>
                     <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
                         <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
-                            Plakar, enhanced data protection, optimiPlakar cost.
+                            Plakar, enhanced data protection, and optimize storage cost.
                         </div>
                         <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
@@ -198,12 +203,169 @@
             </div>
         </div>
 
-        <!-- Placeholder -->
+        <!-- Features section -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-12">
-                <div class="relative flex justify-between items-end h-[600px] border border-neutral-300 gap-10">
+            <div class="content py-20 px-14">
+                <div class=" pt-20 flex justify-between items-end">
+                    <div class="flex flex-col justify-start items-start">
+                        <div class="self-stretch p-8 flex justify-center items-center">
+                            <div class="flex-1 justify-start text-5xl font-medium font-['Space_Grotesk']">
+                                <div class="size- inline-flex justify-start items-center gap-1">
+                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">//</div>
+                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">Universal data protection</div>
+                                </div>
+                                <div class="w-[864px] justify-start text-zinc-900 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">Plakar, enhanced data<br/>protection, optimized cost.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
+                        <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
+                            Plakar, enhanced data protection, optimiPlakar cost.
+                        </div>
+                        <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <div class="text-center justify-center text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                                Book a demo
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Features carousel section -->
+        <div class="section-decorated bg-neutral-100 text-neutral-900"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <div class="content py-50 px-12 relative">
+                <section id="horizontal-carousel">
+                    <div class="container text-neutral-400 text-lg font-space-text py-[50px]">
+                        <div class="horizontal-carousel__content" style="width: calc(200%)">
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Effortless
+                                    </div>
+                                    <div>
+                                        Implement a 3-2-1 strategy in a minute with our very intuitive commands.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Secure
+                                    </div>
+                                    <div>
+                                        Encrypted backups with industry-standard, (real) end-to-end protection.
+                                        Plakar has been audited by independent experts.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Reliable
+                                    </div>
+                                    <div>
+                                        Continuous integrity checks ensure backups remain uncorrupted and restore-ready.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Open Source
+                                    </div>
+                                    <div>
+                                        Restore complete backups or select individual files.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Instant
+                                    </div>
+                                    <div>
+                                        Access your files in seconds via CLI or UI.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
+                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                        Granular
+                                    </div>
+                                    <div>
+                                        Restore complete backups or select individual files.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Universal data protection -->
+        <div class="section-decorated bg-neutral-900 text-neutral-100"
+             style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+            <div class="content px-12 flex text-sm font-mono">
+                <div class="w-96 self-stretch p-8  inline-flex flex-col justify-center items-start gap-12">
+                    <div class="self-stretch flex flex-col justify-start items-start gap-8">
+                        <div class="text-primary-500  uppercase">// Universal data protection</div>
+                        <div class="text-neutral-100 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">
+                            Backup anything, store anywhere, restore anywhere.
+                        </div>
+                    </div>
+                    <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
+                        <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
+                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis.</div>
+                        <div class="h-14 px-5 py-4 bg-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="items-center justify-center w-4/6">
+                    {{ $schemaPlaceHolder := resources.Get "img/placeholder-schema-black.png" }}
+                    <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
+                         class="w-full h-full object-contain rounded-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Section explore UI -->
+        <div class="section-decorated bg-neutral-100 text-neutral-900"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <div class="content pl-12 flex text-sm font-mono pt-14">
+                <div class="w-1/2 self-stretch px-8  inline-flex flex-col justify-center items-start gap-12">
+                    <div class="self-stretch flex flex-col justify-start items-start gap-8">
+                        <div class="text-primary-500  uppercase">// Universal data protection</div>
+                        <div class="text-neutral-900 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">
+                            Explore your snapshot with Plakar UI !
+                        </div>
+                    </div>
+                    <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
+                        <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
+                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis.</div>
+                        <div class="h-14 px-5 py-4 bg-neutral-900 text-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ml-auto max-w-[calc((100%-48px)/2+48px)]">
+                    {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
+                    <img src="{{ $dashboard2.RelPermalink }}" alt="Placeholder"
+                         class="w-full h-full object-contain rounded-sm">
                 </div>
             </div>
         </div>
@@ -246,7 +408,7 @@
 
         <!-- Footer bottom -->
         <div class="section-decorated bg-primary-500 text-neutral-100"
-                 style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+             style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
             <div class="content px-12 border-t">
                 <div class="grid grid-cols-6 py-4 text-sm space-text">
                     <div class="col-start-1 col-span-1 pl-4">©Plakar 2025</div>
@@ -257,12 +419,13 @@
                 <div class="relative overflow-hidden">
                     <div class="items-center justify-center">
                         {{ $footerBanner := resources.Get .Site.Params.footerBanner }}
-                            <img src="{{ $footerBanner.RelPermalink }}" alt="Hoodie"
-                                 class="w-full h-full object-contain rounded-sm">
+                        <img src="{{ $footerBanner.RelPermalink }}" alt="Hoodie"
+                             class="w-full h-full object-contain rounded-sm">
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- Boiler Plate Sections -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
@@ -285,7 +448,27 @@
                 <p>Background color #524CFF, Line pattern color: #9291B0, text color: #F5F4FB ✨</p>
             </div>
         </div>
-        </div>
     </div>
+</div>
+
+<script>
+    window.addEventListener('load', () => {
+        const section_2 = document.getElementById("horizontal-carousel");
+        let box_items = gsap.utils.toArray(".horizontal-carousel__item");
+
+        gsap.to(box_items, {
+            xPercent: -100 * (box_items.length - 2),
+            ease: "sine.out",
+            scrollTrigger: {
+                trigger: section_2,
+                pin: true,
+                scrub: 3,
+                snap: 1 / (box_items.length - 1),
+                end: "+=" + section_2.offsetWidth
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
