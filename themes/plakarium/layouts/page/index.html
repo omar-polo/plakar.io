@@ -15,6 +15,10 @@
     <link href="/fonts/remixicon/remixicon.css" rel="stylesheet">
 </head>
 <body class="overflow-x-hidden">
+
+{{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+{{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
+
 <div class="relative w-full">
     <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
         <!-- Fixed Navbar -->
@@ -26,13 +30,12 @@
                         {{ $logoDark := resources.Get .Site.Params.logoDark }}
                         <!-- Light mode -->
                         <span class="block dark:hidden items-center">
-                        {{ $logoLight.Content | safeHTML }}
-                    </span>
-
+                            {{ $logoLight.Content | safeHTML }}
+                        </span>
                         <!-- Dark mode -->
                         <span class="block dark:block items-center">
-                        {{ $logoDark.Content | safeHTML }}
-                    </span>
+                            {{ $logoDark.Content | safeHTML }}
+                        </span>
                     </a>
                 </div>
                 <nav class="space-x-8">
@@ -47,7 +50,7 @@
                             border-neutral-300 bg-white"
                            href="https://github.com/PlakarKorp/plakar" target="_blank" aria-label="Visit us on Github">
                             <div class="flex items-center gap-1 px-2 pr-4 rounded-sm bg-[#F5F4FB] text-primary-500">
-                                <i class="ri-github-fill text-2xl "></i>
+                                <span class="w-[20px] h-[20px]">{{ $riGithubFill.Content | safeHTML }}</span>
                                 <span class="">star</span>
                             </div>
                             <span id="github-stars-count" data-github-stars="" data-organization="PlakarKorp"
@@ -55,13 +58,13 @@
                         </a>
                     </div>
                     <div class="self-stretch px-2  pr-4 rounded-sm outline outline-1 outline-offset-[-1px] outline-neutral-900 inline-flex justify-center items-center gap-2">
-                        <i class="ri-corner-down-right-line text-2xl"></i>
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
                         <div class="text-center justify-center text-neutral-900 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
                             Get started
                         </div>
                     </div>
-                    <div class="self-stretch px-2 pr-4  bg-neutral-900 rounded-sm inline-flex justify-center items-center gap-3">
-                        <i class="ri-corner-down-right-line text-2xl text-neutral-50"></i>
+                    <div class="self-stretch px-2 pr-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
                         <div class="text-center justify-center text-neutral-50 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
                             Book a demo
                         </div>
@@ -84,10 +87,11 @@
                                 <div class="flex items-end gap-2">
                                     <div class="relative h-[60px] w-[300px] overflow-hidden">
                                         <div class="absolute inset-0 text-primary-500">
-                                            <span class="fade-word-hero opacity-0 fade-delay-0 block">Effortless</span>
+                                            <span class="fadeout-word-hero block">Effortless</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-1 block">Secure</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-2 block ">Reliable</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-3 block">Open Source</span>
+                                            <span class="fade-word-hero opacity-0 fade-delay-4 block">Effortless</span>
                                         </div>
                                     </div>
                                     <div class="h-[60px]">backup,</div>
@@ -96,10 +100,11 @@
                                 <div class="flex items-end gap-2">
                                     <div class="relative h-[60px] w-[350px] overflow-hidden">
                                         <div class="absolute inset-0 text-primary-500">
-                                            <span class="fade-word-hero opacity-0 fade-delay-0 block">Instant</span>
+                                            <span class="fadeout-word-hero block">Instant</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-1 block">Granular</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-2 block">Cross-platform</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-3 block">Testable</span>
+                                            <span class="fade-word-hero opacity-0 fade-delay-4 block">Instant</span>
                                         </div>
                                     </div>
                                     <div class="h-[60px]">recovery.</div>
@@ -112,9 +117,9 @@
                         <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
                             Plakar, enhanced data protection, optimiPlakar cost.
                         </div>
-                        <div class="h-14 px-5 py-4  bg-neutral-900 rounded-sm inline-flex justify-center items-center gap-3">
-                            <i class="ri-corner-down-right-line text-2xl text-neutral-50"></i>
-                            <div class="text-center justify-center text-neutral-50 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                        <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <div class="text-center justify-center text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
                                 Book a demo
                             </div>
                         </div>
@@ -275,6 +280,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Footer bottom -->
         <div class="section-decorated bg-primary-500 text-neutral-100"
                  style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
@@ -322,6 +328,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- Boiler Plate Sections -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content py-20 px-14">
