@@ -91,9 +91,17 @@
             transparent 1px,
             transparent 100%
     );
-    background-size: calc((100% - 96px) / 6) 100%;
-    background-position: 48px 0;
+    background-size: calc((100% - 48px) / 2) 100%;
+    background-position: 24px 0;
     background-repeat: repeat-x;
+}
+
+/* Override for medium screens and up (≥768px) */
+@media (min-width: 768px) {
+    .section-decorated {
+        background-position: 48px 0;
+        background-size: calc((100% - 96px) / 6) 100%;
+    }
 }
 
 .section-decorated .content {
@@ -110,7 +118,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 32px;
+    width: 12px;
     background-image: repeating-linear-gradient(
             315deg,
             var(--pattern-fg) 0,
@@ -122,13 +130,12 @@
     background-attachment: fixed;
     border-right: 1px solid var(--border-color);
     z-index: 5;
-    display: none;
 }
 
 @media (min-width: 768px) {
     .section-decorated::before,
     .section-decorated::after {
-        display: block;
+        width: 32px;
     }
 }
 
@@ -178,21 +185,6 @@
     font-style: normal;
 }
 
-html.lenis, html.lenis body {
-    height: auto;
-}
-.lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-    overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-    overflow: hidden;
-}
-.lenis.lenis-smooth iframe {
-    pointer-events: none;
-}
 #horizontal-carousel {
 }
 
