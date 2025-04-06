@@ -1,16 +1,22 @@
 console.log("Tailwind config bien chargée ✅");
+
+import fluid, { extract, screens, fontSize } from 'fluid-tailwind'
+
 module.exports = {
-    content: [
+    content: {
+        files: [
         './themes/plakarium/layouts/**/*.html',
         './themes/plakarium/content/**/*.md',
         './themes/plakarium/assets/**/*.js',
         './layouts/**/*.html',
-        './content/**/*.md',
-    ],
+        './content/**/*.md'],
+        extract,
+    },
     safelist: ['bg-neutral-100'],
     theme: {
+        screens, // Tailwind's default screens, in `rem`
+        fontSize, // Tailwind's default font sizes, in `rem` (including line heights)
         extend: {
-
             fontFamily: {
                 'dm-mono': ['"DM Mono"', 'monospace'],
                 'space-text': ['"Space Text"', 'sans-serif'],
@@ -44,5 +50,7 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        fluid
+    ],
 }

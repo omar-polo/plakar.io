@@ -25,29 +25,30 @@
 <div class="relative w-full">
     <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
         <!-- Fixed Navbar -->
-        <header class="fixed px-4 top-0 left-0 right-0 w-full mx-auto max-w-[1400px] bg-neutral-100 pr-4 py-4 border border-neutral-300 z-50">
-            <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
-                    <a href="/" class="md:w-28 w-24 items-center">
+        <header class="fixed flex px-2 md:px-4 top-0 left-0 right-0 bg-neutral-100
+        pr-4 py-4 border border-neutral-300 z-50">
+            <div class="max-w-[1400px] w-full flex mx-auto justify-between items-center text-sm lg:text-base">
+                <div class="flex items-center space-x-8">
+                    <a href="/" class="md:w-28 w-24">
                         {{ $logoLight := resources.Get .Site.Params.logoLight }}
                         {{ $logoDark := resources.Get .Site.Params.logoDark }}
                         <!-- Light mode -->
-                        <span class="block dark:hidden items-center">
+                        <span class="block dark:hidden">
                             {{ $logoLight.Content | safeHTML }}
                         </span>
                         <!-- Dark mode -->
-                        <span class="block dark:block items-center">
+                        <span class="block dark:block">
                             {{ $logoDark.Content | safeHTML }}
                         </span>
                     </a>
+                    <nav role="navigation" class="hidden md:block space-x-2 lg:space-x-4">
+                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Solution</a>
+                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
+                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
+                        <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
+                    </nav>
                 </div>
-                <nav class="space-x-8">
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Solution</a>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
-                </nav>
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center font-dm-mono  uppercase leading-tight space-x-2 lg:space-x-4">
                     <div class="flex">
                         <a class="flex items-center gap-2  pr-4 py-[2px] rounded-sm border uppercase font-dm-mono
                             border-neutral-300 bg-white"
@@ -60,15 +61,15 @@
                                   data-repository="plakar">149</span>
                         </a>
                     </div>
-                    <div class="self-stretch px-2  pr-4 rounded-sm outline outline-1 outline-offset-[-1px] outline-neutral-900 inline-flex justify-center items-center gap-2">
+                    <div class="self-stretch px-2 hidden lg:block lg:pr-4 rounded-sm outline outline-1 outline-offset-[-1px] outline-neutral-900 lg:inline-flex justify-center items-center gap-2">
                         <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                        <div class="text-center justify-center text-neutral-900 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                        <div class="text-center justify-center text-neutral-900 ">
                             Get started
                         </div>
                     </div>
-                    <div class="self-stretch px-2 pr-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                    <div class="self-stretch px-2 lg:pr-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
                         <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                        <div class="text-center justify-center text-neutral-50 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                        <div class="text-center justify-center text-neutral-50">
                             Book a demo
                         </div>
                     </div>
@@ -80,17 +81,16 @@
         <div class="h-16 my-0.5"></div>
 
 
-
         <!-- Title -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-12">
-                <div class=" pt-20 flex justify-between items-end">
+            <div class="content md:px-12">
+                <div class="pt-20 flex flex-col md:flex-row justify-between items-start gap-8d">
                     <div class="flex flex-col justify-start items-start">
-                        <div class="self-stretch p-8 flex justify-center items-center">
-                            <div class="flex-1 justify-start text-5xl font-medium font-['Space_Grotesk']">
+                        <div class="self-stretch p-2 md:p-4 lg:p-8 flex justify-center items-center">
+                            <div class="flex-1 justify-start ~text-2xl/5xl font-medium font-['Space_Grotesk']">
                                 <div class="flex items-end gap-2">
-                                    <div class="relative h-[60px] w-[300px] overflow-hidden">
+                                    <div class="relative h-[60px] w-[11ch] overflow-hidden">
                                         <div class="absolute inset-0 text-primary-500">
                                             <span class="fadeout-word-hero block">Effortless</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-1 block">Secure</span>
@@ -101,9 +101,8 @@
                                     </div>
                                     <div class="h-[60px]">backup,</div>
                                 </div>
-
                                 <div class="flex items-end gap-2">
-                                    <div class="relative h-[60px] w-[350px] overflow-hidden">
+                                    <div class="relative h-[60px] w-[14ch] overflow-hidden">
                                         <div class="absolute inset-0 text-primary-500">
                                             <span class="fadeout-word-hero block">Instant</span>
                                             <span class="fade-word-hero opacity-0 fade-delay-1 block">Granular</span>
@@ -119,7 +118,7 @@
 
                     </div>
                     <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
-                        <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
+                        <div class="self-stretch justify-start ~text-base/xl font-medium font-['Space_Grotesk']">
                             Plakar, enhanced data protection, and optimize storage cost.
                         </div>
                         <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
@@ -136,7 +135,7 @@
         <!-- Screenshot section -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-12">
+            <div class="content md:px-12">
                 <div class="relative flex justify-between items-end">
                     <div class="w-5/6">
                         {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
@@ -155,49 +154,52 @@
         <div class="section-decorated bg-neutral-100 text-neutral-900 px-[0px]"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content">
-                <div class="flex justify-between items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
-                    <div class="flex-1 justify-start text-neutral-600 font-space">
+                <div class="flex flex-col md:flex-row justify-between items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
+                    <div class="flex-1 justify-start text-neutral-600 font-space self-start text-left">
                         Trusted by businesses.
                     </div>
-                    <div class="flex justify-start items-center gap-2">
-                        <div class="w-10">
-                            {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
-                            <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
-                                 class="w-full h-full object-contain rounded-sm">
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-2">
+
+                        <div class="flex justify-start items-center gap-2">
+                            <div class="w-10">
+                                {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
+                                <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
+                                     class="w-full h-full object-contain rounded-sm">
+                            </div>
+                            <div class="">Holberton</div>
                         </div>
-                        <div class="">Holberton</div>
-                    </div>
-                    <div class="flex justify-start items-center gap-2">
-                        <div class="w-10">
-                            {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
-                            <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
-                                 class="w-full h-full object-contain rounded-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <div class="w-10">
+                                {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
+                                <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
+                                     class="w-full h-full object-contain rounded-sm">
+                            </div>
+                            <div class="">République Française</div>
                         </div>
-                        <div class="">République Française</div>
-                    </div>
-                    <div class="flex justify-start items-center gap-2">
-                        <div class="w-10">
-                            {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
-                            <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
-                                 class="w-full h-full object-contain rounded-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <div class="w-10">
+                                {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
+                                <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
+                                     class="w-full h-full object-contain rounded-sm">
+                            </div>
+                            <div class="">Spark Angle</div>
                         </div>
-                        <div class="">Spark Angle</div>
-                    </div>
-                    <div class="flex justify-start items-center gap-2">
-                        <div class="w-10">
-                            {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
-                            <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
-                                 class="w-full h-full object-contain rounded-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <div class="w-10">
+                                {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
+                                <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
+                                     class="w-full h-full object-contain rounded-sm">
+                            </div>
+                            <div class="">Moose & Toom</div>
                         </div>
-                        <div class="">Moose & Toom</div>
-                    </div>
-                    <div class="flex justify-start items-center gap-2">
-                        <div class="w-10">
-                            {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
-                            <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
-                                 class="w-full h-full object-contain rounded-sm">
+                        <div class="flex justify-start items-center gap-2">
+                            <div class="w-10">
+                                {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
+                                <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
+                                     class="w-full h-full object-contain rounded-sm">
+                            </div>
+                            <div class="">Hoodie</div>
                         </div>
-                        <div class="">Hoodie</div>
                     </div>
                 </div>
             </div>
@@ -206,20 +208,26 @@
         <!-- Features section -->
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content py-20 px-14">
-                <div class=" pt-20 flex justify-between items-end">
-                    <div class="flex flex-col justify-start items-start">
+            <div class="content py-0 md:py-20 md:px-14">
+                <div class="flex flex-col md:flex-row justify-between items-end">
+                    <div class="w-full flex flex-col justify-start items-start">
                         <div class="self-stretch p-8 flex justify-center items-center">
-                            <div class="flex-1 justify-start text-5xl font-medium font-['Space_Grotesk']">
-                                <div class="size- inline-flex justify-start items-center gap-1">
-                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">//</div>
-                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">Universal data protection</div>
+                            <div class="flex-1 justify-start ~text-3xl/5xl font-medium font-['Space_Grotesk']">
+                                <div class="inline-flex justify-start items-center gap-1">
+                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                                        //
+                                    </div>
+                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
+                                        Universal data protection
+                                    </div>
                                 </div>
-                                <div class="w-[864px] justify-start text-zinc-900 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">Plakar, enhanced data<br/>protection, optimized cost.</div>
+                                <div class="justify-start text-zinc-900  font-medium font-['Space_Grotesk'] leading-[49.60px]">
+                                    Plakar, enhanced data<br/>protection, optimized cost.
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
+                    <div class="w-full p-8 inline-flex flex-col justify-start items-start gap-10">
                         <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
                             Plakar, enhanced data protection, optimiPlakar cost.
                         </div>
@@ -327,7 +335,10 @@
                     </div>
                     <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
                         <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis.</div>
+                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit
+                            urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
+                            Maecenas vitae mattis tellus. Nullam quis.
+                        </div>
                         <div class="h-14 px-5 py-4 bg-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
                             <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
@@ -346,8 +357,8 @@
         <div class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content pl-12 flex text-sm font-mono pt-14">
-                <div class="w-1/2 self-stretch px-8  inline-flex flex-col justify-center items-start gap-12">
-                    <div class="self-stretch flex flex-col justify-start items-start gap-8">
+                <div class="w-1/2 self-stretch px-8   justify-center items-start gap-12">
+                    <div class="self-stretch flex flex-col md:flex-row justify-start items-start gap-8">
                         <div class="text-primary-500  uppercase">// Universal data protection</div>
                         <div class="text-neutral-900 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">
                             Explore your snapshot with Plakar UI !
@@ -355,7 +366,10 @@
                     </div>
                     <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
                         <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis.</div>
+                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit
+                            urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
+                            Maecenas vitae mattis tellus. Nullam quis.
+                        </div>
                         <div class="h-14 px-5 py-4 bg-neutral-900 text-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
                             <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
