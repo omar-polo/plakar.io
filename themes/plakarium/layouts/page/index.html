@@ -81,8 +81,9 @@
         <div class="h-16 my-0.5"></div>
 
 
+
         <!-- Title -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900"
+        <section class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content md:px-12">
                 <div class="pt-20 flex flex-col md:flex-row justify-between items-start gap-8d">
@@ -121,19 +122,17 @@
                         <div class="self-stretch justify-start ~text-base/xl font-medium font-['Space_Grotesk']">
                             Plakar, enhanced data protection, and optimize storage cost.
                         </div>
-                        <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                        <a href="#" class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <div class="text-center justify-center text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                Book a demo
-                            </div>
-                        </div>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Screenshot section -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900"
+        <section class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content md:px-12">
                 <div class="relative flex justify-between items-end">
@@ -148,10 +147,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Sponsor section -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900 px-[0px]"
+        <section class="section-decorated bg-neutral-100 text-neutral-900 px-[0px]"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content">
                 <div class="flex flex-col md:flex-row justify-between items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
@@ -203,47 +202,42 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Features section -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900"
+        <section class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content py-0 md:py-20 md:px-14">
-                <div class="flex flex-col md:flex-row justify-between items-end">
-                    <div class="w-full flex flex-col justify-start items-start">
-                        <div class="self-stretch p-8 flex justify-center items-center">
-                            <div class="flex-1 justify-start ~text-3xl/5xl font-medium font-['Space_Grotesk']">
-                                <div class="inline-flex justify-start items-center gap-1">
-                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                        //
-                                    </div>
-                                    <div class="text-center justify-start text-indigo-600 text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                        Universal data protection
-                                    </div>
-                                </div>
-                                <div class="justify-start text-zinc-900  font-medium font-['Space_Grotesk'] leading-[49.60px]">
-                                    Plakar, enhanced data<br/>protection, optimized cost.
-                                </div>
-                            </div>
+                <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
+
+                    <!-- Section Title -->
+                    <div class="w-full p-4 md:p-8 space-y-4">
+                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                            <span>//</span>
+                            <span>Universal data protection</span>
                         </div>
+                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
+                            Plakar, enhanced data<br />protection, optimized cost.
+                        </h2>
                     </div>
-                    <div class="w-full p-8 inline-flex flex-col justify-start items-start gap-10">
-                        <div class="self-stretch justify-start text-xl font-medium font-['Space_Grotesk']">
-                            Plakar, enhanced data protection, optimiPlakar cost.
+
+                    <!-- Section Content -->
+                    <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
+                        <div class="~text-base/xl font-medium font-['Space_Grotesk']">
+                            Plakar, enhanced data protection, and optimize storage cost.
                         </div>
-                        <div class="h-14 px-5 py-4  bg-neutral-900 text-neutral-50 rounded-sm inline-flex justify-center items-center gap-3">
+                        <a href="#" class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <div class="text-center justify-center text-sm font-medium font-['DM_Mono'] uppercase leading-tight">
-                                Book a demo
-                            </div>
-                        </div>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
+                        </a>
                     </div>
+
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Features carousel section -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900"
+        <section class="section-decorated bg-neutral-100 text-neutral-900"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content py-50 px-12 relative">
                 <section id="horizontal-carousel">
@@ -320,69 +314,91 @@
                     </div>
                 </section>
             </div>
-        </div>
+        </section>
 
-        <!-- Universal data protection -->
-        <div class="section-decorated bg-neutral-900 text-neutral-100"
-             style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
-            <div class="content px-12 flex text-sm font-mono">
-                <div class="w-96 self-stretch p-8  inline-flex flex-col justify-center items-start gap-12">
-                    <div class="self-stretch flex flex-col justify-start items-start gap-8">
-                        <div class="text-primary-500  uppercase">// Universal data protection</div>
-                        <div class="text-neutral-100 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">
-                            Backup anything, store anywhere, restore anywhere.
-                        </div>
+        <!-- Universal Data Protection -->
+        <section class="section-decorated bg-neutral-900 text-neutral-100"
+                 style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+            <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+
+                <!-- Text Block -->
+                <div class="w-full md:w-2/6 p-4 md:p-8 space-y-6">
+                    <!-- Tagline -->
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                        <span>//</span>
+                        <span>Universal data protection</span>
                     </div>
-                    <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
-                        <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit
-                            urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
-                            Maecenas vitae mattis tellus. Nullam quis.
-                        </div>
-                        <div class="h-14 px-5 py-4 bg-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
-                        </div>
-                    </div>
+
+                    <!-- Title -->
+                    <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
+                        Backup anything, store anywhere,<br />
+                        restore anywhere.
+                    </h2>
+
+                    <!-- Paragraph -->
+                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
+                        Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae
+                        mattis tellus. Nullam quis.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="#" class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Call to action</span>
+                    </a>
                 </div>
-                <div class="items-center justify-center w-4/6">
+
+                <!-- Illustration -->
+                <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-center">
                     {{ $schemaPlaceHolder := resources.Get "img/placeholder-schema-black.png" }}
                     <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
-                         class="w-full h-full object-contain rounded-sm">
+                         class="w-full h-auto object-contain rounded-sm">
                 </div>
-            </div>
-        </div>
 
-        <!-- Section explore UI -->
-        <div class="section-decorated bg-neutral-100 text-neutral-900"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content pl-12 flex text-sm font-mono pt-14">
-                <div class="w-1/2 self-stretch px-8   justify-center items-start gap-12">
-                    <div class="self-stretch flex flex-col md:flex-row justify-start items-start gap-8">
-                        <div class="text-primary-500  uppercase">// Universal data protection</div>
-                        <div class="text-neutral-900 text-4xl font-medium font-['Space_Grotesk'] leading-[49.60px]">
-                            Explore your snapshot with Plakar UI !
+            </div>
+        </section>
+
+        <!-- Section: Explore UI -->
+        <section class="section-decorated bg-neutral-100 text-neutral-900"
+                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
+
+                <!-- Text Block -->
+                <div class="w-full md:w-1/2 px-4 md:px-8 space-y-6 font-mono">
+                    <!-- Tagline + Title -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium uppercase">
+                            <span>//</span>
+                            <span>Universal data protection</span>
                         </div>
+                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight">
+                            Explore your snapshot<br />with Plakar UI!
+                        </h2>
                     </div>
-                    <div class="self-stretch flex flex-col justify-start items-start gap-6 text-neutral-900">
-                        <div class="opacity-70 text-neutral-300 text-lg font-['Space_Text']">
-                            Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et massa mi. Aliquam in hendrerit
-                            urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.
-                            Maecenas vitae mattis tellus. Nullam quis.
-                        </div>
-                        <div class="h-14 px-5 py-4 bg-neutral-900 text-neutral-100 rounded-xs inline-flex justify-center items-center gap-4">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <div class="text-center justify-center  text-sm  font-mono uppercase">Call to action</div>
-                        </div>
-                    </div>
+
+                    <!-- Description -->
+                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                        Lorem ipsum dolor sit amet consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.
+                        Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae
+                        mattis tellus. Nullam quis.
+                    </p>
+
+                    <!-- CTA -->
+                    <a href="#" class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-100 rounded-sm">
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Call to action</span>
+                    </a>
                 </div>
-                <div class="ml-auto max-w-[calc((100%-48px)/2+48px)]">
+
+                <!-- Image Block -->
+                <div class="w-full lg:w-1/2 p-0 lg:pl-4 flex justify-end">
                     {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
-                    <img src="{{ $dashboard2.RelPermalink }}" alt="Placeholder"
-                         class="w-full h-full object-contain rounded-sm">
+                    <img src="{{ $dashboard2.RelPermalink }}" alt="Plakar UI preview"
+                         class="w-full h-auto object-contain rounded-sm">
                 </div>
             </div>
-        </div>
+        </section>
 
         <!-- Footer menu -->
         <div class="section-decorated bg-primary-500 text-neutral-100"
