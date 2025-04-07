@@ -204,7 +204,7 @@
         <section class="section-decorated bg-neutral-100 text-neutral-900 px-[0px]"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content">
-                <div class="flex flex-col md:flex-row justify-between items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
+                <div class="flex flex-col md:flex-row justify-between  items-start md:items-end py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10">
                     <div class="flex-1 justify-start text-neutral-600 font-space self-start text-left">
                         Trusted by businesses.
                     </div>
@@ -258,7 +258,7 @@
         <!-- Features section -->
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content py-0 md:py-20 md:px-14">
+            <div class="content py-0 md:py-20 px-[24px] md:px-12">
                 <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
                     <!-- Section Title -->
@@ -268,19 +268,20 @@
                             <span>Universal data protection</span>
                         </div>
                         <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
-                            Plakar, enhanced data<br/>protection, optimized cost.
+                            Plakar is build on top of the powerful Kloset.
                         </h2>
                     </div>
 
                     <!-- Section Content -->
                     <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
-                        <div class="~text-base/xl font-medium font-['Space_Grotesk']">
-                            Plakar, enhanced data protection, and optimize storage cost.
-                        </div>
+                        <!-- Paragraph -->
+                        <p class="~text-base/xl font-medium font-['Space_Grotesk']">
+                            Kloset encapsulates each snapshot into a self-contained, immutable, structured data asset. Like a container that packages an app with everything it needs, Kloset packages data with context, structure, metadata, and integrity. You can inspect and query snapshots without restoration, conduct forensic searches, compliance audits, or integrate directly into CI/CD pipelines.
+                        </p>
                         <a href="#"
                            class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
                             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Kolset in action</span>
                         </a>
                     </div>
 
@@ -417,7 +418,7 @@
         <!-- Open source section -->
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-[23px] md:px-12 py-20 flex flex-col lg:flex-row">
+            <div class="content px-[23px] md:px-12 py-4 md:py-20 flex flex-col lg:flex-row">
 
                 {{/* 1. Read image paths */}}
                 {{ $images := readDir "assets/img/contributors" }}
@@ -442,12 +443,12 @@
                 {{ $rightImages := first 24 (after 24 $shuffled) }}
 
                 <!-- Left Grid (4x6 images) -->
-                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 p-[0.75rem]">
-                    <div class="w-full  grid grid-cols-4 grid-rows-6 gap-3">
+                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                    <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
                         {{ range $leftImages }}
                             {{ with resources.Get . }}
-                                <div class="aspect-[16/9] border border-dashed border-zinc-300 p-1 flex items-center justify-center">
-                                    <img src="{{ .RelPermalink }}" alt="Contributor" class=" object-contain rounded-sm">
+                                <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                    <img src="{{ .RelPermalink }}" alt="Contributor" class="object-contain rounded-sm">
                                 </div>
                             {{ end }}
                         {{ end }}
@@ -473,13 +474,13 @@
                     <div class="relative flex flex-col z-10 items-center text-center gap-6 justify-center">
                         <div class="flex items-center gap-2 text-orange-400 text-sm font-medium font-dm-mono uppercase">
                             <span>//</span>
-                            <span>Universal data protection</span>
+                            <span>Open Source standard forever</span>
                         </div>
                         <h2 class="text-4xl font-medium font-space-grotesk leading-tight text-neutral-900">
                             Open source
                         </h2>
                         <p class="text-lg font-medium font-space-text text-neutral-900 opacity-70 leading-relaxed">
-                            Plakar is built by a global community<br/>of thousands of developers.
+                            Plakar is built by a global community<br/>of engaged developers, SREs, sysadmins and platform engineers.
                         </p>
                         <a href="#"
                            class="inline-flex items-center gap-3 px-5 py-4 bg-neutral-900 text-white rounded-sm">
@@ -490,11 +491,11 @@
                 </div>
 
                 <!-- Right Grid (4x6 images) -->
-                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 p-[0.75rem]">
-                    <div class="w-full grid grid-cols-4 grid-rows-6 gap-3">
+                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                    <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
                         {{ range $rightImages }}
                             {{ with resources.Get . }}
-                                <div class="aspect-[16/9]  border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
                                     <img src="{{ .RelPermalink }}" alt="Contributor"
                                          class="object-contain rounded-sm">
                                 </div>
@@ -509,7 +510,7 @@
         <!-- Testimonials -->
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-[24px] md:px-12 py-20">
+            <div class="content px-[24px] md:px-12 py-4 md:py-20">
 
                 <!-- Title and Subtitle -->
                 <div class="w-full text-center">
