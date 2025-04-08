@@ -16,6 +16,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <link href="/fonts/remixicon/remixicon.css" rel="stylesheet">
+
+    <style>
+
+    </style>
 </head>
 <body class="overflow-x-hidden">
 
@@ -24,6 +28,8 @@
 {{ $placeholder := resources.Get "img/placeholder.svg" }}
 {{ $logoLight := resources.Get .Site.Params.logoLight }}
 {{ $logoDark := resources.Get .Site.Params.logoDark }}
+
+{{ $prompt := "<span class=\"t-prompt\">plakar:</span><span class=\"t-path\">~ </span>" | safeHTML }}
 
 <div class="relative w-full">
     <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
@@ -181,20 +187,15 @@
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <div class="content md:px-12">
-                <div class="relative flex justify-between items-end">
+                <div class="relative flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
                     <div class="w-5/6">
                         {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
                         <img src="{{ $dashboard1.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
                     </div>
-                    {{ $plakaCreate := resources.Get "img/plakar-create.svg" }}
-
-                    <!--div class="absolute top-1/2 right-0 translate-y-[-50%] w-2/6 h-full">
+                    {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
+                    <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-2/6">
                         <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
                              class="w-full h-full object-contain rounded-sm">
-                    </div-->
-                    <div class="absolute right-0 top-1/2 transform -translate-y-1/2 w-[40%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-2/6 h-auto">
-                        <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
-                             class="w-full h-auto object-contain rounded-sm">
                     </div>
                 </div>
             </div>
@@ -258,7 +259,7 @@
         <!-- Features section -->
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content py-0 md:py-20 px-[24px] md:px-12">
+            <div class="content py-0 md:py-20 px-6 md:px-12">
                 <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
                     <!-- Section Title -->
@@ -509,10 +510,150 @@
             </div>
         </section>
 
+        <!-- Plakar journey section -->
+        <section class="section-decorated bg-neutral-900 text-neutral-100"
+                 style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+            <div class="content w-full py-0 md:py-20 px-6 md:px-12 flex flex-col gap-4 items-start">
+
+                <!-- Text Block -->
+                <div class="w-full p-4 md:p-8 space-y-6">
+                    <!-- Tagline -->
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                        <span>//</span>
+                        <span>Your new data protection journey</span>
+                    </div>
+
+                    <!-- Title -->
+                    <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
+                        Backup, Duplicate, Check, Restore, Monitor<br/>
+                        all in one smooth flow.
+                    </h2>
+
+                    <!-- Paragraph -->
+                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                        Data backup is no longer a project — it's a seamless action that brings you peace of mind.
+                    </p>
+
+                    <!-- CTA Button -->
+                    <a href="#"
+                       class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Quick start</span>
+                    </a>
+                </div>
+
+
+                <!-- Tabs -->
+                <div class="terminal-tabs w-full md:p-8 flex flex-col">
+                    <!-- Tab Buttons -->
+                    <div class="flex flex-wrap" id="tab-buttons">
+                        <button class="tab-button group active-tab" data-tab="backup">
+                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span>Backup</span>
+                        </button>
+                        <button class="tab-button group" data-tab="duplicate">
+                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span>Duplicate</span>
+                        </button>
+                        <button class="tab-button group" data-tab="check">
+                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span>Check</span>
+                        </button>
+                        <button class="tab-button group" data-tab="restore">
+                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span>Restore</span>
+                        </button>
+                        <button class="tab-button group" data-tab="monitor">
+                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span>Monitor</span>
+                        </button>
+                    </div>
+
+                    <!-- Tab Panels -->
+                    <div class="panels">
+                        <div class="tab-panel" id="tab-backup">
+                            <div class="terminal">
+                                <div class="terminal-body">
+                                    <div class="t-line">{{$prompt}}export PLAKAR_PASSPHRASE=HelloWorld! <span class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
+                                    <div class="t-line">{{$prompt}}plakar at ~/backups create</div>
+                                    <div class="t-line">{{$prompt}}plakar at ~/backups backup /etc</div>
+                                    <div class="t-line">2025-04-08T10:12:37Z info: backup: created unsigned snapshot 003affd1 of size 9.8 MB in 262.229062ms</div>
+                                    <div class="t-line">{{$prompt}}plakar at ~/backups ls</div>
+                                    <div class="t-line">2025-04-08T10:12:37Z   003affd1    9.8 MB        0s /etc</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-panel hidden" id="tab-duplicate">
+                            <div class="terminal">
+                                <div class="terminal-header">
+                                    <div class="terminal-lights">
+                                        <div class="terminal-light-red"></div>
+                                        <div class="terminal-light-yellow"></div>
+                                        <div class="terminal-light-green"></div>
+                                    </div>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-log-line"># Resilience strategy commands here...</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tab-panel hidden" id="tab-check">
+                            <div class="terminal">
+                                <div class="terminal-header">
+                                    <div class="terminal-lights">
+                                        <div class="terminal-light-red"></div>
+                                        <div class="terminal-light-yellow"></div>
+                                        <div class="terminal-light-green"></div>
+                                    </div>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-log-line"># Check process output...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-panel hidden" id="tab-restore">
+                            <div class="terminal">
+                                <div class="terminal-header">
+                                    <div class="terminal-lights">
+                                        <div class="terminal-light-red"></div>
+                                        <div class="terminal-light-yellow"></div>
+                                        <div class="terminal-light-green"></div>
+                                    </div>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-log-line"># Restore example output...</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-panel hidden" id="tab-monitor">
+                            <div class="terminal">
+                                <div class="terminal-header">
+                                    <div class="terminal-lights">
+                                        <div class="terminal-light-red"></div>
+                                        <div class="terminal-light-yellow"></div>
+                                        <div class="terminal-light-green"></div>
+                                    </div>
+                                </div>
+                                <div class="terminal-body">
+                                    <div class="terminal-log-line"># Alerting configuration and examples...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- Testimonials -->
         <section class="section-decorated bg-neutral-100 text-neutral-900"
                  style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content px-[24px] md:px-12 py-4 md:py-20">
+            <div class="content px-6 md:px-12 py-4 md:py-20">
 
                 <!-- Title and Subtitle -->
                 <div class="w-full text-center">
@@ -861,6 +1002,26 @@
     menuCloseButton.addEventListener("click", closeMenu);
 
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const buttons = document.querySelectorAll('.tab-button');
+        const panels = document.querySelectorAll('.tab-panel');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+
+                buttons.forEach(btn => btn.classList.remove('active-tab'));
+                panels.forEach(panel => panel.classList.add('hidden'));
+
+                button.classList.add('active-tab');
+                document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            });
+        });
+    });
+</script>
+
 
 </body>
 </html>

@@ -198,3 +198,61 @@
 .horizontal-carousel__item:not(:last-child) {
 
 }
+
+@layer components {
+    .terminal-tabs .tab-button {
+        @apply px-4 py-2 text-xs md:px-6 md:py-3 md:text-sm
+        outline outline-1 outline-offset-[-1px] outline-neutral-700
+        bg-zinc-900 text-neutral-400 font-medium font-["DM_Mono"] uppercase
+        leading-tight flex items-center gap-2;
+    }
+
+    .terminal-tabs .tab-button.active-tab {
+        @apply bg-primary-600 text-white outline-primary-600;
+    }
+
+    .terminal-tabs .tab-panel.hidden {
+        display: none;
+    }
+
+    .terminal-tabs .panels {
+        @apply border border-primary-600 p-2 md:p-4
+        bg-gradient-to-b from-primary-600 via-primary-400 to-primary-400;
+    }
+
+    .terminal {
+        @apply rounded-lg overflow-hidden text-xs md:text-sm text-neutral-300 bg-black;
+    }
+
+    .terminal::before {
+        content: '';
+        display: block;
+        @apply h-6 bg-neutral-200 border-b border-neutral-400 px-2;
+        background-image: radial-gradient(circle, #ef4444 7px, transparent 7px),
+        radial-gradient(circle, #facc15 7px, transparent 7px),
+        radial-gradient(circle, #22c55e 7px, transparent 7px);
+        background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: 6px center, 28px center, 50px center;
+    }
+
+    .terminal-body {
+        @apply p-2 md:p-4 space-y-1;
+    }
+
+    .terminal .t-line {
+        @apply break-all leading-tight whitespace-pre-wrap;
+    }
+
+    .terminal .t-line .t-prompt {
+        @apply font-semibold text-cyan-200;
+    }
+
+    .terminal .t-line .t-path {
+        @apply text-red-400 font-semibold;
+    }
+
+    .terminal .t-line .t-comment {
+        @apply text-neutral-500 italic;
+    }
+}
