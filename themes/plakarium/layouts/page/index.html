@@ -48,8 +48,104 @@
                 </a>
 
                 <!-- Navigation links (hidden on small screens) -->
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Solution</a>
+                <nav class="hidden md:flex space-x-8 relative">
+                    <div class="group relative">
+                        <button id="solution-btn"
+                                class="text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                            Solution
+                            <span id="solution-chevron">
+        <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+        </svg>
+    </span>
+                        </button>
+
+                        <!-- Dropdown menu -->
+                        <div id="solution-dropdown" class="absolute left-0 top-full pt-4 hidden z-50">
+                            <div class="w-[900px] p-8 bg-white shadow-lg flex gap-8 border border-neutral-200 rounded-sm">
+
+                                <!-- USE CASES -->
+                                <div class="w-1/3 flex flex-col gap-6">
+                                    <div class="flex gap-1 text-primary-500 uppercase font-dm-mono text-sm">
+                                        <span>//</span>
+                                        <span>Use cases</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+
+                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
+                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
+                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Backup & Restore</div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Protect your data</div>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="flex items-center gap-2 p-2 bg-primary-50 hover:bg-neutral-100 rounded-sm">
+                                            <div class="w-10 h-10 bg-white flex justify-center items-center rounded-sm">
+                                                <span class="w-4 h-4 bg-primary-500"></span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Cross environment backup</div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Raise your protection</div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!-- RESOURCES -->
+                                <div class="w-1/3 flex flex-col gap-6">
+                                    <div class="flex gap-1 text-primary-500 uppercase font-dm-mono text-sm">
+                                        <span>//</span>
+                                        <span>Resources</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+
+                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
+                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
+                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Compare Plakar to Alternatives</div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Discover Plakar strengths</div>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
+                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
+                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Product review</div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Engineers feedback</div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!-- NEWS SECTION -->
+                                <div class="w-1/3 border border-neutral-200 flex rounded-sm overflow-hidden">
+                                    <div class="flex-1 bg-neutral-900">
+                                        <img src="https://placehold.co/400x254" alt="News" class="object-cover w-full h-full">
+                                    </div>
+                                    <div class="flex-1 p-4 flex flex-col justify-between">
+                                        <div class="text-primary-500 font-dm-mono uppercase text-sm">Category</div>
+                                        <div class="font-space-grotesk text-neutral-900 text-lg font-medium">Plakar 1.0.1-beta.13 out!</div>
+                                        <a href="#" class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-sm hover:underline">
+                                            Read more
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Autres liens de la navbar -->
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
@@ -999,6 +1095,48 @@
     menuButton.addEventListener("click", openMenu);
     menuCloseButton.addEventListener("click", closeMenu);
 
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const solutionBtn = document.getElementById('solution-btn');
+        const solutionDropdown = document.getElementById('solution-dropdown');
+        const solutionChevron = document.getElementById('solution-chevron');
+
+        const chevronDown = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+    </svg>`;
+
+        const chevronUp = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
+    </svg>`;
+
+        let isOpen = false;
+
+        solutionBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isOpen = !isOpen;
+
+            solutionDropdown.classList.toggle('hidden', !isOpen);
+            solutionBtn.classList.toggle('bg-white', isOpen);
+            solutionBtn.classList.toggle('font-semibold', isOpen);
+
+            solutionChevron.innerHTML = isOpen ? chevronUp : chevronDown;
+        });
+
+        document.addEventListener('click', () => {
+            if (isOpen) {
+                isOpen = false;
+                solutionDropdown.classList.add('hidden');
+                solutionBtn.classList.remove('bg-white', 'font-semibold');
+                solutionChevron.innerHTML = chevronDown;
+            }
+        });
+
+        solutionDropdown.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
 </script>
 
 <script>
