@@ -35,7 +35,7 @@
     <div class="relative z-10  mx-auto bg-neutral-100 ">
         <!-- Fixed Navbar -->
 
-        <header class="fixed flex px-2 md:px-4 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300 py-4">
+        <header class="fixed flex px-2 md:px-4 py-2 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300">
             <div class="flex mx-auto w-full items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="md:w-28 w-24">
@@ -49,20 +49,21 @@
 
                 <!-- Navigation links (hidden on small screens) -->
                 <nav class="hidden md:flex space-x-8 relative">
-                    <div class="group relative">
+                    <div class="group/btn relative">
                         <button id="solution-btn"
-                                class="text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                                class="px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
                             Solution
                             <span id="solution-chevron">
-        <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
-        </svg>
-    </span>
+                                <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                     fill="currentColor">
+                                    <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+                                </svg>
+                             </span>
                         </button>
 
                         <!-- Dropdown menu -->
-                        <div id="solution-dropdown" class="absolute left-0 top-full pt-4 hidden z-50">
-                            <div class="w-[900px] p-8 bg-white shadow-lg flex gap-8 border border-neutral-200 rounded-sm">
+                        <div id="solution-dropdown" class="absolute left-0 top-full pt-2 hidden z-50">
+                            <div class="w-[1000px] p-8 bg-white shadow-lg flex gap-4 border border-neutral-200 rounded-sm">
 
                                 <!-- USE CASES -->
                                 <div class="w-1/3 flex flex-col gap-6">
@@ -72,23 +73,34 @@
                                     </div>
                                     <div class="flex flex-col gap-2">
 
-                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
-                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
-                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"></path></svg>
+                                                </span>
                                             </div>
                                             <div class="flex-1">
-                                                <div class="text-neutral-900 font-space-text font-semibold">Backup & Restore</div>
-                                                <div class="text-neutral-400 font-space-text text-sm">Protect your data</div>
+                                                <div class="text-neutral-900 font-space-text font-semibold">Backup &
+                                                    Restore
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Protect your
+                                                    data
+                                                </div>
                                             </div>
                                         </a>
-
-                                        <a href="#" class="flex items-center gap-2 p-2 bg-primary-50 hover:bg-neutral-100 rounded-sm">
-                                            <div class="w-10 h-10 bg-white flex justify-center items-center rounded-sm">
-                                                <span class="w-4 h-4 bg-primary-500"></span>
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1ZM12 3.04879L5 4.60434V13.7889C5 15.1263 5.6684 16.3752 6.7812 17.1171L12 20.5963L17.2188 17.1171C18.3316 16.3752 19 15.1263 19 13.7889V4.60434L12 3.04879ZM12 7C13.1046 7 14 7.89543 14 9C14 9.73984 13.5983 10.3858 13.0011 10.7318L13 15H11L10.9999 10.7324C10.4022 10.3866 10 9.74025 10 9C10 7.89543 10.8954 7 12 7Z"></path></svg>
+                                                </span>
                                             </div>
                                             <div class="flex-1">
-                                                <div class="text-neutral-900 font-space-text font-semibold">Cross environment backup</div>
-                                                <div class="text-neutral-400 font-space-text text-sm">Raise your protection</div>
+                                                <div class="text-neutral-900 font-space-text font-semibold">Cross
+                                                    environment backup
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Raise your
+                                                    protection
+                                                </div>
                                             </div>
                                         </a>
 
@@ -103,23 +115,35 @@
                                     </div>
                                     <div class="flex flex-col gap-2">
 
-                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
-                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
-                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.0503 12.0498L21 16.9996L16.0503 21.9493L14.636 20.5351L17.172 17.9988L4 17.9996V15.9996L17.172 15.9988L14.636 13.464L16.0503 12.0498ZM7.94975 2.0498L9.36396 3.46402L6.828 5.9988L20 5.99955V7.99955L6.828 7.9988L9.36396 10.5351L7.94975 11.9493L3 6.99955L7.94975 2.0498Z"></path></svg>
+                                                </span>
                                             </div>
                                             <div class="flex-1">
-                                                <div class="text-neutral-900 font-space-text font-semibold">Compare Plakar to Alternatives</div>
-                                                <div class="text-neutral-400 font-space-text text-sm">Discover Plakar strengths</div>
+                                                <div class="text-neutral-900 font-space-text font-semibold">Compare
+                                                    Plakar to Alternatives
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Discover Plakar
+                                                    strengths
+                                                </div>
                                             </div>
                                         </a>
 
-                                        <a href="#" class="flex items-center gap-2 p-2 hover:bg-neutral-100 rounded-sm">
-                                            <div class="w-10 h-10 bg-primary-100 flex justify-center items-center rounded-sm">
-                                                <span class="w-4 h-4 bg-neutral-400"></span>
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.455L2 22.5V4C2 3.44772 2.44772 3 3 3H21ZM20 5H4V18.385L5.76333 17H20V5ZM10.5153 7.4116L10.9616 8.1004C9.29402 9.0027 9.32317 10.4519 9.32317 10.7645C9.47827 10.7431 9.64107 10.7403 9.80236 10.7553C10.7045 10.8389 11.4156 11.5795 11.4156 12.5C11.4156 13.4665 10.6321 14.25 9.66558 14.25C9.12905 14.25 8.61598 14.0048 8.29171 13.6605C7.77658 13.1137 7.5 12.5 7.5 11.5052C7.5 9.75543 8.72825 8.18684 10.5153 7.4116ZM15.5153 7.4116L15.9616 8.1004C14.294 9.0027 14.3232 10.4519 14.3232 10.7645C14.4783 10.7431 14.6411 10.7403 14.8024 10.7553C15.7045 10.8389 16.4156 11.5795 16.4156 12.5C16.4156 13.4665 15.6321 14.25 14.6656 14.25C14.1291 14.25 13.616 14.0048 13.2917 13.6605C12.7766 13.1137 12.5 12.5 12.5 11.5052C12.5 9.75543 13.7283 8.18684 15.5153 7.4116Z"></path></svg>
+                                                </span>
                                             </div>
                                             <div class="flex-1">
-                                                <div class="text-neutral-900 font-space-text font-semibold">Product review</div>
-                                                <div class="text-neutral-400 font-space-text text-sm">Engineers feedback</div>
+                                                <div class="text-neutral-900 font-space-text font-semibold">Product
+                                                    review
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Engineers
+                                                    feedback
+                                                </div>
                                             </div>
                                         </a>
 
@@ -127,14 +151,18 @@
                                 </div>
 
                                 <!-- NEWS SECTION -->
-                                <div class="w-1/3 border border-neutral-200 flex rounded-sm overflow-hidden">
+                                <div class="group/link w-1/3 border border-neutral-200 flex rounded-sm overflow-hidden hover:bg-primary-50">
                                     <div class="flex-1 bg-neutral-900">
-                                        <img src="https://placehold.co/400x254" alt="News" class="object-cover w-full h-full">
+                                        <img src="https://placehold.co/400x254" alt="News"
+                                             class="object-cover w-full h-full">
                                     </div>
                                     <div class="flex-1 p-4 flex flex-col justify-between">
                                         <div class="text-primary-500 font-dm-mono uppercase text-sm">Category</div>
-                                        <div class="font-space-grotesk text-neutral-900 text-lg font-medium">Plakar 1.0.1-beta.13 out!</div>
-                                        <a href="#" class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-sm hover:underline">
+                                        <div class="font-space-grotesk text-neutral-900 text-lg font-medium">Plakar
+                                            1.0.1-beta.13 out!
+                                        </div>
+                                        <a href="#"
+                                           class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-sm hover:underline group-hover/link:text-primary-500">
                                             Read more
                                         </a>
                                     </div>
@@ -144,8 +172,6 @@
                         </div>
 
                     </div>
-
-                    <!-- Autres liens de la navbar -->
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
                     <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
@@ -228,7 +254,8 @@
         </header>
 
         <!-- Navbar placeholder -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <section class="section-decorated  text-neutral-900 relative z-10  mx-auto bg-neutral-100 max-w-[1400px]">
                 <div class="content md:px-12 h-12 md:h-16 ">
                 </div>
@@ -236,616 +263,615 @@
         </div>
 
         <!-- Title -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated  text-neutral-900 relative z-10  bg-neutral-100 mx-auto max-w-[1400px]">
-            <div class="relative content md:px-12">
-                <div class="pt-10 md:pt-20 flex flex-col md:flex-row justify-between items-start gap-8d">
-                    <div class="flex flex-col justify-start items-start">
-                        <div class="self-stretch p-2 md:p-4 lg:p-8 flex justify-center items-center">
-                            <div class="flex-1 justify-start ~text-2xl/5xl font-medium font-['Space_Grotesk']">
-                                <div class="flex items-end gap-2">
-                                    <div class="relative h-[60px] w-[11ch] overflow-hidden">
-                                        <div class="absolute inset-0 text-primary-500">
-                                            <span class="fadeout-word-hero block">Effortless</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-1 block">Secure</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-2 block ">Reliable</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-3 block">Open Source</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-4 block">Effortless</span>
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated  text-neutral-900 relative z-10  bg-neutral-100 mx-auto max-w-[1400px]">
+                <div class="relative content md:px-12">
+                    <div class="pt-10 md:pt-20 flex flex-col md:flex-row justify-between items-start gap-8d">
+                        <div class="flex flex-col justify-start items-start">
+                            <div class="self-stretch p-2 md:p-4 lg:p-8 flex justify-center items-center">
+                                <div class="flex-1 justify-start ~text-2xl/5xl font-medium font-['Space_Grotesk']">
+                                    <div class="flex items-end gap-2">
+                                        <div class="relative h-[60px] w-[11ch] overflow-hidden">
+                                            <div class="absolute inset-0 text-primary-500">
+                                                <span class="fadeout-word-hero block">Effortless</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-1 block">Secure</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-2 block ">Reliable</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-3 block">Open Source</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-4 block">Effortless</span>
+                                            </div>
                                         </div>
+                                        <div class="h-[60px]">backup,</div>
                                     </div>
-                                    <div class="h-[60px]">backup,</div>
-                                </div>
-                                <div class="flex items-end gap-2">
-                                    <div class="relative h-[60px] w-[14ch] overflow-hidden">
-                                        <div class="absolute inset-0 text-primary-500">
-                                            <span class="fadeout-word-hero block">Instant</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-1 block">Granular</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-2 block">Cross-platform</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-3 block">Testable</span>
-                                            <span class="fade-word-hero opacity-0 fade-delay-4 block">Instant</span>
+                                    <div class="flex items-end gap-2">
+                                        <div class="relative h-[60px] w-[14ch] overflow-hidden">
+                                            <div class="absolute inset-0 text-primary-500">
+                                                <span class="fadeout-word-hero block">Instant</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-1 block">Granular</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-2 block">Cross-platform</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-3 block">Testable</span>
+                                                <span class="fade-word-hero opacity-0 fade-delay-4 block">Instant</span>
+                                            </div>
                                         </div>
+                                        <div class="h-[60px]">recovery.</div>
                                     </div>
-                                    <div class="h-[60px]">recovery.</div>
                                 </div>
                             </div>
-                        </div>
 
-                    </div>
-                    <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
-                        <div class="self-stretch justify-start ~text-base/xl font-medium font-['Space_Grotesk']">
-                            Plakar, enhanced data protection, and optimize storage cost.
                         </div>
-                        <a href="#"
-                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
-                        </a>
+                        <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
+                            <div class="self-stretch justify-start ~text-base/xl font-medium font-['Space_Grotesk']">
+                                Plakar, enhanced data protection, and optimize storage cost.
+                            </div>
+                            <a href="#"
+                               class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
+                                <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Screenshot section -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated  bg-neutral-100 text-neutral-900 relative mx-auto max-w-[1400px]">
-            <div class="content md:px-12">
-                <div class="relative flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
-                    <div class="w-5/6">
-                        {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
-                        <img src="{{ $dashboard1.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
-                    </div>
-                    {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
-                    <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-2/6">
-                        <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
-                             class="w-full h-full object-contain rounded-sm">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated  bg-neutral-100 text-neutral-900 relative mx-auto max-w-[1400px]">
+                <div class="content md:px-12">
+                    <div class="relative flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
+                        <div class="w-5/6">
+                            {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
+                            <img src="{{ $dashboard1.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
+                        </div>
+                        {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-2/6">
+                            <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
+                                 class="w-full h-full object-contain rounded-sm">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Sponsor section -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="bg-neutral-100 text-neutral-900 px-[0px]">
-            <div class="content border border-neutral-300">
-                <div class="flex flex-col md:flex-row justify-between  items-start md:items-center py-12 px-8 bg-neutral-100  gap-10 max-w-[1340px] mx-auto">
-                    <div class="flex-1 justify-start text-neutral-600 font-space self-center text-left">
-                        Trusted by businesses.
-                    </div>
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-2">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="bg-neutral-100 text-neutral-900 px-[0px]">
+                <div class="content border border-neutral-300">
+                    <div class="flex flex-col md:flex-row justify-between  items-start md:items-center py-12 px-8 bg-neutral-100  gap-10 max-w-[1340px] mx-auto">
+                        <div class="flex-1 justify-start text-neutral-600 font-space self-center text-left">
+                            Trusted by businesses.
+                        </div>
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-2">
 
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
-                                <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
-                                     class="w-full h-full object-contain rounded-sm">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
+                                    <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Holberton</div>
                             </div>
-                            <div class="">Holberton</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
-                                <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
-                                     class="w-full h-full object-contain rounded-sm">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
+                                    <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">République Française</div>
                             </div>
-                            <div class="">République Française</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
-                                <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
-                                     class="w-full h-full object-contain rounded-sm">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
+                                    <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Spark Angle</div>
                             </div>
-                            <div class="">Spark Angle</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
-                                <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
-                                     class="w-full h-full object-contain rounded-sm">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
+                                    <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Moose & Toom</div>
                             </div>
-                            <div class="">Moose & Toom</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
-                                <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
-                                     class="w-full h-full object-contain rounded-sm">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
+                                    <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Hoodie</div>
                             </div>
-                            <div class="">Hoodie</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Features section -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content py-0 md:py-20 px-6 md:px-12">
-                <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content py-0 md:py-20 px-6 md:px-12">
+                    <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
-                    <!-- Section Title -->
-                    <div class="w-full p-4 md:p-8 space-y-4">
-                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
-                            <span>//</span>
-                            <span>Powered by Kloset</span>
+                        <!-- Section Title -->
+                        <div class="w-full p-4 md:p-8 space-y-4">
+                            <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                                <span>//</span>
+                                <span>Powered by Kloset</span>
+                            </div>
+                            <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
+                                Built on top of the powerful Kloset.
+                            </h2>
                         </div>
-                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
-                            Built on top of the powerful Kloset.
-                        </h2>
-                    </div>
 
-                    <!-- Section Content -->
-                    <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
-                        <!-- Paragraph -->
-                        <p class="~text-base/xl font-medium font-['Space_Grotesk']">
-                            Kloset encapsulates each backup into a self-contained, immutable, structured data asset.
-                            Like a container that packages an app with everything it needs, Kloset packages data with context, structure, metadata, and integrity.
-                            You can inspect and query snapshots without restoration.
-                        </p>
-                        <a href="#"
-                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Kolset in action</span>
-                        </a>
-                    </div>
+                        <!-- Section Content -->
+                        <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
+                            <!-- Paragraph -->
+                            <p class="~text-base/xl font-medium font-['Space_Grotesk']">
+                                Kloset encapsulates each backup into a self-contained, immutable, structured data asset.
+                                Like a container that packages an app with everything it needs, Kloset packages data
+                                with context, structure, metadata, and integrity.
+                                You can inspect and query snapshots without restoration.
+                            </p>
+                            <a href="#"
+                               class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
+                                <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Kolset in action</span>
+                            </a>
+                        </div>
 
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Features carousel section -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content py-50 px-6 md:px-12 relative">
-                <div class="grid grid-cols-6 w-full">
-                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Effortless
-                        </div>
-                        <div>
-                            Implement a 3-2-1 strategy in a minute with our very intuitive commands.
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Secure
-                        </div>
-                        <div>
-                            Encrypted backups with industry-standard, (real) end-to-end protection.
-                            Plakar has been audited by independent experts.
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Reliable
-                        </div>
-                        <div>
-                            Continuous integrity checks ensure backups remain uncorrupted and restore-ready.
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Open Source
-                        </div>
-                        <div>
-                            Restore complete backups or select individual files.
-                        </div>
-                    </div>
-                </div>
-                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
-                        <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                        <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                            <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                Open Source
-                            </div>
-                            <div>
-                                Restore complete backups or select individual files.
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content py-50 px-6 md:px-12 relative">
+                    <div class="grid grid-cols-6 w-full">
+                        <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Effortless
+                                </div>
+                                <div>
+                                    Implement a 3-2-1 strategy in a minute with our very intuitive commands.
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Instant
+                        <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Secure
+                                </div>
+                                <div>
+                                    Encrypted backups with industry-standard, (real) end-to-end protection.
+                                    Plakar has been audited by independent experts.
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            Access your files in seconds via CLI or UI.
+                        <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Reliable
+                                </div>
+                                <div>
+                                    Continuous integrity checks ensure backups remain uncorrupted and restore-ready.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Open Source
+                                </div>
+                                <div>
+                                    Restore complete backups or select individual files.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Open Source
+                                </div>
+                                <div>
+                                    Restore complete backups or select individual files.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Instant
+                                </div>
+                                <div>
+                                    Access your files in seconds via CLI or UI.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                            <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                            <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                                <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                    Granular
+                                </div>
+                                <div>
+                                    Restore complete backups or select individual files.
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
-                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                            Granular
-                        </div>
-                        <div>
-                            Restore complete backups or select individual files.
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Universal Data Protection -->
-        <div class="section-wrapper bg-neutral-900" style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
-        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
-            <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+        <div class="section-wrapper bg-neutral-900"
+             style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+            <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
+                <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
 
-                <!-- Text Block -->
-                <div class="w-full md:w-2/6 p-4 md:p-8 space-y-6">
-                    <!-- Tagline -->
-                    <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
-                        <span>//</span>
-                        <span>Universal data protection</span>
+                    <!-- Text Block -->
+                    <div class="w-full md:w-2/6 p-4 md:p-8 space-y-6">
+                        <!-- Tagline -->
+                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                            <span>//</span>
+                            <span>Universal data protection</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
+                            Backup anything, store anywhere,<br/>
+                            restore anywhere.
+                        </h2>
+
+                        <!-- Paragraph -->
+                        <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                            From servers to clouds, from files to databases — one tool to protect it all.
+                        </p>
+
+                        <!-- CTA Button -->
+                        <a href="#"
+                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Plakar connectors</span>
+                        </a>
                     </div>
 
-                    <!-- Title -->
-                    <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
-                        Backup anything, store anywhere,<br/>
-                        restore anywhere.
-                    </h2>
+                    <!-- Illustration -->
+                    <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-center">
+                        {{ $schemaPlaceHolder := resources.Get "img/placeholder-schema-black.png" }}
+                        <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
+                             class="w-full h-auto object-contain rounded-sm">
+                    </div>
 
-                    <!-- Paragraph -->
-                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
-                        From servers to clouds, from files to databases — one tool to protect it all.
-                    </p>
-
-                    <!-- CTA Button -->
-                    <a href="#"
-                       class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
-                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Plakar connectors</span>
-                    </a>
                 </div>
-
-                <!-- Illustration -->
-                <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-center">
-                    {{ $schemaPlaceHolder := resources.Get "img/placeholder-schema-black.png" }}
-                    <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
-                         class="w-full h-auto object-contain rounded-sm">
-                </div>
-
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Open source section -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content px-[23px] md:px-12 py-4 md:py-20 flex flex-col lg:flex-row">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content px-[23px] md:px-12 py-4 md:py-20 flex flex-col lg:flex-row">
 
-                {{/* 1. Read image paths */}}
-                {{ $images := readDir "assets/img/contributors" }}
-                {{ $paths := slice }}
-                {{ range $images }}
-                    {{ $paths = $paths | append (printf "img/contributors/%s" .Name) }}
-                {{ end }}
-
-                {{/* 2. Fill with placeholders if needed */}}
-                {{ $needed := sub 48 (len $paths) }}
-                {{ if gt $needed 0 }}
-                    {{ range seq 1 $needed }}
-                        {{ $paths = $paths | append "img/placeholder-contributors.png" }}
+                    {{/* 1. Read image paths */}}
+                    {{ $images := readDir "assets/img/contributors" }}
+                    {{ $paths := slice }}
+                    {{ range $images }}
+                        {{ $paths = $paths | append (printf "img/contributors/%s" .Name) }}
                     {{ end }}
-                {{ end }}
 
-                {{/* 3. Shuffle (optional) */}}
-                {{ $shuffled := shuffle $paths }}
-
-                {{/* 4. Get left and right images */}}
-                {{ $leftImages := first 24 $shuffled }}
-                {{ $rightImages := first 24 (after 24 $shuffled) }}
-
-                <!-- Left Grid (4x6 images) -->
-                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
-                    <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
-                        {{ range $leftImages }}
-                            {{ with resources.Get . }}
-                                <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
-                                    <img src="{{ .RelPermalink }}" alt="Contributor" class="object-contain rounded-sm">
-                                </div>
-                            {{ end }}
+                    {{/* 2. Fill with placeholders if needed */}}
+                    {{ $needed := sub 48 (len $paths) }}
+                    {{ if gt $needed 0 }}
+                        {{ range seq 1 $needed }}
+                            {{ $paths = $paths | append "img/placeholder-contributors.png" }}
                         {{ end }}
-                    </div>
-                </div>
+                    {{ end }}
 
-                <!-- Center Text Content -->
-                <div class="lg:w-1/3 flex flex-col relative justify-center px-4 py-6">
-                    <!-- Background pattern -->
-                    <div class="absolute inset-0 z-0 grid grid-cols-11 w-full h-full pointer-events-none">
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
-                        <div class="w-full h-full bg-gradient-to-b from-orange-100 from 43% via-orange-400 via 55% to-orange-500"></div>
-                    </div>
-                    <div class="relative flex flex-col z-10 items-center text-center gap-6 justify-center">
-                        <div class="flex items-center gap-2 text-orange-400 text-sm font-medium font-dm-mono uppercase">
-                            <span>//</span>
-                            <span>Open Source standard forever</span>
+                    {{/* 3. Shuffle (optional) */}}
+                    {{ $shuffled := shuffle $paths }}
+
+                    {{/* 4. Get left and right images */}}
+                    {{ $leftImages := first 24 $shuffled }}
+                    {{ $rightImages := first 24 (after 24 $shuffled) }}
+
+                    <!-- Left Grid (4x6 images) -->
+                    <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                        <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
+                            {{ range $leftImages }}
+                                {{ with resources.Get . }}
+                                    <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                        <img src="{{ .RelPermalink }}" alt="Contributor"
+                                             class="object-contain rounded-sm">
+                                    </div>
+                                {{ end }}
+                            {{ end }}
                         </div>
-                        <h2 class="text-4xl font-medium font-space-grotesk leading-tight text-neutral-900">
-                            Open source
-                        </h2>
-                        <p class="text-lg font-medium font-space-text text-neutral-900 opacity-70 leading-relaxed">
-                            Plakar is built by a global community<br/>of engaged developers, SREs, sysadmins and platform engineers.
-                        </p>
-                        <a href="#"
-                           class="inline-flex items-center gap-3 px-5 py-4 bg-neutral-900 text-white rounded-sm">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span class="text-sm font-medium font-dm-mono uppercase">Start contributing</span>
-                        </a>
                     </div>
-                </div>
 
-                <!-- Right Grid (4x6 images) -->
-                <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
-                    <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
-                        {{ range $rightImages }}
-                            {{ with resources.Get . }}
-                                <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
-                                    <img src="{{ .RelPermalink }}" alt="Contributor"
-                                         class="object-contain rounded-sm">
-                                </div>
+                    <!-- Center Text Content -->
+                    <div class="lg:w-1/3 flex flex-col relative justify-center px-4 py-6">
+                        <!-- Background pattern -->
+                        <div class="absolute inset-0 z-0 grid grid-cols-11 w-full h-full pointer-events-none">
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
+                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 43% via-orange-400 via 55% to-orange-500"></div>
+                        </div>
+                        <div class="relative flex flex-col z-10 items-center text-center gap-6 justify-center">
+                            <div class="flex items-center gap-2 text-orange-400 text-sm font-medium font-dm-mono uppercase">
+                                <span>//</span>
+                                <span>Open Source standard forever</span>
+                            </div>
+                            <h2 class="text-4xl font-medium font-space-grotesk leading-tight text-neutral-900">
+                                Open source
+                            </h2>
+                            <p class="text-lg font-medium font-space-text text-neutral-900 opacity-70 leading-relaxed">
+                                Plakar is built by a global community<br/>of engaged developers, SREs, sysadmins and
+                                platform engineers.
+                            </p>
+                            <a href="#"
+                               class="inline-flex items-center gap-3 px-5 py-4 bg-neutral-900 text-white rounded-sm">
+                                <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span class="text-sm font-medium font-dm-mono uppercase">Start contributing</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right Grid (4x6 images) -->
+                    <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                        <div class="w-full grid grid-cols-6 grid-rows-4 lg:grid-cols-4 lg:grid-rows-6 lg:gap-3">
+                            {{ range $rightImages }}
+                                {{ with resources.Get . }}
+                                    <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                        <img src="{{ .RelPermalink }}" alt="Contributor"
+                                             class="object-contain rounded-sm">
+                                    </div>
+                                {{ end }}
                             {{ end }}
-                        {{ end }}
+                        </div>
                     </div>
-                </div>
 
-            </div>
-        </section>
+                </div>
+            </section>
         </div>
 
         <!-- Plakar journey section -->
-        <div class="section-wrapper bg-neutral-900" style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
-        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
-            <div class="content w-full py-0 md:py-20 px-6 md:px-12 flex flex-col gap-4 items-start">
+        <div class="section-wrapper bg-neutral-900"
+             style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+            <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
+                <div class="content w-full py-0 md:py-20 px-6 md:px-12 flex flex-col gap-4 items-start">
 
-                <!-- Text Block -->
-                <div class="w-full p-4 md:p-8 space-y-6">
-                    <!-- Tagline -->
-                    <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
-                        <span>//</span>
-                        <span>Your new data protection journey</span>
+                    <!-- Text Block -->
+                    <div class="w-full p-4 md:p-8 space-y-6">
+                        <!-- Tagline -->
+                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                            <span>//</span>
+                            <span>Your new data protection journey</span>
+                        </div>
+
+                        <!-- Title -->
+                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
+                            Backup, Duplicate, Check, Restore, Monitor<br/>
+                            all in one smooth flow.
+                        </h2>
+
+                        <!-- Paragraph -->
+                        <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                            Data backup is no longer a project — it's a seamless action that brings you peace of mind.
+                        </p>
+
+                        <!-- CTA Button -->
+                        <a href="#"
+                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Quick start</span>
+                        </a>
                     </div>
 
-                    <!-- Title -->
-                    <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
-                        Backup, Duplicate, Check, Restore, Monitor<br/>
-                        all in one smooth flow.
-                    </h2>
 
-                    <!-- Paragraph -->
-                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
-                        Data backup is no longer a project — it's a seamless action that brings you peace of mind.
-                    </p>
+                    <!-- Tabs -->
+                    <div class="terminal-tabs w-full md:p-8 flex flex-col">
+                        <!-- Tab Buttons -->
+                        <div class="flex flex-wrap" id="tab-buttons">
+                            <button class="tab-button group active-tab" data-tab="backup">
+                                <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span>Backup</span>
+                            </button>
+                            <button class="tab-button group" data-tab="duplicate">
+                                <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span>Duplicate</span>
+                            </button>
+                            <button class="tab-button group" data-tab="check">
+                                <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span>Check</span>
+                            </button>
+                            <button class="tab-button group" data-tab="restore">
+                                <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span>Restore</span>
+                            </button>
+                            <button class="tab-button group" data-tab="monitor">
+                                <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span>Monitor</span>
+                            </button>
+                        </div>
 
-                    <!-- CTA Button -->
-                    <a href="#"
-                       class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-100 text-neutral-900 rounded-sm">
-                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Quick start</span>
-                    </a>
+                        <!-- Tab Panels -->
+                        <div class="panels">
+                            <div class="tab-panel" id="tab-backup">
+                                <div class="terminal">
+                                    <div class="terminal-body">
+                                        <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
+                                                class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups create</div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups backup /etc</div>
+                                        <div class="t-line">2025-04-08T10:12:37Z info: backup: created unsigned snapshot
+                                            003affd1 of size 9.8 MB in 262.229062ms
+                                        </div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups ls</div>
+                                        <div class="t-line">2025-04-08T10:12:37Z 003affd1 9.8 MB 0s /etc</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-panel hidden" id="tab-duplicate">
+                                <div class="terminal">
+                                    <div class="terminal-header">
+                                        <div class="terminal-lights">
+                                            <div class="terminal-light-red"></div>
+                                            <div class="terminal-light-yellow"></div>
+                                            <div class="terminal-light-green"></div>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="terminal-log-line"># Resilience strategy commands here...</div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="tab-panel hidden" id="tab-check">
+                                <div class="terminal">
+                                    <div class="terminal-header">
+                                        <div class="terminal-lights">
+                                            <div class="terminal-light-red"></div>
+                                            <div class="terminal-light-yellow"></div>
+                                            <div class="terminal-light-green"></div>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="terminal-log-line"># Check process output...</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-panel hidden" id="tab-restore">
+                                <div class="terminal">
+                                    <div class="terminal-header">
+                                        <div class="terminal-lights">
+                                            <div class="terminal-light-red"></div>
+                                            <div class="terminal-light-yellow"></div>
+                                            <div class="terminal-light-green"></div>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="terminal-log-line"># Restore example output...</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-panel hidden" id="tab-monitor">
+                                <div class="terminal">
+                                    <div class="terminal-header">
+                                        <div class="terminal-lights">
+                                            <div class="terminal-light-red"></div>
+                                            <div class="terminal-light-yellow"></div>
+                                            <div class="terminal-light-green"></div>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <div class="terminal-log-line"># Alerting configuration and examples...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-
-
-                <!-- Tabs -->
-                <div class="terminal-tabs w-full md:p-8 flex flex-col">
-                    <!-- Tab Buttons -->
-                    <div class="flex flex-wrap" id="tab-buttons">
-                        <button class="tab-button group active-tab" data-tab="backup">
-                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span>Backup</span>
-                        </button>
-                        <button class="tab-button group" data-tab="duplicate">
-                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span>Duplicate</span>
-                        </button>
-                        <button class="tab-button group" data-tab="check">
-                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span>Check</span>
-                        </button>
-                        <button class="tab-button group" data-tab="restore">
-                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span>Restore</span>
-                        </button>
-                        <button class="tab-button group" data-tab="monitor">
-                            <span class="w-[20px] h-[20px] hidden group-[.active-tab]:block">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span>Monitor</span>
-                        </button>
-                    </div>
-
-                    <!-- Tab Panels -->
-                    <div class="panels">
-                        <div class="tab-panel" id="tab-backup">
-                            <div class="terminal">
-                                <div class="terminal-body">
-                                    <div class="t-line">{{$prompt}}export PLAKAR_PASSPHRASE=-HelloWorld- <span class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
-                                    <div class="t-line">{{$prompt}}plakar at ~/backups create</div>
-                                    <div class="t-line">{{$prompt}}plakar at ~/backups backup /etc</div>
-                                    <div class="t-line">2025-04-08T10:12:37Z info: backup: created unsigned snapshot 003affd1 of size 9.8 MB in 262.229062ms</div>
-                                    <div class="t-line">{{$prompt}}plakar at ~/backups ls</div>
-                                    <div class="t-line">2025-04-08T10:12:37Z   003affd1    9.8 MB        0s /etc</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-panel hidden" id="tab-duplicate">
-                            <div class="terminal">
-                                <div class="terminal-header">
-                                    <div class="terminal-lights">
-                                        <div class="terminal-light-red"></div>
-                                        <div class="terminal-light-yellow"></div>
-                                        <div class="terminal-light-green"></div>
-                                    </div>
-                                </div>
-                                <div class="terminal-body">
-                                    <div class="terminal-log-line"># Resilience strategy commands here...</div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="tab-panel hidden" id="tab-check">
-                            <div class="terminal">
-                                <div class="terminal-header">
-                                    <div class="terminal-lights">
-                                        <div class="terminal-light-red"></div>
-                                        <div class="terminal-light-yellow"></div>
-                                        <div class="terminal-light-green"></div>
-                                    </div>
-                                </div>
-                                <div class="terminal-body">
-                                    <div class="terminal-log-line"># Check process output...</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-panel hidden" id="tab-restore">
-                            <div class="terminal">
-                                <div class="terminal-header">
-                                    <div class="terminal-lights">
-                                        <div class="terminal-light-red"></div>
-                                        <div class="terminal-light-yellow"></div>
-                                        <div class="terminal-light-green"></div>
-                                    </div>
-                                </div>
-                                <div class="terminal-body">
-                                    <div class="terminal-log-line"># Restore example output...</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-panel hidden" id="tab-monitor">
-                            <div class="terminal">
-                                <div class="terminal-header">
-                                    <div class="terminal-lights">
-                                        <div class="terminal-light-red"></div>
-                                        <div class="terminal-light-yellow"></div>
-                                        <div class="terminal-light-green"></div>
-                                    </div>
-                                </div>
-                                <div class="terminal-body">
-                                    <div class="terminal-log-line"># Alerting configuration and examples...</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Testimonials -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content px-6 md:px-12 py-4 md:py-20">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content px-6 md:px-12 py-4 md:py-20">
 
-                <!-- Title and Subtitle -->
-                <div class="w-full text-center">
-                    <h2 class="text-4xl font-medium font-space-grotesk leading-tight">World-class engineers use
-                        Plakar</h2>
-                    <p class="text-lg font-medium font-space-text text-neutral-600 mt-4">Trusted by great teams.</p>
-                </div>
-
-                <!-- Logos -->
-                <div class="w-full py-10 px-8 gap-10">
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-center md:items-center md:gap-2">
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
-                                <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Holberton</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
-                                <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">République Française</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
-                                <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Spark Angle</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
-                                <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Moose & Toom</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
-                                <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Hoodie</div>
-                        </div>
+                    <!-- Title and Subtitle -->
+                    <div class="w-full text-center">
+                        <h2 class="text-4xl font-medium font-space-grotesk leading-tight">World-class engineers use
+                            Plakar</h2>
+                        <p class="text-lg font-medium font-space-text text-neutral-600 mt-4">Trusted by great teams.</p>
                     </div>
-                </div>
 
-                <!-- Testimonial Grid Wrapper -->
-                <div class="flex flex-col lg:flex-row border-t border-b border-l bg-border-neutral-300 text-sm md:text-base text-neutral-900">
-
-                    <!-- Left Column (1/3 width) -->
-                    <div class="lg:w-1/3 w-full p-6 bg-neutral-100 border-b lg:border-b-0 lg:border-r bg-border-neutral-300 flex flex-col justify-start gap-6 content-box">
-                        <p>
-                            I've had my mind blown using Plakar with Claude 3.5 Sonnet. [...] I was able to go from idea
-                            to running experiment code in half an hour—it was really easy and fun.
-                        </p>
-                        <div class="flex items-center gap-3">
-                            <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40" alt="José Valim"/>
-                            <div class="flex flex-col">
-                                <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
-                                <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                    <!-- Logos -->
+                    <div class="w-full py-10 px-8 gap-10">
+                        <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-center md:items-center md:gap-2">
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
+                                    <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Holberton</div>
+                            </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
+                                    <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">République Française</div>
+                            </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
+                                    <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Spark Angle</div>
+                            </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
+                                    <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Moose & Toom</div>
+                            </div>
+                            <div class="flex justify-start items-center gap-2">
+                                <div class="w-10">
+                                    {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
+                                    <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
+                                         class="w-full h-full object-contain rounded-sm">
+                                </div>
+                                <div class="">Hoodie</div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Grid (2/3 width, 4x4 grid) -->
-                    <div class="lg:w-2/3 w-full grid grid-cols-2 grid-rows-2  flex">
-                        <!-- Repeat for each testimonial -->
-                        <div class="p-6 bg-neutral-100  border-b border-r bg-border-neutral-300 flex flex-col justify-between gap-6 ">
+                    <!-- Testimonial Grid Wrapper -->
+                    <div class="flex flex-col lg:flex-row border-t border-b border-l bg-border-neutral-300 text-sm md:text-base text-neutral-900">
+
+                        <!-- Left Column (1/3 width) -->
+                        <div class="lg:w-1/3 w-full p-6 bg-neutral-100 border-b lg:border-b-0 lg:border-r bg-border-neutral-300 flex flex-col justify-start gap-6 content-box">
                             <p>
-                                Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were added,
-                                Plakar has all of the features I could ask for in an editor.
+                                I've had my mind blown using Plakar with Claude 3.5 Sonnet. [...] I was able to go from
+                                idea
+                                to running experiment code in half an hour—it was really easy and fun.
                             </p>
                             <div class="flex items-center gap-3">
                                 <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40" alt="José Valim"/>
@@ -856,169 +882,197 @@
                             </div>
                         </div>
 
-                        <!-- Duplicate the above card 3 more times for the full 2x2 grid -->
-                        <div class="p-6 bg-neutral-100 border-b bg-border-neutral-300 flex flex-col justify-between gap-6">
-                            <p>
-                                Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were added,
-                                Plakar has all the features I could ask for in an editor.
-                            </p>
-                            <div class="flex items-center gap-3">
-                                <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40" alt="José Valim"/>
-                                <div class="flex flex-col">
-                                    <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
-                                    <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                        <!-- Right Grid (2/3 width, 4x4 grid) -->
+                        <div class="lg:w-2/3 w-full grid grid-cols-2 grid-rows-2  flex">
+                            <!-- Repeat for each testimonial -->
+                            <div class="p-6 bg-neutral-100  border-b border-r bg-border-neutral-300 flex flex-col justify-between gap-6 ">
+                                <p>
+                                    Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were
+                                    added,
+                                    Plakar has all of the features I could ask for in an editor.
+                                </p>
+                                <div class="flex items-center gap-3">
+                                    <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40"
+                                         alt="José Valim"/>
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
+                                        <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="p-6 bg-neutral-100 border-r bg-border-neutral-300 flex flex-col justify-between gap-6">
-                            <p>
-                                Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were added,
-                                Plakar has all of the features I could ask for in an editor.
-                            </p>
-                            <div class="flex items-center gap-3">
-                                <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40" alt="José Valim"/>
-                                <div class="flex flex-col">
-                                    <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
-                                    <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                            <!-- Duplicate the above card 3 more times for the full 2x2 grid -->
+                            <div class="p-6 bg-neutral-100 border-b bg-border-neutral-300 flex flex-col justify-between gap-6">
+                                <p>
+                                    Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were
+                                    added,
+                                    Plakar has all the features I could ask for in an editor.
+                                </p>
+                                <div class="flex items-center gap-3">
+                                    <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40"
+                                         alt="José Valim"/>
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
+                                        <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="p-6 bg-neutral-100 flex flex-col justify-between gap-6">
-                            <p>
-                                Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were added,
-                                Plakar has all of the features I could ask for in an editor.
-                            </p>
-                            <div class="flex items-center gap-3">
-                                <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40" alt="José Valim"/>
-                                <div class="flex flex-col">
-                                    <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
-                                    <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                            <div class="p-6 bg-neutral-100 border-r bg-border-neutral-300 flex flex-col justify-between gap-6">
+                                <p>
+                                    Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were
+                                    added,
+                                    Plakar has all of the features I could ask for in an editor.
+                                </p>
+                                <div class="flex items-center gap-3">
+                                    <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40"
+                                         alt="José Valim"/>
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
+                                        <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
+                            <div class="p-6 bg-neutral-100 flex flex-col justify-between gap-6">
+                                <p>
+                                    Yes! Now I can have shortcuts to run and debug tests. Ever since snippets were
+                                    added,
+                                    Plakar has all of the features I could ask for in an editor.
+                                </p>
+                                <div class="flex items-center gap-3">
+                                    <img class="w-10 h-10 rounded-xs" src="https://placehold.co/40x40"
+                                         alt="José Valim"/>
+                                    <div class="flex flex-col">
+                                        <span class="text-base font-medium font-space-text text-zinc-900">José Valim</span>
+                                        <span class="text-sm font-medium font-dm-mono uppercase text-neutral-400">Creator of Elixir</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Section: Explore UI -->
-        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
 
-                <!-- Text Block -->
-                <div class="w-full md:w-1/2 px-4 md:px-8 space-y-6 font-mono">
-                    <!-- Tagline + Title -->
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium uppercase">
-                            <span>//</span>
-                            <span>Browse your data from anywhere</span>
+                    <!-- Text Block -->
+                    <div class="w-full md:w-1/2 px-4 md:px-8 space-y-6 font-mono">
+                        <!-- Tagline + Title -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2 text-primary-500 text-sm font-medium uppercase">
+                                <span>//</span>
+                                <span>Browse your data from anywhere</span>
+                            </div>
+                            <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight">
+                                Browse, search, analyse your backup contents<br/>with Plakar UI
+                            </h2>
                         </div>
-                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight">
-                            Browse, search, analyse your backup contents<br/>with Plakar UI
-                        </h2>
+
+                        <!-- Description -->
+                        <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                            A fast, intuitive interface to explore your data — no extraction needed.
+                        </p>
+
+                        <!-- CTA -->
+                        <a href="#"
+                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-100 rounded-sm">
+                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">See a demo</span>
+                        </a>
                     </div>
 
-                    <!-- Description -->
-                    <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
-                        A fast, intuitive interface to explore your data — no extraction needed.
-                    </p>
-
-                    <!-- CTA -->
-                    <a href="#"
-                       class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-100 rounded-sm">
-                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">See a demo</span>
-                    </a>
+                    <!-- Image Block -->
+                    <div class="w-full lg:w-1/2 p-0 lg:pl-4 flex justify-end">
+                        {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
+                        <img src="{{ $dashboard2.RelPermalink }}" alt="Plakar UI preview"
+                             class="w-full h-auto object-contain rounded-sm">
+                    </div>
                 </div>
-
-                <!-- Image Block -->
-                <div class="w-full lg:w-1/2 p-0 lg:pl-4 flex justify-end">
-                    {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
-                    <img src="{{ $dashboard2.RelPermalink }}" alt="Plakar UI preview"
-                         class="w-full h-auto object-contain rounded-sm">
-                </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Footer menu -->
-        <div class="section-wrapper bg-primary-500" style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
-        <section class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
-            <div class="content px-6 md:px-12 py-8">
-                <div class="grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
+        <div class="section-wrapper bg-primary-500"
+             style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+            <section class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
+                <div class="content px-6 md:px-12 py-8">
+                    <div class="grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
 
-                    <!-- Pages (col-start-1 col-span-1 @md) -->
-                    <div class="col-span-1 md:col-start-1 md:col-span-2 flex flex-col gap-3 pl-4">
-                        <h3 class="font-semibold text-base">Pages</h3>
-                        <ul class="flex flex-col gap-1">
-                            <li><a href="#" class="hover:underline">Home</a></li>
-                            <li><a href="#" class="hover:underline">Solutions</a></li>
-                            <li><a href="#" class="hover:underline">Engineering</a></li>
-                            <li><a href="#" class="hover:underline">Connectors</a></li>
-                            <li><a href="#" class="hover:underline">Pricing</a></li>
-                        </ul>
+                        <!-- Pages (col-start-1 col-span-1 @md) -->
+                        <div class="col-span-1 md:col-start-1 md:col-span-2 flex flex-col gap-3 pl-4">
+                            <h3 class="font-semibold text-base">Pages</h3>
+                            <ul class="flex flex-col gap-1">
+                                <li><a href="#" class="hover:underline">Home</a></li>
+                                <li><a href="#" class="hover:underline">Solutions</a></li>
+                                <li><a href="#" class="hover:underline">Engineering</a></li>
+                                <li><a href="#" class="hover:underline">Connectors</a></li>
+                                <li><a href="#" class="hover:underline">Pricing</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Solutions (col-start-2 @md) -->
+                        <div class="col-span-1 md:col-start-3 md:col-span-2 flex flex-col gap-3 pl-4">
+                            <h3 class="font-semibold text-base">Solutions</h3>
+                            <ul class="flex flex-col gap-1">
+                                <li><a href="#" class="hover:underline">Use case 1</a></li>
+                                <li><a href="#" class="hover:underline">Use case 2</a></li>
+                                <li><a href="#" class="hover:underline">Use case 3</a></li>
+                                <li><a href="#" class="hover:underline">Use case 4</a></li>
+                                <li><a href="#" class="hover:underline">Use case 5</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Resources (col-start-5 @md) -->
+                        <div class="col-span-1 md:col-start-5 md:col-span-2 flex flex-col gap-3 pl-4">
+                            <h3 class="font-semibold text-base">Resources</h3>
+                            <ul class="flex flex-col gap-1">
+                                <li><a href="#" class="hover:underline">Articles</a></li>
+                                <li><a href="#" class="hover:underline">Insights</a></li>
+                            </ul>
+                        </div>
+
                     </div>
-
-                    <!-- Solutions (col-start-2 @md) -->
-                    <div class="col-span-1 md:col-start-3 md:col-span-2 flex flex-col gap-3 pl-4">
-                        <h3 class="font-semibold text-base">Solutions</h3>
-                        <ul class="flex flex-col gap-1">
-                            <li><a href="#" class="hover:underline">Use case 1</a></li>
-                            <li><a href="#" class="hover:underline">Use case 2</a></li>
-                            <li><a href="#" class="hover:underline">Use case 3</a></li>
-                            <li><a href="#" class="hover:underline">Use case 4</a></li>
-                            <li><a href="#" class="hover:underline">Use case 5</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Resources (col-start-5 @md) -->
-                    <div class="col-span-1 md:col-start-5 md:col-span-2 flex flex-col gap-3 pl-4">
-                        <h3 class="font-semibold text-base">Resources</h3>
-                        <ul class="flex flex-col gap-1">
-                            <li><a href="#" class="hover:underline">Articles</a></li>
-                            <li><a href="#" class="hover:underline">Insights</a></li>
-                        </ul>
-                    </div>
-
                 </div>
-            </div>
-        </section>
+            </section>
         </div>
 
         <!-- Footer Bottom -->
-        <div class="section-wrapper bg-primary-500" style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
-        <footer class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
-            <div class="content px-4 md:px-12 pt-6 space-y-6">
+        <div class="section-wrapper bg-primary-500"
+             style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+            <footer class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
+                <div class="content px-4 md:px-12 pt-6 space-y-6">
 
-                <!-- Footer Meta Info -->
-                <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm border-t ">
+                    <!-- Footer Meta Info -->
+                    <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm border-t ">
 
-                    <!-- Left Column: Copyright + Rights -->
-                    <div class="flex flex-col gap-1 md:col-span-2 md:col-start-1 pl-2 text-center md:text-left">
-                        <div>© Plakar 2025</div>
-                        <div>All rights reserved</div>
+                        <!-- Left Column: Copyright + Rights -->
+                        <div class="flex flex-col gap-1 md:col-span-2 md:col-start-1 pl-2 text-center md:text-left">
+                            <div>© Plakar 2025</div>
+                            <div>All rights reserved</div>
+                        </div>
+
+                        <div class="flex flex-col col-span-2 col-start-2 md:col-span-1 md:col-start-5 justify-center md:justify-start text-center md:text-left gap-1">
+                            <span>Cookies</span>
+                            <span>Legal notice</span>
+                        </div>
                     </div>
 
-                    <div class="flex flex-col col-span-2 col-start-2 md:col-span-1 md:col-start-5 justify-center md:justify-start text-center md:text-left gap-1">
-                        <span>Cookies</span>
-                        <span>Legal notice</span>
+                    <!-- Footer Illustration -->
+                    <div class="overflow-hidden">
+                        {{ $footerBanner := resources.Get .Site.Params.footerBanner }}
+                        <img src="{{ $footerBanner.RelPermalink }}" alt="Footer banner"
+                             class="w-full h-auto object-contain rounded-sm">
                     </div>
-                </div>
 
-                <!-- Footer Illustration -->
-                <div class="overflow-hidden">
-                    {{ $footerBanner := resources.Get .Site.Params.footerBanner }}
-                    <img src="{{ $footerBanner.RelPermalink }}" alt="Footer banner"
-                         class="w-full h-auto object-contain rounded-sm">
                 </div>
-
-            </div>
-        </footer>
+            </footer>
         </div>
 
         <!-- Boiler Plate Sections -->
