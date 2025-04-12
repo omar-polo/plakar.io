@@ -81,6 +81,23 @@
     opacity: 1 !important;
 }
 
+@layer utilities {
+    .section-wrapper {
+        @apply relative w-full;
+        background-image: repeating-linear-gradient(
+                315deg,
+                var(--pattern-fg) 0,
+                var(--pattern-fg) 1px,
+                transparent 1px,
+                transparent 50%
+        );
+        background-repeat: repeat;
+        background-size: 10px 10px; /* ou autre valeur selon la densité souhaitée */
+        background-attachment: fixed;
+    }
+}
+
+
 .section-decorated {
     position: relative;
     z-index: 10;
@@ -185,19 +202,6 @@
     font-style: normal;
 }
 
-#horizontal-carousel {
-}
-
-.horizontal-carousel__content {
-    display: flex;
-}
-
-.horizontal-carousel__item {
-    border: 1px solid #efefef;
-}
-.horizontal-carousel__item:not(:last-child) {
-
-}
 
 @layer components {
     .terminal-tabs .tab-button {

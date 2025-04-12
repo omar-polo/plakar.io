@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="light">
+<html class="light ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,7 +21,7 @@
 
     </style>
 </head>
-<body class="overflow-x-hidden">
+<body class="overflow-x-hidden ">
 
 {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
 {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
@@ -31,10 +31,11 @@
 
 {{ $prompt := "<span class=\"t-prompt\">plakar:</span><span class=\"t-path\">~ </span>" | safeHTML }}
 
-<div class="relative w-full">
-    <div class="relative z-10 max-w-[1400px] mx-auto bg-neutral-100 border border-neutral-300">
+<div class="relative w-full plakarium-background bg-neutral-100">
+    <div class="relative z-10  mx-auto bg-neutral-100 ">
         <!-- Fixed Navbar -->
-        <header class="fixed flex px-2 md:px-4 top-0 left-0 right-0 w-full mx-auto max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300 py-4">
+
+        <header class="fixed flex px-2 md:px-4 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300 py-4">
             <div class="flex mx-auto w-full items-center justify-between">
                 <!-- Logo -->
                 <a href="/" class="md:w-28 w-24">
@@ -131,12 +132,17 @@
         </header>
 
         <!-- Navbar placeholder -->
-        <div class="h-12 md:h-16 my-1 md:my-0.5"></div>
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated  text-neutral-900 relative z-10  mx-auto bg-neutral-100 max-w-[1400px]">
+                <div class="content md:px-12 h-12 md:h-16 ">
+                </div>
+            </section>
+        </div>
 
         <!-- Title -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content md:px-12">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated  text-neutral-900 relative z-10  bg-neutral-100 mx-auto max-w-[1400px]">
+            <div class="relative content md:px-12">
                 <div class="pt-10 md:pt-20 flex flex-col md:flex-row justify-between items-start gap-8d">
                     <div class="flex flex-col justify-start items-start">
                         <div class="self-stretch p-2 md:p-4 lg:p-8 flex justify-center items-center">
@@ -182,10 +188,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Screenshot section -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated  bg-neutral-100 text-neutral-900 relative mx-auto max-w-[1400px]">
             <div class="content md:px-12">
                 <div class="relative flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
                     <div class="w-5/6">
@@ -200,12 +207,13 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Sponsor section -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900 px-[0px]"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content">
-                <div class="flex flex-col md:flex-row justify-between  items-start md:items-center py-12 px-8 bg-neutral-100 border border-neutral-300 gap-10 ">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="bg-neutral-100 text-neutral-900 px-[0px]">
+            <div class="content border border-neutral-300">
+                <div class="flex flex-col md:flex-row justify-between  items-start md:items-center py-12 px-8 bg-neutral-100  gap-10 max-w-[1340px] mx-auto">
                     <div class="flex-1 justify-start text-neutral-600 font-space self-center text-left">
                         Trusted by businesses.
                     </div>
@@ -255,10 +263,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Features section -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content py-0 md:py-20 px-6 md:px-12">
                 <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
@@ -291,90 +300,99 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Features carousel section -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <div class="content py-50 px-12 relative">
-                <section id="horizontal-carousel">
-                    <div class="container text-neutral-400 text-lg font-space-text py-[50px]">
-                        <div class="horizontal-carousel__content" style="width: calc(200%)">
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Effortless
-                                    </div>
-                                    <div>
-                                        Implement a 3-2-1 strategy in a minute with our very intuitive commands.
-                                    </div>
-                                </div>
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content py-50 px-6 md:px-12 relative">
+                <div class="grid grid-cols-6 w-full">
+                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Effortless
+                        </div>
+                        <div>
+                            Implement a 3-2-1 strategy in a minute with our very intuitive commands.
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Secure
+                        </div>
+                        <div>
+                            Encrypted backups with industry-standard, (real) end-to-end protection.
+                            Plakar has been audited by independent experts.
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Reliable
+                        </div>
+                        <div>
+                            Continuous integrity checks ensure backups remain uncorrupted and restore-ready.
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Open Source
+                        </div>
+                        <div>
+                            Restore complete backups or select individual files.
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-span-6 md:col-span-2 bg-white border-r border-t border-b text-neutral-400">
+                        <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                        <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                            <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                                Open Source
                             </div>
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Secure
-                                    </div>
-                                    <div>
-                                        Encrypted backups with industry-standard, (real) end-to-end protection.
-                                        Plakar has been audited by independent experts.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Reliable
-                                    </div>
-                                    <div>
-                                        Continuous integrity checks ensure backups remain uncorrupted and restore-ready.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Open Source
-                                    </div>
-                                    <div>
-                                        Restore complete backups or select individual files.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Instant
-                                    </div>
-                                    <div>
-                                        Access your files in seconds via CLI or UI.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="horizontal-carousel__item w-1/6 bg-white border-r border-t border-b text-neutral-400">
-                                <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
-                                <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
-                                    <div class="text-zinc-900 text-3xl font-medium font-grotesk">
-                                        Granular
-                                    </div>
-                                    <div>
-                                        Restore complete backups or select individual files.
-                                    </div>
-                                </div>
+                            <div>
+                                Restore complete backups or select individual files.
                             </div>
                         </div>
                     </div>
-                </section>
+                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Instant
+                        </div>
+                        <div>
+                            Access your files in seconds via CLI or UI.
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-span-6 md:col-span-3 bg-white border-r border-t border-b text-neutral-400">
+                    <div class="size-28 bg-gradient-to-r from-orange-200 to-orange-400 inline-flex justify-center items-center gap-2 overflow-hidden"></div>
+                    <div class="self-stretch p-8 flex flex-col justify-start items-start gap-2">
+                        <div class="text-zinc-900 text-3xl font-medium font-grotesk">
+                            Granular
+                        </div>
+                        <div>
+                            Restore complete backups or select individual files.
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
         </section>
+        </div>
 
         <!-- Universal Data Protection -->
-        <section class="section-decorated bg-neutral-900 text-neutral-100"
-                 style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <div class="section-wrapper bg-neutral-900" style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
             <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
 
                 <!-- Text Block -->
@@ -413,10 +431,11 @@
 
             </div>
         </section>
+        </div>
 
         <!-- Open source section -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content px-[23px] md:px-12 py-4 md:py-20 flex flex-col lg:flex-row">
 
                 {{/* 1. Read image paths */}}
@@ -505,10 +524,11 @@
 
             </div>
         </section>
+        </div>
 
         <!-- Plakar journey section -->
-        <section class="section-decorated bg-neutral-900 text-neutral-100"
-                 style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <div class="section-wrapper bg-neutral-900" style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
             <div class="content w-full py-0 md:py-20 px-6 md:px-12 flex flex-col gap-4 items-start">
 
                 <!-- Text Block -->
@@ -570,7 +590,7 @@
                         <div class="tab-panel" id="tab-backup">
                             <div class="terminal">
                                 <div class="terminal-body">
-                                    <div class="t-line">{{$prompt}}export PLAKAR_PASSPHRASE=HelloWorld! <span class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
+                                    <div class="t-line">{{$prompt}}export PLAKAR_PASSPHRASE=-HelloWorld- <span class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
                                     <div class="t-line">{{$prompt}}plakar at ~/backups create</div>
                                     <div class="t-line">{{$prompt}}plakar at ~/backups backup /etc</div>
                                     <div class="t-line">2025-04-08T10:12:37Z info: backup: created unsigned snapshot 003affd1 of size 9.8 MB in 262.229062ms</div>
@@ -645,10 +665,11 @@
 
             </div>
         </section>
+        </div>
 
         <!-- Testimonials -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content px-6 md:px-12 py-4 md:py-20">
 
                 <!-- Title and Subtitle -->
@@ -786,10 +807,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Section: Explore UI -->
-        <section class="section-decorated bg-neutral-100 text-neutral-900"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <div class="section-wrapper bg-neutral-100" style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
 
                 <!-- Text Block -->
@@ -826,10 +848,11 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Footer menu -->
-        <section class="section-decorated bg-primary-500 text-neutral-100"
-                 style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+        <div class="section-wrapper bg-primary-500" style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+        <section class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
             <div class="content px-6 md:px-12 py-8">
                 <div class="grid grid-cols-2 md:grid-cols-6 gap-6 text-sm">
 
@@ -869,14 +892,15 @@
                 </div>
             </div>
         </section>
+        </div>
 
         <!-- Footer Bottom -->
-        <footer class="section-decorated bg-primary-500 text-neutral-100"
-                style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
-            <div class="content border-t px-4 md:px-12 pt-6 space-y-6">
+        <div class="section-wrapper bg-primary-500" style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
+        <footer class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
+            <div class="content px-4 md:px-12 pt-6 space-y-6">
 
                 <!-- Footer Meta Info -->
-                <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm">
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-sm border-t ">
 
                     <!-- Left Column: Copyright + Rights -->
                     <div class="flex flex-col gap-1 md:col-span-2 md:col-start-1 pl-2 text-center md:text-left">
@@ -899,6 +923,7 @@
 
             </div>
         </footer>
+        </div>
 
         <!-- Boiler Plate Sections -->
         <!--
@@ -927,25 +952,6 @@
     </div>
 </div>
 
-<!-- Carrousel -->
-<script>
-    window.addEventListener('load', () => {
-        const section_2 = document.getElementById("horizontal-carousel");
-        let box_items = gsap.utils.toArray(".horizontal-carousel__item");
-
-        gsap.to(box_items, {
-            xPercent: -100 * (box_items.length - 2),
-            ease: "sine.out",
-            scrollTrigger: {
-                trigger: section_2,
-                pin: true,
-                scrub: 3,
-                snap: 1 / (box_items.length - 1),
-                end: "+=" + section_2.offsetWidth
-            }
-        });
-    });
-</script>
 
 <script>
     var menuButton = document.getElementById("menu-button");
