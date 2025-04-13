@@ -35,8 +35,8 @@
     <div class="relative z-10  mx-auto bg-neutral-100 ">
         <!-- Fixed Navbar -->
 
-        <header class="fixed flex px-2 md:px-4 py-2 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300">
-            <div class="flex mx-auto w-full items-center justify-between">
+        <header id="site-header" class="fixed flex px-2 md:px-4 py-2 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300">
+            <div class="flex mx-auto w-full items-center justify-between relative">
                 <!-- Logo -->
                 <a href="/" class="md:w-28 w-24">
                     <span class="block dark:hidden">
@@ -48,12 +48,12 @@
                 </a>
 
                 <!-- Navigation links (hidden on small screens) -->
-                <nav class="hidden md:flex space-x-8 relative">
-                    <div class="group/btn relative">
-                        <button id="solution-btn"
-                                class="px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                <nav id="main-nav" class="hidden md:flex space-x-8 relative">
+                    <!-- Solutions -->
+                    <div class="group/btn relative dropdown-group">
+                        <button class="dropdown-btn px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
                             Solution
-                            <span id="solution-chevron">
+                            <span class="dropdown-chevron">
                                 <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                                      fill="currentColor">
                                     <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
@@ -61,9 +61,9 @@
                              </span>
                         </button>
 
-                        <!-- Dropdown menu -->
-                        <div id="solution-dropdown" class="absolute left-0 top-full pt-2 hidden z-50">
-                            <div class="w-[1000px] p-8 bg-white shadow-lg flex gap-4 border border-neutral-200 rounded-sm">
+                        <!-- Dropdown menu Solution -->
+                        <div class="dropdown-menu absolute top-full pt-2 hidden z-50">
+                            <div class="p-8 bg-white shadow-lg flex gap-4 border border-neutral-200 rounded-sm">
 
                                 <!-- USE CASES -->
                                 <div class="w-1/3 flex flex-col gap-6">
@@ -172,9 +172,142 @@
                         </div>
 
                     </div>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Engineering</a>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Connectors</a>
-                    <a href="#" class="text-gray-700 font-space-text hover:text-blue-600">Pricing</a>
+
+                    <!-- Engineering -->
+                    <div class="group/btn relative dropdown-group">
+                        <button class="dropdown-btn px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                            Engineering
+                            <span class="dropdown-chevron">
+                                <svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                     fill="currentColor">
+                                    <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
+                                </svg>
+                             </span>
+                        </button>
+
+                        <!-- Dropdown menu Engineering -->
+                        <div class="dropdown-menu absolute top-full pt-2 hidden z-50">
+                            <div class="p-8 bg-white shadow-lg flex gap-4 border border-neutral-200 rounded-sm">
+
+                                <!-- USE CASES -->
+                                <div class="w-1/3 flex flex-col gap-6">
+                                    <div class="flex gap-1 text-primary-500 uppercase font-dm-mono text-sm">
+                                        <span>//</span>
+                                        <span>Use cases</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.46257 4.43262C7.21556 2.91688 9.5007 2 12 2C17.5228 2 22 6.47715 22 12C22 14.1361 21.3302 16.1158 20.1892 17.7406L17 12H20C20 7.58172 16.4183 4 12 4C9.84982 4 7.89777 4.84827 6.46023 6.22842L5.46257 4.43262ZM18.5374 19.5674C16.7844 21.0831 14.4993 22 12 22C6.47715 22 2 17.5228 2 12C2 9.86386 2.66979 7.88416 3.8108 6.25944L7 12H4C4 16.4183 7.58172 20 12 20C14.1502 20 16.1022 19.1517 17.5398 17.7716L18.5374 19.5674Z"></path></svg>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Backup &
+                                                    Restore
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Protect your
+                                                    data
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L20.2169 2.82598C20.6745 2.92766 21 3.33347 21 3.80217V13.7889C21 15.795 19.9974 17.6684 18.3282 18.7812L12 23L5.6718 18.7812C4.00261 17.6684 3 15.795 3 13.7889V3.80217C3 3.33347 3.32553 2.92766 3.78307 2.82598L12 1ZM12 3.04879L5 4.60434V13.7889C5 15.1263 5.6684 16.3752 6.7812 17.1171L12 20.5963L17.2188 17.1171C18.3316 16.3752 19 15.1263 19 13.7889V4.60434L12 3.04879ZM12 7C13.1046 7 14 7.89543 14 9C14 9.73984 13.5983 10.3858 13.0011 10.7318L13 15H11L10.9999 10.7324C10.4022 10.3866 10 9.74025 10 9C10 7.89543 10.8954 7 12 7Z"></path></svg>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Cross
+                                                    environment backup
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Raise your
+                                                    protection
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!-- RESOURCES -->
+                                <div class="w-1/3 flex flex-col gap-6">
+                                    <div class="flex gap-1 text-primary-500 uppercase font-dm-mono text-sm">
+                                        <span>//</span>
+                                        <span>Resources</span>
+                                    </div>
+                                    <div class="flex flex-col gap-2">
+
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M16.0503 12.0498L21 16.9996L16.0503 21.9493L14.636 20.5351L17.172 17.9988L4 17.9996V15.9996L17.172 15.9988L14.636 13.464L16.0503 12.0498ZM7.94975 2.0498L9.36396 3.46402L6.828 5.9988L20 5.99955V7.99955L6.828 7.9988L9.36396 10.5351L7.94975 11.9493L3 6.99955L7.94975 2.0498Z"></path></svg>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Compare
+                                                    Plakar to Alternatives
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Discover Plakar
+                                                    strengths
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a href="#" class="group/link flex items-center gap-2 p-2 rounded-sm hover:bg-primary-50">
+                                            <div class="w-10 h-10 bg-neutral-300  text-neutral-600 group-hover/link:bg-white group-hover/link:text-primary-500 flex justify-center items-center rounded-sm">
+                                                <span class="w-6 h-6 bg-neutral-300 group-hover/link:bg-white">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M21 3C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.455L2 22.5V4C2 3.44772 2.44772 3 3 3H21ZM20 5H4V18.385L5.76333 17H20V5ZM10.5153 7.4116L10.9616 8.1004C9.29402 9.0027 9.32317 10.4519 9.32317 10.7645C9.47827 10.7431 9.64107 10.7403 9.80236 10.7553C10.7045 10.8389 11.4156 11.5795 11.4156 12.5C11.4156 13.4665 10.6321 14.25 9.66558 14.25C9.12905 14.25 8.61598 14.0048 8.29171 13.6605C7.77658 13.1137 7.5 12.5 7.5 11.5052C7.5 9.75543 8.72825 8.18684 10.5153 7.4116ZM15.5153 7.4116L15.9616 8.1004C14.294 9.0027 14.3232 10.4519 14.3232 10.7645C14.4783 10.7431 14.6411 10.7403 14.8024 10.7553C15.7045 10.8389 16.4156 11.5795 16.4156 12.5C16.4156 13.4665 15.6321 14.25 14.6656 14.25C14.1291 14.25 13.616 14.0048 13.2917 13.6605C12.7766 13.1137 12.5 12.5 12.5 11.5052C12.5 9.75543 13.7283 8.18684 15.5153 7.4116Z"></path></svg>
+                                                </span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-neutral-900 font-space-text font-semibold">Product
+                                                    review
+                                                </div>
+                                                <div class="text-neutral-400 font-space-text text-sm">Engineers
+                                                    feedback
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <!-- NEWS SECTION -->
+                                <div class="group/link w-1/3 border border-neutral-200 flex rounded-sm overflow-hidden hover:bg-primary-50">
+                                    <div class="flex-1 bg-neutral-900">
+                                        <img src="https://placehold.co/400x254" alt="News"
+                                             class="object-cover w-full h-full">
+                                    </div>
+                                    <div class="flex-1 p-4 flex flex-col justify-between">
+                                        <div class="text-primary-500 font-dm-mono uppercase text-sm">Category</div>
+                                        <div class="font-space-grotesk text-neutral-900 text-lg font-medium">Plakar
+                                            1.0.1-beta.13 out!
+                                        </div>
+                                        <a href="#"
+                                           class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-sm hover:underline group-hover/link:text-primary-500">
+                                            Read more
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Connectors -->
+                    <div class="group/btn relative dropdown-group">
+                        <button class="dropdown-btn px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                            Connectors
+                        </button>
+                    </div>
+                    <!-- Pricing -->
+                    <div class="group/btn relative dropdown-group">
+                        <button class="dropdown-btn px-4 p-2 text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1">
+                            Pricing
+                        </button>
+                    </div>
                 </nav>
 
                 <!-- Right-side buttons (GitHub + Actions) -->
@@ -1153,43 +1286,81 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const solutionBtn = document.getElementById('solution-btn');
-        const solutionDropdown = document.getElementById('solution-dropdown');
-        const solutionChevron = document.getElementById('solution-chevron');
+        const dropdownGroups = document.querySelectorAll('.dropdown-group');
+        const chevronDown = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path></svg>`;
+        const chevronUp = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path></svg>`;
 
-        const chevronDown = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
-    </svg>`;
+        // Helper: close all dropdowns
+        const closeAllDropdowns = () => {
+            dropdownGroups.forEach(group => {
+                const menu = group.querySelector('.dropdown-menu');
+                const chevron = group.querySelector('.dropdown-chevron');
+                if (menu) menu.classList.add('hidden');
+                if (chevron) chevron.innerHTML = chevronDown;
+            });
+        };
 
-        const chevronUp = `<svg class="w-4 h-4 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"></path>
-    </svg>`;
+        dropdownGroups.forEach(group => {
+            const button = group.querySelector('.dropdown-btn');
+            const menu = group.querySelector('.dropdown-menu');
+            const chevron = group.querySelector('.dropdown-chevron');
 
-        let isOpen = false;
+            // Toggle dropdown on button click
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isVisible = !menu.classList.contains('hidden');
+                closeAllDropdowns();
+                if (!isVisible) {
+                    menu.classList.remove('hidden');
+                    if (chevron) chevron.innerHTML = chevronUp;
+                }
+            });
 
-        solutionBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            isOpen = !isOpen;
-
-            solutionDropdown.classList.toggle('hidden', !isOpen);
-            solutionBtn.classList.toggle('bg-white', isOpen);
-            solutionBtn.classList.toggle('font-semibold', isOpen);
-
-            solutionChevron.innerHTML = isOpen ? chevronUp : chevronDown;
+            // Close when mouse leaves the whole group
+            group.addEventListener('mouseleave', (e) => {
+                const to = e.relatedTarget;
+                if (!group.contains(to)) {
+                    closeAllDropdowns();
+                }
+            });
         });
 
-        document.addEventListener('click', () => {
-            if (isOpen) {
-                isOpen = false;
-                solutionDropdown.classList.add('hidden');
-                solutionBtn.classList.remove('bg-white', 'font-semibold');
-                solutionChevron.innerHTML = chevronDown;
+        // Global click: close if clicked outside any dropdown
+        document.addEventListener('click', (e) => {
+            if (![...dropdownGroups].some(group => group.contains(e.target))) {
+                closeAllDropdowns();
             }
         });
+    });
+</script>
 
-        solutionDropdown.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const header = document.getElementById('site-header');
+        const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+        const nav = document.getElementById('main-nav');
+
+
+        const setDropdownWidths = () => {
+            const headerRect = header.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+            const headerWidth = header.getBoundingClientRect().width;
+            const deltaLeft = navRect.left - headerRect.left;
+
+            dropdownMenus.forEach(menu => {
+                const parentRect = menu.getBoundingClientRect();
+                const dropdownGroup = menu.closest('.dropdown-group');
+                const triggerButton = dropdownGroup.querySelector('.dropdown-btn');
+                const buttonRect = triggerButton.getBoundingClientRect();
+
+                const offsetFromNav = buttonRect.left - navRect.left;
+                menu.style.left = `${-offsetFromNav}px`;
+                menu.style.width = `${headerWidth - deltaLeft}px`;
+            });
+        };
+
+        setDropdownWidths();
+        window.addEventListener('resize', setDropdownWidths);
     });
 </script>
 
