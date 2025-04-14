@@ -4,16 +4,18 @@
   {{ partial "head.html" . }}
 </head>
 <body>
-  <header>
+
+{{ $placeholder := resources.Get "img/placeholder.svg" }}
+
+
+<div class="relative w-full plakarium-background bg-neutral-100">
+  <div class="relative z-10  mx-auto bg-neutral-100 ">
     {{ partial "header.html" . }}
-  </header>
-  <main>
     {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
     {{ partial "footer.html" . }}
-  </footer>
-  {{ $react := resources.Get "js/bundle.js" | js.Build (dict "minify" true) }}
-  <script src="{{ $react.RelPermalink }}"></script>
+    {{ $react := resources.Get "js/bundle.js" | js.Build (dict "minify" true) }}
+  </div>
+</div>
+{{ partial "scripts.html" . }}
 </body>
 </html>

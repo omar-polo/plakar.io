@@ -1,25 +1,19 @@
-[[menus.main]]
+[[main]]
 name = 'Home'
 pageRef = '/'
 weight = 10
 
-[[menus.solutions]]
+[[main]]
 name = 'Solutions'
 pageRef = '#'
 weight = 20
 
-[[menus.main]]
+[[main]]
 name = 'Engineering'
 pageRef = '#'
 weight = 30
 
-[[menus.Connectors]]
+[[main]]
 name = 'Connectors'
 pageRef = '#'
 weight = 30
-
-
-[module]
-[module.hugoVersion]
-extended = false
-min = "0.116.0"

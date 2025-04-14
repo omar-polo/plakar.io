@@ -109,14 +109,17 @@
             transparent 100%
     );
     background-size: calc((100% - 48px) / 2) 100%;
-    background-position: 24px 0;
+    background-origin: border-box;
+    background-clip: border-box;
+    background-position-x: 23px;
     background-repeat: repeat-x;
+    overflow-x: clip;
 }
 
 /* Override for medium screens and up (≥768px) */
 @media (min-width: 768px) {
     .section-decorated {
-        background-position: 48px 0;
+        background-position-x: 47px;
         background-size: calc((100% - 96px) / 6) 100%;
     }
 }

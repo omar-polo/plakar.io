@@ -1,6 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-US'
-title = 'My New Hugo Site'
+title = 'Plakar - Effortless backup'
+environement = 'development'
 
 [Params]
     logoLight = "img/Plakar_Effortless_Backup_Logo_Light.svg"
