@@ -1,0 +1,35 @@
+{{ $ctx := . }}
+{{ if isset . "context" }}
+    {{ with .context }}
+        {{ $ctx = . }}
+    {{ end }}
+{{ end }}
+
+{{ $badgeSize := 5 }}
+{{ if isset . "badgeSize" }}
+    {{ $badgeSize = $.badgeSize }}
+{{ end }}
+
+{{ $format := "star_light" }}
+{{ if isset . "format" }}
+    {{ $format = $.format }}
+{{ end }}
+
+{{ if $ctx.Site.Params.github.enabled | default false }}
+    {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
+    {{ $githubOrganization := $ctx.Site.Params.github.organization | default "" }}
+    {{ $githubRepository := $ctx.Site.Params.github.repository | default "" }}
+    {{ if eq $format "star_light" }}
+        <a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
+       target="_blank" aria-label="Visit us on Github">
+            <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">{{ $riGithubFill.Content | safeHTML }}</span>
+            <span id="github-stars-count" data-github-stars data-organization="{{$githubOrganization}}" data-repository="{{$githubRepository}}"></span>
+        </a>
+    {{ else if eq $format "icon" }}
+        <a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
+           target="_blank" aria-label="Visit us on Github">
+            <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">{{ $riGithubFill.Content | safeHTML }}</span>
+        </a>
+    {{ end }}
+
+{{ end }}
