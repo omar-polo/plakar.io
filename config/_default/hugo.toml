@@ -3,3 +3,6 @@ languageCode = 'en-us'
 theme = "plakarium"
 title = "Plakar - Effortless backup"
 
+[taxonomies]
+author = "authors"
+

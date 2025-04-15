@@ -1,0 +1,8 @@
+global:
+  language: "EN"
+
+article:
+  date: "{{ .Date }}"
+  reading_time:
+    one: "{{ .Count }} min"
+    other: "{{ .Count }} mins"

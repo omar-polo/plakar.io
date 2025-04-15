@@ -1,0 +1,50 @@
+{{ $context := . }}
+{{ with $context }}
+    {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+
+
+    <!-- Article card -->
+<div class="bg-primary-50 border border-neutral-300 flex flex-col p-6 gap-6 rounded-sm">
+
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <span class="text-primary-500 text-sm font-dm-mono uppercase">// Category</span>
+        <a href="{{ .Permalink }}" class="flex items-center gap-1 text-neutral-900 text-sm font-dm-mono uppercase hover:underline">
+            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+            Read more
+        </a>
+    </div>
+
+    <!-- Image -->
+    <div class="w-full h-64 bg-stone-900 overflow-hidden rounded-sm">
+        {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
+        {{ if $image }}
+            <img src="{{ $image.RelPermalink }}" alt="Article preview" class="w-full h-full object-cover rounded-sm" />
+        {{ else }}
+            <img src="https://placehold.co/400x254" alt="Placeholder" class="w-full h-full object-cover rounded-sm" />
+        {{ end }}
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-2xl font-medium font-space-grotesk text-neutral-900 leading-tight">
+        {{ $.Title | emojify }}
+    </h3>
+
+    <!-- Excerpt -->
+    <p class="text-base font-medium font-space-text text-neutral-600 leading-snug">
+        {{ .Summary | plainify }}
+    </p>
+
+    <!-- Metadata -->
+    <div class="flex flex-wrap items-center gap-2 text-sm font-dm-mono uppercase">
+        {{ range .GetTerms "authors" }}
+            {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
+            {{ $authorData := index site.Data.authors $authorKey }}
+            <span class="text-neutral-900">{{ $authorData.name }}</span>
+        {{ end }}
+        <span class="text-neutral-900">•</span>
+        <span class="text-neutral-400">{{ partial "functions/date.html" .Lastmod }}</span>
+        <span class="text-neutral-400">{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
+    </div>
+</div>
+{{end}}
