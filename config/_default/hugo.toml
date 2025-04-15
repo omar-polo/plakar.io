@@ -1,4 +1,4 @@
-baseURL = 'https://www.plakar.io/'
+baseURL = 'https://www-v2.plakar.io/'
 languageCode = 'en-us'
 theme = "plakarium"
 title = "Plakar - Effortless backup"
