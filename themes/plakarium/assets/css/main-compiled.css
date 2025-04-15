@@ -2238,6 +2238,10 @@ video {
   padding-right: 0.25rem;
 }
 
+.pt-8 {
+  padding-top: 2rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3085,6 +3089,14 @@ video {
 
   .lg\:pr-0 {
     padding-right: 0px;
+  }
+
+  .lg\:pl-\[48px\] {
+    padding-left: 48px;
+  }
+
+  .lg\:pr-\[49px\] {
+    padding-right: 49px;
   }
 }
 

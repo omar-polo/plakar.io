@@ -67,10 +67,10 @@
         <div class="section-wrapper bg-neutral-100"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content pl-[24px]  pr-[25px] md:pl-[48px] md:pr-[49px] flex flex-col md:flex-row items-start justify-center mx-auto ">
+                <div class="content pl-[24px]  pr-[25px] md:pl-[48px] md:pr-[49px] flex flex-col lg:flex-row items-start justify-center mx-auto ">
 
                     <!-- Sidebar (left) -->
-                    <aside class="w-full md:w-1/3 xl:w-1/6 flex flex-col bg-neutral-100">
+                    <aside class="w-full lg:w-1/3 xl:w-1/6 flex flex-col bg-neutral-100">
 
                         <div class="hidden lg:flex bg-neutral-900 p-4 rounded-sm text-white lg:flex-col gap-4">
                             <p class="font-space-text font-semibold ~text-sm/base">Want to help and stay updated?</p>
@@ -91,7 +91,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-sm font-space-text flex flex-col gap-6 border-t border-b border-neutral-200 pt-6 px-4">
+                        <div class="text-sm font-space-text flex flex-col gap-6 border-t border-b border-neutral-200">
                             {{ partial "toc.html" . }}
                         </div>
 
@@ -106,7 +106,7 @@
                     </aside>
 
                     <!-- Article content (right) -->
-                    <article class="fw-full md:w-2/3 xl:w-1/2 p-4 lex flex-col gap-16 ">
+                    <article class="fw-full lg:w-2/3 xl:w-1/2 p-4 lex flex-col gap-16 ">
 
                         {{ range .GetTerms "authors" }}
                             {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}

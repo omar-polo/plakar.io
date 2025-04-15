@@ -1,154 +1,153 @@
-<details open id="TOCView" class="toc-right mt-0  rounded-lg  hidden lg:block">
+<details open id="TOCView" class="toc-right mt-0 pt-8 rounded-lg  hidden lg:block">
     <summary
             class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-            {{ i18n "article.table_of_contents" }}
-  </summary>
-      <!--div class="~text-xs/sm font-space-text flex flex-col gap-6 py-6"-->
+        {{ i18n "article.table_of_contents" }}
+    </summary>
+    <!--div class="~text-xs/sm font-space-text flex flex-col gap-6 py-6"-->
     <div class="~text-xs  py-2   ">
 
         {{ with .TableOfContents }}
-          <style>
-            /* Style pour les conteneurs */
-            #TableOfContents > ul {
-              display: flex;
-              flex-direction: column;
-              gap: 1.5rem;
-              padding: 0;
-              margin: 0;
-            }
+            <style>
+                /* Style pour les conteneurs */
+                #TableOfContents > ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1.5rem;
+                    padding: 0;
+                    margin: 0;
+                }
 
-            /* Style pour les sections principales */
-            #TableOfContents > ul > li {
-              margin: 0;
-              padding: 0;
-            }
+                /* Style pour les sections principales */
+                #TableOfContents > ul > li {
+                    margin: 0;
+                    padding: 0;
+                }
 
-            /* Style pour les titres de section */
-            #TableOfContents > ul > li > a {
-              font-weight: 600;
-              display: block;
-              color: #111827;
-              margin-bottom: 0.5rem;
-              text-decoration: none;
-            }
+                /* Style pour les titres de section */
+                #TableOfContents > ul > li > a {
+                    font-weight: 600;
+                    display: block;
+                    color: #111827;
+                    margin-bottom: 0.5rem;
+                    text-decoration: none;
+                }
 
-            /* Premier titre en indigo */
-            #TableOfContents > ul > li:first-child > a {
-              color: #4F46E5;
-            }
+                /* Premier titre en indigo */
+                #TableOfContents > ul > li:first-child > a {
+                    color: #4F46E5;
+                }
 
-            /* Style pour les listes de sous-sections */
-            #TableOfContents > ul > li > ul {
-              padding-left: 0.75rem;
-              margin-top: 0.5rem;
-              font-family: 'DM Mono', monospace;
-              list-style-type: none;
-              display: flex;
-              flex-direction: column;
-              gap: 0.25rem;
-            }
+                /* Style pour les listes de sous-sections */
+                #TableOfContents > ul > li > ul {
+                    padding-left: 0.75rem;
+                    margin-top: 0.5rem;
+                    font-family: 'DM Mono', monospace;
+                    list-style-type: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.25rem;
+                }
 
-            /* Style pour les éléments de liste */
-            #TableOfContents ul li ul li {
-              margin: 0;
-            }
+                /* Style pour les éléments de liste */
+                #TableOfContents ul li ul li {
+                    margin: 0;
+                }
 
-            /* Retirer les styles par défaut des liens */
-            #TableOfContents a {
-              text-decoration: none;
-              color: #111827;
-            }
+                /* Retirer les styles par défaut des liens */
+                #TableOfContents a {
+                    text-decoration: none;
+                    color: #111827;
+                }
 
-            /* Niveau supplémentaire de sous-sections */
-            #TableOfContents > ul > li > ul > li > ul {
-              padding-left: 0.75rem;
-              list-style-type: none;
-            }
-          </style>
-          {{ . | emojify }}
+                /* Niveau supplémentaire de sous-sections */
+                #TableOfContents > ul > li > ul > li > ul {
+                    padding-left: 0.75rem;
+                    list-style-type: none;
+                }
+            </style>
+            {{ . | emojify }}
         {{ else }}
-          <p>{{ i18n "article.no_table_of_contents" }}</p>
+            <p>{{ i18n "article.no_table_of_contents" }}</p>
         {{ end }}
     </div>
 </details>
-<details class="toc-inside mt-0 overflow-hidden rounded-lg  ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
-  <summary
-    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
-    {{ i18n "article.table_of_contents" }}
-  </summary>
-  <div
-    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
-    {{ .TableOfContents | emojify }}
-  </div>
+<details class="toc-inside mt-0 overflow-hidden lg:hidden">
+    <summary class="py-1  pl-4 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+        {{ i18n "article.table_of_contents" }}
+
+    </summary>
+    <div class="py-2 px-4  border-dotted border-neutral-300   dark:border-neutral-600">
+        {{ .TableOfContents | emojify }}
+    </div>
 </details>
 
 <script>
 
-  var margin = 200;
-  var marginError = 50;
+    var margin = 200;
+    var marginError = 50;
 
-  (function () {
-    var $window = $(window);
-    var $toc = $('#TOCView');
-    var tocHeight = $toc.height();
+    (function () {
+        var $window = $(window);
+        var $toc = $('#TOCView');
+        var tocHeight = $toc.height();
 
-    function onResize() {
-      var windowAndMarginHeight = $window.height() - margin;
-      if(tocHeight >= windowAndMarginHeight) {
-        $toc.css("overflow-y", "scroll")
-        $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-      } else {
-        $toc.css("overflow-y", "hidden")
-        $toc.css("max-height", "9999999px")
-      }
-    }
+        function onResize() {
+            var windowAndMarginHeight = $window.height() - margin;
+            if (tocHeight >= windowAndMarginHeight) {
+                $toc.css("overflow-y", "scroll")
+                $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
+            } else {
+                $toc.css("overflow-y", "hidden")
+                $toc.css("max-height", "9999999px")
+            }
+        }
 
-    $window.on('resize', onResize);
-    $(document).ready(onResize);
-  })();
+        $window.on('resize', onResize);
+        $(document).ready(onResize);
+    })();
 
-{{ if .Site.Params.smartTOC }}
+    {{ if .Site.Params.smartTOC }}
 
-  (function () {
-    var $toc = $('#TableOfContents');
-    if ($toc.length > 0) {
-      var $window = $(window);
+    (function () {
+        var $toc = $('#TableOfContents');
+        if ($toc.length > 0) {
+            var $window = $(window);
 
-      function onScroll() {
-        var currentScroll = $window.scrollTop();
-        var h = $('.anchor');
-        var id = "";
-        h.each(function (i, e) {
-          e = $(e);
-          if (e.offset().top - $(window).height()/3 <= currentScroll) {
-            id = decodeURIComponent(e.attr('id'));
-          }
-        });
-        var active = $toc.find('a.active');      
-        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+            function onScroll() {
+                var currentScroll = $window.scrollTop();
+                var h = $('.anchor');
+                var id = "";
+                h.each(function (i, e) {
+                    e = $(e);
+                    if (e.offset().top - $(window).height() / 3 <= currentScroll) {
+                        id = decodeURIComponent(e.attr('id'));
+                    }
+                });
+                var active = $toc.find('a.active');
+                if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
 
-        active.each(function (i, e) {
-          {{ if .Site.Params.smartTOCHideUnfocusedChildren }} 
-            $(e).removeClass('active').siblings('ul').hide();
-          {{ else }}
-            $(e).removeClass('active');
-          {{ end }}
-        });
-        $toc.find('a[href="#' + id + '"]').addClass('active')
-        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-          $(e).children('a').parents('ul').show();          
-        });
-      }
+                active.each(function (i, e) {
+                    {{ if .Site.Params.smartTOCHideUnfocusedChildren }}
+                    $(e).removeClass('active').siblings('ul').hide();
+                    {{ else }}
+                    $(e).removeClass('active');
+                    {{ end }}
+                });
+                $toc.find('a[href="#' + id + '"]').addClass('active')
+                $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                    $(e).children('a').parents('ul').show();
+                });
+            }
 
-      $window.on('scroll', onScroll);
-      $(document).ready(function () {
-        {{ if .Site.Params.smartTOCHideUnfocusedChildren }} 
-          $toc.find('a').parent('li').find('ul').hide();
-        {{ end }}
-        onScroll();
-      });
-    }
-  })();
-{{ end }}
+            $window.on('scroll', onScroll);
+            $(document).ready(function () {
+                {{ if .Site.Params.smartTOCHideUnfocusedChildren }}
+                $toc.find('a').parent('li').find('ul').hide();
+                {{ end }}
+                onScroll();
+            });
+        }
+    })();
+    {{ end }}
 
 </script>

@@ -3,6 +3,7 @@ global:
 
 article:
   date: "{{ .Date }}"
+  table_of_contents: "Table of Contents"
   reading_time:
     one: "{{ .Count }} min"
     other: "{{ .Count }} mins"
