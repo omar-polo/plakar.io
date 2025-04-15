@@ -8,7 +8,12 @@
 
     <!-- Header -->
     <div class="flex justify-between items-center">
-        <span class="text-primary-500 text-sm font-dm-mono uppercase">// Category</span>
+        <span class="text-primary-500 text-sm font-dm-mono uppercase">
+    {{ $categories := .GetTerms "categories" }}
+            {{ range $i, $category := $categories }}
+                {{ if eq $i 0 }}// {{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+            {{ end }}
+        </span>
         <a href="{{ .Permalink }}" class="flex items-center gap-1 text-neutral-900 text-sm font-dm-mono uppercase hover:underline">
             <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
             Read more
@@ -16,12 +21,14 @@
     </div>
 
     <!-- Image -->
-    <div class="w-full h-64 bg-stone-900 overflow-hidden rounded-sm">
+    <div class="w-full h-64 bg-white overflow-hidden rounded-sm">
         {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
         {{ if $image }}
             <img src="{{ $image.RelPermalink }}" alt="Article preview" class="w-full h-full object-cover rounded-sm" />
         {{ else }}
-            <img src="https://placehold.co/400x254" alt="Placeholder" class="w-full h-full object-cover rounded-sm" />
+            {{ $placeholder := resources.Get "img/placeholder-400x254.png" }}
+
+            <img src="{{ $placeholder.RelPermalink }}" alt="Placeholder" class="w-full h-full object-cover rounded-sm" />
         {{ end }}
     </div>
 

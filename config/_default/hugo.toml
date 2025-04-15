@@ -1,8 +1,11 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://www.plakar.io/'
 languageCode = 'en-us'
 theme = "plakarium"
 title = "Plakar - Effortless backup"
 
 [taxonomies]
 author = "authors"
+category = "categories"
+tag = "tags"
+series = "series"
 

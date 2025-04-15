@@ -43,7 +43,8 @@
                             </div>
                             <!-- Image -->
                             <div class="p-2 lg:p-6">
-                                <img class="w-full h-auto object-cover rounded-sm" src="https://placehold.co/623x380" alt="Article preview">
+                                {{ $placeholder := resources.Get "img/placeholder-400x254.png" }}
+                                <img class="w-full h-auto object-cover rounded-sm" src="{{ $placeholder.RelPermalink }}" alt="Article preview">
                             </div>
                         </div>
 
