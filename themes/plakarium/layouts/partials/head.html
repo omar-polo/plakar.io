@@ -6,6 +6,11 @@
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 
+<!-- Favicons -->
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
+<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
+
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
@@ -14,3 +19,32 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <link href="/fonts/remixicon/remixicon.css" rel="stylesheet">
+
+
+
+{{ if .Site.Params.github.enabled | default false }}
+    {{ $githubOrganization := .Site.Params.github.organization | default "" }}
+    {{ $githubRepository := .Site.Params.github.repository | default "" }}
+
+    <script>
+        async function fetchGitHubStars() {
+            const url = `https://api.github.com/repos/{{$githubOrganization}}/{{$githubRepository}}`;
+
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error("GitHub API request failed");
+                }
+                const data = await response.json();
+                document.querySelectorAll(`#github-stars-count`)
+                    .forEach((element) => {
+                        element.textContent = data.stargazers_count;
+                    });
+            } catch (error) {
+                console.error("Error fetching GitHub data:", error);
+            }
+        }
+
+        fetchGitHubStars();
+    </script>
+{{ end }}

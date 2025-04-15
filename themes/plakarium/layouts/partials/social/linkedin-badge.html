@@ -1,0 +1,8 @@
+{{ $riLinkedinFill := resources.Get "img/ri/linkedin-fill.svg" }}
+{{ if .Site.Params.linkedin.enabled  | default false }}
+    {{ $linkedinCompanyID := .Site.Params.linkedin.companyID | default "" }}
+    <a class="flex items-center space-x-2" href="https://www.linkedin.com/company/{{ $linkedinCompanyID }}" target="_blank"
+       aria-label="Visit us on LinkedIn">
+        <span class="w-7 h-7">{{ $riLinkedinFill.Content | safeHTML }}</span>
+    </a>
+{{ end }}

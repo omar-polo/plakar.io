@@ -1533,6 +1533,10 @@ video {
   height: 100%;
 }
 
+.h-8 {
+  height: 2rem;
+}
+
 .min-h-\[180px\] {
   min-height: 180px;
 }
@@ -1619,6 +1623,14 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-7 {
+  width: 1.75rem;
 }
 
 .min-w-\[220px\] {
@@ -2153,6 +2165,11 @@ video {
   padding-bottom: 2rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -2211,6 +2228,14 @@ video {
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pr-2 {
+  padding-right: 0.5rem;
+}
+
+.pr-1 {
+  padding-right: 0.25rem;
 }
 
 .text-left {
@@ -2286,6 +2311,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .font-bold {
@@ -2479,6 +2509,11 @@ video {
 .\~text-xs\/sm {
   font-size: clamp(0.75rem,0.661rem + 0.223vw,0.875rem)/* fluid type from 0.75rem at 40rem to 0.875rem at 96rem */;
   line-height: clamp(1rem,0.82rem + 0.45vw,1.25rem)/* fluid from 1rem at 40rem to 1.25rem at 96rem */;
+}
+
+.\~text-xs {
+  font-size: /* error - Missing end value */;
+  line-height: /* error - Missing end value */;
 }
 
 .\~px-3\/6 {
