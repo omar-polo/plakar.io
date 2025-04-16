@@ -5,7 +5,7 @@ date: 2025-02-10 15:02:00 +0100
 authors:
 - "Plakup"
 categories:
-- technology
+- insights
 tags:
 - plakar
 - backup

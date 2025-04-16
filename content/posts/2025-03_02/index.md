@@ -4,7 +4,7 @@ date: 2025-03-19 01:00:00 +0100
 authors:
 - "gilles"
 categories:
- - technology
+ - Release notes
 tags:
  - plakar
  - backups
