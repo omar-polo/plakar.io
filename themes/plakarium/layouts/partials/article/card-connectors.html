@@ -1,0 +1,46 @@
+{{ $context := . }}
+{{ with $context }}
+    {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+
+
+    <!-- Article card -->
+<div class="bg-white border border-neutral-300 flex flex-col p-6 gap-6 rounded-sm">
+
+
+<div class="flex justify-between items-center">
+    <!-- Image -->
+    <div class="w-1/6  overflow-hidden rounded-sm">
+        {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
+        {{ if $image }}
+            <img src="{{ $image.RelPermalink }}" alt="Article preview" class="object-cover rounded-sm" />
+        {{ else }}
+            {{ $placeholder := resources.Get "img/placeholder-400x254.png" }}
+
+            <img src="{{ $placeholder.RelPermalink }}" alt="Placeholder" class="rounded-sm" />
+        {{ end }}
+    </div>
+
+    <!-- Header -->
+    <div class="flex justify-between items-center">
+        <span class="text-primary-500 text-sm font-dm-mono uppercase">
+    {{ $categories := .GetTerms "categories" }}
+            {{ range $i, $category := $categories }}
+                {{ if eq $i 0 }}// {{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+            {{ end }}
+        </span>
+    </div>
+
+</div>
+
+    <!-- Title -->
+    <h3 class="text-2xl font-medium font-space-grotesk text-neutral-900 leading-tight">
+        <a href="{{ .Permalink }}" class="hover:text-primary-500">
+
+            {{ $.Title | emojify }}
+        </a>
+    </h3>
+
+
+
+</div>
+{{end}}

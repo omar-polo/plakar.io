@@ -108,20 +108,7 @@
                                 </div>
                             </div>
 
-                            <!-- NEWS SECTION -->
-                            <div class="group/link mt-4 lg:mt-0 lg:w-1/3 h-auto border border-neutral-200  rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch">
-                                <div class="shrink-0">
-                                    <img src="https://placehold.co/400x254" alt="News"
-                                         class="object-cover w-[200px]">
-                                </div>
-                                <div class="px-4 py-2 flex flex-col gap-2">
-                                    <div class="text-primary-500 font-dm-mono uppercase text-xs">Category</div>
-                                    <div class="font-space-grotesk text-neutral-900 text-base font-medium">Plakar 1.0.1-beta.13 out!</div>
-                                    <a href="#" class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-xs hover:underline group-hover/link:text-primary-500">
-                                        Read more
-                                    </a>
-                                </div>
-                            </div>
+                            {{ partial "header/menu-featured-article.html" . }}
 
                         </div>
                     </div>
@@ -235,20 +222,7 @@
                                 </div>
                             </div>
 
-                            <!-- NEWS SECTION -->
-                            <div class="group/link mt-4 lg:mt-0 lg:w-1/3 h-auto border border-neutral-200  rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch">
-                                <div class="shrink-0">
-                                    <img src="https://placehold.co/400x254" alt="News"
-                                         class="object-cover w-[200px]">
-                                </div>
-                                <div class="px-4 py-2 flex flex-col gap-2">
-                                    <div class="text-primary-500 font-dm-mono uppercase text-xs">Category</div>
-                                    <div class="font-space-grotesk text-neutral-900 text-base font-medium">Plakar 1.0.1-beta.13 out!</div>
-                                    <a href="#" class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-xs hover:underline group-hover/link:text-primary-500">
-                                        Read more
-                                    </a>
-                                </div>
-                            </div>
+{{ partial "header/menu-featured-article.html" . }}
 
                         </div>
                     </div>
@@ -257,9 +231,11 @@
 
                 <!-- Connectors -->
                 <div class="group/btn relative dropdown-group">
-                    <button class="dropdown-btn px-2  text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1 ~text-sm/lg">
-                        Connectors
-                    </button>
+                    <a href="/connectors/" >
+                        <button class="dropdown-btn px-2  text-gray-700 font-space-text hover:text-blue-600 inline-flex items-center gap-1 ~text-sm/lg">
+                            Connectors
+                        </button>
+                    </a>
                 </div>
                 <!-- Pricing -->
                 <div class="group/btn relative dropdown-group">

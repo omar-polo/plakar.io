@@ -1,0 +1,14 @@
+
+{{ define "main" }}
+    {{ partial "article/list-title.html" . }}
+    {{ partial "article/list-categories-nav.html" . }}
+    {{ partial "article/list-grid-connectors.html" . }}
+    <!-- Placeholder -->
+    <div class="section-wrapper bg-neutral-100"
+         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content h-64 px-6 md:px-12 flex flex-col lg:flex-col justify-between items-end">
+            </div>
+        </section>
+    </div>
+{{end}}

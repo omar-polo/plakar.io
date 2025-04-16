@@ -3,11 +3,13 @@ title: "Plakar 1.0.1-beta.13 out !"
 date: 2025-03-19 01:00:00 +0100
 authors:
 - "gilles"
+featured: yes
 categories:
  - Release notes
 tags:
  - plakar
  - backups
+layout: "categories/posts"
 ---
 
 Hello, it's me again !
@@ -17,6 +19,8 @@ We released our first beta late February but we weren’t just going to sit back
 I'm glad to announce that we have just released `v1.0.1-beta.13`,
 our latest version of `plakar`,
 incorporating several new features and solving some of the bugs reported by early adopters.
+
+<!--more-->
 
 ```tt
 go install github.com/PlakarKorp/plakar/cmd/plakar@v1.0.1-beta.13 
