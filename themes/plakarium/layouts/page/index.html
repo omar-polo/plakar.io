@@ -1,6 +1,6 @@
 {{ define "main" }}
     {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
-    {{ $prompt := "<span class=\"t-prompt\">plakar:</span><span class=\"t-path\">~ </span>" | safeHTML }}
+    {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
         <!-- Title -->
         <div class="section-wrapper bg-neutral-100"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
@@ -42,16 +42,11 @@
                             </div>
 
                         </div>
-                        <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
+{{/*                        <div class="w-96 p-8 inline-flex flex-col justify-start items-start gap-10">
                             <div class="self-stretch justify-start ~text-base/xl font-medium font-['Space_Grotesk']">
                                 Plakar, enhanced data protection, and optimize storage cost.
                             </div>
-                            <a href="#"
-                               class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
-                                <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                                <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Book a demo</span>
-                            </a>
-                        </div>
+                        </div>*/}}
                     </div>
                 </div>
             </section>
@@ -61,17 +56,34 @@
         <div class="section-wrapper bg-neutral-100"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <section class="section-decorated  bg-neutral-100 text-neutral-900 relative mx-auto max-w-[1400px]">
-                <div class="content md:px-12">
-                    <div class="relative flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
-                        <div class="w-5/6">
-                            {{ $dashboard1 := resources.Get "img/dashboard-1.png" }}
-                            <img src="{{ $dashboard1.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
+                <div class="content pb-36 md:pb-28 lg:pb-16 md:pl-12">
+                    <div class="relative md:pr-12 flex-col lg:flex-row lg:flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
+                        <div class="w-full lg:w-4/6">
+                            {{ $dashboard3 := resources.Get "img/dashboard-3.png" }}
+                            <img src="{{ $dashboard3.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
                         </div>
-                        {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
-                        <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-2/6">
+
+                        <div class="terminal w-5/6 lg:w-2/3 xl:w-1/2 h-fit absolute left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:right-0 top-2/3 lg:top-1/2 ">
+                            <div class="terminal-body h-fit ">
+
+                                <div class="t-line">{{ $prompt }}go install github.com/PlakarKorp/plakar/cmd/plakar@latest</div>
+                                <div class="t-line">&nbsp;</div>
+                                <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
+                                        class="t-comment hidden md:block">&nbsp;# Keep your passphrase safe</span></div>
+                                <div class="t-line">{{ $prompt }}plakar at /mnt/nas-backup create</div>
+                                <div class="t-line">backup: created 003affd1 of size 9.8 MB in 262ms</div>
+                                <div class="t-line">&nbsp;</div>
+                                <div class="t-line">{{ $prompt }}plakar at ~/backups ls</div>
+                                <div class="t-line">003affd1 9.8 MB 0s /etc</div>
+                                <div class="t-line">{{ $prompt }}<span
+                                        class="t-comment text-primary-500"># Congratulation you did your backup in 30s</span></div>
+                            </div>
+                        </div>
+{{/*                        {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
+                        <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-1/2">
                             <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
                                  class="w-full h-full object-contain rounded-sm">
-                        </div>
+                        </div>*/}}
                     </div>
                 </div>
             </section>
@@ -87,7 +99,6 @@
                             Trusted by businesses.
                         </div>
                         <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-2">
-
                             <div class="flex justify-start items-center gap-2">
                                 <div class="w-10">
                                     {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
@@ -134,62 +145,41 @@
             </section>
         </div>
 
-        <!-- Why Plakar section -->
+        <!-- Powered by Kloset -->
         <div class="section-wrapper bg-neutral-100"
              style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
             <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content py-20 px-6 md:px-12 flex flex-col gap-8">
-                    <!-- Title -->
-                    <div class="pl-6 w-full text-left">
-                        <h2 class="~text-3xl/5xl font-medium font-space-grotesk leading-tight text-neutral-900">
-                            Why choosing Plakar to secure your data
-                        </h2>
-                    </div>
+                <div class="content py-0 md:py-20 px-6 md:px-12">
+                    <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
-                    <!-- List -->
-                    <ul class="pl-[18%] pt-8  flex flex-col gap-6 list-none">
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because backup should be <span class="text-primary-500 font-medium">effortless</span>. Nobody wants to waste time managing backups.
+                        <!-- Section Title -->
+                        <div class="w-full p-4 md:p-8 space-y-4">
+                            <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
+                                <span>//</span>
+                                <span>Powered by Kloset</span>
+                            </div>
+                            <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
+                                Built on top of the powerful Kloset.
+                            </h2>
+                        </div>
+
+                        <!-- Section Content -->
+                        <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
+                            <!-- Paragraph -->
+                            <p class="~text-base/xl font-medium font-['Space_Grotesk']">
+                                Kloset encapsulates each backup into a self-contained, immutable, structured data asset.
+                                Like a container that packages an app with everything it needs, Kloset packages data
+                                with context, structure, metadata, and integrity.
+                                You can inspect and query snapshots without restoration.
                             </p>
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because it's <span class="text-primary-500 font-medium">cost-effective</span>. Cut your storage costs by at least 3x with a better protection.
-                            </p>
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because it's <span class="text-primary-500 font-medium">secure</span>, your data is <span class="text-primary-500 font-medium">immutable</span> and <span class="text-primary-500 font-medium">end-to-end encrypted</span> (no "in-transit and at-rest" joke).
-                            </p>
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because it's <span class="text-primary-500 font-medium">open source</span>. Audit the code, deploy it yourself and stay in control forever.
-                            </p>
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because it's <span class="text-primary-500 font-medium">reliable</span>. Your data is always available, verified, and ready when you need it.
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because you get <span class="text-primary-500 font-medium">instant access</span>. Enjoy unbeatable recovery time with <span class="text-primary-500 font-medium">fast</span>, <span class="text-primary-500 font-medium">granular</span> restores.
-                            </p>
-                        </li>
-                        <li class="flex gap-3 items-start">
-                            <span class="text-primary-500 mt-1">→</span>
-                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
-                                Because we're building <span class="text-primary-500 font-medium">the future of backup</span>. One platform, any workload: <span class="text-primary-500 font-medium">SaaS</span>, <span class="text-primary-500 font-medium">Cloud</span>, <span class="text-primary-500 font-medium">On-Premise</span>.
-                            </p>
-                        </li>
-                    </ul>
+                            <a href="#"
+                               class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
+                                <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                                <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Kloset in action</span>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
             </section>
         </div>
@@ -198,20 +188,19 @@
         <div class="section-wrapper bg-primary-500"
              style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
             <section class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
-                <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                <div class="content py-0 md:py-20 px-4 md:px-12 flex flex-col md:flex-row">
 
                     <!-- Text Block -->
-                    <div class="w-full md:w-2/6 p-4 md:p-8 space-y-6">
+                    <div class="w-full md:w-1/2 p-4 md:p-8 space-y-6">
                         <!-- Tagline -->
                         <div class="flex items-center gap-2 text-white text-sm font-medium font-['DM_Mono'] uppercase">
                             <span>//</span>
-                            <span>Less storage more restore point</span>
+                            <span>Less storage. More restore point</span>
                         </div>
 
                         <!-- Title -->
                         <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-100">
-                            Back up more frequently,<br/>
-                            with less storage.
+                            A New Standard in Backup Efficiency
                         </h2>
 
                         <!-- Paragraph -->
@@ -228,7 +217,7 @@
                     </div>
 
                     <!-- Illustration -->
-                    <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-center">
+                    <div class="w-full md:w-1/2 flex items-center justify-end">
                         {{ $schemaPlaceHolder := resources.Get "img/less-space-more-restore-point.png" }}
                         <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
                              class="w-full h-auto object-contain rounded-sm">
@@ -238,44 +227,7 @@
             </section>
         </div>
 
-        <!-- Powered by Kloset -->
-            <div class="section-wrapper bg-neutral-100"
-                 style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-                <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                    <div class="content py-0 md:py-20 px-6 md:px-12">
-                        <div class="flex flex-col md:flex-row justify-between gap-2 md:gap-4 items-start">
 
-                            <!-- Section Title -->
-                            <div class="w-full p-4 md:p-8 space-y-4">
-                                <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-['DM_Mono'] uppercase">
-                                    <span>//</span>
-                                    <span>Powered by Kloset</span>
-                                </div>
-                                <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight text-neutral-900">
-                                    Built on top of the powerful Kloset.
-                                </h2>
-                            </div>
-
-                            <!-- Section Content -->
-                            <div class="w-full p-4 md:p-8 space-y-6  md:self-end">
-                                <!-- Paragraph -->
-                                <p class="~text-base/xl font-medium font-['Space_Grotesk']">
-                                    Kloset encapsulates each backup into a self-contained, immutable, structured data asset.
-                                    Like a container that packages an app with everything it needs, Kloset packages data
-                                    with context, structure, metadata, and integrity.
-                                    You can inspect and query snapshots without restoration.
-                                </p>
-                                <a href="#"
-                                   class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-50 rounded-sm">
-                                    <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                                    <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">Kloset in action</span>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-            </div>
 
         <!-- Universal Data Protection -->
         <div class="section-wrapper bg-neutral-900"
@@ -311,7 +263,7 @@
                     </div>
 
                     <!-- Illustration -->
-                    <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-center">
+                    <div class="w-full md:w-4/6 p-4 md:p-8 flex items-center justify-end">
                         {{ $schemaPlaceHolder := resources.Get "img/placeholder-schema-black.png" }}
                         <img src="{{ $schemaPlaceHolder.RelPermalink }}" alt="Placeholder"
                              class="w-full h-auto object-contain rounded-sm">
@@ -320,6 +272,48 @@
                 </div>
             </section>
         </div>
+
+        <!-- Section: Explore UI -->
+        <div class="section-wrapper bg-neutral-100"
+         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
+
+                <!-- Text Block -->
+                <div class="w-full md:w-1/2 px-4 md:px-8 space-y-6 font-mono">
+                    <!-- Tagline + Title -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-primary-500 text-sm font-medium uppercase">
+                            <span>//</span>
+                            <span>Browse your data from anywhere</span>
+                        </div>
+                        <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight">
+                            Browse, search, analyse your backup contents<br/>with Plakar UI
+                        </h2>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="~text-base/xl text-neutral-600 font-['Space_Text'] leading-relaxed">
+                        A fast, intuitive interface to explore your data — no extraction needed.
+                    </p>
+
+                    <!-- CTA -->
+                    <a href="https://demo.plakar.io" target="_blank"
+                       class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-100 rounded-sm">
+                        <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                        <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">See a demo</span>
+                    </a>
+                </div>
+
+                <!-- Image Block -->
+                <div class="w-full lg:w-1/2 p-0 lg:pl-4 flex justify-end">
+                    {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
+                    <img src="{{ $dashboard2.RelPermalink }}" alt="Plakar UI preview"
+                         class="w-full h-auto object-contain rounded-sm">
+                </div>
+            </div>
+        </section>
+    </div>
 
         <!-- Open source section -->
         <div class="section-wrapper bg-neutral-100"
@@ -405,6 +399,66 @@
             </section>
         </div>
 
+        <!-- Why Plakar section -->
+        <div class="section-wrapper bg-neutral-100"
+             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+                <div class="content py-20 px-6 md:px-12 flex flex-col gap-8">
+                    <!-- Title -->
+                    <div class="pl-6 w-full text-left">
+                        <h2 class="~text-3xl/5xl font-medium font-space-grotesk leading-tight text-neutral-900">
+                            Why choosing Plakar to secure your data
+                        </h2>
+                    </div>
+
+                    <!-- List -->
+                    <ul class="pl-[18%] pt-8  flex flex-col gap-6 list-none">
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because backup should be <span class="text-primary-500 font-medium">effortless</span>. Nobody wants to waste time managing backups.
+                            </p>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because it's <span class="text-primary-500 font-medium">cost-effective</span>. Cut your storage costs by at least 3x with a better protection.
+                            </p>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because it's <span class="text-primary-500 font-medium">secure</span>, your data is <span class="text-primary-500 font-medium">immutable</span> and <span class="text-primary-500 font-medium">end-to-end encrypted</span> (no "in-transit and at-rest" joke).
+                            </p>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because it's <span class="text-primary-500 font-medium">open source</span>. Audit the code, deploy it yourself and stay in control forever.
+                            </p>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because it's <span class="text-primary-500 font-medium">reliable</span>. Your data is always available, verified, and ready when you need it.
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because you get <span class="text-primary-500 font-medium">instant access</span>. Enjoy unbeatable recovery time with <span class="text-primary-500 font-medium">fast</span>, <span class="text-primary-500 font-medium">granular</span> restores.
+                            </p>
+                        </li>
+                        <li class="flex gap-3 items-start">
+                            <span class="text-primary-500 mt-1">→</span>
+                            <p class="~text-base/xl font-space-text text-neutral-800 leading-relaxed">
+                                Because we're building <span class="text-primary-500 font-medium">the future of backup</span>. One platform, any workload: <span class="text-primary-500 font-medium">SaaS</span>, <span class="text-primary-500 font-medium">Cloud</span>, <span class="text-primary-500 font-medium">On-Premise</span>.
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
         <!-- Plakar journey section -->
         <div class="section-wrapper bg-neutral-900"
              style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
@@ -473,10 +527,12 @@
                                         <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
                                                 class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups create</div>
+                                        <div class="t-line">&nbsp;</div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups backup /etc</div>
-                                        <div class="t-line">2025-04-08T10:12:37Z info: backup: created unsigned snapshot 003affd1 of size 9.8 MB in 262.229062ms</div>
+                                        <div class="t-line">backup: created 003affd1 of size 9.8 MB in 262.229062ms</div>
+                                        <div class="t-line">&nbsp;</div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups ls</div>
-                                        <div class="t-line">2025-04-08T10:12:37Z 003affd1 9.8 MB 0s /etc</div>
+                                        <div class="t-line">003affd1 9.8 MB 0s /etc</div>
                                     </div>
                                 </div>
                             </div>
@@ -487,9 +543,11 @@
                                         <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
                                                 class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
                                         <div class="t-line">{{ $prompt }}plakar at sftp://nestor@nas.plakar.io/var/backups create</div>
+                                        <div class="t-line">&nbsp;</div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups sync to sftp://nestor@nas.plakar.io/var/backups</div>
                                         <div class="t-line">sync: synchronized 1 snapshot</div>
-                                        <div class="t-line">info: sync: synchronization from ~/backups to sftp://nestor@nas.plakar.io/var/backups completed: 1 snapshots synchronized</div>
+                                        <div class="t-line">info: sync: synchronization completed: 1 snapshots synchronized</div>
+                                        <div class="t-line">&nbsp;</div>
                                         <div class="t-line">{{ $prompt }}plakar at sftp://nestor@nas.plakar.io/var/backups ls</div>
                                         <div class="t-line">2025-04-08T10:14:37Z 003affd1 9.8 MB 0s /etc</div>
                                     </div>
@@ -501,12 +559,12 @@
                                     <div class="terminal-body">
                                         <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
                                                 class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
-                                        <div class="t-line">{{ $prompt }}<span class="t-comment"># Let's make a structural check</span></div>
-                                        <div class="t-line">{{ $prompt }}plakar at ~/backups check --fast</div>
-                                        <div class="t-line">2025-04-17T14:26:56Z info: check: verification of 003affd1:/etc completed successfully</div>
-                                        <div class="t-line">{{ $prompt }}<span class="t-comment"># Let's check data integrity</span></div>
-                                        <div class="t-line">{{ $prompt }}plakar at ~/backups check</div>
-                                        <div class="t-line">2025-04-17T14:27:15Z info: check: verification of 003affd1:/etc completed successfully</div>
+                                        <div class="t-line">{{ $prompt }}</div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups check --fast <span class="t-comment"># Structural check</span></div>
+                                        <div class="t-line">check: verification of 003affd1:/etc completed successfully</div>
+                                        <div class="t-line">&nbsp;</div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups check <span class="t-comment"># data integrity check</span></div>
+                                        <div class="t-line">check: verification of 003affd1:/etc completed successfully</div>
                                         <div class="t-line">{{ $prompt }}<span class="t-comment"># Everything is good our data is safe</span></div>
                                     </div>
                                 </div>
@@ -519,11 +577,12 @@
                                                 class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
                                         <div class="t-line">{{ $prompt }}<span class="t-comment"># Let's start the UI to search and restore only one file</span></div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups ui</div>
+                                        <div class="t-line">&nbsp;</div>
                                         <div class="t-line">{{ $prompt }}<span class="t-comment"># Or we can fully restore a specific backup</span></div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups ls <span class="t-comment"># Let's find the right backup</span></div>
-                                        <div class="t-line">2025-04-08T10:12:37Z   003affd1    9.8 MB        0s /etc</div>
+                                        <div class="t-line">003affd1    9.8 MB        0s /etc</div>
                                         <div class="t-line">{{ $prompt }}plakar at ~/backups restore -to /tmp/backups 003affd1</div>
-                                        <div class="t-line">2025-04-17T14:58:20Z info: restore: restoration of 003affd1:/etc at /tmp/backups completed successfully</div>
+                                        <div class="t-line">restore: restoration of 003affd1:/etc at /tmp/backups completed successfully</div>
                                     </div>
                                 </div>
                             </div>
@@ -691,46 +750,5 @@
             </section>
         </div>
 
-        <!-- Section: Explore UI -->
-        <div class="section-wrapper bg-neutral-100"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content py-0 md:py-20 pt-4 px-12 lg:pr-0 lg:pl-12 flex flex-col lg:flex-row gap-4 md:gap-8 items-start">
-
-                    <!-- Text Block -->
-                    <div class="w-full md:w-1/2 px-4 md:px-8 space-y-6 font-mono">
-                        <!-- Tagline + Title -->
-                        <div class="space-y-4">
-                            <div class="flex items-center gap-2 text-primary-500 text-sm font-medium uppercase">
-                                <span>//</span>
-                                <span>Browse your data from anywhere</span>
-                            </div>
-                            <h2 class="~text-3xl/5xl font-medium font-['Space_Grotesk'] leading-tight">
-                                Browse, search, analyse your backup contents<br/>with Plakar UI
-                            </h2>
-                        </div>
-
-                        <!-- Description -->
-                        <p class="~text-base/xl text-neutral-600 font-['Space_Text'] leading-relaxed">
-                            A fast, intuitive interface to explore your data — no extraction needed.
-                        </p>
-
-                        <!-- CTA -->
-                        <a href="https://demo.plakar.io" target="_blank"
-                           class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-neutral-900 text-neutral-100 rounded-sm">
-                            <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                            <span class="~text-sm/md font-medium font-['DM_Mono'] uppercase">See a demo</span>
-                        </a>
-                    </div>
-
-                    <!-- Image Block -->
-                    <div class="w-full lg:w-1/2 p-0 lg:pl-4 flex justify-end">
-                        {{ $dashboard2 := resources.Get "img/dashboard-2.png" }}
-                        <img src="{{ $dashboard2.RelPermalink }}" alt="Plakar UI preview"
-                             class="w-full h-auto object-contain rounded-sm">
-                    </div>
-                </div>
-            </section>
-        </div>
 
 {{ end }}

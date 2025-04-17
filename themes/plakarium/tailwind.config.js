@@ -18,6 +18,9 @@ module.exports = {
         screens, // Tailwind's default screens, in `rem`
         fontSize, // Tailwind's default font sizes, in `rem` (including line heights)
         extend: {
+            fontSize: {
+                'xxs': '0.625rem', // 10px
+            },
             fontFamily: {
                 'dm-mono': ['"DM Mono"', 'monospace'],
                 'space-text': ['"Space Text"', 'sans-serif'],
