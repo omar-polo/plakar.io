@@ -9,12 +9,6 @@ category = "categories"
 tag = "tags"
 series = "series"
 
-
-[Params.axeptio]
-clientId = "670b04f487d8b40de2e7f22c"
-cookiesVersion = "plakar-fr-EU-2"
-enabled = true
-
 [Params.github]
 enabled = true
 organization = "PlakarKorp"
@@ -31,3 +25,12 @@ account = "plakar.bsky.social"
 [Params.linkedin]
 enabled = true
 companyID = "plakarkorp"
+
+[Params.axeptio]
+enabled = true
+clientId = "670b04f487d8b40de2e7f22c"
+cookiesVersion = "plakar-fr-EU-2"
+
+
+
+

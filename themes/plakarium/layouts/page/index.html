@@ -344,22 +344,10 @@
                         </div>
                     </div>
 
+                    {{ $gradientOrange := resources.Get "img/GRADIENT_ORANGE.png" }}
+
                     <!-- Center Text Content -->
-                    <div class="lg:w-1/3 flex flex-col relative justify-center px-4 py-6">
-                        <!-- Background pattern -->
-                        <div class="absolute inset-0 z-0 grid grid-cols-11 w-full h-full pointer-events-none">
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 via-orange-400 via 44% to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 11% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 23% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 31% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 37% via-orange-400 to-orange-500"></div>
-                            <div class="w-full h-full bg-gradient-to-b from-orange-100 from 43% via-orange-400 via 55% to-orange-500"></div>
-                        </div>
+                    <div class="lg:w-1/3 flex flex-col relative justify-center px-4 py-6 bg-cover bg-center bg-[url('{{$gradientOrange.RelPermalink}}')]">
                         <div class="relative flex flex-col z-10 items-center text-center gap-6 justify-center">
                             <div class="flex items-center gap-2 text-orange-400 text-sm font-medium font-dm-mono uppercase">
                                 <span>//</span>

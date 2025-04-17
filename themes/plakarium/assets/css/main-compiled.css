@@ -1323,6 +1323,10 @@ video {
   visibility: visible;
 }
 
+.static {
+  position: static;
+}
+
 .fixed {
   position: fixed;
 }
@@ -2059,6 +2063,18 @@ video {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
 
+.bg-\[url\(\'\/img\/GRADIENT_ORANGE\.png\'\)\] {
+  background-image: url('/img/GRADIENT_ORANGE.png');
+}
+
+.bg-\[url\(\'\{\{\$gradientOrange\}\}\'\)\] {
+  background-image: url('{{$gradientOrange}}');
+}
+
+.bg-\[url\(\'\{\{\$gradientOrange\.RelPermalink\}\}\'\)\] {
+  background-image: url('{{$gradientOrange.RelPermalink}}');
+}
+
 .from-orange-100 {
   --tw-gradient-from: #ffedd5 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(255 237 213 / 0) var(--tw-gradient-to-position);
@@ -2082,6 +2098,14 @@ video {
 
 .to-orange-500 {
   --tw-gradient-to: #f97316 var(--tw-gradient-to-position);
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
 }
 
 .object-contain {
@@ -2394,6 +2418,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 3rem;
 }
 
 .font-bold {
@@ -2937,6 +2966,10 @@ video {
 
   .md\:col-start-5 {
     grid-column-start: 5;
+  }
+
+  .md\:col-start-6 {
+    grid-column-start: 6;
   }
 
   .md\:flex {
