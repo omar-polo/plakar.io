@@ -10,6 +10,10 @@
                         <div class="flex flex-col justify-start items-start">
                             <div class="self-stretch p-2 md:p-4 lg:p-8 flex justify-center items-center">
                                 <div class="flex-1 justify-start ~text-2xl/5xl font-medium font-['Space_Grotesk']">
+                                    <!--div class="flex items-end gap-2">
+                                        Plakar offers
+                                    </div-->
+
                                     <div class="flex items-end gap-2">
                                         <div class="relative h-[60px] w-[11ch] overflow-hidden">
                                             <div class="absolute inset-0 text-primary-500">
@@ -568,18 +572,17 @@
 
                             <div class="tab-panel hidden" id="tab-duplicate">
                                 <div class="terminal">
-                                    <div class="terminal-header">
-                                        <div class="terminal-lights">
-                                            <div class="terminal-light-red"></div>
-                                            <div class="terminal-light-yellow"></div>
-                                            <div class="terminal-light-green"></div>
-                                        </div>
-                                    </div>
                                     <div class="terminal-body">
-                                        <div class="terminal-log-line"># Resilience strategy commands here...</div>
+                                        <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
+                                                class="t-comment">&nbsp;# Keep your passphrase safe</span></div>
+                                        <div class="t-line">{{ $prompt }}plakar at sftp://nestor@nas.plakar.io/var/backups create</div>
+                                        <div class="t-line">{{ $prompt }}plakar at ~/backups sync to sftp://nestor@nas.plakar.io/var/backups</div>
+                                        <div class="t-line">sync: synchronized 1 snapshot</div>
+                                        <div class="t-line">info: sync: synchronization from ~/backups to sftp://nestor@nas.plakar.io/var/backups completed: 1 snapshots synchronized</div>
+                                        <div class="t-line">{{ $prompt }}plakar at sftp://nestor@nas.plakar.io/var/backups ls</div>
+                                        <div class="t-line">2025-04-08T10:14:37Z 003affd1 9.8 MB 0s /etc</div>
                                     </div>
                                 </div>
-
                             </div>
 
                             <div class="tab-panel hidden" id="tab-check">
@@ -628,7 +631,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </section>
         </div>
@@ -805,7 +807,7 @@
                         </div>
 
                         <!-- Description -->
-                        <p class="~text-base/xl text-neutral-300 opacity-70 font-['Space_Text'] leading-relaxed">
+                        <p class="~text-base/xl text-neutral-600 font-['Space_Text'] leading-relaxed">
                             A fast, intuitive interface to explore your data — no extraction needed.
                         </p>
 
