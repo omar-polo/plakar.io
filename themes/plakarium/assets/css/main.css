@@ -276,3 +276,28 @@
         @apply text-neutral-500 italic;
     }
 }
+
+@layer components {
+    .list-icon-x li,
+    .list-icon-check li {
+        @apply flex items-start gap-3 leading-tight;
+    }
+
+    .list-icon-x li::before {
+        content: '';
+        @apply w-5 h-5 shrink-0 text-red-400 inline-block relative top-[0.15em];
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.225 4.811a1 1 0 0 1 1.414 0L12 9.172l4.361-4.36a1 1 0 0 1 1.415 1.414L13.414 10.5l4.362 4.36a1 1 0 0 1-1.415 1.415L12 11.914l-4.361 4.361a1 1 0 0 1-1.414-1.415L10.586 10.5 6.225 6.14a1 1 0 0 1 0-1.329z'/%3E%3C/svg%3E") no-repeat center;
+        background-color: currentColor;
+        mask-size: contain;
+    }
+
+    .list-icon-check li::before {
+        content: '';
+        @apply w-5 h-5 shrink-0 text-green-400 inline-block relative top-[0.15em];
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='currentColor' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z'/%3E%3C/svg%3E") no-repeat center;
+        background-color: currentColor;
+        mask-size: contain;
+    }
+}
+
+

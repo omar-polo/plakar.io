@@ -1,0 +1,169 @@
+{{ define "main" }}
+    <div class="section-wrapper bg-neutral-100">
+        <section class="section-decorated text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content py-10 md:py-20 px-6 md:px-12">
+
+                <!-- Title -->
+                <div class="flex flex-col gap-4 text-left pl-4">
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-medium font-dm-mono uppercase">
+                        <span>//</span>
+                        <span>Backup & Restore</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-medium font-space-grotesk leading-tight">
+                        Effortless Backup, Instant Restore
+                    </h1>
+                    <p class="text-xl text-neutral-600 max-w-2xl">
+                        Back up more frequently, restore in seconds. Minimal storage, maximum protection.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- Problems - Solutions - Conclusion section -->
+    <div class="section-wrapper bg-neutral-100">
+        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content py-10 md:py-20 px-6 md:px-12 flex flex-col gap-4 items-center">
+
+                <div class="w-full md:w-4/6 bg-neutral-50 p-6 md:p-8 rounded-sm border border-neutral-300 space-y-6">
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-dm-mono uppercase">
+                        <span>//</span><span>Problems</span>
+                    </div>
+                    <h2 class="~text-xl/3xl font-medium font-space-grotesk text-neutral-900">
+                        What’s broken in backup?
+                    </h2>
+                    <ul class="space-y-3 font-space-text list-icon-x text-neutral-900">
+                        <li>Backups are too complex and often poorly maintained.</li>
+                        <li>Each backup takes up too much space. Restore points stay rare.</li>
+                        <li>Slow restores turn incidents into major production outages.</li>
+                        <li>Security is often limited to "in-transit and at-rest" encryption.</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <svg class="w-8 h-8 md:w-24 md:h-24 text-primary-500 rotate-90" fill="none"
+                         stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <div class="w-full md:w-4/6  bg-neutral-50 p-6 md:p-8 rounded-sm border border-neutral-300 space-y-6">
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-dm-mono uppercase">
+                        <span>//</span><span>Solutions</span>
+                    </div>
+                    <h2 class="~text-xl/3xl font-medium font-space-grotesk text-neutral-900">
+                        Plakar changes the game
+                    </h2>
+                    <ul class="space-y-3 font-space-text list-icon-check text-neutral-900">
+                        <li>Effortless backups via CLI, nice UI or API: powered by smart defaults.</li>
+                        <li>Unmatched deduplication and compression reduce footprint.</li>
+                        <li>Backups with context: Kloset makes them browsable and instantly restorable.</li>
+                        <li>End-to-end encryption and immutable snapshots by design.</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center items-center">
+                    <svg class="w-8 h-8 md:w-24 md:h-24 text-primary-500 rotate-90" fill="none"
+                         stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </div>
+
+                <div class="w-full md:w-4/6 bg-neutral-50 p-6 md:p-8 rounded-sm border border-neutral-300 space-y-6">
+                    <div class="flex items-center gap-2 text-primary-500 text-sm font-dm-mono uppercase">
+                        <span>//</span><span>Conclusion</span>
+                    </div>
+                    <h2 class="~text-xl/3xl font-medium font-space-grotesk text-neutral-900">
+                        Plakar is
+                    </h2>
+                    <div class="flex flex-col gap-2 text-neutral-900 font-dm-mono items-start ~text-lg/2xl">
+                        <ul>
+                            <li>❤️ Loved by engineers for its simplicity.</li>
+                            <li>💸 Trusted by managers for its low TCO.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Operating system section -->
+    <div class="section-wrapper bg-neutral-100"
+         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
+        <section class="bg-neutral-100 text-neutral-900 px-[0px]">
+            <div class="content border border-neutral-300">
+                <div class="flex flex-col md:flex-row justify-between  items-center md:items-center py-10 px-8 bg-neutral-100  gap-10 max-w-[1340px] mx-auto">
+                    <div class="flex-1 justify-start text-neutral-600 font-space self-center text-left">
+                        Plakar is cross-platform.
+                    </div>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-6">
+                        {{ range $brands := (slice "Linux" "Windows" "MacOS" "Redhat" "OpenBSD") }}
+
+                            {{ $logoPath := printf "img/logo-technologies/logo-%s.png" (lower .) }}
+                            {{ $logo := resources.Get $logoPath }}
+                            {{ if $logo }}
+                                <div class="flex justify-start items-center gap-2">
+                                    <div class="w-10 md:w-full md:h-10">
+                                        <img src="{{ $logo.RelPermalink }}" alt="{{ . }}"
+                                             class="w-full h-full object-contain rounded-sm">
+                                    </div>
+                                    <div class="">{{ . }}</div>
+                                </div>
+                            {{ end }}
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Feature Highlights -->
+    <div class="section-wrapper bg-neutral-100">
+        <section class="section-decorated text-neutral-900 mx-auto max-w-[1400px]">
+            <div class="content py-5 md:py-20 px-6 md:px-12">
+                <div class="pt-10 space-y-10 pl-4">
+                    <h2 class="text-3xl font-medium font-space-grotesk">Designed for modern infrastructure</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary-500 mb-2">CLI & API Friendly</h3>
+                            <p class="text-neutral-700">Built for DevOps teams. Automate backups or run them manually
+                                with simple, powerful commands.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary-500 mb-2">Cloud & On-Prem Ready</h3>
+                            <p class="text-neutral-700">Works everywhere: object storage, local volumes, S3, NAS, and
+                                more.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-primary-500 mb-2">Works across any network isolation level</h3>
+                            <p class="text-neutral-700">Push, pull, or bidirectional — Plakar handles sync even in constrained, segmented, or air-gapped environments.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Security first -->
+    <div class="section-wrapper bg-neutral-900"
+         style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
+        <div class="content py-4 md:py-20 px-4 md:px-12 flex flex-col md:flex-row">
+                <div class="pt-10 space-y-10 pl-4">
+                    <h2 class="text-3xl font-medium font-space-grotesk">Security-First by design</h2>
+                    <ul class="space-y-3 list-icon-check font-space-text text-neutral-50">
+                        <li>End-to-end encryption with modern crypto (no compromise on "at-rest/in-transit" jargon)</li>
+                        <li>Immutable snapshots with verifiable integrity</li>
+                        <li>Tamper-proof metadata and audit logs</li>
+                        <li>Zero-trust-friendly architecture</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+    </div>
+{{ end }}
