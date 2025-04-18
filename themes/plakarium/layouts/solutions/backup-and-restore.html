@@ -1,4 +1,5 @@
 {{ define "main" }}
+    {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
     <div class="section-wrapper bg-neutral-100">
         <section class="section-decorated text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content py-10 md:py-20 px-6 md:px-12">
@@ -125,22 +126,42 @@
     <div class="section-wrapper bg-neutral-100">
         <section class="section-decorated text-neutral-900 mx-auto max-w-[1400px]">
             <div class="content py-5 md:py-20 px-6 md:px-12">
-                <div class="pt-10 space-y-10 pl-4">
-                    <h2 class="text-3xl font-medium font-space-grotesk">Designed for modern infrastructure</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div>
-                            <h3 class="text-xl font-semibold text-primary-500 mb-2">CLI & API Friendly</h3>
-                            <p class="text-neutral-700">Built for DevOps teams. Automate backups or run them manually
-                                with simple, powerful commands.</p>
+                <div class="pt-10 space-y-10">
+
+                    <div class="text-primary-500 text-sm font-medium font-dm-mono uppercase flex items-center gap-2 pl-4">
+                        <span>//</span><span>Automate your protection workflows</span>
+                    </div>
+                    <h2 class="~text-2xl/4xl font-medium font-space-grotesk text-center md:text-left  pl-4">
+                        Designed for modern infrastructure
+                    </h2>
+
+                    <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-y-10">
+                        <!-- Block 1 -->
+                        <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                            <h3 class="~text-lg/2xl font-semibold text-primary-500">CLI & API Friendly</h3>
+                            <p class="text-neutral-700 font-space-text ~text-base/lg">
+                                Built for DevOps teams. Automate backups or run them manually
+                                with simple, powerful commands.
+                            </p>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-primary-500 mb-2">Cloud & On-Prem Ready</h3>
-                            <p class="text-neutral-700">Works everywhere: object storage, local volumes, S3, NAS, and
-                                more.</p>
+
+                        <!-- Block 2 -->
+                        <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                            <h3 class="~text-lg/2xl font-semibold text-primary-500">Cloud & On-Prem Ready</h3>
+                            <p class="text-neutral-700 font-space-text ~text-base/lg">
+                                Works everywhere: object storage, local volumes, S3, NAS, and more.
+                            </p>
                         </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-primary-500 mb-2">Works across any network isolation level</h3>
-                            <p class="text-neutral-700">Push, pull, or bidirectional — Plakar handles sync even in constrained, segmented, or air-gapped environments.</p>
+
+                        <!-- Block 3 -->
+                        <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                            <h3 class="~text-lg/2xl font-semibold text-primary-500">
+                                Support any network isolation level
+                            </h3>
+                            <p class="text-neutral-700 font-space-text ~text-base/lg">
+                                Push, pull, or bidirectional — Plakar handles sync even in
+                                constrained, segmented, or air-gapped environments.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -152,17 +173,115 @@
     <div class="section-wrapper bg-neutral-900"
          style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
         <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
-        <div class="content py-4 md:py-20 px-4 md:px-12 flex flex-col md:flex-row">
-                <div class="pt-10 space-y-10 pl-4">
-                    <h2 class="text-3xl font-medium font-space-grotesk">Security-First by design</h2>
-                    <ul class="space-y-3 list-icon-check font-space-text text-neutral-50">
-                        <li>End-to-end encryption with modern crypto (no compromise on "at-rest/in-transit" jargon)</li>
-                        <li>Immutable snapshots with verifiable integrity</li>
-                        <li>Tamper-proof metadata and audit logs</li>
-                        <li>Zero-trust-friendly architecture</li>
-                    </ul>
+            <div class="content py-4 md:py-20 px-6 md:px-12 ">
+                <div class="pl4 flex flex-col md:flex-row w-full">
+                    <div class="w-full md:w-1/2 pt-10 space-y-10 pl-4 ~text-base/xl">
+                        <div class="text-primary-500 text-sm font-medium font-dm-mono uppercase flex items-center gap-2">
+                            <span>//</span><span>Reduce your attack surface</span>
+                        </div>
+                        <h2 class="~text-xl/3xl font-medium font-space-grotesk">Security by design</h2>
+
+                        <ul class="space-y-3 list-icon-check font-space-text text-neutral-50">
+                            <li>End-to-end encryption with modern crypto (no compromise on "at-rest/in-transit")</li>
+                            <li>Immutable snapshots with verifiable integrity</li>
+                            <li>Tamper-proof metadata and audit logs</li>
+                            <li>Zero-trust-friendly architecture</li>
+                        </ul>
+
+                        <blockquote class="border-l-4 border-primary-500 pl-4 italic text-neutral-300 ~text-base/xl font-space-text relative">
+                            <svg class="w-6 h-6 absolute -left-3 -top-2 text-primary-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M7.17 4C5.5 4 4 5.5 4 7.17V11h5V7.17C9 5.5 7.5 4 7.17 4zM13.17 4C11.5 4 10 5.5 10 7.17V11h5V7.17C15 5.5 13.5 4 13.17 4z"/>
+                            </svg>
+                            "You don’t have to trust your storage provider."
+                        </blockquote>
+                    </div>
+                    <!-- Illustration -->
+                    <div class="w-full md:w-1/2 flex items-center justify-end pt-4 md:pt-0">
+                        {{ $security := resources.Get "img/security-first.png" }}
+                        {{ $laptop := resources.Get "img/laptop-plakar-demo.png" }}
+                        <img src="{{ $laptop.RelPermalink }}" alt="Placeholder"
+                             class="w-full h-auto object-contain rounded-sm">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- Resilience Everywhere Section -->
+    <div class="section-wrapper bg-neutral-100">
+        <section class="section-decorated text-neutral-900 mx-auto max-w-[1400px] py-16 space-y-12">
+            <div class="content py-4 md:py-20 px-6 md:px-12 flex flex-col gap-8">
+                <!-- Intro -->
+                <div class="text-left space-y-3 pl-4">
+                    <div class="text-primary-500 text-sm font-medium font-dm-mono uppercase flex items-center gap-2">
+                        <span>//</span><span>Regroup all your data protection workflows</span>
+                    </div>
+                    <h2 class="text-4xl font-medium font-space-grotesk leading-tight">One platform for resilient backups everywhere</h2>
+                    <p class="text-lg text-neutral-600 max-w-3xl">
+                        From edge devices to SaaS platforms and hybrid clouds, Plakar keeps your data safe, synced, and instantly restorable: all from one unified tool.
+                    </p>
                 </div>
 
+                <!-- Use cases -->
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-y-10">
+                    <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                        <h3 class="text-xl font-semibold text-primary-500 mb-2">For SaaS, endpoints & edge</h3>
+                        <p class="text-neutral-700">
+                            Whether you're backing up remote laptops, on-premise servers or third-party SaaS data, Plakar gives you full control. Immutable backups, minimal storage, full flexibility. Even in disconnected environments.
+                        </p>
+                    </div>
+
+                    <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                        <h3 class="text-xl font-semibold text-primary-500 mb-2">In your data center</h3>
+                        <p class="text-neutral-700">
+                            Legacy systems or critical data. All backed up with the same simplicity. Plakar integrates directly into your infrastructure with powerful CLI, orchestration support, and instant recovery.
+                        </p>
+                    </div>
+
+                    <div class="text-center md:text-left space-y-2 bg-neutral-100 border p-4">
+                        <h3 class="text-xl font-semibold text-primary-500 mb-2">Across clouds</h3>
+                        <p class="text-neutral-700">
+                            Cloud-native or multi-cloud? No problem. Plakar works seamlessly with object storage, S3-compatible services, and hybrid environments, without locking you in or slowing you down.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA: Book a demo (dark version) -->
+    <div class="section-wrapper bg-neutral-900"
+         style="--pattern-fg: var(--color-neutral-700); --border-color: var(--color-neutral-700);">
+        <section class="section-decorated bg-neutral-900 text-neutral-100 mx-auto max-w-[1400px]">
+            <div class="content px-6 md:px-12 py-20 flex flex-col items-center text-center gap-8">
+
+                <!-- Badge -->
+                <div class="text-primary-500 uppercase font-dm-mono text-sm flex items-center gap-2">
+                    <span>//</span>
+                    <span>Ready to start?</span>
+                </div>
+
+                <!-- Title -->
+                <h2 class="~text-2xl/5xl font-medium font-space-grotesk text-neutral-50 max-w-3xl">
+                    Book your own demo and join one of our community calls
+                </h2>
+
+                <!-- Text -->
+                <p class="~text-base/xl text-neutral-300 opacity-80 font-space-text max-w-2xl leading-relaxed">
+                <span class="block font-medium text-neutral-100">
+                    No edge case. No effort. No “backup project”.
+                </span>
+                    Just peace of mind, every day.<br/>
+                    Plakar eliminates the mental load of backups while protecting what matters.
+                </p>
+
+                <!-- Button -->
+                <a href="#"
+                   class="inline-flex items-center gap-3 ~px-3/6 ~py-2/4 bg-primary-500 text-neutral-100 rounded-sm font-dm-mono uppercase ~text-sm/md">
+                    <span class="w-[20px] h-[20px]">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
+                    <span>Book your demo</span>
+                </a>
             </div>
         </section>
     </div>

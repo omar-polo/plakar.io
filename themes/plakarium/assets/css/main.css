@@ -112,7 +112,7 @@
     background-size: calc((100% - 48px) / 2) 100%;
     background-origin: border-box;
     background-clip: border-box;
-    background-position-x: 23px;
+    background-position-x: 24px;
     background-repeat: repeat-x;
     border-right: 1px solid var(--border-color);
     border-left: 1px solid var(--border-color);
@@ -122,7 +122,7 @@
 /* Override for medium screens and up (≥768px) */
 @media (min-width: 768px) {
     .section-decorated {
-        background-position-x: 47px;
+        background-position-x: 48px;
         background-size: calc((100% - 96px) / 6) 100%;
     }
 }
