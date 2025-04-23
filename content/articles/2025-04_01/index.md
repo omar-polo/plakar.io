@@ -22,9 +22,26 @@ This post introduces the **Kloset architecture**, explains its design decisions,
 
 ---
 
-## Designing Kloset
+> <u>**Key concepts:**</u>
+> 
+> - Immutable Storage: Data that, once stored, cannot change.
+> - Content-Addressable Storage (CAS): Data stored and retrieved by a unique identifier derived from its contents (hash).
+> - Virtual Filesystem (VFS): An abstraction representing data in a structured, hierarchical format that mimics a traditional filesystem.
+
+---
+
+## Core Architecture & Principles of Kloset
 
 Kloset was built with a clear set of non-negotiable goals: backups must be **immutable**, **fully encrypted at the source**, **efficient** even at scale or over slow links, **navigable without full restores**, **portable**, and **verifiable** without relying on external metadata.
+
+| Feature | Kloset | Rsync | Tarballs | Snapshot |
+|---|---|---|---|---|
+| Immutable Backups | ✅ | ❌ | ❌ | ✅ (limited) |
+| Incremental Efficiency | ✅ | ✅ | ❌ | ✅ |
+| Granular Restore | ✅ | ✅ (partial) | ❌ | ✅ (limited) |
+| Encryption & Security | ✅ Built-in | ❌ (manual) | ❌ (manual) | ❌ (manual)  |
+| Self-contained & Portable | ✅ | ❌ | ❌ | ❌ |
+
 
 Traditional approaches like tarballs, rsync deltas, or volume snapshots couldn't meet these requirements. We needed a model that could, so we chose to represent all data internally as a **virtual filesystem**. It’s a flexible, expressive abstraction that fits any data source — filesystems, databases, APIs — and supports efficient storage, indexing, and recovery.
 
@@ -58,6 +75,12 @@ This architecture lets Kloset scale from small local backups to massive cloud de
 
 Kloset, our backup engine, is in charge of abstracting the problem into smaller problems and providing solutions.
 
+Before we dive in,
+here's a full overview of the architectural design,
+this article will progressively go through each of these layers to describe their responsibilities.
+
+![](full.png)
+
 
 ### Storage Layer
 
@@ -67,7 +90,7 @@ Despite this, the storage layer plays a critical role in **organizing opaque dat
 
 All data written by Kloset is **strictly immutable**: once a stream is stored, it is never modified. This simplifies concurrency, ensures consistency, and supports optimizations such as caching, multi-writer safety, and low-overhead synchronization.
 
-The storage layer is designed for **scalability and performance**. It is fully **parallelized**, able to handle concurrent reads and writes across multiple streams or backends, and is **backpressure-aware**, adapting its behavior to the performance and throughput of the underlying storage system to avoid resource overuse.
+The storage layer is designed for **scalability and performance**. It is fully **parallelized**, able to handle concurrent reads and writes across multiple streams or backends, and is **backpressure-aware** (adapts to storage speeds to avoid overloading), adapting its behavior to the performance and throughput of the underlying storage system to avoid resource overuse.
 
 Importantly, the storage layer is built on a **pluggable connector model**, allowing it to interface with different backend systems such as filesystems, SFTP servers, or cloud object stores. These connectors abstract the details of connection and data transfer, and will be described in more detail later in this article.
 
@@ -75,7 +98,7 @@ Importantly, the storage layer is built on a **pluggable connector model**, allo
 
 
 
-### Repository Layer
+### Repository Layer: Encoding, Decoding And Indexing
 
 Sitting directly above the storage layer is the **repository layer**, a logical component that acts as a **local encoding/decoding proxy** for all data entering or leaving the system.
 
@@ -91,7 +114,7 @@ In essence, the repository is a **stateless, high-performance gateway** between 
 
 ![](repository-layer.png)
 
-### Snapshot Layer
+### Snapshot Layer: Structuring Data & Metadata
 
 At the top of the Kloset architecture lies the **snapshot layer**, responsible for giving structure and meaning to the raw data exposed by the repository.
 
@@ -111,7 +134,7 @@ Internally, the snapshot layer is built on top of a **custom virtual filesystem*
 ![](snapshot-layer.png)
 
 
-## Storage Connectors
+## Storage Connectors: Universal Backend Integration
 
 **Storage connectors** are pluggable components that allow Kloset to interface with a variety of backend storage systems, such as local filesystems, SFTP servers, or S3-compatible object stores.
 
@@ -129,7 +152,7 @@ Thanks to this simplicity, implementing a new storage connector can be very ligh
 
 
 
-## Source and Target Connectors
+## Source & Target Connectors: Bridging External Data
 
 **Source** and **target** connectors act as bridges between the external world and Kloset’s internal **snapshot layer**, enabling seamless data ingestion and restoration.
 
@@ -146,7 +169,7 @@ By clearly separating data capture and restoration responsibilities, source and 
 
 
 
-## Virtual Filesystem (VFS)
+## Virtual Filesystem (VFS): Efficient Snapshot Navigation
 
 Kloset includes a custom-built **virtual filesystem (VFS)** that models snapshot data as a structured hierarchy of files and directories. It is designed to implement the semantics of Go’s standard [`fs.FS`](https://pkg.go.dev/io/fs#FS) interface, making it easy to integrate with existing Go tooling and libraries that expect filesystem-like behavior.
 
@@ -166,18 +189,9 @@ By offering a structured, navigable, and resource-efficient interface to snapsho
 
 
 
-## Full view
+## Advanced Features & Capabilities
 
-And now, here's the full view with tools plugging into a kloset:
-
-![](full.png)
-
-
-
-## Additional Features
-
-
-### Metadata Engine
+### Indexes: Powerful Query & Inspection
 
 While data blocks are being stored, **Kloset simultaneously builds a structured metadata index** that captures everything about the snapshot’s logical content and context. This index is not an afterthought — it is a **first-class citizen** in the architecture, enabling powerful querying, filtering, and introspection.
 
@@ -213,7 +227,7 @@ The metadata engine enables **in-place querying and comparison** of snapshots, w
 Because the metadata engine is tightly integrated with the snapshot and repository layers, all of this functionality comes with **no performance penalty** and requires **no unpacking or external indexing**. It’s ready the moment a snapshot is completed.
 
 
-### Inspection & Restore
+### On-Demand Inspection & Granular Restore
 
 Kloset enables **fast, precise, and flexible restoration workflows** by leveraging the same metadata structures and block indices used during backup. Instead of requiring full unpacking or temporary reconstruction of a snapshot, Kloset supports **on-demand access** to exactly the data you need.
 
@@ -234,7 +248,7 @@ Kloset enables **fast, precise, and flexible restoration workflows** by leveragi
 By avoiding full snapshot reconstruction and streaming only the required data, Kloset keeps restores **fast, lightweight, and stateless** — whether you're retrieving a single file or rerouting a dataset to a new system.
 
 
-### Cloning & Synchronization
+### Efficient Snapshot Cloning & Synchronization
 
 Kloset supports **efficient snapshot cloning and synchronization** between instances or across storage backends. This functionality is built directly into the engine and is designed to be **deduplication-aware, incremental, and portable**, making it ideal for modern distributed environments.
 
@@ -261,9 +275,14 @@ This syncing model unlocks a wide range of real-world scenarios:
 By combining snapshot immutability, content-addressing, and portable metadata, Kloset enables **safe, efficient, and verifiable movement of data** between systems — without relying on fragile heuristics or full re-transfers.
 
 
-### Always-On Security
+### Built-In Security & Cryptographic Integrity
 
-Kloset is designed with **security as a foundational, non-optional feature**. Its security layer is **always enabled**, woven directly into the architecture, not layered on top as an afterthought. The system guarantees **confidentiality, integrity, and traceability** for all data at all times — during backup, storage, and restore.
+Kloset is designed with **security as a foundational, non-optional feature**.
+Its security layer is **always enabled**, woven directly into the architecture, not layered on top as an afterthought.
+Its cryptographic design has been [reviewed by an independant auditor](/docs/audits/) and project is maintained by developers with strong understanding of security concepts.
+
+
+The system guarantees **confidentiality, integrity, and traceability** for all data at all times — during backup, storage, and restore.
 
 **Key Security Features**
 
@@ -291,7 +310,7 @@ These security properties make Kloset an ideal fit for **regulated environments*
 Because encryption is built-in and metadata is cryptographically verifiable, **compliance is not bolted on — it is enforced by design**. Snapshots can be used as cryptographic proofs of backup validity, integrity, and lineage, making Kloset suitable for organizations with strict governance, forensic, or retention obligations.
 
 
-### Lightweight by Design
+### Lightweight & Embeddable by Design
 
 **Kloset** is not a standalone application — it is a **lightweight, embeddable backup engine** designed to be integrated into purpose-built executables such as [`plakar`](https://github.com/PlakarKorp/plakar). Its focus is on **portability, simplicity, and robustness**, making it easy to embed in backup tools, storage utilities, or automation pipelines.
 
@@ -300,11 +319,11 @@ Kloset imposes no runtime requirements and requires no root privileges or extern
 
 ## How It Fits Into Plakar
 
-Plakar uses Kloset as its engine — the component that all user-facing commands (via CLI or API) ultimately call into. Whether you’re triggering a backup, restoring a path, inspecting differences between two versions, or syncing to a remote — it’s Kloset doing the work underneath.
+Plakar uses Kloset as its engine — the component that all user-facing commands (via CLI or UI) ultimately call into. Whether you’re triggering a backup, restoring a path, inspecting differences between two versions, or syncing to a remote — it’s Kloset doing the work underneath.
 
 ---
 
-## Next Steps
+## What's Next for Kloset & Plakar?
 
 Kloset is fully integrated into the Plakar beta and will be getting:
 
@@ -312,4 +331,7 @@ Kloset is fully integrated into the Plakar beta and will be getting:
 - More inspection tools (diffs, browsing, search)  
 - Formal spec and manifest format for snapshot interoperability
 
-If you’re curious about how it works or want to build against it, check out the repo or drop into our Discord.
+
+**Curious about Kloset?**
+
+Explore [Plakar](https://github.com/PlakarKorp/plakar), join our community on [Discord](https://discord.com/invite/uuegtnF2Q5) and start building your own connectors and integrations.
