@@ -1,5 +1,5 @@
 ---
-title: "Kloset: the core engine of Plakar"
+title: "Kloset: our backup engine"
 date: 2025-04-14 08:00:00 +0100
 authors:
 - "gilles"
