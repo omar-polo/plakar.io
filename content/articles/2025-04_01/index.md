@@ -11,7 +11,7 @@ tags:
  - backups
 ---
 
-On the surface, `plakar` is just yet another backup software that takes some data, stores it somewhere until it has to be restored:
+On the surface, `plakar` is yet another backup software that takes some data, stores it somewhere until it has to be restored:
 a glorified `cp` if you will.
 
 Under the hood, it’s powered by **Kloset**, a dedicated engine we built to make compact, immutable, inspectable, and secure backups that work across filesystems, databases, object stores, and distributed environments — without external state or centralized coordination.
@@ -59,9 +59,6 @@ This architecture lets Kloset scale from small local backups to massive cloud de
 Kloset, our backup engine, is in charge of abstracting the problem into smaller problems and providing solutions.
 
 
-Absolutely! Here’s the revised version of the **Storage Layer** section with the mention of **pluggable connectors** and a reference to their detailed description later in the article:
-
-
 ### Storage Layer
 
 At the foundation of **Kloset** is the **storage layer**, responsible for writing and retrieving streams of raw, opaque bytes at specific storage locations. The term *opaque* is important: by the time data reaches this layer, it has already been **compressed and encrypted**, meaning the storage layer has no visibility into its structure or semantics.
@@ -73,6 +70,9 @@ All data written by Kloset is **strictly immutable**: once a stream is stored, i
 The storage layer is designed for **scalability and performance**. It is fully **parallelized**, able to handle concurrent reads and writes across multiple streams or backends, and is **backpressure-aware**, adapting its behavior to the performance and throughput of the underlying storage system to avoid resource overuse.
 
 Importantly, the storage layer is built on a **pluggable connector model**, allowing it to interface with different backend systems such as filesystems, SFTP servers, or cloud object stores. These connectors abstract the details of connection and data transfer, and will be described in more detail later in this article.
+
+![](storage-layer.png)
+
 
 
 ### Repository Layer
@@ -89,6 +89,7 @@ Because it is built directly on top of the storage layer, the repository **inher
 
 In essence, the repository is a **stateless, high-performance gateway** between structured user data and raw storage—handling transformation, indexing, and deduplication in a clean, composable layer.
 
+![](repository-layer.png)
 
 ### Snapshot Layer
 
@@ -107,6 +108,8 @@ By abstracting the low-level details, the snapshot layer makes the data **naviga
 
 Internally, the snapshot layer is built on top of a **custom virtual filesystem**, designed to model files, directories, and their relationships in a flexible and efficient way. This virtual filesystem serves as the foundation for snapshot representation and will be discussed in more detail in the following sections.
 
+![](snapshot-layer.png)
+
 
 ## Storage Connectors
 
@@ -119,8 +122,11 @@ Each connector is responsible for handling the specifics of connecting to its ba
 
 This abstraction enables Kloset to interact with all supported storage backends in a consistent and backend-agnostic way, regardless of the underlying protocols or infrastructure. Since all data at this level is immutable, compressed, and encrypted, connectors operate purely on opaque byte streams—without needing to understand or interpret the data's meaning.
 
-
 Thanks to this simplicity, implementing a new storage connector can be very lightweight—**a basic connector may require only a few hundred lines of code**, making it easy to extend Kloset’s compatibility with new storage platforms.
+
+
+![](store-connectors.png)
+
 
 
 ## Source and Target Connectors
@@ -134,6 +140,11 @@ Thanks to this simplicity, implementing a new storage connector can be very ligh
 Because these connectors operate purely at the **transport level**, they do not need to deal with encoding, encryption, or storage internals. This makes them simple and **lightweight to implement**, often requiring only minimal code to support a new source or target system.
 
 By clearly separating data capture and restoration responsibilities, source and target connectors allow Kloset to integrate with a wide range of systems—handling everything from simple file trees to complex, domain-specific data sources—**without impacting the core snapshot logic**.
+
+
+![](importers-exporters.png)
+
+
 
 ## Virtual Filesystem (VFS)
 
@@ -150,6 +161,16 @@ Under the hood, the VFS is backed by a **custom B+Tree**, offering efficient, or
 - **Portable and stateless**: Being decoupled from the host filesystem, the VFS operates entirely in user space and can be safely used for serialization, inspection, or streaming.
 
 By offering a structured, navigable, and resource-efficient interface to snapshot contents, the VFS forms the backbone of higher-level features like restores, comparisons, and virtual browsing—all without sacrificing performance or portability.
+
+![](vfs.png)
+
+
+
+## Full view
+
+And now, here's the full view with tools plugging into a kloset:
+
+![](full.png)
 
 
 
