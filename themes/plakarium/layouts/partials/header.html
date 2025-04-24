@@ -5,7 +5,7 @@
 
 <!-- Fixed Navbar -->
 <header id="site-header"
-        class="fixed flex px-2 md:px-4 py-2 top-0 left-0 right-0 w-full mx-auto lg:max-w-[1304px] max-w-[1400px] z-50 bg-neutral-100 border-b border-l border-r border-neutral-300">
+        class="fixed flex px-2 md:px-4 top-5 rounded-2xl inset-x-10 max-w-[1400px] z-50 bg-neutral-50 border-b border-l border-r border-neutral-300">
     <div class="flex mx-auto w-full justify-between relative">
         <div class="flex mx-auto items-center w-full space-x-4">
             <!-- Logo -->
@@ -252,34 +252,20 @@
         <!-- Right-side buttons (GitHub + Actions) -->
         <div class="flex items-center space-x-2 w-full justify-end">
             <!-- GitHub link -->
-            <a class="hidden lg:flex min-h-[35px] items-center gap-2 pr-4 p-[1px] border border-neutral-300 bg-white rounded-sm uppercase font-dm-mono"
+            <a class="hidden lg:flex min-h-[36px] items-center gap-2 pr-4 p-[1px] border border-neutral-300 bg-white rounded-lg uppercase font-dm-mono"
                href="https://github.com/PlakarKorp/plakar" target="_blank">
-                <div class="flex items-center gap-1 px-2 pr-4 min-h-[31px] bg-[#F5F4FB] text-primary-500 rounded-sm">
+                <div class="flex items-center gap-1 px-2 pr-4 min-h-[31px] bg-[#F5F4FB] text-primary-500 rounded-lg">
                     <span class="w-5 h-5">{{ $riGithubFill.Content | safeHTML }}</span>
                     <span>star</span>
                 </div>
                 <span id="github-stars-count">149</span>
             </a>
 
-            <!-- Get started -->
-            <a href="https://docs.plakar.io/en/quickstart/index.html" target="_blank">
-
-            <div class="min-h-[24px] md:min-h-[35px] px-2 pr-4 border border-neutral-900 rounded-sm inline-flex items-center gap-2">
-                <span class="w-5 h-5">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                <span class="hidden lg:block uppercase font-dm-mono text-sm text-neutral-900">
-                            Get started
-                        </span>
-                <span class="block lg:hidden uppercase font-dm-mono text-sm text-neutral-900">
-                            Start
-                        </span>
-            </div>
-            </a>
-
             <!-- Book a demo -->
-            <div class="min-h-[24px] md:min-h-[35px] px-2 pr-4  ] bg-neutral-900 text-neutral-50 rounded-sm inline-flex items-center gap-2">
+            <div class="min-h-[24px] md:min-h-[36px] px-2 pr-4  ] bg-primary-500 text-neutral-50 rounded-lg inline-flex items-center gap-2">
                 <span class="w-5 h-5">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                <span class="hidden lg:block  uppercase font-dm-mono text-sm">Book a demo</span>
-                <span class="block lg:hidden uppercase font-dm-mono text-sm">demo</span>
+                <span class="hidden lg:block  font-space-grotesk text-sm">Book a demo</span>
+                <span class="block lg:hidden font-space-grotesk text-sm">demo</span>
             </div>
             <!-- Mobile menu icon -->
             <button id="menu-button"
