@@ -77,6 +77,18 @@
     }
 }
 
+@layer utilities {
+    .grid-background {
+        background-color: theme('colors.neutral.100');
+        background-image:
+                linear-gradient(to right, theme('colors.neutral.200') 1px, transparent 1px),
+                linear-gradient(to bottom, theme('colors.neutral.200') 1px, transparent 1px);
+        background-size: 64px 64px;
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+}
+
 .not-ready {
     animation: none !important;
     opacity: 1 !important;
