@@ -95,8 +95,14 @@
 }
 
 @layer utilities {
-    section.section-light {
+    section.section-light-1 {
+        @apply bg-neutral-50 text-neutral-900;
+    }
+    section.section-light-2 {
         @apply bg-neutral-100 text-neutral-900;
+    }
+    section.section-light-3 {
+        @apply bg-neutral-200 text-neutral-900;
     }
     section > .content {
         @apply relative mx-auto max-w-[1400px] font-space-grotesk;

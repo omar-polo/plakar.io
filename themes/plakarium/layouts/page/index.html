@@ -2,7 +2,7 @@
     {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
     {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
     <!-- Title -->
-    <section class="section-light grid-background">
+    <section class="section-light-2 grid-background">
         <div class="content py-20 flex flex-col justify-between items-start gap-8">
             <div class="self-stretch text-center justify-start font-medium text-6xl/[72px]">
                 <h1><span class="text-primary-500">Backup</span> in seconds. <br/>
@@ -21,18 +21,15 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
-    {{ $gradientOrange := resources.Get "img/GRADIENT_ORANGE.png" }}
-    <section class="section-light grid-background" x-data="{ focus: 'web' }"
-             style="
-background-image: linear-gradient(
-  #F5F4FB 45%,
-  #9895FF 65%,
-  #524CFF 100%
-);
-background-repeat: no-repeat;
-background-size: 100% auto;
-background-attachment: scroll;
-">
+    <!-- Get started section -->
+    <section class="section-light-2 grid-background" x-data="{ focus: 'web' }"
+             style="background-image: linear-gradient(
+                  #F5F4FB 45%,
+                  #9895FF 65%,
+                  #524CFF 100%);
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-attachment: scroll;">
         <div class="content py-20 flex flex-col lg:flex-row gap-6 transition-all duration-500 h-[600px]">
 
             <!-- Terminal block (left) -->
@@ -56,10 +53,13 @@ background-attachment: scroll;
                                     Our super terminal
                                 </h2>
                                 <p class="font-space-text ~text-base/xl leading-snug">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar...
+                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                    pulvinar...
                                 </p>
                             </div>
-                            {{ partial "cta/book-a-demo-button.html" . }}
+                            <div>
+                                {{ partial "cta/get-started-button.html" . }}
+                            </div>
                         </div>
                     </div>
 
@@ -111,10 +111,13 @@ background-attachment: scroll;
                                     Our super web interface
                                 </h2>
                                 <p class="text-neutral-600 font-space-text ~text-base/xl leading-snug">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar...
+                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                    pulvinar...
                                 </p>
                             </div>
-                            {{ partial "cta/book-a-demo-button.html" . }}
+                            <div>
+                                {{ partial "cta/demo-website-button.html" . }}
+                            </div>
                         </div>
                     </div>
 
@@ -122,7 +125,8 @@ background-attachment: scroll;
                     <div class="flex transition-all duration-500 ease-in-out h-440 overflow-hidden ml-auto"
                          :class="focus === 'web' ? 'w-1/2' : ''">
                         {{ $dashboard5 := resources.Get "img/dashboard-5.png" }}
-                        <img src="{{ $dashboard5.RelPermalink }}" alt="Plakar dashboard" class="w-full object-top object-cover transition-all duration-500 ease-in-out">
+                        <img src="{{ $dashboard5.RelPermalink }}" alt="Plakar dashboard"
+                             class="w-full object-top object-cover transition-all duration-500 ease-in-out">
                     </div>
 
                 </div>
@@ -131,105 +135,209 @@ background-attachment: scroll;
         </div>
     </section>
 
+    <!-- Logo and testimonial -->
+    <section class="section-light-1">
+        <div class="content py-20 flex flex-col gap-12">
 
-
-
-
-
-    <!-- Screenshot section -->
-    <div class="section-wrapper bg-neutral-100"
-         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated  bg-neutral-100 text-neutral-900 relative mx-auto max-w-[1400px]">
-            <div class="content pb-36 md:pb-28 lg:pb-16 md:pl-12">
-                <div class="relative md:pr-12 flex-col lg:flex-row lg:flex justify-between items-end min-h-[180px] sm:min-h-[250px]">
-                    <div class="w-full lg:w-4/6">
-                        {{ $dashboard3 := resources.Get "img/dashboard-3.png" }}
-                        <img src="{{ $dashboard3.RelPermalink }}" alt="Plakar dashboard" class="w-full rounded-sm">
-                    </div>
-
-                    <div class="terminal w-5/6 lg:w-2/3 xl:w-1/2 h-fit absolute left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:right-0 top-2/3 lg:top-1/2 ">
-                        <div class="terminal-body h-fit ">
-
-                            <div class="t-line">{{ $prompt }}go install github.com/PlakarKorp/plakar/cmd/plakar@latest
+            <!-- Logo section -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-10 p-8 bg-neutral-200 rounded-lg max-w-[1340px] mx-auto w-full">
+                <div class="grid grid-cols-2 md:flex md:flex-wrap justify-center md:justify-start items-center gap-6">
+                    {{/* Logos list */}}
+                    {{ $logos := slice
+                            (dict "img" "logo-client/holberton.png" "alt" "Holberton" "name" "Holberton")
+                            (dict "img" "logo-client/republique-francaise-logo-black-and-white.png" "alt" "République Française" "name" "République Française")
+                            (dict "img" "logo-client/spark-angle-logo-only.png" "alt" "Spark Angle" "name" "Spark Angle")
+                            (dict "img" "logo-client/moose-and-toom.png" "alt" "Moose & Toom" "name" "Moose & Toom")
+                            (dict "img" "logo-client/hoodie.png" "alt" "Hoodie" "name" "Hoodie")
+                    }}
+                    {{ range $logo := $logos }}
+                        <div class="flex items-center gap-2 min-w-[140px]">
+                            <div class="w-10">
+                                {{ $logoImg := resources.Get (print "img/" $logo.img) }}
+                                <img src="{{ $logoImg.RelPermalink }}" alt="{{ $logo.alt }}" class="w-full h-full object-contain rounded-sm" />
                             </div>
-                            <div class="t-line">&nbsp;</div>
-                            <div class="t-line">{{ $prompt }}export PLAKAR_PASSPHRASE=-HelloWorld- <span
-                                    class="t-comment hidden md:block">&nbsp;# Keep your passphrase safe</span></div>
-                            <div class="t-line">{{ $prompt }}plakar at /mnt/nas-backup create</div>
-                            <div class="t-line">backup: created 003affd1 of size 9.8 MB in 262ms</div>
-                            <div class="t-line">&nbsp;</div>
-                            <div class="t-line">{{ $prompt }}plakar at ~/backups ls</div>
-                            <div class="t-line">003affd1 9.8 MB 0s /etc</div>
-                            <div class="t-line">{{ $prompt }}<span
-                                    class="t-comment text-primary-500"># Congratulation you did your backup in 30s</span>
+                            <div class="text-neutral-700 font-space-text text-sm md:text-base font-medium">
+                                {{ $logo.name }}
                             </div>
                         </div>
-                    </div>
-                    {{/*                        {{ $plakaCreate := resources.Get "img/plakar-create.png" }}
-                                            <div class="absolute right-0 top-1/2 -translate-y-1/2 aspect-[3/4] w-[50%] max-w-[200px] sm:max-w-[250px] md:max-w-none md:w-1/2">
-                                                <img src="{{ $plakaCreate.RelPermalink }}" alt="Plakar dashboard"
-                                                     class="w-full h-full object-contain rounded-sm">
-                                            </div>*/}}
+                    {{ end }}
                 </div>
             </div>
-        </section>
-    </div>
 
-    <!-- Sponsor section -->
-    <div class="section-wrapper bg-neutral-100"
-         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="bg-neutral-100 text-neutral-900 px-[0px]">
-            <div class="content border border-neutral-300">
-                <div class="flex flex-col md:flex-row justify-between  items-start md:items-center py-12 px-8 bg-neutral-100  gap-10 max-w-[1340px] mx-auto">
-                    <div class="flex-1 justify-start text-neutral-600 font-space self-center text-left">
-                        Trusted by businesses.
-                    </div>
-                    <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-2">
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
-                                <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Holberton</div>
+            <!-- Testimonial section -->
+            <div class="flex flex-col gap-6 items-start p-8">
+                <div class="text-neutral-700 font-space-grotesk ~text-2xl/4xl leading-tight">
+                    "Plakar has completely transformed our backup strategy. What used to take hours now takes minutes at 30% of the previous cost."
+                </div>
+                <div class="flex items-center gap-4">
+                    <img class="size-10 rounded-full outline outline-2 outline-primary-500 object-cover"
+                         src="https://placehold.co/40x40" alt="Profile picture" />
+                    <div class="flex flex-col">
+                        <div class="text-neutral-900 font-space-text text-lg font-semibold leading-normal">
+                            John JEAN
                         </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
-                                <img src="{{ $logoRF.RelPermalink }}" alt="La République Française"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">République Française</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
-                                <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Logo Spark Angle"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Spark Angle</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
-                                <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Moose & Toom</div>
-                        </div>
-                        <div class="flex justify-start items-center gap-2">
-                            <div class="w-10">
-                                {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
-                                <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
-                                     class="w-full h-full object-contain rounded-sm">
-                            </div>
-                            <div class="">Hoodie</div>
+                        <div class="text-neutral-500 font-space-text text-sm font-medium leading-tight">
+                            CTO Group at Wargan
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </div>
+
+        </div>
+    </section>
+
+    <section class="section-light-2  overflow-hidden">
+        <div class="content py-28 flex flex-col gap-24">
+
+            <!-- Title -->
+            <div class="text-center flex flex-col gap-8 max-w-4xl mx-auto">
+                <h2 class="~text-4xl/6xl font-space-grotesk font-medium text-neutral-900 leading-tight">
+                    Why engineers choose <span class="text-primary-500">Plakar</span>
+                </h2>
+                <p class="~text-xl font-space-text text-neutral-600 leading-normal">
+                    Powerful technology designed for developers who value <br /> reliability, security, and efficiency.
+                </p>
+            </div>
+
+            <!-- First part -->
+            <div class="flex flex-col lg:flex-row gap-32 items-start p-8 md:px-20">
+
+                <!-- Left step 1 -->
+                <div class="flex flex-col gap-8 w-1/3 max-w-md">
+                    <div class="flex items-start gap-4">
+                        <div class="flex justify-center items-center size-8 bg-primary-500 text-white font-bold rounded-full">
+                            1
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
+                                From zero to protected <br /> in seconds
+                            </h3>
+                            <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
+                                Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar. In arcu elementum aliquam velit. Molestie sit sit placerat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dashboard card with gradient -->
+                <div class="relative flex-1 h-96 bg-violet-200 rounded-lg overflow-hidden">
+                    <!-- Dashboard Image -->
+                    <div class="absolute top-12 left-12 w-[600px] h-[360px] bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <img src="https://placehold.co/600x360" alt="Dashboard" class="object-cover w-full h-full rounded-lg" />
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Second part -->
+            <div class="flex flex-col gap-20 p-8 md:px-20">
+
+                <!-- Step 2 -->
+                <div class="flex flex-col lg:flex-row gap-32 items-start">
+                    <div class="flex flex-col gap-8 max-w-md">
+                        <div class="flex items-start gap-4">
+                            <div class="flex justify-center items-center size-8 bg-white text-neutral-400 font-bold rounded-full outline outline-2 outline-gray-200">
+                                2
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
+                                    Engineered for excellence
+                                </h3>
+                                <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
+                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features grid -->
+                    <div class="flex-1 flex flex-wrap gap-6">
+                        <!-- Feature card -->
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Searchable</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Locate files by type, name, or content.</p>
+                        </div>
+
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Exo bytes ready</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Support massive data.</p>
+                        </div>
+
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Extensible</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Easily add connectors for new sources.</p>
+                        </div>
+
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Threat Detection</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Detect and alert on suspicious activity.</p>
+                        </div>
+
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Lock-free</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Use one repository for several sources.</p>
+                        </div>
+
+                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Super fast</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Backup >1M files in under 3 min.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col lg:flex-row gap-32 items-start">
+                    <div class="flex flex-col gap-8 max-w-md">
+                        <div class="flex items-start gap-4">
+                            <div class="flex justify-center items-center size-8 bg-white text-neutral-400 font-bold rounded-full outline outline-2 outline-gray-200">
+                                3
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
+                                    Connect everything, anywhere
+                                </h3>
+                                <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
+                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 mt-8">
+                            <a href="#" class="px-6 py-3 bg-primary-500 text-white rounded-lg font-space-grotesk text-sm font-medium">
+                                View Documentation
+                            </a>
+                            <a href="#" class="px-6 py-3 bg-white text-neutral-600 outline outline-1 outline-zinc-200 rounded-lg font-space-grotesk text-sm font-medium">
+                                Download Latest
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Storage sources visualization -->
+                    <div class="flex-1 flex flex-wrap gap-6">
+
+                        <!-- Source panel 1 -->
+                        <div class="flex flex-col gap-2 bg-gray-50 rounded-lg p-6 flex-1 min-w-[220px]">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-lg font-semibold">Data source</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base">Files, Databases, SaaS, Servers.</p>
+                        </div>
+
+                        <!-- Source panel 2 -->
+                        <div class="flex flex-col gap-2 bg-gray-50 rounded-lg p-6 flex-1 min-w-[220px]">
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-lg font-semibold">Storage Targets</h4>
+                            <p class="text-neutral-500 font-space-text ~text-base">Amazon S3, Local, SFTP, Cloud.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
 
     <!-- Powered by Kloset -->
     <div class="section-wrapper bg-neutral-100"
