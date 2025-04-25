@@ -82,8 +82,14 @@
     opacity: 1 !important;
 }
 
-
-
+@layer utilities {
+    section.section-light {
+        @apply bg-neutral-100 text-neutral-900;
+    }
+    section > .content {
+        @apply relative mx-auto max-w-[1400px] font-space-grotesk;
+    }
+}
 
 
 @font-face {

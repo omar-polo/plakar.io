@@ -4,8 +4,7 @@
 {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
 
 <!-- Fixed Navbar -->
-<header id="site-header"
-        class="fixed flex px-2 md:px-4 top-5 rounded-2xl inset-x-10 max-w-[1400px] z-50 bg-neutral-50 border-b border-l border-r border-neutral-300">
+<header id="site-header" class="fixed flex px-2 md:px-4 top-5 rounded-2xl mx-auto inset-x-4 md:inset-x-10 max-w-[1400px] z-50 bg-neutral-50 border-b border-l border-r border-neutral-300">
     <div class="flex mx-auto w-full justify-between relative">
         <div class="flex mx-auto items-center w-full space-x-4">
             <!-- Logo -->
@@ -261,12 +260,7 @@
                 <span id="github-stars-count">149</span>
             </a>
 
-            <!-- Book a demo -->
-            <div class="min-h-[24px] md:min-h-[36px] px-2 pr-4  ] bg-primary-500 text-neutral-50 rounded-lg inline-flex items-center gap-2">
-                <span class="w-5 h-5">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-                <span class="hidden lg:block  font-space-grotesk text-sm">Book a demo</span>
-                <span class="block lg:hidden font-space-grotesk text-sm">demo</span>
-            </div>
+            {{ partial "cta/book-a-demo-button.html" . }}
             <!-- Mobile menu icon -->
             <button id="menu-button"
                     class="min-h-[24px] md:hidden border border-neutral-900 rounded-sm text-neutral-900 focus:outline-none">

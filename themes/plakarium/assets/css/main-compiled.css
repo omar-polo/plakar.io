@@ -1416,9 +1416,9 @@ video {
   inset: 0px;
 }
 
-.inset-x-10 {
-  left: 2.5rem;
-  right: 2.5rem;
+.inset-x-4 {
+  left: 1rem;
+  right: 1rem;
 }
 
 .-left-3 {
@@ -1664,12 +1664,12 @@ video {
   min-height: 35px;
 }
 
-.min-h-\[38px\] {
-  min-height: 38px;
-}
-
 .min-h-\[36px\] {
   min-height: 36px;
+}
+
+.min-h-\[38px\] {
+  min-height: 38px;
 }
 
 .w-1\/2 {
@@ -2463,6 +2463,10 @@ video {
   padding-top: 2rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2523,6 +2527,11 @@ video {
   line-height: 3rem;
 }
 
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 3.75rem;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2548,6 +2557,21 @@ video {
   line-height: 1rem;
 }
 
+.text-6xl\/10 {
+  font-size: 3.75rem;
+  line-height: 2.5rem;
+}
+
+.text-6xl\/8 {
+  font-size: 3.75rem;
+  line-height: 2rem;
+}
+
+.text-6xl\/\[72px\] {
+  font-size: 3.75rem;
+  line-height: 72px;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2566,6 +2590,10 @@ video {
 
 .italic {
   font-style: italic;
+}
+
+.leading-\[66\.56px\] {
+  line-height: 66.56px;
 }
 
 .leading-normal {
@@ -2587,6 +2615,11 @@ video {
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity, 1));
+}
+
+.text-indigo-600 {
+  --tw-text-opacity: 1;
+  color: rgb(79 70 229 / var(--tw-text-opacity, 1));
 }
 
 .text-neutral-100 {
@@ -2851,6 +2884,29 @@ video {
   }
 }
 
+section.section-light {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 244 251 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(28 28 30 / var(--tw-text-opacity, 1));
+}
+
+section > .\!content {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+section > .content {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1400px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
 @plugin "@tailwindcss/typography";
 
 .not-ready {
@@ -2999,6 +3055,11 @@ video {
 }
 
 @media (min-width: 48rem) {
+  .md\:inset-x-10 {
+    left: 2.5rem;
+    right: 2.5rem;
+  }
+
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
   }
