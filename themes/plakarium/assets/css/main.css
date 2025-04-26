@@ -215,6 +215,32 @@
 }
 
 @layer components {
+    .terminal-slim {
+        @apply rounded-lg overflow-hidden text-xs md:text-sm text-neutral-300 bg-black;
+    }
+
+    .terminal-slim-body {
+        @apply ml-2 md:ml-4 mt-2 pb-2 md:p-4 space-y-1 font-['DM_Mono'] ~text-xxs/sm items-start justify-start;
+    }
+
+    .terminal-slim .t-line {
+        @apply break-all leading-tight whitespace-pre-wrap;
+    }
+
+    .terminal-slim .t-line .t-prompt {
+        @apply font-semibold text-cyan-200;
+    }
+
+    .terminal-slim .t-line .t-path {
+        @apply text-white font-semibold;
+    }
+
+    .terminal-slim .t-line .t-comment {
+        @apply text-neutral-500 italic;
+    }
+}
+
+@layer components {
     .list-icon-x li,
     .list-icon-check li {
         @apply flex items-start gap-3 leading-tight;
