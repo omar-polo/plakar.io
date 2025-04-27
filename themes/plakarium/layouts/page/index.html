@@ -1,10 +1,28 @@
 {{ define "main" }}
     {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+    {{ $riArrowRightLine := resources.Get "img/ri/arrow-right-line.svg" }}
+    {{ $riDatabaseLine := resources.Get "img/ri/database-line.svg" }}
+    {{ $riFlashlightLine := resources.Get "img/ri/flashlight-line.svg" }}
+    {{ $riListView := resources.Get "img/ri/list-view.svg" }}
+    {{ $riMenuSearchLine := resources.Get "img/ri/menu-search-line.svg" }}
+    {{ $riShieldCheckLine := resources.Get "img/ri/shield-check-line.svg" }}
+    {{ $riTerminalBoxLine := resources.Get "img/ri/terminal-box-line.svg" }}
+    {{ $riFolder2Line := resources.Get "img/ri/folder-2-line.svg" }}
+    {{ $riCodeBlock := resources.Get "img/ri/code-block.svg" }}
+    {{ $riArchive2Line := resources.Get "img/ri/archive-2-line.svg" }}
+    {{ $riGitMergeLine := resources.Get "img/ri/git-merge-line.svg" }}
+    {{ $riCollapseDiagonalLine := resources.Get "img/ri/collapse-diagonal-line.svg" }}
+    {{ $riPuzzle2Line := resources.Get "img/ri/puzzle-2-line.svg" }}
+    {{ $riTerminalWindowLine := resources.Get "img/ri/terminal-window-line.svg" }}
+    {{ $riServerLine := resources.Get "img/ri/server-line.svg" }}
+    {{ $riMacbookLine := resources.Get "img/ri/macbook-line.svg" }}
+    {{ $riDatabase2Line := resources.Get "img/ri/database-2-line.svg" }}
+    {{ $riEarthLine := resources.Get "img/ri/earth-line.svg" }}
     {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
     <!-- Title -->
     <section class="section-light-2 grid-background p-4">
         <div class="content pt-10 flex flex-col justify-between items-start gap-8">
-            <div class="self-stretch text-center justify-start font-medium text-4xl/[72px]">
+            <div class="self-stretch text-center justify-start font-medium ~text-4xl/6xl">
                 <h1><span class="text-primary-500">Backup</span> in seconds. <br/>
                     <span class="text-primary-500">Restore</span> without thinking.</h1>
             </div>
@@ -19,9 +37,6 @@
     </section>
 
 
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-
     <!-- Get started section -->
     <section class="section-light-2 grid-background"
              x-data="{
@@ -34,7 +49,7 @@
           }"
              @resize.window="handleResize"
 
->
+    >
         <div style="background-image: linear-gradient(
                   transparent 0%,
                   transparent 25%,
@@ -43,98 +58,104 @@
             background-repeat: no-repeat;
             background-size: 100% auto;
             background-attachment: scroll;">
-        <div class="content py-20 p-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
+            <div class="content py-20 p-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
 
-            <!-- Terminal block (left) -->
-            <div
-                    @mouseenter="if (window.innerWidth >= 1024) focus = 'terminal'"
-                    class="transition-all duration-500 flex flex-col bg-neutral-700 text-neutral-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg"
-                    :class="focus === 'terminal' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
-            >
-                <!-- Inner flex with dynamic gap -->
-                <div class="flex flex flex-col lg:flex-row transition-all duration-500 ease-in-out h-full "
-                     :class="focus === 'terminal' || smallScreen ? 'gap-6' : 'gap-0'">
+                <!-- Terminal block (left) -->
+                <div
+                        @mouseenter="if (window.innerWidth >= 1024) focus = 'terminal'"
+                        class="transition-all duration-500 flex flex-col bg-neutral-700 text-neutral-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg"
+                        :class="focus === 'terminal' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
+                >
+                    <!-- Inner flex with dynamic gap -->
+                    <div class="flex flex flex-col lg:flex-row transition-all duration-500 ease-in-out h-full "
+                         :class="focus === 'terminal' || smallScreen ? 'gap-6' : 'gap-0'">
 
-                    <!-- Terminal text container -->
-                    <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
-                            :class="focus === 'terminal' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
-                    >
-                        <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
-                            <div class="flex flex-col gap-4">
-                                <h2 class="~text-xl/4xl font-space-grotesk leading-tight">
-                                    Our super terminal
-                                </h2>
-                                <p class="font-space-text ~text-base/xl leading-snug">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
-                                    pulvinar...
-                                    Small screen: <span x-text="smallScreen"></span>
-                                </p>
-                            </div>
-                            <div>
-                                {{ partial "cta/get-started-button.html" . }}
+                        <!-- Terminal text container -->
+                        <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
+                             :class="focus === 'terminal' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
+                        >
+                            <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
+                                <div class="flex flex-col gap-4">
+                                    <h2 class="~text-xl/4xl font-space-grotesk leading-tight">
+                                        Our super terminal
+                                    </h2>
+                                    <p class="font-space-text ~text-base/xl leading-snug">
+                                        Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                        pulvinar...
+                                        Small screen: <span x-text="smallScreen"></span>
+                                    </p>
+                                </div>
+                                <div>
+                                    {{ partial "cta/get-started-button.html" . }}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Terminal UI -->
-                    <div class="terminal-slim flex flex-col flex-1 h-full bg-black rounded-lg overflow-hidden p-0 order-1 lg:order-2">
-                        <div class="terminal-slim-body space-y-1">
+                        <!-- Terminal UI -->
+                        <div class="terminal-slim flex flex-col flex-1 h-full bg-black rounded-lg overflow-hidden p-0 order-1 lg:order-2">
+                            <div class="terminal-slim-body space-y-1">
 
-                            <div class="t-line"><span class="t-prompt">$</span> go install github.com/PlakarKorp/plakar/cmd/plakar@latest</div>
-                            <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups backup /etc</div>
-                            <div class="t-line text-green-400">backup: created 003affd1 of size 9.8 MB in 262ms</div>
-                            <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups restore -to /tmp/</div>
-                            <div class="t-line">backups 003affd1</div>
-                            <div class="t-line text-green-400">restore completed</div>
+                                <div class="t-line"><span class="t-prompt">$</span> go install
+                                    github.com/PlakarKorp/plakar/cmd/plakar@latest
+                                </div>
+                                <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups backup /etc
+                                </div>
+                                <div class="t-line text-green-400">backup: created 003affd1 of size 9.8 MB in 262ms
+                                </div>
+                                <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups restore -to
+                                    /tmp/
+                                </div>
+                                <div class="t-line">backups 003affd1</div>
+                                <div class="t-line text-green-400">restore completed</div>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
-            </div>
 
 
-            <!-- Web interface block (right) -->
-            <div
-                    @mouseenter="if (window.innerWidth >= 1024) focus = 'web'"
-                    class="lg:max-h-[600px] transition-all duration-500 flex flex-col bg-primary-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg overflow-hidden"
-                    :class="focus === 'web' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
-            >
-                <!-- Inner flex row with dynamic spacing -->
-                <div class="flex flex-col lg:flex-row items-stretch transition-all duration-500 ease-in-out overflow-hidden h-full"
-                     :class="focus === 'web' || smallScreen ? 'gap-6' : 'gap-0'">
+                <!-- Web interface block (right) -->
+                <div
+                        @mouseenter="if (window.innerWidth >= 1024) focus = 'web'"
+                        class="lg:max-h-[600px] transition-all duration-500 flex flex-col bg-primary-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg overflow-hidden"
+                        :class="focus === 'web' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
+                >
+                    <!-- Inner flex row with dynamic spacing -->
+                    <div class="flex flex-col lg:flex-row items-stretch transition-all duration-500 ease-in-out overflow-hidden h-full"
+                         :class="focus === 'web' || smallScreen ? 'gap-6' : 'gap-0'">
 
-                    <!-- Web text container -->
-                    <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
-                            :class="focus === 'web' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
-                    >
-                        <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
-                            <div class="flex flex-col gap-4">
-                                <h2 class="~text-xl/4xl font-space-grotesk text-neutral-900 leading-tight">
-                                    Our super web interface
-                                </h2>
-                                <p class="text-neutral-600 font-space-text ~text-base/xl leading-snug">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
-                                    pulvinar...
-                                </p>
-                            </div>
-                            <div>
-                                {{ partial "cta/demo-website-button.html" . }}
+                        <!-- Web text container -->
+                        <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
+                             :class="focus === 'web' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
+                        >
+                            <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
+                                <div class="flex flex-col gap-4">
+                                    <h2 class="~text-xl/4xl font-space-grotesk text-neutral-900 leading-tight">
+                                        Our super web interface
+                                    </h2>
+                                    <p class="text-neutral-600 font-space-text ~text-base/xl leading-snug">
+                                        Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                        pulvinar...
+                                    </p>
+                                </div>
+                                <div>
+                                    {{ partial "cta/demo-website-button.html" . }}
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Image -->
-                    <div class="flex transition-all duration-500 ease-in-out lg:h-440 overflow-hidden ml-auto flex-1 items-stretch order-1 lg:order-2"
-                         :class="focus === 'web' || smallScreen ? 'lg:w-1/2' : ''">
-                        {{ $dashboard5 := resources.Get "img/dashboard-5.png" }}
-                        <img src="{{ $dashboard5.RelPermalink }}" alt="Plakar dashboard"
-                             class="w-full object-left-top object-cover transition-all duration-500 ease-in-out">
-                    </div>
+                        <!-- Image -->
+                        <div class="flex transition-all duration-500 ease-in-out lg:h-440 overflow-hidden ml-auto flex-1 items-stretch order-1 lg:order-2"
+                             :class="focus === 'web' || smallScreen ? 'lg:w-1/2' : ''">
+                            {{ $dashboard5 := resources.Get "img/dashboard-5.png" }}
+                            <img src="{{ $dashboard5.RelPermalink }}" alt="Plakar dashboard"
+                                 class="w-full object-left-top object-cover transition-all duration-500 ease-in-out">
+                        </div>
 
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         </div>
     </section>
 
@@ -157,7 +178,8 @@
                         <div class="flex items-center gap-2 min-w-[140px]">
                             <div class="w-10">
                                 {{ $logoImg := resources.Get (print "img/" $logo.img) }}
-                                <img src="{{ $logoImg.RelPermalink }}" alt="{{ $logo.alt }}" class="w-full h-full object-contain rounded-sm" />
+                                <img src="{{ $logoImg.RelPermalink }}" alt="{{ $logo.alt }}"
+                                     class="w-full h-full object-contain rounded-sm"/>
                             </div>
                             <div class="text-neutral-700 font-space-text text-sm md:text-base font-medium">
                                 {{ $logo.name }}
@@ -169,12 +191,13 @@
 
             <!-- Testimonial section -->
             <div class="flex flex-col gap-6 items-start p-8">
-                <div class="text-neutral-700 font-space-grotesk ~text-2xl/4xl leading-tight">
-                    "Plakar has completely transformed our backup strategy. What used to take hours now takes minutes at 30% of the previous cost."
+                <div class="text-neutral-700 font-space-grotesk ~text-xl/3xl leading-tight">
+                    "Plakar has completely transformed our backup strategy. What used to take hours now takes minutes at
+                    30% of the previous cost."
                 </div>
                 <div class="flex items-center gap-4">
                     <img class="size-10 rounded-full outline outline-2 outline-primary-500 object-cover"
-                         src="https://placehold.co/40x40" alt="Profile picture" />
+                         src="https://placehold.co/40x40" alt="Profile picture"/>
                     <div class="flex flex-col">
                         <div class="text-neutral-900 font-space-text text-lg font-semibold leading-normal">
                             John JEAN
@@ -189,6 +212,12 @@
         </div>
     </section>
 
+    {{ $introVideo := resources.Get "video/plakar-intro-.m4v" }}
+    {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
+
+
+
+
     <section class="section-light-2  overflow-hidden">
         <div class="content py-28 flex flex-col gap-24">
 
@@ -198,138 +227,312 @@
                     Why engineers choose <span class="text-primary-500">Plakar</span>
                 </h2>
                 <p class="~text-xl font-space-text text-neutral-600 leading-normal">
-                    Powerful technology designed for developers who value <br /> reliability, security, and efficiency.
+                    Powerful technology designed for developers who value <br/> reliability, security, and efficiency.
                 </p>
             </div>
 
             <!-- First part -->
-            <div class="flex flex-col lg:flex-row gap-32 items-start p-8 md:px-20">
-
+            <div class="flex flex-col lg:flex-row gap-10 items-start px-8 md:px-10">
                 <!-- Left step 1 -->
-                <div class="flex flex-col gap-8 w-1/3 max-w-md">
+                <div class="flex flex-col gap-8 lg:w-1/3 max-w-md">
                     <div class="flex items-start gap-4">
-                        <div class="flex justify-center items-center size-8 bg-primary-500 text-white font-bold rounded-full">
-                            1
+                        <div class="size-8 px-2.5 py-1 bg-primary-500 rounded-full outline outline-[3px] outline-neutral-700/10 inline-flex flex-col justify-center items-center gap-2.5">
+                            <div class="self-stretch h-6 text-center justify-center text-neutral-50 text-lg font-bold font-space-grotesk">
+                                1
+                            </div>
                         </div>
                         <div class="flex flex-col gap-2">
-                            <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
-                                From zero to protected <br /> in seconds
+                            <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">
+                                From zero to protected in seconds
                             </h3>
                             <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
-                                Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar. In arcu elementum aliquam velit. Molestie sit sit placerat.
+                                Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar.
+                                In arcu elementum aliquam velit. Molestie sit sit placerat.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Dashboard card with gradient -->
-                <div class="relative flex-1 h-96 bg-violet-200 rounded-lg overflow-hidden">
-                    <!-- Dashboard Image -->
-                    <div class="absolute top-12 left-12 w-[600px] h-[360px] bg-white rounded-2xl shadow-lg overflow-hidden">
-                        <img src="https://placehold.co/600x360" alt="Dashboard" class="object-cover w-full h-full rounded-lg" />
-                    </div>
-                </div>
+                <div x-data="{ showModal: false }" class="flex w-1/2 flex-1 h-full rounded-lg overflow-hidden">
 
+                    <!-- Small Preview Video (click to open modal) -->
+                    <div @click="showModal = true; $nextTick(() => $refs.modalVideo.play())"
+
+                         class="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer group">
+                        {{ $introVideo := resources.Get "video/plakar-intro-.m4v" }}
+                        {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
+
+                        <video poster="{{ $poster.RelPermalink }}"
+                               class="object-cover w-full h-full rounded-lg"
+                               preload="metadata"
+                               playsinline>
+                            <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+                        <!-- Play icon on hover -->
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M14.752 11.168l-4.586-2.67A1 1 0 009 9.5v5a1 1 0 001.166.986l4.586-2.67a1 1 0 000-1.732z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Modal Fullscreen Video -->
+                    <div x-show="showModal" x-transition.opacity
+                         @click.away="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                         @keydown.escape.window="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                         class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+
+                        <div class="relative w-full max-w-5xl">
+                            <video x-ref="modalVideo" class="rounded-lg w-full h-auto" controls preload="metadata">
+                                <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+
+                            <!-- Close button -->
+                            <button @click="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                                    class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition">
+                                ✕
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
             <!-- Second part -->
-            <div class="flex flex-col gap-20 p-8 md:px-20">
-
-                <!-- Step 2 -->
-                <div class="flex flex-col lg:flex-row gap-32 items-start">
-                    <div class="flex flex-col gap-8 max-w-md">
-                        <div class="flex items-start gap-4">
-                            <div class="flex justify-center items-center size-8 bg-white text-neutral-400 font-bold rounded-full outline outline-2 outline-gray-200">
+            <div class="flex flex-col lg:flex-row gap-10 items-start px-8 md:px-10">
+                <!-- Left step 2 -->
+                <div class="flex flex-col gap-8 lg:w-1/3 max-w-md">
+                    <div class="flex items-start gap-4">
+                        <div class="size-8 px-2.5 py-1 bg-neutral-50 rounded-full outline outline-[3px] outline-neutral-700/10 inline-flex flex-col justify-center items-center gap-2.5">
+                            <div class="self-stretch h-6 text-center justify-center text-neutral-700 text-lg font-bold font-space-grotesk">
                                 2
                             </div>
-                            <div class="flex flex-col gap-2">
-                                <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
-                                    Engineered for excellence
-                                </h3>
-                                <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar.
-                                </p>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">
+                                Engineered for excellence
+                            </h3>
+                            <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
+                                Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                pulvinar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features grid -->
+                <div class="flex-1 flex flex-wrap gap-6">
+                    <!-- Feature card -->
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">
+                                {{ $riMenuSearchLine.Content | safeHTML }}
                             </div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">
+                                Searchable
+                            </h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">Locate files by type,
+                            name, or content.</p>
+                    </div>
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">{{ $riDatabaseLine.Content | safeHTML }}</div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Exo bytes ready</h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">
+                            Support massive data.
+                        </p>
+                    </div>
+
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">{{ $riListView.Content | safeHTML }}</div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Extensible</h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">
+                            Easily add connectors for new sources.
+                        </p>
+                    </div>
+
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">{{ $riShieldCheckLine.Content | safeHTML }}</div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Threat Detection</h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">
+                            Detect and alert on suspicious activity.
+                        </p>
+                    </div>
+
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">{{ $riTerminalBoxLine.Content | safeHTML }}</div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Lock-free</h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">
+                            Use one repository for several sources.
+                        </p>
+                    </div>
+
+                    <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <div class="w-5 h-4">{{ $riFlashlightLine.Content | safeHTML }}</div>
+                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Super fast</h4>
+                        </div>
+                        <p class="text-neutral-500 font-space-text ~text-base leading-normal">
+                            Backup >1M files in under 3 min.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Third part -->
+            <div class="flex flex-col lg:flex-row gap-10 items-start px-8 md:px-10">
+                <!-- Left step 3 -->
+                <div class="flex flex-col gap-8 lg:w-1/3 max-w-md">
+                    <div class="flex items-start gap-4">
+                        <div class="size-8 px-2.5 py-1 bg-neutral-50 rounded-full outline outline-[3px] outline-neutral-700/10 inline-flex flex-col justify-center items-center gap-2.5">
+                            <div class="self-stretch h-6 text-center justify-center text-neutral-700 text-lg font-bold font-space-grotesk">
+                                3
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">
+                                Connect everything, anywhere
+                            </h3>
+                            <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
+                                Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque
+                                pulvinar.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Features grid -->
-                    <div class="flex-1 flex flex-wrap gap-6">
-                        <!-- Feature card -->
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Searchable</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Locate files by type, name, or content.</p>
-                        </div>
-
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Exo bytes ready</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Support massive data.</p>
-                        </div>
-
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Extensible</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Easily add connectors for new sources.</p>
-                        </div>
-
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Threat Detection</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Detect and alert on suspicious activity.</p>
-                        </div>
-
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Lock-free</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Use one repository for several sources.</p>
-                        </div>
-
-                        <div class="w-80 bg-white p-6 rounded-lg flex flex-col gap-2 shadow-sm">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Super fast</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base leading-normal">Backup >1M files in under 3 min.</p>
-                        </div>
+                    <div class="flex gap-4 mt-8">
+                        <a href="#"
+                           class="px-6 py-3 bg-primary-500 text-white rounded-lg font-space-grotesk text-sm font-medium">
+                            View Documentation
+                        </a>
+                        <a href="#"
+                           class="px-6 py-3 bg-white text-neutral-600 outline outline-1 outline-zinc-200 rounded-lg font-space-grotesk text-sm font-medium">
+                            Download Latest
+                        </a>
                     </div>
 
                 </div>
 
-                <!-- Step 3 -->
-                <div class="flex flex-col lg:flex-row gap-32 items-start">
-                    <div class="flex flex-col gap-8 max-w-md">
-                        <div class="flex items-start gap-4">
-                            <div class="flex justify-center items-center size-8 bg-white text-neutral-400 font-bold rounded-full outline outline-2 outline-gray-200">
-                                3
+                <!-- Storage sources visualization -->
+                <div class="flex-1 flex flex-wrap justify-center items-center w-full">
+
+                    <div class="flex flex-col md:flex-row w-full gap-3 justify-center items-stretch overflow-hidden">
+
+                        <!-- Data Source -->
+                        <div class="flex flex-col bg-neutral-50 rounded-lg overflow-hidden flex-1">
+                            <div class="flex items-center justify-center h-16 px-3 py-4 bg-white">
+                                <h4 class="text-lg font-semibold font-space-text text-neutral-900 leading-normal">Data source</h4>
                             </div>
-                            <div class="flex flex-col gap-2">
-                                <h3 class="~text-2xl font-space-grotesk text-neutral-900 leading-tight">
-                                    Connect everything, anywhere
-                                </h3>
-                                <p class="text-neutral-500 font-space-text ~text-lg leading-normal">
-                                    Lorem ipsum dolor sit amet consectetur. Libero volutpat in cum faucibus neque pulvinar.
-                                </p>
+                            <div class="border-t border-neutral-200"></div>
+                            <div class="flex-1 p-3 flex flex-col gap-1">
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riFolder2Line.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">Files</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riDatabase2Line.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">Database</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riMacbookLine.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">SaaS</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riServerLine.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">Servers</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex gap-4 mt-8">
-                            <a href="#" class="px-6 py-3 bg-primary-500 text-white rounded-lg font-space-grotesk text-sm font-medium">
-                                View Documentation
-                            </a>
-                            <a href="#" class="px-6 py-3 bg-white text-neutral-600 outline outline-1 outline-zinc-200 rounded-lg font-space-grotesk text-sm font-medium">
-                                Download Latest
-                            </a>
+                        <!-- Arrow -->
+                        <div class="flex justify-center items-center">
+                            <div class="size-8 xl:size-10 rounded-full bg-neutral-900 flex justify-center items-center transform rotate-90 md:rotate-0 transition-all">
+                                <div class="w-4 h-4 xl:w-5 xl:h-5 text-neutral-50">{{ $riArrowRightLine.Content | safeHTML }}</div>
+                            </div>
                         </div>
 
-                    </div>
-
-                    <!-- Storage sources visualization -->
-                    <div class="flex-1 flex flex-wrap gap-6">
-
-                        <!-- Source panel 1 -->
-                        <div class="flex flex-col gap-2 bg-gray-50 rounded-lg p-6 flex-1 min-w-[220px]">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-lg font-semibold">Data source</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base">Files, Databases, SaaS, Servers.</p>
+                        <!-- Kloset Core -->
+                        <div class="flex flex-col rounded-lg overflow-hidden flex-1 relative">
+                            <div class="absolute inset-0 bg-gradient-to-b from-secondary-100 via-secondary-400 to-secondary-500" style="background-image: linear-gradient(180deg, theme(colors.secondary.100) 23%, theme(colors.secondary.400) 51%, theme(colors.secondary.500) 100%);"></div>
+                            <div class="relative z-10 flex flex-col h-full">
+                                <div class="flex items-center justify-center h-16 bg-transparent">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-6">{{ $riPuzzle2Line.Content | safeHTML }}</div>
+                                        <span class="text-xl font-medium font-space-grotesk text-neutral-900">Kloset</span>
+                                    </div>
+                                </div>
+                                <div class="flex-1 p-4 grid grid-cols-2 gap-2">
+                                    <div class="flex flex-col items-center justify-center p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
+                                        <div class="w-5 h-5">{{ $riTerminalWindowLine.Content | safeHTML }}</div>
+                                        <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 mt-2">Encryption</span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
+                                        <div class="w-5 h-5">{{ $riCollapseDiagonalLine.Content | safeHTML }}</div>
+                                        <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 mt-2">Compression</span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
+                                        <div class="w-5 h-5">{{ $riPuzzle2Line.Content | safeHTML }}</div>
+                                        <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 mt-2">Deduplication</span>
+                                    </div>
+                                    <div class="flex flex-col items-center justify-center p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
+                                        <div class="w-5 h-5">{{ $riGitMergeLine.Content | safeHTML }}</div>
+                                        <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 mt-2">Versioning</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- Source panel 2 -->
-                        <div class="flex flex-col gap-2 bg-gray-50 rounded-lg p-6 flex-1 min-w-[220px]">
-                            <h4 class="font-space-grotesk text-neutral-900 ~text-lg font-semibold">Storage Targets</h4>
-                            <p class="text-neutral-500 font-space-text ~text-base">Amazon S3, Local, SFTP, Cloud.</p>
+                        <!-- Arrow -->
+                        <div class="flex justify-center items-center">
+                            <div class="size-8 xl:size-10 rounded-full bg-neutral-900 flex justify-center items-center transform rotate-90 md:rotate-0 transition-all">
+                                <div class="w-4 h-4 xl:w-5 xl:h-5 text-neutral-50">{{ $riArrowRightLine.Content | safeHTML }}</div>
+                            </div>
+                        </div>
+
+                        <!-- Storage Targets -->
+                        <div class="flex flex-col bg-neutral-50 rounded-lg overflow-hidden flex-1">
+                            <div class="flex items-center justify-center h-16 px-3 py-4 bg-white">
+                                <h4 class="text-lg font-semibold font-space-text text-neutral-900 leading-normal">Storage Targets</h4>
+                            </div>
+                            <div class="border-t border-neutral-200"></div>
+                            <div class="flex-1 p-3 flex flex-col gap-1">
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riDatabaseLine.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">S3</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riFolder2Line.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">Local</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riServerLine.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">SFTP</span>
+                                </div>
+                                <div class="border-t border-neutral-200"></div>
+                                <div class="flex items-center gap-3 px-1 py-2">
+                                    <div class="w-5 h-5">{{ $riEarthLine.Content | safeHTML }}</div>
+                                    <span class="text-sm font-medium text-neutral-600 font-space-text leading-tight">Cloud</span>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -338,9 +541,35 @@
 
             </div>
 
-        </div>
+            </div>
     </section>
+    <script>
+        function verticalProgress() {
+            return {
+                progress: 0,
+                lineHeight: 1000, // Total height of the vertical line
+                currentStep: 0,
+                steps: [1, 2, 3],
+                init() {
+                    window.addEventListener('scroll', () => {
+                        const scrollY = window.scrollY;
+                        const maxScroll = document.body.scrollHeight - window.innerHeight;
+                        this.progress = Math.min(scrollY / maxScroll, 1);
 
+                        if (this.progress > 0.7) {
+                            this.currentStep = 3;
+                        } else if (this.progress > 0.4) {
+                            this.currentStep = 2;
+                        } else if (this.progress > 0.1) {
+                            this.currentStep = 1;
+                        } else {
+                            this.currentStep = 0;
+                        }
+                    });
+                }
+            }
+        }
+    </script>
 
     <!-- Powered by Kloset -->
     <div class="section-wrapper bg-neutral-100"
@@ -987,5 +1216,30 @@
         </section>
     </div>
 
+    <script>
+        function progressLineVertical() {
+            return {
+                progress: 0,
+                init() {
+                    window.addEventListener('scroll', () => {
+                        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                        const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+                        const scrollProgress = scrollTop / documentHeight;
+
+                        const minScroll = 800; // adapt to when you want line to start
+                        const maxScroll = 1800; // adapt to when full line is reached
+
+                        if (scrollTop < minScroll) {
+                            this.progress = 0;
+                        } else if (scrollTop > maxScroll) {
+                            this.progress = 1;
+                        } else {
+                            this.progress = (scrollTop - minScroll) / (maxScroll - minScroll);
+                        }
+                    });
+                }
+            }
+        }
+    </script>
 
 {{ end }}

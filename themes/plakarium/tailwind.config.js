@@ -33,15 +33,27 @@ module.exports = {
                     200: '#B3B1FF',
                     300: '#8D88FF',
                     400: '#6760FF',
-                    500: '#524CFF', // couleur principale
+                    500: '#524CFF',
                     600: '#3D39CC',
                     700: '#2E2C99',
                     800: '#1F1F66',
                     900: '#111133',
                 },
+                secondary: {
+                    50:  '#FFF5F0',  // very light background
+                    100: '#FFEBD8',  // light pastel background (requested)
+                    200: '#FFD1A8',  // soft orange transition
+                    300: '#FFB178',  // warm intermediate
+                    400: '#FF9C41',  // vivid orange (requested)
+                    500: '#FF8547',  // main secondary color (historical)
+                    600: '#F76635',  // intense orange-red (requested)
+                    700: '#D94F2C',  // deeper strong accent
+                    800: '#7A2719',  // dark orange-brown
+                    900: '#40130C',  // very dark background
+                },
                 neutral: {
                     50:  '#FFFFFF',
-                    100: '#F5F4FB', // fond général clair
+                    100: '#F5F4FB',
                     200: '#E7E6F0',
                     300: '#DCD9E3',
                     400: '#B2B1C7',
@@ -49,7 +61,7 @@ module.exports = {
                     600: '#6D6C8D',
                     700: '#4F4E66',
                     800: '#2D2C3A',
-                    900: '#1C1C1E', // fond section "features"
+                    900: '#1C1C1E',
                 },
             },
             typography: ({ theme }) => ({
