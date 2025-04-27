@@ -2624,6 +2624,10 @@ video {
   padding-top: 2rem;
 }
 
+.pt-20 {
+  padding-top: 5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2679,14 +2683,14 @@ video {
   line-height: 2.5rem;
 }
 
+.text-4xl\/\[72px\] {
+  font-size: 2.25rem;
+  line-height: 72px;
+}
+
 .text-5xl {
   font-size: 3rem;
   line-height: 3rem;
-}
-
-.text-6xl\/\[72px\] {
-  font-size: 3.75rem;
-  line-height: 72px;
 }
 
 .text-base {
@@ -3124,7 +3128,7 @@ section.section-light-2 {
   color: rgb(28 28 30 / var(--tw-text-opacity, 1));
 }
 
-section > .\!content {
+section .\!content {
   position: relative;
   margin-left: auto;
   margin-right: auto;
@@ -3132,7 +3136,7 @@ section > .\!content {
   font-family: "Space Grotesk", sans-serif;
 }
 
-section > .content {
+section .content {
   position: relative;
   margin-left: auto;
   margin-right: auto;

@@ -104,7 +104,7 @@
     section.section-light-3 {
         @apply bg-neutral-200 text-neutral-900;
     }
-    section > .content {
+    section .content {
         @apply relative mx-auto max-w-[1400px] font-space-grotesk;
     }
 }

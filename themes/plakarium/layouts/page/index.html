@@ -2,13 +2,13 @@
     {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
     {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
     <!-- Title -->
-    <section class="section-light-2 grid-background">
-        <div class="content py-20 flex flex-col justify-between items-start gap-8">
-            <div class="self-stretch text-center justify-start font-medium text-6xl/[72px]">
+    <section class="section-light-2 grid-background p-4">
+        <div class="content pt-10 flex flex-col justify-between items-start gap-8">
+            <div class="self-stretch text-center justify-start font-medium text-4xl/[72px]">
                 <h1><span class="text-primary-500">Backup</span> in seconds. <br/>
                     <span class="text-primary-500">Restore</span> without thinking.</h1>
             </div>
-            <div class="self-stretch text-center justify-start text-neutral-600 text-xl">
+            <div class="self-stretch text-center justify-start text-neutral-600 text-l/xl">
                 Encrypted, queryable backups for engineers who value their time and data.<br/>
                 CLI and UI interfaces. No signup. No telemetry. Just install and run.
             </div>
@@ -34,8 +34,10 @@
           }"
              @resize.window="handleResize"
 
-             style="background-image: linear-gradient(
-                  #F5F4FB 25%,
+>
+        <div style="background-image: linear-gradient(
+                  transparent 0%,
+                  transparent 25%,
                   #9895FF 65%,
                   #524CFF 100%);
             background-repeat: no-repeat;
@@ -132,6 +134,7 @@
                 </div>
             </div>
 
+        </div>
         </div>
     </section>
 
