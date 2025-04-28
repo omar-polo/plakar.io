@@ -1,5 +1,5 @@
 ---
-title: "Kloset: our backup engine"
+title: "Kloset: the immutable data store"
 date: 2025-04-14 08:00:00 +0100
 authors:
 - "gilles"
@@ -11,11 +11,23 @@ tags:
  - backups
 ---
 
-On the surface, `plakar` is yet another backup software that takes some data, stores it somewhere until it has to be restored:
-a glorified `cp` if you will.
+On the surface, `plakar` may appear as just another backup tool: it takes data and safely stores it until restoration is needed—essentially, a sophisticated version of the `cp` command.
 
-Under the hood, it’s powered by **Kloset**, a dedicated engine we built to make compact, immutable, inspectable, and secure backups that work across filesystems, databases, object stores, and distributed environments — without external state or centralized coordination.
-Our goal: backup anything, store anywhere, restore everywhere.
+Yet beneath this simplicity lies the powerful **Kloset** engine, designed to package data along with its context, structure, metadata, and integrity—much like containers bundle applications with their dependencies. The versatility of **Kloset** allows it to address numerous specialized scenarios:
+
+- Reliable backup and restoration
+- Long-term archiving
+- Secure log retention for compliance and audits
+- Preservation of legal evidence
+- Versioning of datasets for machine learning
+- Digital authenticity proofs for contracts and media
+- Integrity assurance in software supply chains
+
+And likely many other applications waiting to be discovered.
+
+Plakar leverages **Kloset**’s capabilities to create compact, immutable, secure, and transparent backups. It seamlessly integrates with diverse storage solutions including filesystems, databases, object storage, and distributed platforms, without relying on external state or centralized coordination. Our vision: **back up anything, store anywhere, restore everywhere**.
+
+--- 
 
 
 This post introduces the **Kloset architecture**, explains its design decisions, and outlines how it enables features like incremental backups, versioning, deduplication, granular restores, and verifiable integrity — all with minimal system footprint.
@@ -32,18 +44,43 @@ This post introduces the **Kloset architecture**, explains its design decisions,
 
 ## Core Architecture & Principles of Kloset
 
-Kloset was built with a clear set of non-negotiable goals: backups must be **immutable**, **fully encrypted at the source**, **efficient** even at scale or over slow links, **navigable without full restores**, **portable**, and **verifiable** without relying on external metadata.
+Kloset was built with a clear set of non-negotiable goals: backups must be **immutable**, **fully encrypted at the source**, **efficient** even at scale or over slow links, **browseable without full restores**, **portable**, and **verifiable** without relying on external metadata.
 
-| Feature | Kloset | Rsync | Tarballs | Snapshot |
-|---|---|---|---|---|
-| Immutable Backups | ✅ | ❌ | ❌ | ✅ (limited) |
-| Incremental Efficiency | ✅ | ✅ | ❌ | ✅ |
-| Granular Restore | ✅ | ✅ (partial) | ❌ | ✅ (limited) |
-| Encryption & Security | ✅ Built-in | ❌ (manual) | ❌ (manual) | ❌ (manual)  |
-| Self-contained & Portable | ✅ | ❌ | ❌ | ❌ |
+
+| console | browser |
+|---|---|
+| ![](console-browser.png) | ![](ui-browser.png) | 
+
+
+| Feature | Kloset | Rsync | Tarballs | Volume snapshot | opensource competitors |
+|---|---|---|---|---|---|
+| Immutable Backups | ✅ | ❌ | ❌ | ✅ (limited) |✅ |
+| Incremental Efficiency | ✅ | ✅ (suboptimal) | ❌ | ✅ | ✅ |
+| Granular Restore | ✅ | ✅ (partial) | ❌ | ✅ (limited) | ✅ |
+| Data context | ✅ | ❌ | ❌ | ✅  | ✅ |
+| Browseable | ✅ | ✅ | ❌ |  ✅  | ✅ (limited for some) |
+| Encryption | ✅ Built-in | ❌ (manual) | ❌ (manual) | ❌ (manual)  | ✅ (limited for some) |
+| Self-contained | ✅ | ❌ | ✅ | ❌ | ✅ (limited for some) |
+| Data indexing | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Archive format | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Multi-source | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Multi-target | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 
 Traditional approaches like tarballs, rsync deltas, or volume snapshots couldn't meet these requirements. We needed a model that could, so we chose to represent all data internally as a **virtual filesystem**. It’s a flexible, expressive abstraction that fits any data source — filesystems, databases, APIs — and supports efficient storage, indexing, and recovery.
+
+### Modern Differentiators
+
+Modern backup solutions have improved but often still fall short in areas Kloset addresses directly:
+
+- **Typed Snapshots:** Kloset snapshots can represent different logical types (e.g., filesystems, databases, object stores) rather than just raw files.
+- **Portable Archive Format (PTAR):** Export any snapshot, or snapshot collection, as a fully self-contained portable archive for easy distribution, offline storage, or transfer.
+- **Built-in Indexing and Analyzing:** Snapshots are natively indexed and searchable; you can query the contents without restoring them first.
+- **Multi-source Backups:** A single backup can aggregate data from multiple sources (e.g., local files, S3 buckets, and a Postgres database) into one coherent snapshot.
+- **Multi-target Restoration:** Restore one snapshot to multiple destinations simultaneously, with native format translation when necessary.
+- **Cryptographic Auditing:** Built-in tamper detection and independent verifiability at every level (chunks, files, metadata).
+
+### Core Model
 
 The idea is simple:
 
@@ -73,14 +110,11 @@ This architecture lets Kloset scale from small local backups to massive cloud de
 
 ## Here comes Kloset
 
-Kloset, our backup engine, is in charge of abstracting the problem into smaller problems and providing solutions.
+Kloset, our immutable data store engine, is in charge of abstracting the problem into smaller problems and providing solutions.
 
 Before we dive in,
 here's a full overview of the architectural design,
 this article will progressively go through each of these layers to describe their responsibilities.
-
-![](full.png)
-
 
 ### Storage Layer
 
@@ -120,7 +154,9 @@ At the top of the Kloset architecture lies the **snapshot layer**, responsible f
 
 While the repository layer provides access to decoded but unstructured data chunks, the snapshot layer organizes them into **coherent groups of related data** that represent a backup at a specific point in time. Each **snapshot** captures a complete view of a dataset, including:
 
-- File and directory hierarchy  
+- Snapshot type (filesystem, database, application, ...)
+- Indexing for faster search
+- Tree hierarchy for browseable objects, files, directories, ...
 - Metadata (timestamps, permissions, ownership, etc.)  
 - Content hashes for deduplication and integrity  
 - Logical relationships and structure reconstructed from the raw data
@@ -134,7 +170,7 @@ Internally, the snapshot layer is built on top of a **custom virtual filesystem*
 ![](snapshot-layer.png)
 
 
-## Storage Connectors: Universal Backend Integration
+## Storage bridge: Universal Backend Integration
 
 **Storage connectors** are pluggable components that allow Kloset to interface with a variety of backend storage systems, such as local filesystems, SFTP servers, or S3-compatible object stores.
 
@@ -148,11 +184,11 @@ This abstraction enables Kloset to interact with all supported storage backends 
 Thanks to this simplicity, implementing a new storage connector can be very lightweight—**a basic connector may require only a few hundred lines of code**, making it easy to extend Kloset’s compatibility with new storage platforms.
 
 
-![](store-connectors.png)
+![](store-integrations.png)
 
 
 
-## Source & Target Connectors: Bridging External Data
+## Data bridge: Bridging External Data
 
 **Source** and **target** connectors act as bridges between the external world and Kloset’s internal **snapshot layer**, enabling seamless data ingestion and restoration.
 
@@ -160,12 +196,13 @@ Thanks to this simplicity, implementing a new storage connector can be very ligh
 
 - **Target connectors**, in contrast, take a snapshot and **translate it back** into the format expected by the destination system. This might involve reconstructing files and directories on disk, restoring cloud objects, or pushing data into a remote service.
 
+In addition to data transport, connectors also provide a visualization layer, offering intuitive representations of external data. This capability enhances user understanding and simplifies the management of backup and restoration workflows.
+
 Because these connectors operate purely at the **transport level**, they do not need to deal with encoding, encryption, or storage internals. This makes them simple and **lightweight to implement**, often requiring only minimal code to support a new source or target system.
 
 By clearly separating data capture and restoration responsibilities, source and target connectors allow Kloset to integrate with a wide range of systems—handling everything from simple file trees to complex, domain-specific data sources—**without impacting the core snapshot logic**.
 
-
-![](importers-exporters.png)
+![](data-connectors.png)
 
 
 
@@ -185,9 +222,6 @@ Under the hood, the VFS is backed by a **custom B+Tree**, offering efficient, or
 
 By offering a structured, navigable, and resource-efficient interface to snapshot contents, the VFS forms the backbone of higher-level features like restores, comparisons, and virtual browsing—all without sacrificing performance or portability.
 
-![](vfs.png)
-
-
 
 ## Advanced Features & Capabilities
 
@@ -197,17 +231,18 @@ While data blocks are being stored, **Kloset simultaneously builds a structured 
 
 **What the Metadata Captures**
 
-- **File and Folder Hierarchy**  
-  The complete structure of the dataset — including nested directories, symbolic links, and hard links — is recorded in a virtual filesystem model.
-
-- **Permissions, Timestamps, Ownership**  
-  Full POSIX-style metadata is preserved, making it possible to restore not just content, but also its exact execution and access semantics.
+- **Structure**  
+  The complete structure of the dataset — including nested directories, symbolic links, and hard links for filesystems — is recorded in a virtual filesystem model.
 
 - **Application-Specific Context**  
   Source connectors can embed domain-aware metadata (e.g., database schema details, mount point info, or volume names), enabling deep inspection of structured data.
 
+- **Permissions, Timestamps, Ownership**  
+  Full POSIX-style metadata is preserved, making it possible to restore not just content, but also its exact execution and access semantics.
+
 - **Tags, Labels, Logical Groupings**  
-  Snapshots and their contents can be annotated with logical metadata — including tags, labels, or policy hints — allowing for advanced filtering and lifecycle management.
+  Snapshots and their contents can be annotated with logical metadata — including tags, labels, or policy hints — allowing for advanced filtering and lifecycle management:
+  organising snapshots per business units, production vs staging, etc...
 
 
 The metadata engine enables **in-place querying and comparison** of snapshots, without needing to restore or unpack them. Example use cases:
@@ -237,7 +272,7 @@ Kloset enables **fast, precise, and flexible restoration workflows** by leveragi
   Snapshots can be **navigated like a live filesystem**, thanks to Kloset's virtual filesystem and metadata index. You can explore the full hierarchy, list files, and view metadata **without restoring a single byte of content**.
 
 - **Granular, Targeted Restores**  
-  Need just a file? A folder? A single database table or config? Kloset allows **partial restores** by streaming **only the minimal required blocks** to reconstruct the requested content — no full snapshot unpacking, no overhead.
+  Need just a single database table or config? A file or folder? Content of an S3 object? Kloset allows **partial restores** by streaming **only the minimal required blocks** to reconstruct the requested content — no full snapshot unpacking, no overhead.
 
 - **Format-Agnostic Output**  
   Restored data doesn’t need to return to its original format or location. Kloset supports restoring to **alternative targets**, such as converting a filesystem snapshot to S3 objects, or extracting structured data into a different format. This makes it ideal for cross-system workflows.
