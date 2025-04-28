@@ -62,6 +62,7 @@ Kloset was built with a clear set of non-negotiable goals: backups must be **imm
 | Encryption | ✅ Built-in | ❌ (manual) | ❌ (manual) | ❌ (manual)  | ✅ (limited for some) |
 | Self-contained | ✅ | ❌ | ✅ | ❌ | ✅ (limited for some) |
 | Data indexing | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Typed Snapshots | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Archive format | ✅ | ❌ | ✅ | ❌ | ❌ |
 | Multi-source | ✅ | ❌ | ❌ | ❌ | ❌ |
 | Multi-target | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -111,10 +112,6 @@ This architecture lets Kloset scale from small local backups to massive cloud de
 ## Here comes Kloset
 
 Kloset, our immutable data store engine, is in charge of abstracting the problem into smaller problems and providing solutions.
-
-Before we dive in,
-here's a full overview of the architectural design,
-this article will progressively go through each of these layers to describe their responsibilities.
 
 ### Storage Layer
 
