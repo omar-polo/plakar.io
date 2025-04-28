@@ -1,6 +1,6 @@
 ---
 title: "Kloset: the immutable data store"
-date: 2025-04-14 08:00:00 +0100
+date: 2025-04-29 08:00:00 +0100
 authors:
 - "gilles"
 categories:
