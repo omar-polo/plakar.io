@@ -40,35 +40,34 @@
 </div>
 
 <!-- Footer Bottom -->
-<div class="section-wrapper bg-primary-500"
-     style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
-    <footer class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
-        <div class="content px-4 md:px-12 pt-6 space-y-6">
+<footer class="section-blue bg-primary-500 text-neutral-100">
+    <div class="content px-4 md:px-12 pt-6 space-y-6 max-w-[1400px] mx-auto">
 
-            <!-- Footer Meta Info -->
-            <div class="grid grid-cols-2 md:grid-cols-6 text-sm border-t ">
+        <!-- Footer Meta Info -->
+        <div class="grid grid-cols-2 text-sm border-t border-primary-600 pt-6 ">
 
-                <div class="flex flex-col pt-4  pl-4 col-span-2 col-start-2 md:col-span-1 md:col-start-1 justify-center md:justify-start text-center md:text-left gap-1">
-                    <span><a href="javascript:openAxeptioCookies();" class="hover:underline">Cookies</a></span>
-                    <span>Legal notice</span>
-                </div>
-
-                <!-- right Column: Copyright + Rights -->
-                <div class="flex flex-col pt-4 pl-4 gap-1 md:col-span-2 md:col-start-6 text-center md:text-left">
-                    <div>© Plakar 2025</div>
-                    <div>All rights reserved</div>
-                </div>
-
-
+            <!-- left Column: Copyright + Rights -->
+            <div class="flex flex-col md:flex-row pt-4 pl-4 gap-4 md:col-start-1 text-center md:text-left">
+                <div>© Plakar 2025</div>
+                <div>All rights reserved</div>
             </div>
 
-            <!-- Footer Illustration -->
-            <div class="overflow-hidden">
-                {{ $footerBanner := resources.Get .Site.Params.footerBanner }}
-                <img src="{{ $footerBanner.RelPermalink }}" alt="Footer banner"
-                     class="w-full h-auto object-contain rounded-sm">
+            <div class="flex flex-col md:flex-row pt-4 pl-4 gap-4 md:gap-10 col-span-2 col-start-2 justify-start text-left">
+                <span><a href="javascript:openAxeptioCookies();" class="hover:underline">Cookies</a></span>
+                <span>Legal notice</span>
             </div>
+
+
+
 
         </div>
-    </footer>
-</div>
+
+        <!-- Footer Illustration -->
+        <div class="overflow-hidden">
+            {{ $footerBanner := resources.Get .Site.Params.footerBanner }}
+            <img src="{{ $footerBanner.RelPermalink }}" alt="Footer banner"
+                 class="w-full h-auto object-contain rounded-sm">
+        </div>
+
+    </div>
+</footer>
