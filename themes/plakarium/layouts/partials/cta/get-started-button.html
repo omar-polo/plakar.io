@@ -1,9 +1,5 @@
-{{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
-<!-- Book a demo -->
-<a href="https://docs.plakar.io/en/quickstart/index.html" target="_blank">
-<div class="min-h-[24px] md:min-h-[36px] px-2 pr-4  ] bg-primary-500 text-neutral-50 rounded-lg inline-flex items-center gap-2 font-space-grotesk text-sm">
-    <span class="w-5 h-5">{{ $riCornerDownRightLine.Content | safeHTML }}</span>
-    <span class="hidden lg:block">Get started</span>
-    <span class="block lg:hidden">Start</span>
-</div>
-</a>
+{{ partial "cta/based-button.html" (dict
+        "href" "https://docs.plakar.io/en/quickstart/index.html"
+        "label" "Get started"
+        "labelShort" "Start"
+        ) }}

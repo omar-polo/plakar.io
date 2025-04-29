@@ -13,7 +13,7 @@
         {{ $allPages := .Site.RegularPages }}
 
         {{ $postPages := where $allPages "Section" "posts" }}
-        {{ $connectorPages := where $allPages "Section" "connectors" }}
+        {{ $integrationPages := where $allPages "Section" "integrations" }}
 
         {{ $postCategories := slice }}
         {{ range $postPages }}
@@ -24,11 +24,11 @@
             {{ end }}
         {{ end }}
 
-        {{ $connectorCategories := slice }}
-        {{ range $connectorPages }}
+        {{ $integrationCategories := slice }}
+        {{ range $integrationPages }}
             {{ range .Params.categories }}
-                {{ if not (in $connectorCategories .) }}
-                    {{ $connectorCategories = $connectorCategories | append (. | urlize)  }}
+                {{ if not (in $integrationCategories .) }}
+                    {{ $integrationCategories = $integrationCategories | append (. | urlize)  }}
                 {{ end }}
             {{ end }}
         {{ end }}
@@ -38,15 +38,15 @@
         {{ if in $postCategories $currentCategory  }}
             {{ $currentSection = "posts" }}
             {{ $categories = uniq $postCategories }}
-        {{ else if in $connectorCategories $currentCategory  }}
-            {{ $currentSection = "connectors" }}
-            {{ $categories = uniq $connectorCategories }}
+        {{ else if in $integrationCategories $currentCategory  }}
+            {{ $currentSection = "integrations" }}
+            {{ $categories = uniq $integrationCategories }}
         {{ else }}
             <!-- Did you add a new section ? -->
         {{ end }}
     {{ if eq $debug true }}
         <p>$postCategories: {{$postCategories}}</p>
-        <p>$connectorCategories: {{$connectorCategories}}</p>
+        <p>$integrationCategories: {{$integrationCategories}}</p>
     {{ end }}
     {{ else }}
         <!-- We are in a section page -->

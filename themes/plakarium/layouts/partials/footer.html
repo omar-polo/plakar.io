@@ -10,8 +10,8 @@
                     <h3 class="font-semibold text-base">Pages</h3>
                     <ul class="flex flex-col gap-1">
                         <li><a href="/" class="hover:underline">Home</a></li>
-                        <li><a href="/connectors/" class="hover:underline">Connectors</a></li>
-                        <li><a href="/pricing/" class="hover:underline">Pricing</a></li>
+                        <li><a class="hover:underline" href="{{ relref . "/integrations" }}">Integrations</a></li>
+                        <li><a href="{{ relref . "/pricing" }}" class="hover:underline">Pricing</a></li>
                     </ul>
                 </div>
 
@@ -28,9 +28,9 @@
                 <div class="col-span-1 md:col-start-5 md:col-span-2 flex flex-col gap-3 pl-4">
                     <h3 class="font-semibold text-base">Resources</h3>
                     <ul class="flex flex-col gap-1">
-                        <li><a href="/categories/release-notes/" class="hover:underline">Release notes</a></li>
-                        <li><a href="/categories/insights/" class="hover:underline">Insights</a></li>
-                        <li><a href="/categories/technology/" class="hover:underline">Tech articles</a></li>
+                        <li><a href="{{ relref . "/categories/release-notes/"}}" class="hover:underline">Release notes</a></li>
+                        <li><a href="{{ relref . "/categories/insights/"}}" class="hover:underline">Insights</a></li>
+                        <li><a href="{{ relref . "/categories/technology/"}}" class="hover:underline">Tech articles</a></li>
                     </ul>
                 </div>
 

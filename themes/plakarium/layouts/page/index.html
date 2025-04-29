@@ -34,7 +34,7 @@
                 Encrypted, queryable backups for engineers who value their time and data.<br/>
                 CLI and UI interfaces. No signup. No telemetry. Just install and run.
             </div>
-            <div class="self-stretch text-center justify-start">
+            <div class="self-stretch flex text-center items-center justify-center">
                 {{ partial "cta/get-started-button.html" . }}
             </div>
         </div>
@@ -432,14 +432,7 @@
                                 </p>
                             </div>
                             <div class="hidden lg:flex gap-4 mt-8 ">
-                                <a href="#"
-                                   class="px-6 py-3 bg-primary-500 text-white rounded-lg font-space-grotesk text-sm font-medium">
-                                    View Documentation
-                                </a>
-                                <a href="#"
-                                   class="px-6 py-3 bg-white text-neutral-600 outline outline-1 outline-zinc-200 rounded-lg font-space-grotesk text-sm font-medium">
-                                    Download Latest
-                                </a>
+                                {{ partial "cta/see-it-in-action.html" . }}
                             </div>
 
                         </div>
@@ -564,6 +557,9 @@
 
                             </div>
 
+                        </div>
+                        <div class="flex lg:hidden gap-4 mt-8 ">
+                            {{ partial "cta/see-it-in-action.html" . }}
                         </div>
                     </div>
                 </div>
