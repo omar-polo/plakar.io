@@ -11,7 +11,6 @@
 {{ end }}
 
 
-{{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
 {{ if $ctx.Site.Params.discord.enabled | default false }}
     {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
     {{ $discordInviteCode := $ctx.Site.Params.discord.inviteCode | default "" }}
