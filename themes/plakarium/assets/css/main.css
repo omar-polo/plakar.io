@@ -228,7 +228,7 @@
     }
 
     .terminal-slim .t-line {
-        @apply break-all leading-tight whitespace-pre-wrap;
+        @apply break-all leading-tight;
     }
 
     .terminal-slim .t-line .t-prompt {

@@ -1,6 +1,5 @@
 {{ $badgeSize := .badgeSize | default "5" }}
 {{ $format := .format | default "star_light" }}
-{{ $minHeight := .minHeight | default "[48px]" }}
 {{ $ctx := .ctx | default . }}
 
 
@@ -9,16 +8,18 @@
     {{ $githubOrganization := $ctx.Site.Params.github.organization | default "" }}
     {{ $githubRepository := $ctx.Site.Params.github.repository | default "" }}
     {{ if eq $format "star_light" }}
-        <a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
+        <a class="github-stars flex space-x-2 " href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
        target="_blank" aria-label="Visit us on Github">
-            <div class="flex items-center gap-1 px-2 pr-4 min-h-{{ $minHeight }} bg-[#F5F4FB] text-primary-500 rounded-lg">
+            <div class="flex items-center gap-1 px-2 pr-4  bg-[#F5F4FB] text-primary-500 rounded-lg">
                 <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">{{ $riGithubFill.Content | safeHTML }}</span>
                 <span>star</span>
             </div>
-            <span id="github-stars-count">149</span>
+            <div class="flex items-center">
+                <span id="github-stars-count">149</span>
+            </div>
         </a>
     {{ else if eq $format "icon" }}
-        <a class="github-stars flex items-center space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
+        <a class="github-stars flex items-center flex-1 space-x-2" href="https://github.com/{{$githubOrganization}}/{{$githubRepository}}"
            target="_blank" aria-label="Visit us on Github">
             <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">{{ $riGithubFill.Content | safeHTML }}</span>
         </a>
