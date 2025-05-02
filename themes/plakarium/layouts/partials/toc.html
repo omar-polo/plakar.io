@@ -3,7 +3,6 @@
             class="block lg:hidden rounded-lg py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 ">
         {{ i18n "article.table_of_contents" }}
     </summary>
-    <!--div class="~text-xs/sm font-space-text flex flex-col gap-6 py-6"-->
     <div class="~text-xs  py-2   ">
 
         {{ with .TableOfContents }}
@@ -41,7 +40,7 @@
                 #TableOfContents > ul > li > ul {
                     padding-left: 0.75rem;
                     margin-top: 0.5rem;
-                    font-family: 'DM Mono', monospace;
+                    font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
                     list-style-type: none;
                     display: flex;
                     flex-direction: column;

@@ -25,6 +25,7 @@ module.exports = {
                 'dm-mono': ['"DM Mono"', 'monospace'],
                 'space-text': ['"Space Text"', 'sans-serif'],
                 'space-grotesk': ['"Space Grotesk"', 'sans-serif'],
+                'prose': ['"Source Serif 4"', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
             },
             colors: {
                 primary: {
