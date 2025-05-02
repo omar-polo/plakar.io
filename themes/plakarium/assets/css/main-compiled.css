@@ -1727,6 +1727,14 @@ video {
   max-height: 400px;
 }
 
+.max-h-\[500px\] {
+  max-height: 500px;
+}
+
+.max-h-\[550px\] {
+  max-height: 550px;
+}
+
 .min-h-\[24px\] {
   min-height: 24px;
 }
@@ -2642,6 +2650,10 @@ video {
 
 .text-right {
   text-align: right;
+}
+
+.text-start {
+  text-align: start;
 }
 
 .font-dm-mono {

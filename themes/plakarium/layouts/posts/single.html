@@ -6,43 +6,42 @@
 
 
     <!-- Title -->
-    <section class="section-light-2 grid-background px-4 pt-20 pb-7">
-        <div class="content flex flex-col items-center gap-2 text-center">
+    <section class="section-light-2 grid-background px-4 pt-10 pb-7">
+        <div class="content flex flex-col items-center gap-2 text-center ">
 
 
+            <div class="flex flex-col items-start text-start gap-2 max-w-[calc(680px+32px)]">
+                <!-- Title -->
+                <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
+                    {{ .Title | emojify }}
+                </h1>
 
-
-            <!-- Title -->
-            <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
-                {{ .Title | emojify }}
-            </h1>
-
-            <!-- Metadata -->
-            <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
-                <!-- Category -->
-                <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono capitalize ~text-xs/sm">
-                        <span>    {{ $categories := .GetTerms "categories" }}
-                            {{ range $i, $category := $categories }}
-                                {{ if eq $i 0 }}{{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
-                            {{ end }}
-                        </span>
+                <!-- Metadata -->
+                <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
+                    <!-- Category -->
+                    <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono capitalize ~text-xs/sm">
+                            <span>    {{ $categories := .GetTerms "categories" }}
+                                {{ range $i, $category := $categories }}
+                                    {{ if eq $i 0 }}{{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+                                {{ end }}
+                            </span>
+                    </div>
+                    <span>{{ partial "functions/date.html" .Lastmod }}</span>
+                    <span>•</span>
+                    <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
+                    <span>•</span>
+                    <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
                 </div>
-                <span>{{ partial "functions/date.html" .Lastmod }}</span>
-                <span>•</span>
-                <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
-                <span>•</span>
-                <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
             </div>
-
         </div>
     </section>
     </div>
 
 
     <!-- Illustration -->
-    <section class="section-light-2 grid-background px-4 py-7">
+    <section class="section-light-2 grid-background px-4 py-2">
         <div class="content flex flex-col items-center gap-8 text-center">
-                <div class="md:max-w-[66.6667%] rounded-lg bg-white border border-neutral-300 relative">
+                <div class="max-w-[calc(680px+32px)] rounded-lg bg-white border border-neutral-300 relative">
                     <!-- Top bar with dots -->
                     <div class="w-full h-7 px-4 flex items-center gap-2 border-b border-neutral-200">
                         <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
@@ -53,7 +52,7 @@
                     <!-- Image -->
                     <div class="p-4 md:p-6">
                         {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
-                        <img class="w-full h-auto object-cover rounded-sm max-h-[400px]"
+                        <img class="w-full h-auto object-cover rounded-sm max-h-[550px]"
                              src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}"
                              alt="Article image">
                     </div>
