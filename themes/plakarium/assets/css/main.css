@@ -87,6 +87,17 @@
         background-repeat: repeat;
         background-attachment: fixed;
     }
+    .bg-gradient-section {
+        background-image: linear-gradient(
+                transparent 0%,
+                transparent 25%,
+                theme('colors.primary.350') 65%,
+                theme('colors.primary.500') 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        background-attachment: scroll;
+    }
 }
 
 .not-ready {
@@ -267,4 +278,13 @@
     }
 }
 
+.article-content img:hover {
+    cursor: zoom-in;
+}
 
+.article-content table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}

@@ -3,6 +3,7 @@ title: "Plakar beta.4 and upcoming features"
 date: 2025-03-08 00:00:00 +0100
 authors:
 - "gilles"
+summary: "New UI previews, performance boosts, SFTP fixes, CLI testing, packaging on BSDs—beta.4 refines Plakar while previewing what’s next..."
 categories:
  - technology
 tags:

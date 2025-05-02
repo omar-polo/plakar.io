@@ -25,8 +25,8 @@
     {{ $dockerLogo := resources.Get "img/docker-logo.svg" }}
     {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
     <!-- Title -->
-    <section class="section-light-2 grid-background p-4">
-        <div class="content pt-10 flex flex-col justify-between items-start gap-8">
+    <section class="section-light-2 grid-background px-4 pt-20 pb-7">
+        <div class="content flex flex-col justify-between items-start gap-8">
             <div class="self-stretch text-center justify-start font-medium ~text-4xl/6xl">
                 <h1><span class="text-primary-500">Backup</span> in seconds. <br/>
                     <span class="text-primary-500">Restore</span> without thinking.</h1>
@@ -41,7 +41,6 @@
         </div>
     </section>
 
-
     <!-- Get started section -->
     <section class="section-light-2 grid-background"
              x-data="{
@@ -55,14 +54,7 @@
              @resize.window="handleResize"
 
     >
-        <div style="background-image: linear-gradient(
-                  transparent 0%,
-                  transparent 25%,
-                  #9895FF 65%,
-                  #524CFF 100%);
-            background-repeat: no-repeat;
-            background-size: 100% auto;
-            background-attachment: scroll;">
+        <div class="bg-gradient-section">
             <div class="content py-20 p-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
 
                 <!-- Terminal block (left) -->
@@ -186,13 +178,14 @@
     {{ $introVideo := resources.Get "video/plakar-intro-.m4v" }}
     {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
 
+    <!-- Why engineers choose Plakar -->
     <section class="section-light-2 overflow-hidden" x-data="progressScrollLine()" x-init="init()">
         <div class="content py-8 lg:py-28 flex flex-col gap-4 lg:gap-40 lg:p-4">
 
             <!-- Title -->
             <div class="text-center flex flex-col gap-8 max-w-4xl mx-auto">
                 <h2 class="~text-4xl/6xl font-space-grotesk font-medium text-neutral-900 leading-tight">
-                    Why engineers choose <span class="text-primary-500">Plakar</span>
+                    Why engineers choose <span class="text-secondary-500">Plakar</span>
                 </h2>
                 <p class="~text-xl font-space-grotesk text-neutral-600 leading-normal">
                     Powerful technology designed for engineers who value <br> reliability, security, and efficiency.
@@ -786,24 +779,23 @@
         </div>
     </section>
 
-
     <!-- Open source section -->
-    <section class="section-light-2">
-        <div class="content flex flex-col gap-24 pt-28">
+    <section class="section-light-2 py-7 ">
+        <div class="content flex flex-col gap-24">
             <div class="flex flex-col justify-between items-center gap-10 p-4">
                 <!-- Title -->
-                <h2 class="font-space-grotesk font-medium ~text-4xl/6xl text-neutral-900 leading-tight">
-                    Community <span class="text-[#FF8547]">powered</span>,<br class="hidden sm:inline"> trusted by teams
+                <h2 class="font-space-grotesk font-medium ~text-4xl/6xl text-neutral-900 leading-tight text-center">
+                    Community <span class="text-[#FF8547]">powered</span>, trusted by teams
                 </h2>
 
                 <!-- Subtitle -->
                 <p class="~text-base/lg text-neutral-600 font-space-grotesk font-medium leading-snug max-w-2xl">
-                    Lorem ipsum dolor sit amet consectetur.<br class="hidden sm:inline">
-                    Libero volutpat in cum faucibus neque pulvinar.
+                    There must be a way to ensure backups remain accessible 10 or 30 years from now.
+                    Built with transparency, tested by the community, and trusted for critical infrastructure.
                 </p>
             </div>
         </div>
-            <div class="content px-[23px] md:px-12 py-4 md:py-10 flex flex-col lg:flex-row">
+            <div class="px-4 py-7 flex flex-col lg:flex-row">
 
                 {{ $cellsNumber := 16 }}
                 {{ $images := readDir "assets/img/contributors" }}
@@ -882,7 +874,7 @@
             </div>
 
             <!-- Logos -->
-            <div class="content flex flex-col lg:flex-row items-start justify-between gap-8 pt-8 pb-36 px-4">
+            <div class="px-4 py-7 flex flex-col xl:flex-row items-start justify-between gap-8">
 
                 <!-- Heading -->
                 <div class="flex flex-col gap-1 flex-[0_1_auto] max-w-fit ">
@@ -945,4 +937,5 @@
                 </div>
     </section>
 
+    {{ partial "article/featured-list.html" . }}
 {{ end }}

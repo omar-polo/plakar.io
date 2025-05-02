@@ -3,8 +3,12 @@ title: "A Short history of backup"
 date: 2025-03-31 08:00:00 +0100
 authors:
 - "julien"
+summary: "From magnetic tapes to immutable snapshots, how backups evolved into strategic, queryable, open tools ready for modern data challenges..."
 categories:
  - technology
+ - release-notes
+featured-scope:
+ - hero-page
 tags:
  - plakar
  - backups
@@ -12,7 +16,6 @@ tags:
 
 ## In honor of World Backup Day – March 31
 
-<!--more-->
 
 March 31 is World Backup Day a global reminder that your data isn't immortal, your hard drive will eventually die, and “I thought I saved it” isn't a recovery strategy.
 

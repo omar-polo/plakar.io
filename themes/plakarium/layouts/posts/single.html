@@ -5,130 +5,132 @@
     {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
 
 
-<!-- Title -->
-        <div class="section-wrapper bg-neutral-100"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content px-6 md:px-12 py-20 flex flex-col items-center gap-8 text-center">
+    <!-- Title -->
+    <section class="section-light-2 grid-background px-4 pt-20 pb-7">
+        <div class="content flex flex-col items-center gap-8 text-center">
 
-                    <!-- Category -->
-                    <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono uppercase ~text-xs/sm">
+            <!-- Category -->
+            <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono capitalize ~text-xs/sm">
                         <span>    {{ $categories := .GetTerms "categories" }}
                             {{ range $i, $category := $categories }}
-                                {{ if eq $i 0 }}// {{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+                                {{ if eq $i 0 }}{{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
                             {{ end }}
                         </span>
-                    </div>
+            </div>
 
-                    <!-- Title -->
-                    <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
-                        {{ .Title | emojify  }}
-                    </h1>
+            <!-- Title -->
+            <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
+                {{ .Title | emojify }}
+            </h1>
 
-                    <!-- Metadata -->
-                    <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
-                        <span>{{ partial "functions/date.html" .Lastmod }}</span>
-                        <span>•</span>
-                        <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
-                        <span>•</span>
-                        <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
-                    </div>
+            <!-- Metadata -->
+            <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
+                <span>{{ partial "functions/date.html" .Lastmod }}</span>
+                <span>•</span>
+                <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
+                <span>•</span>
+                <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
+            </div>
 
-                </div>
-            </section>
         </div>
+    </section>
+    </div>
 
 
-        <!-- Illustration -->
-        <div class="section-wrapper bg-neutral-100"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content px-6 md:px-12 pb-20 flex justify-center">
-
-                    <div class="w-full md:max-w-[66.6667%] rounded-sm bg-white border border-neutral-300 relative">
-                        <!-- Top bar with dots -->
-                        <div class="w-full h-7 px-4 flex items-center gap-2 border-b border-neutral-200">
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="p-4 md:p-6">
-                            {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
-                            <img class="w-full h-auto object-cover rounded-sm" src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}" alt="Article image">
-                        </div>
+    <!-- Illustration -->
+    <section class="section-light-2 grid-background px-4 py-7">
+        <div class="content flex flex-col items-center gap-8 text-center">
+                <div class="w-full md:max-w-[66.6667%] rounded-lg bg-white border border-neutral-300 relative">
+                    <!-- Top bar with dots -->
+                    <div class="w-full h-7 px-4 flex items-center gap-2 border-b border-neutral-200">
+                        <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
+                        <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
+                        <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
                     </div>
 
+                    <!-- Image -->
+                    <div class="p-4 md:p-6">
+                        {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
+                        <img class="w-full h-auto object-cover rounded-sm"
+                             src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}"
+                             alt="Article image">
+                    </div>
                 </div>
-            </section>
+
         </div>
+    </section>
 
-        <div class="section-wrapper bg-neutral-100"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content pl-[24px]  pr-[25px] md:pl-[48px] md:pr-[49px] flex flex-col lg:flex-row items-start justify-center mx-auto ">
+    <section class="section-light-2 px-4 py-7">
+        <div class="content flex flex-col lg:flex-row items-start justify-center mx-auto">
+                <!-- Sidebar (left) -->
+                <aside class="lg:absolute lg:left-0 flex flex-col bg-neutral-100 lg:max-w-[calc((100%-720px)/2)] w-full pb-4">
 
-                    <!-- Sidebar (left) -->
-                    <aside class="w-full lg:w-1/3 xl:w-1/6 flex flex-col bg-neutral-100">
-
-                        <div class="hidden lg:flex bg-neutral-900 p-4 rounded-sm text-white lg:flex-col gap-4">
-                            <p class="font-space-text font-semibold ~text-sm/base">Want to help and stay updated?</p>
-                            <div class="flex flex-col gap-2 items-start text-sm">
-                                <!-- GitHub star button -->
-                                <a class="flex min-h-[35px] items-center gap-2 pr-2 p-[1px] outline-1 outline-neutral-700 bg-neutral-600 rounded-sm uppercase font-dm-mono"
-                                   href="https://github.com/PlakarKorp/plakar" target="_blank">
-                                    <div class="flex items-center gap-1 px-1 pr-2 min-h-[31px] bg-neutral-700 rounded-sm">
-                                        <span class="w-7 h-7">{{ $riGithubFill.Content | safeHTML }}</span>
-                                        <span class="text-neutral-50">star</span>
-                                    </div>
-                                    <span id="github-stars-count">149</span>
-                                </a>
-                                <div class="flex gap-4 items-center px-1">
-                                    {{ partial "social/bluesky-badge.html" (dict "badgeSize" "7" "context" .) }}
-                                    {{ partial "social/discord-badge.html" (dict "badgeSize" "7" "context" .) }}
-                                    {{ partial "social/linkedin-badge.html" (dict "badgeSize" "7" "context" .) }}
+                    <div class="hidden bg-neutral-900 p-4 rounded-lg text-white lg:flex lg:flex-col gap-4">
+                        <p class="font-space-text font-semibold ~text-sm/base">Want to help and stay updated?</p>
+                        <div class="flex flex-col gap-2 items-start text-sm">
+                            <!-- GitHub star button -->
+                            <a class="flex min-h-[35px] items-center gap-2 pr-2 p-[1px] outline-1 outline-neutral-700 bg-neutral-600 rounded-sm uppercase font-dm-mono"
+                               href="https://github.com/PlakarKorp/plakar" target="_blank">
+                                <div class="flex items-center gap-1 px-1 pr-2 min-h-[31px] bg-neutral-700 rounded-sm">
+                                    <span class="w-7 h-7">{{ $riGithubFill.Content | safeHTML }}</span>
+                                    <span class="text-neutral-50">star</span>
                                 </div>
+                                <span id="github-stars-count">149</span>
+                            </a>
+                            <div class="flex gap-4 items-center px-1">
+                                {{ partial "social/bluesky-badge.html" (dict "badgeSize" "7" "context" .) }}
+                                {{ partial "social/discord-badge.html" (dict "badgeSize" "7" "context" .) }}
+                                {{ partial "social/linkedin-badge.html" (dict "badgeSize" "7" "context" .) }}
                             </div>
                         </div>
-                        <div class="text-sm font-space-text flex flex-col gap-6 border-t border-b border-neutral-200">
-                            {{ partial "toc.html" . }}
+                    </div>
+                    <div class="text-sm font-space-text flex flex-col gap-6 border-t border-b border-neutral-200">
+                        {{ partial "toc.html" . }}
+                    </div>
+
+                    <div class="bg-neutral-200 border-b border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
+                        <div class="flex gap-4 items-center">
+                            {{ partial "social/bluesky-badge.html" . }}
+                            {{ partial "social/discord-badge.html" . }}
+                            {{ partial "social/linkedin-badge.html" . }}
+                            {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
                         </div>
+                    </div>
+                </aside>
 
-                        <div class="bg-neutral-200 border-b border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap">
-                            <div class="flex gap-4 items-center">
-                                {{ partial "social/bluesky-badge.html" . }}
-                                {{ partial "social/discord-badge.html" . }}
-                                {{ partial "social/linkedin-badge.html" . }}
-                                {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
-                            </div>
-                        </div>
-                    </aside>
+                <!-- Article content (right) -->
+                <article class="w-full max-w-[680px] p-4 lex flex-col gap-16 bg-neutral-50 mx-auto">
 
-                    <!-- Article content (right) -->
-                    <article class="fw-full lg:w-2/3 xl:w-1/2 p-4 lex flex-col gap-16 ">
-
-                        {{ range .GetTerms "authors" }}
-                            {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
-                            {{ $authorData := index site.Data.authors $authorKey }}
+                    {{ range .GetTerms "authors" }}
+                        {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
+                        {{ $authorData := index site.Data.authors $authorKey }}
 
                         <!-- Author & intro -->
                         <div class="flex gap-4 items-start">
-                            <img class="w-14 h-14 rounded-full" src="{{ or (resources.Get $authorData.image).RelPermalink (resources.Get "img/placeholder-56x56.png").RelPermalink }}" alt="Author picture" />
+                            <img class="w-14 h-14 rounded-full"
+                                 src="{{ or (resources.Get $authorData.image).RelPermalink (resources.Get "img/placeholder-56x56.png").RelPermalink }}"
+                                 alt="Author picture"/>
                             <div class="flex flex-col gap-1">
                                 <div class="font-dm-mono uppercase text-sm text-neutral-900">{{ $authorData.name }}</div>
                                 <div class="font-space-text text-sm text-neutral-600">{{ $authorData.bio }}</div>
                             </div>
                         </div>
-                        {{ end }}
+                    {{ end }}
 
-                        <!-- Content blocks -->
-                        <div class="article-content prose max-w-prose mb-20">
-                            {{ .Content }}
-                        </div>
-                    </article>
+                    <!-- Content blocks -->
+                    <div class="article-content prose max-w-prose mb-20">
+                        {{ .Content }}
+                    </div>
+                </article>
 
-                </div>
-            </section>
         </div>
-{{end}}
+    </section>
+
+    <script>
+        document.querySelectorAll('.article-content img').forEach(img => {
+            img.addEventListener('click', () => {
+                basicLightbox.create(`<img src="${img.src}" />`).show();
+            });
+        });
+    </script>
+{{ end }}

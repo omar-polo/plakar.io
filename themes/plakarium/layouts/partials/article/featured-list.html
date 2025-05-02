@@ -1,0 +1,35 @@
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $filtered := where $posts "Params.featured-scope" "intersect" (slice "hero-page") }}
+
+
+<section class="section-light-2 bg-gradient-section pt-7 pb-14 px-4">
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-attachment: scroll;">
+    <div class="content flex flex-col gap-12" >
+
+        <div class="flex flex-col lg:flex-row justify-between gap-8">
+
+            <!-- Left text block -->
+            <div class="flex flex-col gap-4 max-w-4xl">
+                <h2 class="~text-4xl/7xl font-space-grotesk font-medium text-neutral-900 leading-tight">
+                    <span class="text-neutral-900">Plakar </span>
+                    <span class="text-[#FF8547]">stories</span>
+                </h2>
+                <p class="~text-base/lg font-space-grotesk font-medium text-neutral-600">
+                    Engineers thought, release notes and data protection last news
+                </p>
+            </div>
+
+            <!-- Right CTA -->
+            {{ partial "cta/see-all-stories.html" . }}
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {{ if gt (len $filtered) 0 }}
+                {{ range $filtered }}
+                    {{ partial "article/card.html" . }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </div>
+</section>

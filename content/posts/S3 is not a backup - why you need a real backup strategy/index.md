@@ -3,6 +3,7 @@ title: "S3 is not a backup: why you need a real backup strategy"
 date: 2025-02-10 15:12:00 +0100
 authors:
  - "Plakup"
+summary: "S3 offers durable storage, not true backups. Learn why you need dedicated tools for secure, recoverable, and resilient data protection..."
 categories:
  - technology
 tags:
@@ -11,7 +12,7 @@ tags:
  - back to basic
 ---
 Let us get straight to the point: Amazon S3 is a phenomenal service for scalable, reliable object storage but it is not a backup solution. Sure, S3 boasts rock-solid durability and cost efficiency, but relying on it alone for backups is like trying to cover your bases with duct tape. In today’s world, where a single misclick can spell disaster, a thoughtful, multi-layered backup strategy is not just nice to have; it is absolutely essential.
-<!--more-->
+
 This article digs into the reasons why S3’s native features do not suffice when it comes to safeguarding your data. We expose the design limitations of S3 for backup tasks, compare it with dedicated backup solutions, and highlight real-world scenarios that illustrate these challenges. Along the way, we share best practices, practical examples, and a few tongue-in-cheek observations about the perils of relying on S3 as your one-and-only data safeguard. If you are serious about data protection, prepare to rethink your backup strategy.
 
 ## Understanding S3: its strengths and its intended purpose

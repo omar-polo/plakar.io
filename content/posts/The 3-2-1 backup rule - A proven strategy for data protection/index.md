@@ -3,6 +3,7 @@ title: "The 3-2-1 backup rule: A proven strategy for data protection"
 date: 2025-02-10 14:24:00 +0100
 authors:
  - "Plakup"
+summary: "Discover why the 3-2-1 backup rule remains the gold standard for protecting your data from deletion, disasters, and ransomware..."
 categories:
  - technology
 tags:
@@ -12,7 +13,7 @@ tags:
 ---
 
 Data loss can happen in many ways: whether due to accidental deletion, cyberattacks, hardware failure, or even a catastrophic event like a **data center fire**. To protect against these risks, IT professionals have long relied on the **3-2-1 backup rule**, a fundamental strategy for ensuring data resilience.
-<!--more-->
+
 This article breaks down **what the 3-2-1 backup rule is**, **why it is critical**, and **why replication or single-cloud backups are not enough**. We also explore **the types of threats it mitigates**, from **hacker intrusions** to **storage provider failures**, and how to implement it effectively with **proper offline or air-gapped backups**.
 
 ## What is the 3-2-1 backup rule?

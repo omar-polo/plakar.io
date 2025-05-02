@@ -1,8 +1,6 @@
 {{ $debug := false }}
 
 <!-- Article categories navigation -->
-<div class="section-wrapper bg-neutral-100"
-     style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
 
     {{ $currentSection := "unknown" }}
     {{ $currentCategory := "unknown" }}
@@ -69,20 +67,19 @@
         <p>$categories: {{$categories}}</p>
     {{ end }}
 
-    <section id="categories" class="bg-neutral-100 text-neutral-900 px-[0px] scroll-mt-20">
-        <div class="content border border-neutral-300">
-            <div class="w-full px-6 md:px-12 py-6  flex flex-wrap items-center max-w-[1340px] mx-auto gap-0 lg:gap-3">
+<section id="categories" class="section-light-2 py-7 px-4 scroll-mt-20">
+    <div class="content flex flex-row items-center justify-between ">
+            <div class="px-2 py-2 bg-neutral-50 flex flex-wrap items-center gap-3 rounded-lg mx-auto ">
                 <a href="/{{ $currentSection }}/#categories">
-                    <button class="h-12 px-2 py-3.5 {{ if eq .Kind "section" }}bg-primary-500 text-white {{ else }} hover:bg-neutral-300 transition {{ end }}  text-sm font-dm-mono uppercase rounded-sm ">
-                        All
+                    <button class="px-2 py-4 {{ if eq .Kind "section" }}bg-primary-500 text-white {{ else }} hover:bg-neutral-300 transition {{ end }}  text-sm font-space-grotesk rounded-lg items-center">
+                        All articles
                     </button>
                 </a>
                 {{ range $name := $categories }}
                     <a href="/categories/{{ $name | urlize }}/#categories">
-                        <button class="h-12 px-2 py-3.5 {{ if eq $name $currentCategory }}bg-primary-500 text-white{{ else }} hover:bg-neutral-300 transition {{ end }} text-sm font-dm-mono uppercase rounded-sm  ">{{ $name | humanize }}</button>
+                        <button class="px-2 py-4 {{ if eq $name $currentCategory }}bg-primary-500 text-white{{ else }} hover:bg-neutral-300 transition {{ end }} text-sm font-space-grotesk rounded-lg items-center">{{ $name | humanize }}</button>
                     </a>
                 {{ end }}
             </div>
         </div>
     </section>
-</div>

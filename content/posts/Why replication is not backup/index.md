@@ -4,6 +4,7 @@ title: "Why replication is not backup"
 date: 2025-02-10 15:02:00 +0100
 authors:
 - "Plakup"
+summary: "Replication ensures availability, not recovery. Learn why true backups remain essential to protect against deletion, corruption, or malicious actions..."
 categories:
 - insights
 tags:
@@ -12,7 +13,7 @@ tags:
 - back to basic
 ---
 In the realm of data protection, **backup** and **replication** are two fundamental strategies employed to safeguard information. While they share the common goal of data preservation, they operate on distinct principles and serve different purposes. Understanding these differences is crucial for developing a robust data protection strategy.
-<!--more-->
+
 ## Understanding backup and replication
 
 ### What is data backup?
