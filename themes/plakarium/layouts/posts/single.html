@@ -62,36 +62,18 @@
     </section>
 
     <section class="section-light-2 px-4 py-7">
-        <div class="content flex flex-col lg:flex-row items-start justify-center mx-auto">
+        <div class="content flex flex-col xl:flex-row items-start">
                 <!-- Sidebar (left) -->
-                <aside class="lg:absolute lg:left-0 flex flex-col bg-neutral-100 lg:max-w-[calc((100%-680px-32px-40px)/2)] w-full pb-4">
-
-                    <div class="hidden bg-neutral-900 p-4 rounded-lg text-white lg:flex lg:flex-col gap-4">
-                        <p class="font-prose font-semibold ~text-sm/base">Want to help and stay updated?</p>
-                        <div class="flex flex-col gap-2 items-start text-sm">
-                            <div class="flex gap-4 items-center px-1">
-                                {{ partial "social/bluesky-badge.html" (dict "badgeSize" "7" "context" .) }}
-                                {{ partial "social/discord-badge.html" (dict "badgeSize" "7" "context" .) }}
-                                {{ partial "social/linkedin-badge.html" (dict "badgeSize" "7" "context" .) }}
-                            </div>
-                        </div>
-                    </div>
+                <aside class="xl:left-0 xl:sticky w-full xl:w-[calc((100%-680px+32px)/2)] max-w-[calc(680px+32px)] xl:max-w-[calc((100%-680px-32px)/2)] pb-4 xl:pe-4 lg:top-24 flex flex-col bg-neutral-100 mx-auto xl:mx-0">
                     <div class="text-sm font-prose flex flex-col gap-6 border-t border-b border-neutral-200">
                         {{ partial "toc.html" . }}
                     </div>
 
-                    <div class="bg-neutral-200 border-b border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
-                        <div class="flex gap-4 items-center">
-                            {{ partial "social/bluesky-badge.html" . }}
-                            {{ partial "social/discord-badge.html" . }}
-                            {{ partial "social/linkedin-badge.html" . }}
-                            {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
-                        </div>
-                    </div>
+
                 </aside>
 
-                <!-- Article content (right) -->
-                <article class="w-full max-w-[calc(680px+32px)] p-4 lex flex-col gap-16 bg-neutral-50 mx-auto">
+                <!-- Article content (right)  -->
+                <article class="mx-auto xl:mx-0 max-w-full md:max-w-[calc(680px+32px)] p-4 lex flex-col gap-16 bg-neutral-50 overflow-hidden">
 
                     {{ range .GetTerms "authors" }}
                         {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
@@ -110,8 +92,16 @@
                     {{ end }}
 
                     <!-- Content blocks -->
-                    <div class="article-content font-prose prose prose-neutral ~text-base/lg">
+                    <div class="article-content font-prose prose ~text-base/lg">
                         {{ .Content }}
+                    </div>
+                    <div class="bg-neutral-200 border-b border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
+                        <div class="flex gap-4 items-center">
+                            {{ partial "social/bluesky-badge.html" . }}
+                            {{ partial "social/discord-badge.html" . }}
+                            {{ partial "social/linkedin-badge.html" . }}
+                            {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
+                        </div>
                     </div>
                 </article>
 

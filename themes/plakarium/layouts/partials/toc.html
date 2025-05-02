@@ -1,67 +1,58 @@
-<details open id="TOCView" class="toc-right mt-0 pt-8 rounded-lg  hidden lg:block">
+<details open id="TOCView" class="toc-right mt-0 pt-8 rounded-lg  hidden xl:block">
     <summary
-            class="block lg:hidden rounded-lg py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 ">
+            class="block xl:hidden rounded-lg py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 ">
         {{ i18n "article.table_of_contents" }}
     </summary>
     <div class="~text-xs  py-2   ">
-
         {{ with .TableOfContents }}
             <style>
-                /* Style pour les conteneurs */
                 #TableOfContents > ul {
                     display: flex;
                     flex-direction: column;
-                    gap: 1.5rem;
+                    gap: 0.6rem;
                     padding: 0;
                     margin: 0;
                 }
 
-                /* Style pour les sections principales */
                 #TableOfContents > ul > li {
                     margin: 0;
                     padding: 0;
                 }
 
-                /* Style pour les titres de section */
                 #TableOfContents > ul > li > a {
                     font-weight: 600;
                     display: block;
                     color: #111827;
-                    margin-bottom: 0.5rem;
+                    margin-bottom: 0.2rem;
                     text-decoration: none;
                 }
 
-                /* Premier titre en indigo */
-                #TableOfContents > ul > li:first-child > a {
-                    color: #4F46E5;
-                }
-
-                /* Style pour les listes de sous-sections */
                 #TableOfContents > ul > li > ul {
                     padding-left: 0.75rem;
-                    margin-top: 0.5rem;
+                    margin-top: 0.2rem;
                     font-family: source-serif-pro, Georgia, Cambria, "Times New Roman", Times, serif;
                     list-style-type: none;
                     display: flex;
                     flex-direction: column;
-                    gap: 0.25rem;
+                    gap: 0.2rem;
                 }
 
-                /* Style pour les éléments de liste */
                 #TableOfContents ul li ul li {
                     margin: 0;
                 }
 
-                /* Retirer les styles par défaut des liens */
                 #TableOfContents a {
                     text-decoration: none;
                     color: #111827;
                 }
 
-                /* Niveau supplémentaire de sous-sections */
                 #TableOfContents > ul > li > ul > li > ul {
                     padding-left: 0.75rem;
                     list-style-type: none;
+                }
+                #TableOfContents a.active {
+                    color: #524CFF;
+                    font-weight: 600;
                 }
             </style>
             {{ . | emojify }}
@@ -70,10 +61,9 @@
         {{ end }}
     </div>
 </details>
-<details class="toc-inside mt-0 overflow-hidden lg:hidden">
-    <summary class="py-1  pl-4 rounded-lg text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+<details class="toc-inside mt-0 overflow-hidden xl:hidden">
+    <summary class="xl:hidden py-1  pl-4 rounded-lg text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-primary-500 dark:text-neutral-100 ">
         {{ i18n "article.table_of_contents" }}
-
     </summary>
     <div class="py-2 px-4  border-dotted border-neutral-300   dark:border-neutral-600">
         {{ .TableOfContents | emojify }}
@@ -81,72 +71,40 @@
 </details>
 
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tocs = document.querySelectorAll("#TableOfContents");
+        if (!tocs.length) return;
 
-    var margin = 200;
-    var marginError = 50;
+        const headings = Array.from(document.querySelectorAll("h2[id], h3[id]"));
 
-    (function () {
-        var $window = $(window);
-        var $toc = $('#TOCView');
-        var tocHeight = $toc.height();
+        function highlightTOC() {
+            const scrollY = window.scrollY;
+            let currentId = null;
 
-        function onResize() {
-            var windowAndMarginHeight = $window.height() - margin;
-            if (tocHeight >= windowAndMarginHeight) {
-                $toc.css("overflow-y", "scroll")
-                $toc.css("max-height", (windowAndMarginHeight + marginError) + "px")
-            } else {
-                $toc.css("overflow-y", "hidden")
-                $toc.css("max-height", "9999999px")
-            }
-        }
-
-        $window.on('resize', onResize);
-        $(document).ready(onResize);
-    })();
-
-    {{ if .Site.Params.smartTOC }}
-
-    (function () {
-        var $toc = $('#TableOfContents');
-        if ($toc.length > 0) {
-            var $window = $(window);
-
-            function onScroll() {
-                var currentScroll = $window.scrollTop();
-                var h = $('.anchor');
-                var id = "";
-                h.each(function (i, e) {
-                    e = $(e);
-                    if (e.offset().top - $(window).height() / 3 <= currentScroll) {
-                        id = decodeURIComponent(e.attr('id'));
-                    }
-                });
-                var active = $toc.find('a.active');
-                if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
-
-                active.each(function (i, e) {
-                    {{ if .Site.Params.smartTOCHideUnfocusedChildren }}
-                    $(e).removeClass('active').siblings('ul').hide();
-                    {{ else }}
-                    $(e).removeClass('active');
-                    {{ end }}
-                });
-                $toc.find('a[href="#' + id + '"]').addClass('active')
-                $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
-                    $(e).children('a').parents('ul').show();
-                });
+            for (const heading of headings) {
+                if (heading.offsetTop - window.innerHeight / 3 <= scrollY) {
+                    currentId = heading.id;
+                }
             }
 
-            $window.on('scroll', onScroll);
-            $(document).ready(function () {
-                {{ if .Site.Params.smartTOCHideUnfocusedChildren }}
-                $toc.find('a').parent('li').find('ul').hide();
-                {{ end }}
-                onScroll();
+            if (!currentId) return;
+
+            tocs.forEach(toc => {
+                // Skip if hidden
+                if (toc.offsetParent === null) return;
+
+                toc.querySelectorAll("a.active").forEach(a => a.classList.remove("active"));
+
+                const targetLink = toc.querySelector(`a[href="#${CSS.escape(currentId)}"]`);
+                console.log(targetLink);
+                if (targetLink) {
+                    targetLink.classList.add("active");
+                }
             });
         }
-    })();
-    {{ end }}
 
+        window.addEventListener("scroll", highlightTOC);
+        window.addEventListener("resize", highlightTOC);
+        highlightTOC();
+    });
 </script>
