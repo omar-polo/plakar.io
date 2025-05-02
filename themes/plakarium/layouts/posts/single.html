@@ -69,15 +69,6 @@
                     <div class="hidden bg-neutral-900 p-4 rounded-lg text-white lg:flex lg:flex-col gap-4">
                         <p class="font-prose font-semibold ~text-sm/base">Want to help and stay updated?</p>
                         <div class="flex flex-col gap-2 items-start text-sm">
-                            <!-- GitHub star button -->
-                            <a class="flex min-h-[35px] items-center gap-2 pr-2 p-[1px] outline-1 outline-neutral-700 bg-neutral-600 rounded-sm uppercase font-dm-mono"
-                               href="https://github.com/PlakarKorp/plakar" target="_blank">
-                                <div class="flex items-center gap-1 px-1 pr-2 min-h-[31px] bg-neutral-700 rounded-sm">
-                                    <span class="w-7 h-7">{{ $riGithubFill.Content | safeHTML }}</span>
-                                    <span class="text-neutral-50">star</span>
-                                </div>
-                                <span id="github-stars-count">149</span>
-                            </a>
                             <div class="flex gap-4 items-center px-1">
                                 {{ partial "social/bluesky-badge.html" (dict "badgeSize" "7" "context" .) }}
                                 {{ partial "social/discord-badge.html" (dict "badgeSize" "7" "context" .) }}
