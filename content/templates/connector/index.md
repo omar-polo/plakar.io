@@ -1,19 +1,11 @@
 ---
-title: Connector name, example S3 Storage Connector
-subtitle: Marketing title with main strength of the connector -  example -  Store your Plakar backups reliably in any S3-compatible object storage
-description: What the connector is doing Use the S3 storage connector to push your encrypted, deduplicated Plakar backups to AWS, MinIO, or any compatible S3 backend.
-technology_description: What is the technology
-categories:
-- connector
-- storage
-# For the record a plugin can contain both
-tags: # used for the related article and for SEO
-- s3
-- object storage
-- cloud backup
-- plakar connector
-- aws
-- minio
+title: Integration or storage connector name # Example: S3
+subtitle: Marketing sub title with main strength of the integration or the storage connector #  Example:  Protect your S3 data against, rogue deletion, ransomware and other threats.
+description: Describe the integration or the storage connector in a few words # Example: Use the S3, object storage integration with any compatible S3 backend to back up, restore or duplicate it.
+technology_description: What is the technology # Example: S3 is a block storage...
+categories: Define if this page describe an intagration or a storage connector. This field is a list with only one element "- integration" or "- storage connector" # Example: - integration 
+tags: Used to list the technologies involved in the integration or the storage connector. This field is a list with multiple elements. # Example: - s3 - object storage - - s3 - minio - Ceph RGW - Scality Zenko - object storage
+stage: # Define the stage of the integration or the storage connector. This field is a list with only one element "coming soon" or "beta" or "stable" # Example: stable
 date: 2025-04-16
 ---
 
@@ -22,7 +14,6 @@ Example S3 is a block storage....
 
 ## Configuration
 
-- Form to generate the configuration
 - Example of configuration
 - Example of command
 - Environment variable
@@ -36,11 +27,9 @@ Example S3 is a block storage....
 
 ## Screenshots
 
-## Explain the covered risk
-Example : Expain that google don't back up you photo
+## Threats
+- List the main threats related to the technology
+- 
 
 
-# S3
-# filesystem
-# sftp
-# ftp
+

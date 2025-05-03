@@ -4,100 +4,74 @@
     {{ $riLinkedInBoxFill := resources.Get "img/ri/linkedin-box-fill.svg" }}
     {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
 
+    <!-- Title -->
+    <section class="section-light-2 grid-background py-14 lg:py-28">
+            <div class="content flex flex-row items-start text-center px-4 gap-8">
 
-<!-- Title -->
-    <div class="section-wrapper bg-neutral-100"
-         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content px-6 md:px-12 py-20 flex flex-row items-start">
-
-                <!-- Left block: Image in 1/6 width + offset -->
-                <div class="flex flex-col w-1/6 md:2/6">
-                    <div class="w-full rounded-sm bg-white border border-neutral-300 relative">
-                        <!-- Top bar with dots -->
-                        <div class="w-full h-7 px-4 flex items-center gap-2 border-b border-neutral-200">
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                            <div class="w-2 h-2 bg-neutral-300 rounded-full"></div>
-                        </div>
-
-                        <!-- Image -->
-                        <div class="w-full p-4 md:p-6">
-                            {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
-                            <img class="w-full h-auto object-cover rounded-sm"
-                                 src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}"
-                                 alt="Article image">
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right block: Category + Title (5/6) -->
-                <div class=" flex flex-col items-start gap-4 md:gap-8 text-left justify-center pt-0 pt-8">
-                    <!-- Category -->
-                    <div class="pl-4 md:pl-8 inline-flex items-center gap-2 text-primary-500 font-dm-mono uppercase ~text-xs/sm">
-                        {{ $categories := .GetTerms "categories" }}
-                        {{ range $i, $category := $categories }}
-                            {{ if eq $i 0 }}// {{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
-                        {{ end }}
-                    </div>
-
-                    <!-- Title -->
-                    <h1 class="pl-4 md:pl-8 font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
-                        {{ .Title | emojify }}
-                    </h1>
-                </div>
-
-
-
+            <div class="h-32 w-32">
+                {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
+                <img class="w-full h-auto object-cover rounded-sm"
+                     src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}"
+                     alt="Article image">
             </div>
-        </section>
-    </div>
 
+            <!-- Right block: Category + Title -->
+            <div class="flex flex-col gap-4 md:gap-8 text-left justify-center w-full lg:w-2/3">
+
+                <h1 class="font-space-grotesk font-medium ~text-2xl/5xl">
+                    {{ .Title | emojify }}
+                </h1>
+                <div class="text-primary-500 ~text-xs/sm">
+                    {{ $categories := .GetTerms "categories" }}
+                    {{ range $i, $category := $categories }}
+                        {{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Intro -->
-    <div class="section-wrapper bg-neutral-100"
-         style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-        <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-            <div class="content pl-[24px]  pr-[25px] md:pl-[48px] md:pr-[49px]  ">
-                    <div class="flex flex-col gap-8 border-t border-b bg-neutral-100  border-neutral-300 py-20  items-center">
-                        <h2 class="pl-4 md:pl-8 font-space-grotesk font-medium leading-tight ~text-2xl/5xl text-center">
-                        {{ .Params.subtitle }}
-                        </h2>
-                        <div class="font-space-grotesk text-neutral-500">{{ .Description }}</div>
+    <section class="section-light-1 text-neutral-900 py-14 lg:py-28">
+        <div class="content">
+            <div class="flex flex-col gap-8 items-start w-full">
+                <h2 class="~text-2xl/5xl font-space-grotesk font-medium text-center lg:text-left w-full">
+                    {{ .Params.subtitle }}
+                </h2>
+                <p class="~text-base/lg text-neutral-600 font-space-grotesk font-medium leading-snug w-full">
+                    {{ .Description }}
+                </p>
             </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="section-wrapper bg-neutral-100"
-             style="--pattern-fg: var(--color-neutral-300); --border-color: var(--color-neutral-300);">
-            <section class="section-decorated bg-neutral-100 text-neutral-900 mx-auto max-w-[1400px]">
-                <div class="content pl-[24px]  pr-[25px] md:pl-[48px] md:pr-[49px] flex flex-col lg:flex-row items-start justify-center mx-auto ">
-
-                    <!-- Article content (right) -->
-                    <article class="fw-full lg:w-2/3 xl:w-1/2 p-4 lex flex-col gap-16 ">
-
-                        {{ range .GetTerms "authors" }}
-                            {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
-                            {{ $authorData := index site.Data.authors $authorKey }}
-
-                        <!-- Author & intro -->
-                        <div class="flex gap-4 items-start">
-                            <img class="w-14 h-14 rounded-full" src="{{ or (resources.Get $authorData.image).RelPermalink (resources.Get "img/placeholder-56x56.png").RelPermalink }}" alt="Author picture" />
-                            <div class="flex flex-col gap-1">
-                                <div class="font-dm-mono uppercase text-sm text-neutral-900">{{ $authorData.name }}</div>
-                                <div class="font-space-text text-sm text-neutral-600">{{ $authorData.bio }}</div>
-                            </div>
-                        </div>
-                        {{ end }}
-
-                        <!-- Content blocks -->
-                        <div class="article-content prose max-w-prose mb-20">
-                            {{ .Content }}
-                        </div>
-                    </article>
-
-                </div>
-            </section>
         </div>
-{{end}}
+    </section>
+
+    <!-- Article body -->
+    <section class="section-light-2 py-14 lg:py-28">
+        <div class="content flex flex-col lg:flex-row gap-12 items-start">
+
+            <!-- Article content -->
+            <article class="w-full flex flex-col gap-16">
+
+                <!-- Author info -->
+                {{ range .GetTerms "authors" }}
+                    {{ $authorKey := . | urlize | strings.TrimPrefix "/authors/" }}
+                    {{ $authorData := index site.Data.authors $authorKey }}
+                    <div class="flex gap-4 items-start">
+                        <img class="w-14 h-14 rounded-full" src="{{ or (resources.Get $authorData.image).RelPermalink (resources.Get "img/placeholder-56x56.png").RelPermalink }}" alt="Author picture" />
+                        <div class="flex flex-col gap-1">
+                            <div class="font-dm-mono uppercase text-sm text-neutral-900">{{ $authorData.name }}</div>
+                            <div class="font-space-text text-sm text-neutral-600">{{ $authorData.bio }}</div>
+                        </div>
+                    </div>
+                {{ end }}
+
+                <!-- Main content -->
+                <div class="article-content prose max-w-full mb-20 w-full">
+                    {{ .Content }}
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+{{ end }}

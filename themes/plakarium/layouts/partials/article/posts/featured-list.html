@@ -1,10 +1,6 @@
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
 {{ $filtered := where $posts "Params.featured-scope" "intersect" (slice "hero-page") }}
 
-
-<section class="section-light-2 bg-gradient-section pt-7 px-4 py-28">
-    <div class="content flex flex-col gap-12" >
-
         <div class="flex flex-col lg:flex-row justify-between gap-8">
 
             <!-- Left text block -->
@@ -24,9 +20,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {{ if gt (len $filtered) 0 }}
                 {{ range $filtered }}
-                    {{ partial "article/card.html" . }}
+                    {{ partial "article/posts/card.html" . }}
                 {{ end }}
             {{ end }}
         </div>
-    </div>
-</section>

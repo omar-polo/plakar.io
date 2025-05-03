@@ -1,16 +1,18 @@
 ---
-title: SFTP Connector
+title: SFTP
 subtitle: Securely back up remote servers over SFTP with Plakar
 description: Backup your remote directories using the Plakar SFTP connector. Perform versioned, encrypted, and deduplicated backups over the secure SFTP protocol.
 categories:
-- data source
+- storage connector
+stage: beta
 tags:
 - sftp
-- remote backup
-- plakar connector
-- secure backup
 - linux
-- server
+- bsd
+- nas
+- synology
+- qnap
+
 date: 2025-04-16
 ---
 

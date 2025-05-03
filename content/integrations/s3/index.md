@@ -1,87 +1,106 @@
 ---
-title: S3 Storage Connector
-subtitle: Store your Plakar backups reliably in any S3-compatible object storage
-description: Use the S3 storage connector to push your encrypted, deduplicated Plakar backups to AWS, MinIO, or any compatible S3 backend.
-categories:
-- target
+title: S3
+subtitle: Protect your S3 buckets from rogue deletion, ransomware, and silent corruption.
+description: Use the Plakar S3 integration to back up, restore, or replicate your object storage buckets from any S3-compatible service.
+technology_description: S3 is a scalable object storage service commonly used for data archiving, backup, analytics, and cloud-native applications. It is accessible via a RESTful API and widely supported across public cloud providers and self-hosted solutions.
+categories: 
+  - integration
 tags:
-- s3
-- object storage
-- cloud backup
-- plakar connector
-- aws
-- minio
-date: 2025-04-16
+  - s3
+  - object storage
+  - aws
+  - minio
+  - ceph rgw
+  - scality
+  - wasabi
+stage:
+  - stable
+date: 2025-04-17
 ---
 
-## Store Plakar backups in S3-compatible object storage
+## What is S3?
 
-The **S3 connector** allows you to store Plakar snapshots in any S3-compatible object storage system, such as Amazon S3, MinIO, or Wasabi. This makes it easy to build redundant, cloud-based backup strategies with minimal infrastructure effort.
+S3 (Simple Storage Service) is a highly available and durable object storage service used to store arbitrary data as discrete objects in buckets. S3 is offered by AWS, and compatible implementations are available via software such as MinIO, Ceph RGW, Wasabi, and Scality Zenko. It is ideal for storing backups, media archives, logs, and large data sets.
 
-Whether you’re looking to archive backups off-site, enable disaster recovery, or ensure long-term retention, the S3 connector gives you scalable and cost-effective storage for your Plakar repositories.
+With Plakar, you can ingest data from S3 buckets into immutable, encrypted snapshots that are verifiable and portable. You can also use S3 as a target repository to store backups created from any source.
 
-## Quick Start – Using S3 as a backup target
 
-### 1. Create a repository configuration for your S3 bucket
 
-Use `plakar config` to declare the target:
+## Quick Start: Backup Your S3 Bucket
 
-```bash
-$ plakar config repository create mycloud
-$ plakar config repository set mycloud location s3://s3.amazonaws.com/mybucket
-$ plakar config repository set mycloud access_key YOUR_ACCESS_KEY
-$ plakar config repository set mycloud secret_access_key YOUR_SECRET_KEY
-$ plakar config repository set mycloud passphrase ****************
-```
-
-For MinIO or self-hosted backends:
+To back up an S3 bucket using Plakar:
 
 ```bash
-$ plakar config repository set mycloud location s3://minio.plakar.io:9001/mybucket
-```
+$ plakar config repository create s3
+# For AWS:
+$ plakar config repository set s3 location s3://s3.<region>.amazonaws.com/<bucket>
+$ plakar config repository set s3 passphrase ****************
+$ plakar config repository set s3 access_key <ACCESS_KEY>
+$ plakar config repository set s3 secret_access_key <SECRET_KEY>
 
-You can now create the repository:
+$ plakar at @s3 create
 
-```bash
-$ plakar at @mycloud create
-```
+# Backup a local path to your S3 repository
+$ plakar at /var/backups sync to @s3
+````
 
-2. Push backups to your S3-backed repository
-Once the remote repository is configured, you can use it directly for backups:
 
-```bash
-$ plakar at @mycloud backup /var/www
-```
+## Configuration
 
-Or you can synchronize snapshots from a local repository:
+Plakar uses a declarative configuration system to define remote repositories.
 
-```bash
-$ plakar at /var/plakar sync to @mycloud
-```
+### Minimum Configuration for S3:
 
-This avoids re-reading the original source and ensures consistency.
+- `location`: the full S3 URL (e.g., `s3://minio.plakar.io:9000/mybucket`)
+- `access_key`: your S3 access key
+- `secret_access_key`: your S3 secret key
+- `passphrase`: encryption key used to protect the repository
 
-3. Browse and restore from the S3 repository
-List available snapshots:
-
-```bash
-$ plakar at @mycloud ls
-```
-
-Restore a snapshot:
+You can configure the repository using commands:
 
 ```bash
-$ plakar at @mycloud restore -to /tmp/restore abc123:/var/www
+$ plakar config repository create s3
+$ plakar config repository set s3 location s3://<endpoint>/<bucket>
+$ plakar config repository set s3 access_key <ACCESS_KEY>
+$ plakar config repository set s3 secret_access_key <SECRET_KEY>
+$ plakar config repository set s3 passphrase <PASSPHRASE>
 ```
 
-Why use S3 as a storage target?
-- ☁️ Scalable: Object storage can grow with your backup needs.
-- 💸 Cost-efficient: Use cold storage tiers for archival workloads.
-- 🔐 Secure: Encrypted end-to-end by Plakar, even before leaving your system.
-- 🌍 Redundant: Backed by cloud availability zones or on-prem object storage.
-- 🔁 Compatible: Works with AWS, MinIO, Wasabi, Scaleway, Ceph, and more.
+## Supported Features
 
-Notes
-The repository is fully encrypted. Even cloud operators cannot read your data without the passphrase.
-Snapshots are deduplicated and compressed before upload to reduce costs.
-Synchronization can be used to batch uploads from edge systems to central storage.
+- ✅ Immutable, encrypted backups to S3
+- ✅ Incremental and deduplicated uploads
+- ✅ Integrity check and cryptographic audit
+- ✅ Efficient synchronization between repositories
+- ✅ Partial and granular restore from snapshots
+- ✅ Support for AWS S3 and S3-compatible providers (MinIO, Wasabi, Ceph, etc.)
+- ✅ Fully stateless CLI and UI support
+
+
+## Limitations
+
+- No native listing or browsing of object contents from remote S3 buckets (must first snapshot or sync).
+- Snapshots stored in S3 cannot be modified — only added or deleted entirely.
+- Object versioning at the S3 level is not leveraged (handled internally by Plakar).
+
+
+## Future Improvements
+
+- Support for multi-region replication policies
+- Native diff inspection between remote buckets
+- Restore directly to S3 objects (re-export snapshot to bucket)
+
+
+## Screenshots
+
+
+
+## Threats
+
+- **Rogue deletion**: accidental or malicious deletion of objects by users or applications.
+- **Ransomware**: encryption of S3 bucket content by compromised credentials.
+- **Silent corruption**: unnoticed object corruption or bit rot without versioning or verification.
+- **Credential leakage**: compromised access keys or shared secrets allowing full access.
+
+Using Plakar with S3 mitigates these risks by storing encrypted, immutable, and verifiable backups that can be inspected and restored safely.
+

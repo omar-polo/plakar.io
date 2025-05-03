@@ -1,23 +1,11 @@
 {{ define "main" }}
-    {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
-    {{ $riArrowRightLine := resources.Get "img/ri/arrow-right-line.svg" }}
     {{ $riDatabaseLine := resources.Get "img/ri/database-line.svg" }}
     {{ $riFlashlightLine := resources.Get "img/ri/flashlight-line.svg" }}
     {{ $riListView := resources.Get "img/ri/list-view.svg" }}
     {{ $riMenuSearchLine := resources.Get "img/ri/menu-search-line.svg" }}
     {{ $riShieldCheckLine := resources.Get "img/ri/shield-check-line.svg" }}
     {{ $riTerminalBoxLine := resources.Get "img/ri/terminal-box-line.svg" }}
-    {{ $riFolder2Line := resources.Get "img/ri/folder-2-line.svg" }}
-    {{ $riCodeBlock := resources.Get "img/ri/code-block.svg" }}
-    {{ $riArchive2Line := resources.Get "img/ri/archive-2-line.svg" }}
-    {{ $riGitMergeLine := resources.Get "img/ri/git-merge-line.svg" }}
-    {{ $riCollapseDiagonalLine := resources.Get "img/ri/collapse-diagonal-line.svg" }}
-    {{ $riPuzzle2Line := resources.Get "img/ri/puzzle-2-line.svg" }}
     {{ $riTerminalWindowLine := resources.Get "img/ri/terminal-window-line.svg" }}
-    {{ $riServerLine := resources.Get "img/ri/server-line.svg" }}
-    {{ $riMacbookLine := resources.Get "img/ri/macbook-line.svg" }}
-    {{ $riDatabase2Line := resources.Get "img/ri/database-2-line.svg" }}
-    {{ $riEarthLine := resources.Get "img/ri/earth-line.svg" }}
     {{ $riCheckLine := resources.Get "img/ri/check-line.svg" }}
     {{ $testimonialJJ := resources.Get "img/testimonial/jj.jpeg" }}
     {{ $gradientBlue := resources.Get "img/GRADIENT_BLUE.png" }}
@@ -42,7 +30,7 @@
     </section>
 
     <!-- Get started section -->
-    <section class="section-light-2 grid-background"
+    <section class="section-light-2 grid-background py-14 lg:py-28"
              x-data="{
             focus: window.innerWidth >= 1024 ? 'web' : '',
             smallScreen: window.innerWidth < 1024,
@@ -55,7 +43,7 @@
 
     >
         <div class="bg-gradient-section">
-            <div class="content py-20 p-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
+            <div class="content p-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
 
                 <!-- Terminal block (left) -->
                 <div
@@ -155,9 +143,9 @@
         </div>
     </section>
 
-    <!-- Logo and testimonial -->
-    <section class="section-light-1">
-        <div class="content py-20 flex flex-col gap-12">
+    <!-- Testimonial -->
+    <section class="section-light-1 py-14 lg:py-28">
+        <div class="content flex flex-col gap-12">
 
             <!-- Testimonial section -->
             <div class="flex flex-col gap-6 p-8 items-center">
@@ -186,8 +174,8 @@
     {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
 
     <!-- Why engineers choose Plakar -->
-    <section class="section-light-2 overflow-hidden" x-data="progressScrollLine()" x-init="init()">
-        <div class="content py-8 lg:py-28 flex flex-col gap-4 lg:gap-40 lg:p-4">
+    <section class="section-light-2 overflow-hidden py-14 lg:py-28" x-data="progressScrollLine()" x-init="init()">
+        <div class="content flex flex-col gap-4 lg:gap-40 lg:p-4">
 
             <!-- Title -->
             <div class="text-center flex flex-col gap-8 max-w-4xl mx-auto">
@@ -407,128 +395,8 @@
                             </div>
 
                         </div>
-                        <!-- Storage sources visualization -->
-                        <div class="flex-1 flex flex-wrap justify-center items-center w-full p-2">
-
-                            <div class="flex flex-row w-full gap-1 md:gap-3 justify-center items-stretch overflow-hidden">
-
-                                <!-- Data Source -->
-                                <div class="flex flex-col bg-neutral-50 rounded-lg overflow-hidden flex-1 h-full    ">
-                                    <div class="flex items-center justify-center h-8 md:h-16 bg-neutral-50">
-                                        <h4 class="~text-xs/lg font-semibold font-space-grotesk text-neutral-900 leading-normal">
-                                            Data source</h4>
-                                    </div>
-                                    <div class="border-t border-neutral-200"></div>
-                                    <div class="flex-1 p-3 flex flex-col gap-1">
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riFolder2Line.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">Files</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riDatabase2Line.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">Database</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riMacbookLine.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">SaaS</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riServerLine.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">Servers</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center justify-center gap-3 px-1 md:py-2">
-                                            <span class="~text-xs/sm font-bold text-neutral-600 font-space-grotesk text-center leading-tight">...</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Arrow -->
-                                <div class="flex justify-center items-center">
-                                    <div class="size-4 md:size-8 xl:size-10 rounded-full bg-neutral-900 flex justify-center items-center transform transition-all">
-                                        <div class="w-2 h-2 md:w-4 md:h-4 xl:w-5 xl:h-5 text-neutral-50">{{ $riArrowRightLine.Content | safeHTML }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- Kloset Core -->
-                                <div class="flex flex-col rounded-lg overflow-hidden flex-1 relative">
-                                    <div class="absolute inset-0 bg-gradient-to-b from-secondary-100 via-secondary-400 to-secondary-500"
-                                         style="background-image: linear-gradient(180deg, theme(colors.secondary.100) 23%, theme(colors.secondary.400) 51%, theme(colors.secondary.500) 100%);"></div>
-                                    <div class="relative z-10 flex flex-col">
-                                        <div class="flex items-center justify-center h-8 md:h-16 bg-transparent">
-                                            <div class="flex items-center gap-3">
-                                                <div class="w-4 h-4 md:w-6 md:h-6">{{ $nestorInline.Content | safeHTML }}</div>
-                                                <span class="~text-sm/lg font-medium font-space-grotesk text-neutral-900">Kloset</span>
-                                            </div>
-                                        </div>
-                                        <div class="flex-1 p-2 lg:p-4 grid grid-cols-1 md:grid-cols-2 gap-2">
-                                            <div class="flex flex-col items-center justify-center p-1 md:p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
-                                                <div class="w-3 h-3 md:w-5 md:h-5">{{ $riTerminalWindowLine.Content | safeHTML }}</div>
-                                                <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 md:mt-2">Encryption</span>
-                                            </div>
-                                            <div class="flex flex-col items-center justify-center p-1 md:p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
-                                                <div class="w-3 h-3 md:w-5 md:h-5">{{ $riCollapseDiagonalLine.Content | safeHTML }}</div>
-                                                <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 md:mt-2">Compression</span>
-                                            </div>
-                                            <div class="flex flex-col items-center justify-center p-1 md:p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
-                                                <div class="w-3 h-3 md:w-5 md:h-5">{{ $riPuzzle2Line.Content | safeHTML }}</div>
-                                                <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 md:mt-2">Deduplication</span>
-                                            </div>
-                                            <div class="flex flex-col items-center justify-center p-1 md:p-3 bg-neutral-100/50 rounded-sm border border-neutral-300 backdrop-blur-md text-center">
-                                                <div class="w-3 h-3 md:w-5 md:h-5">{{ $riGitMergeLine.Content | safeHTML }}</div>
-                                                <span class="~text-xxs/xs font-bold font-space-grotesk text-neutral-900 md:mt-2">Versioning</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Arrow -->
-                                <div class="flex justify-center items-center">
-                                    <div class="size-4 md:size-8 xl:size-10 rounded-full bg-neutral-900 flex justify-center items-center transform transition-all">
-                                        <div class="w-2 h-2 md:w-4 md:h-4 xl:w-5 xl:h-5 text-neutral-50">{{ $riArrowRightLine.Content | safeHTML }}</div>
-                                    </div>
-                                </div>
-
-                                <!-- Storage Targets -->
-                                <div class="flex flex-col bg-neutral-50 rounded-lg overflow-hidden flex-1 h-full">
-                                    <div class="flex items-center justify-center h-8 md:h-16 bg-neutral-50">
-                                        <h4 class="~text-xs/lg font-semibold font-space-grotesk text-neutral-900 leading-normal">
-                                            Storage Targets</h4>
-                                    </div>
-                                    <div class="border-t border-neutral-200"></div>
-                                    <div class="flex-1 p-3 flex flex-col gap-1">
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riDatabaseLine.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">S3</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riFolder2Line.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">Local</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riServerLine.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">SFTP</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center gap-3 px-1 md:py-2">
-                                            <div class="w-3 h-3 md:w-5 md:h-5">{{ $riEarthLine.Content | safeHTML }}</div>
-                                            <span class="~text-xs/sm font-medium text-neutral-600 font-space-grotesk leading-tight">Cloud</span>
-                                        </div>
-                                        <div class="border-t border-neutral-200"></div>
-                                        <div class="flex items-center justify-center gap-3 px-1 md:py-2">
-                                            <span class="~text-xs/sm font-bold text-neutral-600 font-space-grotesk text-center leading-tight">...</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <!-- Integrations and  storage -->
+                        {{ partial "schema/kloset-integrations-connectors.html" . }}
                         <div class="flex lg:hidden gap-4 mt-8 ">
                             {{ partial "cta/see-it-in-action.html" . }}
                         </div>
@@ -617,7 +485,7 @@
     </script>
 
     <!-- Kloset section -->
-    <section class="section-dark bg-neutral-900 overflow-hidden py-28">
+    <section class="section-dark bg-neutral-900 overflow-hidden py-14 lg:py-28">
         <div class="content flex flex-col gap-24 ">
 
             <!-- Top Block: Title + Description + CTA -->
@@ -817,7 +685,7 @@
     </section>
 
     <!-- Open source section -->
-    <section class="section-light-2 py-28">
+    <section class="section-light-2 py-14 lg:py-28">
         <div class="content flex flex-col gap-16">
 
             <!-- Title -->
@@ -981,5 +849,9 @@
         </div>
     </section>
 
-    {{ partial "article/featured-list.html" . }}
+    <section class="section-light-2 bg-gradient-section py-14 lg:py-28">
+        <div class="content flex flex-col gap-12" >
+            {{ partial "article/posts/featured-list.html" . }}
+        </div>
+    </section>
 {{ end }}
