@@ -502,14 +502,8 @@
                             class="font-semibold text-white">efficiency</span>.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#"
-                           class="px-6 py-3 rounded-lg bg-primary-500 text-white font-space-grotesk text-sm font-medium">
-                            Learn more about Kloset
-                        </a>
-                        <a href="#"
-                           class="px-6 py-3 rounded-lg border border-neutral-200 bg-white text-neutral-600 font-space-grotesk text-sm font-medium">
-                            Technical docs
-                        </a>
+                        {{ partial "cta/learn-more-about-kloset.html" . }}
+                        {{ partial "cta/technical-docs.html" . }}
                     </div>
                 </div>
             </div>
@@ -849,8 +843,25 @@
         </div>
     </section>
 
+    <!-- Plakar stories section -->
     <section class="section-light-2 bg-gradient-section py-14 lg:py-28">
-        <div class="content flex flex-col gap-12" >
+        <div class="content flex flex-col gap-12 px-4" >
+            <div class="flex flex-col lg:flex-row justify-between gap-8 ">
+
+                <!-- Left text block -->
+                <div class="flex flex-col gap-4 max-w-4xl">
+                    <h2 class="~text-4xl/7xl font-space-grotesk font-medium text-neutral-900 leading-tight">
+                        <span class="text-neutral-900">Plakar </span>
+                        <span class="text-[#FF8547]">stories</span>
+                    </h2>
+                    <p class="~text-base/lg font-space-grotesk font-medium text-neutral-600">
+                        Engineers thought, release notes and data protection last news
+                    </p>
+                </div>
+
+                <!-- Right CTA -->
+                {{ partial "cta/see-all-stories.html" . }}
+            </div>
             {{ partial "article/posts/featured-list.html" . }}
         </div>
     </section>
