@@ -66,6 +66,7 @@
             const button = group.querySelector('.dropdown-btn');
             const menu = group.querySelector('.dropdown-menu');
             const chevron = group.querySelector('.dropdown-chevron');
+            const header = document.getElementById('site-header');
 
             // Toggle dropdown on button click
             button.addEventListener('click', (e) => {
@@ -78,10 +79,16 @@
                 }
             });
 
-            // Close when mouse leaves the whole group
+            // Close when mouse leaves the whole group or the header
             group.addEventListener('mouseleave', (e) => {
                 const to = e.relatedTarget;
-                if (!group.contains(to)) {
+                if (!group.contains(to) && !(header?.contains(to))) {
+                    closeAllDropdowns();
+                }
+            });
+            header.addEventListener('mouseleave', (e) => {
+                const to = e.relatedTarget;
+                if (!group.contains(to) && !(header?.contains(to))) {
                     closeAllDropdowns();
                 }
             });
