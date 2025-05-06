@@ -3,6 +3,9 @@ languageCode = 'en-us'
 theme = "plakarium"
 title = "Plakar - Effortless backup"
 
+[permalinks]
+posts = "/posts/:year-:month-:day/:slug"
+
 [taxonomies]
 author = "authors"
 category = "categories"
