@@ -54,11 +54,9 @@
 
             <div class="flex flex-col md:flex-row pt-4 pl-4 gap-4 md:gap-10 col-span-2 col-start-2 justify-start text-left">
                 <span><a href="javascript:openAxeptioCookies();" class="hover:underline">Cookies</a></span>
-                <span>Legal notice</span>
+                <span><a href="{{ relref . "/legal-notice/"}}" class="hover:underline">Legal notice</a></span>
+                <span><a href="{{ relref . "/privacy-policy/"}}" class="hover:underline">Privacy policy</a></span>
             </div>
-
-
-
 
         </div>
 
@@ -68,6 +66,6 @@
             <img src="{{ $footerBanner.RelPermalink }}" alt="Footer banner"
                  class="w-full h-auto object-contain rounded-sm">
         </div>
-
     </div>
 </footer>
+{{ partial "toast.html" . }}
