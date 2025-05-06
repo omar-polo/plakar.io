@@ -2939,6 +2939,15 @@ video {
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
 }
 
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
 .line-through {
   text-decoration-line: line-through;
 }
@@ -3513,6 +3522,11 @@ section .content {
 .hover\:text-primary-500:hover {
   --tw-text-opacity: 1;
   color: rgb(82 76 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-blue-800:hover {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
