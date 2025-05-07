@@ -1634,6 +1634,14 @@ video {
   margin-top: 2rem;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .block {
   display: block;
 }
@@ -1754,6 +1762,14 @@ video {
 
 .h-full {
   height: 100%;
+}
+
+.max-h-\[200px\] {
+  max-height: 200px;
+}
+
+.max-h-\[38px\] {
+  max-height: 38px;
 }
 
 .max-h-\[550px\] {
@@ -1915,6 +1931,10 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
 }
 
 .flex-1 {
@@ -2193,6 +2213,12 @@ video {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
 .divide-y > :not([hidden]) ~ :not([hidden]) {
   --tw-divide-y-reverse: 0;
   border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
@@ -2408,6 +2434,11 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-primary-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(218 217 255 / var(--tw-bg-opacity, 1));
+}
+
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
@@ -2599,6 +2630,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
 }
 
 .pb-14 {
@@ -2839,6 +2875,11 @@ video {
   color: rgb(255 133 71 / var(--tw-text-opacity, 1));
 }
 
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+}
+
 .text-gray-400 {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity, 1));
@@ -2939,9 +2980,9 @@ video {
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
 }
 
-.text-blue-600 {
+.text-primary-600 {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+  color: rgb(62 56 234 / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -3243,6 +3284,31 @@ video {
   line-height: /* error - Missing start value */;
 }
 
+.\~text-xl\/2xl {
+  font-size: clamp(1.25rem,1.07rem + 0.45vw,1.5rem)/* fluid type from 1.25rem at 40rem to 1.5rem at 96rem */;
+  line-height: clamp(1.75rem,1.57rem + 0.45vw,2rem)/* fluid from 1.75rem at 40rem to 2rem at 96rem */;
+}
+
+.\~text-2xl\/base {
+  font-size: clamp(1rem,1.86rem + -0.89vw,1.5rem)/* fluid type from 1.5rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,2.36rem + -0.89vw,2rem)/* fluid from 2rem at 40rem to 1.5rem at 96rem */;
+}
+
+.\~text-base\/base {
+  font-size: /* error - Start and end values are both `1rem` */;
+  line-height: 1.5rem;
+}
+
+.\~text-lg\/base {
+  font-size: clamp(1rem,1.214rem + -0.223vw,1.125rem)/* fluid type from 1.125rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
+}
+
+.\~text-xl\/base {
+  font-size: clamp(1rem,1.43rem + -0.45vw,1.25rem)/* fluid type from 1.25rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
+}
+
 .\~px-3\/6 {
   padding-left: clamp(0.75rem,0.21rem + 1.34vw,1.5rem)/* fluid from 0.75rem at 40rem to 1.5rem at 96rem */;
   padding-right: clamp(0.75rem,0.21rem + 1.34vw,1.5rem)/* fluid from 0.75rem at 40rem to 1.5rem at 96rem */;
@@ -3499,9 +3565,9 @@ section .content {
   --tw-bg-opacity: 0.8;
 }
 
-.hover\:text-blue-600:hover {
+.hover\:text-blue-800:hover {
   --tw-text-opacity: 1;
-  color: rgb(37 99 235 / var(--tw-text-opacity, 1));
+  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-gray-500:hover {
@@ -3522,11 +3588,6 @@ section .content {
 .hover\:text-primary-500:hover {
   --tw-text-opacity: 1;
   color: rgb(82 76 255 / var(--tw-text-opacity, 1));
-}
-
-.hover\:text-blue-800:hover {
-  --tw-text-opacity: 1;
-  color: rgb(30 64 175 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -3872,10 +3933,6 @@ section .content {
     margin-right: 0px;
   }
 
-  .lg\:mt-0 {
-    margin-top: 0px;
-  }
-
   .lg\:block {
     display: block;
   }
@@ -3918,6 +3975,10 @@ section .content {
 
   .lg\:w-\[200px\] {
     width: 200px;
+  }
+
+  .lg\:w-\[30\%\] {
+    width: 30%;
   }
 
   .lg\:max-w-\[30\%\] {
@@ -4061,6 +4122,10 @@ section .content {
   .xl\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .xl\:ml-auto {
+    margin-left: auto;
   }
 
   .xl\:block {

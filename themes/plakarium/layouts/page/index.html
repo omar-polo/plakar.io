@@ -169,9 +169,6 @@
             </div>
         </section>
 
-        {{ $introVideo := resources.Get "video/plakar-intro-.m4v" }}
-        {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
-
         <!-- Why engineers choose Plakar -->
         <section class="section-light-2 overflow-hidden py-14 lg:py-28" x-data="progressScrollLine()" x-init="init()">
             <div class="content flex flex-col gap-4 lg:gap-40 lg:p-4">
@@ -219,7 +216,7 @@
                                 <div @click="showModal = true; $nextTick(() => $refs.modalVideo.play())"
 
                                      class="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer group">
-                                    {{ $introVideo := resources.Get "video/plakar-intro-.m4v" }}
+                                    {{ $introVideo := resources.Get "video/plakar-intro-v14.m4v" }}
                                     {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
 
                                     <video poster="{{ $poster.RelPermalink }}"
