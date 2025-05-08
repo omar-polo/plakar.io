@@ -1,0 +1,131 @@
+
+{{ define "main" }}
+    {{ $riMailLine := resources.Get "img/ri/mail-line.svg" }}
+    {{ $riMailAILine := resources.Get "img/ri/mail-ai-line.svg" }}
+    {{ $riPriceTag3Line := resources.Get "img/ri/price-tag-3-line.svg" }}
+    {{ $riQuestionnaireLine := resources.Get "img/ri/questionnaire-line.svg" }}
+
+
+    <section class="section-light-2 grid-background  ">
+        <div class="bg-gradient-section-light-2 pt-28 lg:pt-40 pb-7 lg:pb-14">
+            <div class="self-stretch text-center justify-start font-medium ~text-4xl/6xl">
+                <h1>Get in <span class="text-primary-500">touch</span></h1>
+            </div>
+            <div class="self-stretch pt-8 text-center justify-start text-neutral-600 ~text-lg/xl">
+                We're here to help with any questions about Plakar. Choose the best way to reach us.
+            </div>
+        </div>
+    </section>
+    <section class="section-light" id="email-contact">
+        <div class="container max-w-7xl mx-auto px-4 py-16">
+            <div class="flex flex-col lg:flex-row gap-10">
+
+                <!-- Contact infos -->
+                <div class="lg:w-1/2 flex flex-col gap-6">
+                    <h2 class="~text-2xl/base font-space-grotesk font-semibold text-neutral-900">Contact our team</h2>
+                    <p class="~text-base/base text-neutral-500 max-w-md">
+                        Have questions about Plakar? Our team is ready to help you with any inquiries about our product, pricing, or technical details.
+                    </p>
+
+                    <div class="space-y-6">
+                        <!-- Email -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-md text-primary-500 ">
+                                <span class="inline-block  w-7 h-7">{{ $riMailAILine.Content | safeHTML }}</span>
+                            </div>
+                            <div>
+                                <h3 class="~text-lg/base font-semibold text-neutral-900 mb-1">Email us</h3>
+                                <p class="~text-sm/base text-neutral-500 mb-1">For general inquiries and support:</p>
+                                <a href="mailto:hello@plakar.io" class="text-primary-600 font-medium hover:underline">contact@plakar.io</a>
+                            </div>
+                        </div>
+
+                        <!-- Sales -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-md text-primary-500 ">
+                                <span class="inline-block  w-7 h-7">{{ $riPriceTag3Line.Content | safeHTML }}</span>
+                            </div>
+                            <div>
+                                <h3 class="~text-lg/base font-semibold text-neutral-900 mb-1">Sales inquiries</h3>
+                                <p class="~text-sm/base text-neutral-500 mb-1">For pricing, enterprise plans, and custom solutions:</p>
+                                <a href="mailto:sales@plakar.io" class="text-primary-600 font-medium hover:underline">sales@plakar.io</a>
+                            </div>
+                        </div>
+
+                        <!-- Support -->
+                        <div class="flex items-start gap-4">
+                            <div class="p-2 rounded-md text-primary-500 ">
+                                <span class="inline-block  w-7 h-7">{{ $riQuestionnaireLine.Content | safeHTML }}</span>
+                            </div>
+                            <div>
+                                <h3 class="~text-lg/base font-semibold text-neutral-900 mb-1">Support</h3>
+                                <p class="~text-sm/base text-neutral-500 mb-1">For help with your existing Plakar installation:</p>
+                                <a href="mailto:support@plakar.io" class="text-primary-600 font-medium hover:underline">support@plakar.io</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact form -->
+                <div class="lg:w-1/2 bg-white border border-neutral-200 rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary-600 px-6 py-5">
+                        <h3 class="~text-xl/base text-white font-space-grotesk font-semibold flex items-center gap-4">
+                            <span class="inline-block  w-6 h-6">{{ $riMailLine.Content | safeHTML }}</span>
+                            Send us a message
+                        </h3>
+                        <p class="~text-sm/base text-white opacity-80 mt-1">Fill out this form and we'll get back to you as soon as possible.</p>
+                    </div>
+
+                    <form class="px-6 py-8 space-y-6" method="POST" netlify>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" name="name" placeholder="Full name" required
+                                   class="w-full border border-neutral-300 rounded p-2" />
+                            <input type="text" name="company" placeholder="Company"
+                                   class="w-full border border-neutral-300 rounded p-2" />
+                            <input type="email" name="email" placeholder="Work email" required
+                                   class="w-full border border-neutral-300 rounded p-2" />
+                            <input type="tel" name="phone" placeholder="Phone (optional)"
+                                   class="w-full border border-neutral-300 rounded p-2" />
+                        </div>
+
+                        <div>
+                            <select name="subject" class="w-full border border-neutral-300 rounded p-2 bg-white">
+                                <option value="" disabled selected>Choose subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="sales">Sales Question</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="feedback">Product Feedback</option>
+                            </select>
+                        </div>
+
+                        <div>
+    <textarea name="message" rows="5" placeholder="Your message"
+              class="w-full border border-neutral-400 rounded p-2"></textarea>
+                        </div>
+
+                        <div class="text-sm text-neutral-500">
+                            By submitting this form you agree to our
+                            <a class="text-primary-600 hover:text-primary-700 underline" href="/privacy-policy/">Privacy Policy</a>.
+                        </div>
+
+                        <div class="mt-4 flex justify-end">
+                            <button type="submit"
+                                    class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium transition">
+                                Send message
+                            </button>
+                        </div>
+
+                        <p class="flex items-center justify-center mt-4 text-sm text-neutral-500">
+                            <svg class="w-5 h-5 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0..." clip-rule="evenodd"/>
+                            </svg>
+                            We typically respond within 24 business hours
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{{ end }}

@@ -1614,6 +1614,14 @@ video {
   margin-left: auto;
 }
 
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .mt-0 {
   margin-top: 0px;
 }
@@ -1634,16 +1642,12 @@ video {
   margin-top: 2rem;
 }
 
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.mr-3 {
-  margin-right: 0.75rem;
-}
-
 .block {
   display: block;
+}
+
+.inline-block {
+  display: inline-block;
 }
 
 .flex {
@@ -1884,6 +1888,10 @@ video {
   width: 100%;
 }
 
+.w-7 {
+  width: 1.75rem;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1898,6 +1906,10 @@ video {
 
 .max-w-5xl {
   max-width: 64rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
 }
 
 .max-w-\[1400px\] {
@@ -1931,10 +1943,6 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
-}
-
-.max-w-7xl {
-  max-width: 80rem;
 }
 
 .flex-1 {
@@ -2207,16 +2215,16 @@ video {
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
 }
 
-.space-y-6 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-y-reverse: 0;
-  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
-}
-
 .space-y-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
 .divide-y > :not([hidden]) ~ :not([hidden]) {
@@ -2344,6 +2352,11 @@ video {
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
 }
 
+.border-neutral-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(178 177 199 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#E8E8F5\] {
   --tw-bg-opacity: 1;
   background-color: rgb(232 232 245 / var(--tw-bg-opacity, 1));
@@ -2410,6 +2423,11 @@ video {
   background-color: rgb(28 28 30 / 0.8);
 }
 
+.bg-primary-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(218 217 255 / var(--tw-bg-opacity, 1));
+}
+
 .bg-primary-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(240 240 255 / var(--tw-bg-opacity, 1));
@@ -2432,11 +2450,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-primary-100 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(218 217 255 / var(--tw-bg-opacity, 1));
 }
 
 .bg-opacity-30 {
@@ -2617,6 +2630,11 @@ video {
   padding-bottom: 1rem;
 }
 
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
+
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -2630,11 +2648,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .pb-14 {
@@ -2955,6 +2968,11 @@ video {
   color: rgb(82 76 255 / var(--tw-text-opacity, 1));
 }
 
+.text-primary-600 {
+  --tw-text-opacity: 1;
+  color: rgb(62 56 234 / var(--tw-text-opacity, 1));
+}
+
 .text-red-400 {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity, 1));
@@ -2978,11 +2996,6 @@ video {
 .text-zinc-900 {
   --tw-text-opacity: 1;
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
-}
-
-.text-primary-600 {
-  --tw-text-opacity: 1;
-  color: rgb(62 56 234 / var(--tw-text-opacity, 1));
 }
 
 .underline {
@@ -3174,6 +3187,11 @@ video {
   line-height: clamp(2rem,0.75rem + 3.13vw,3.75rem)/* fluid from 2rem at 40rem to 3.75rem at 96rem */;
 }
 
+.\~text-2xl\/base {
+  font-size: clamp(1rem,1.86rem + -0.89vw,1.5rem)/* fluid type from 1.5rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,2.36rem + -0.89vw,2rem)/* fluid from 2rem at 40rem to 1.5rem at 96rem */;
+}
+
 .\~text-3xl\/5xl {
   font-size: clamp(1.875rem,1.071rem + 2.009vw,3rem)/* fluid type from 1.875rem at 40rem to 3rem at 96rem */;
   line-height: clamp(2.25rem,1.71rem + 1.34vw,3rem)/* fluid from 2.25rem at 40rem to 3rem at 96rem */;
@@ -3199,6 +3217,11 @@ video {
   line-height: /* error - Missing end value */;
 }
 
+.\~text-base\/base {
+  font-size: /* error - Start and end values are both `1rem` */;
+  line-height: 1.5rem;
+}
+
 .\~text-base\/lg {
   font-size: clamp(1rem,0.911rem + 0.223vw,1.125rem)/* fluid type from 1rem at 40rem to 1.125rem at 96rem */;
   line-height: clamp(1.5rem,1.32rem + 0.45vw,1.75rem)/* fluid from 1.5rem at 40rem to 1.75rem at 96rem */;
@@ -3217,6 +3240,11 @@ video {
 .\~text-lg\/2xl {
   font-size: clamp(1.125rem,0.857rem + 0.67vw,1.5rem)/* fluid type from 1.125rem at 40rem to 1.5rem at 96rem */;
   line-height: clamp(1.75rem,1.57rem + 0.45vw,2rem)/* fluid from 1.75rem at 40rem to 2rem at 96rem */;
+}
+
+.\~text-lg\/base {
+  font-size: clamp(1rem,1.214rem + -0.223vw,1.125rem)/* fluid type from 1.125rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
 }
 
 .\~text-lg\/xl {
@@ -3254,6 +3282,11 @@ video {
   line-height: clamp(1.75rem,1.21rem + 1.34vw,2.5rem)/* fluid from 1.75rem at 40rem to 2.5rem at 96rem */;
 }
 
+.\~text-xl\/base {
+  font-size: clamp(1rem,1.43rem + -0.45vw,1.25rem)/* fluid type from 1.25rem at 40rem to 1rem at 96rem */;
+  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
+}
+
 .\~text-xs {
   font-size: /* error - Missing end value */;
   line-height: /* error - Missing end value */;
@@ -3282,31 +3315,6 @@ video {
 .\~text-xxs\/xs {
   font-size: clamp(0.625rem,0.536rem + 0.223vw,0.75rem)/* fluid type from 0.625rem at 40rem to 0.75rem at 96rem */;
   line-height: /* error - Missing start value */;
-}
-
-.\~text-xl\/2xl {
-  font-size: clamp(1.25rem,1.07rem + 0.45vw,1.5rem)/* fluid type from 1.25rem at 40rem to 1.5rem at 96rem */;
-  line-height: clamp(1.75rem,1.57rem + 0.45vw,2rem)/* fluid from 1.75rem at 40rem to 2rem at 96rem */;
-}
-
-.\~text-2xl\/base {
-  font-size: clamp(1rem,1.86rem + -0.89vw,1.5rem)/* fluid type from 1.5rem at 40rem to 1rem at 96rem */;
-  line-height: clamp(1.5rem,2.36rem + -0.89vw,2rem)/* fluid from 2rem at 40rem to 1.5rem at 96rem */;
-}
-
-.\~text-base\/base {
-  font-size: /* error - Start and end values are both `1rem` */;
-  line-height: 1.5rem;
-}
-
-.\~text-lg\/base {
-  font-size: clamp(1rem,1.214rem + -0.223vw,1.125rem)/* fluid type from 1.125rem at 40rem to 1rem at 96rem */;
-  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
-}
-
-.\~text-xl\/base {
-  font-size: clamp(1rem,1.43rem + -0.45vw,1.25rem)/* fluid type from 1.25rem at 40rem to 1rem at 96rem */;
-  line-height: clamp(1.5rem,1.93rem + -0.45vw,1.75rem)/* fluid from 1.75rem at 40rem to 1.5rem at 96rem */;
 }
 
 .\~px-3\/6 {
@@ -3588,6 +3596,11 @@ section .content {
 .hover\:text-primary-500:hover {
   --tw-text-opacity: 1;
   color: rgb(82 76 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-primary-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(46 44 153 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
