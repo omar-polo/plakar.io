@@ -4,8 +4,10 @@
     {{ $riMailAILine := resources.Get "img/ri/mail-ai-line.svg" }}
     {{ $riPriceTag3Line := resources.Get "img/ri/price-tag-3-line.svg" }}
     {{ $riQuestionnaireLine := resources.Get "img/ri/questionnaire-line.svg" }}
+    {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
 
 
+    <!-- Page title -->
     <section class="section-light-2 grid-background  ">
         <div class="bg-gradient-section-light-2 pt-28 lg:pt-40 pb-7 lg:pb-14">
             <div class="self-stretch text-center justify-start font-medium ~text-4xl/6xl">
@@ -16,13 +18,15 @@
             </div>
         </div>
     </section>
-    <section class="section-light" id="email-contact">
+
+    <!-- Contact form -->
+    <section class="section-light-1 py-14 lg:py-28 scroll-mb-20" id="email-contact">
         <div class="container max-w-7xl mx-auto px-4 py-16">
             <div class="flex flex-col lg:flex-row gap-10">
 
                 <!-- Contact infos -->
                 <div class="lg:w-1/2 flex flex-col gap-6">
-                    <h2 class="~text-2xl/base font-space-grotesk font-semibold text-neutral-900">Contact our team</h2>
+                    <h2 class="~text-xl/3xl font-space-grotesk font-semibold text-neutral-900"><span class="text-secondary-500">Contact</span> our team</h2>
                     <p class="~text-base/base text-neutral-500 max-w-md">
                         Have questions about Plakar? Our team is ready to help you with any inquiries about our product, pricing, or technical details.
                     </p>
@@ -201,6 +205,333 @@
         });
     </script>
 
+    <!-- Technical Support & Security -->
+    <section class="section-light-2 py-14 lg:py-28 bg-white  scroll-mb-20" id="technical-contact">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="~text-xl/3xl font-semibold mb-12 text-center">Technical Support &amp; Security</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Bug Reports -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-neutral-200">
+                        <div class="bg-neutral-900 py-6 px-8">
+                            <h3 class="text-xl font-semibold text-neutral-50 flex items-center ">
+                                <div class="w-6 h-6 mr-4">
+                                    {{ $riGithubFill.Content | safeHTML }}
+                                </div>
+                                Bug Reports on GitHub
+                            </h3>
+                            <p class="text-neutral-300 mt-2">
+                                Found a bug? Help us improve Plakar by submitting an issue on GitHub.
+                            </p>
+                        </div>
+                        <div class="p-8">
+                            <!-- Terminal Preview -->
+                            <div class="terminal mb-6">
+                                <div class="terminal-body text-sm font-mono bg-neutral-900 text-neutral-200 p-4 rounded-b-md">
+                                    <div class="t-line"><span class="t-prompt">$</span> <span class="t-path">~/</span> plakar --version</div>
+                                    <div class="t-line">Plakar v1.2.3</div>
+                                    <div class="t-line"><span class="t-prompt">$</span> <span class="t-path">~/</span> plakar status</div>
+                                    <div class="t-line text-red-400">Error: Unable to connect to repository</div>
+                                    <div class="t-line"><span class="t-prompt">$</span> <span class="t-path">~/</span> plakar logs | tail -n 2</div>
+                                    <div>
+                                        <div>2025-05-02 09:45:12 ERROR Connection refused</div>
+                                        <div>2025-05-02 09:45:13 ERROR Failed to initialize repository</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-neutral-600 mb-6">When reporting bugs, please include:</p>
+                            <ul class="space-y-3 mb-6 text-sm text-neutral-700">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mr-3 text-primary-500"  fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Plakar version and operating system</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mr-3 text-primary-500"  fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Steps to reproduce the issue</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mr-3 text-primary-500"  fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Error messages and logs</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 mr-3 text-primary-500"  fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Expected vs. actual behavior</span>
+                                </li>
+                            </ul>
+                            <a href="https://github.com/PlakarKorp/plakar/issues/new" target="_blank" class="block w-full py-3 px-4 bg-neutral-800 text-white rounded-lg text-center font-medium hover:bg-black transition-colors flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="..."></path>
+                                </svg>
+                                Submit an issue on GitHub
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Security Section (styled to match) -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden border border-neutral-200">
+                        <div class="bg-red-600 py-6 px-8">
+                            <h3 class="text-xl font-semibold text-white flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"></path>
+                                </svg>
+                                Security Issues & CVEs
+                            </h3>
+                            <p class="text-white mt-2">
+                                Found a security vulnerability? Please report it responsibly.
+                            </p>
+                        </div>
+                        <div class="p-8 text-neutral-700 text-sm">
+                            <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                                <p class="text-red-800">
+                                    <strong>Important:</strong> Do not disclose security vulnerabilities publicly on GitHub or community forums.
+                                </p>
+                            </div>
+                            <p class="mb-6">
+                                We take security seriously at Plakar. If you discover a vulnerability, please contact us directly. We'll work with you to address it promptly.
+                            </p>
+                            <div class="mb-6 space-y-4">
+                                <div>
+                                    <h4 class="font-semibold mb-1">Report via Email</h4>
+                                    <a href="mailto:security@plakar.io" class="text-red-600 hover:underline">security@plakar.io</a>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold mb-1">Include in your report:</h4>
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>Description of the vulnerability</li>
+                                        <li>Steps to reproduce</li>
+                                        <li>Potential impact</li>
+                                        <li>Suggested remediation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="bg-neutral-50 border border-neutral-200 rounded-lg p-4">
+                                <h4 class="font-semibold mb-3">Our Commitment</h4>
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Initial response within 24 hours</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Progress updates during resolution</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <svg class="w-5 h-5 text-green-600 mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        <span>Public disclosure with your consent</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="section-dark-1 bg-neutral-900 py-14 lg:py-28 scroll-mb-20" id="newsletter-signup">
+        <div class="container max-w-7xl mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-10 items-start">
+
+                <!-- Newsletter Info -->
+                <div class="lg:w-1/2 flex flex-col gap-6 text-white">
+                    <h2 class="text-2xl font-semibold mb-4"><span class="text-secondary-500">Subscribe</span> to our newsletter to <span class="text-secondary-500">stay updated</span></h2>
+                    <p class="text-base text-neutral-300 max-w-md">
+                        Get the latest updates from Plakar: new releases, blog posts, and security announcements delivered straight to your inbox.
+                    </p>
+
+                    <ul class="space-y-4 text-neutral-400 text-sm mt-4">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-1 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Only relevant technical content. No spam.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-1 text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Unsubscribe at any time.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Custom newsletter form -->
+                <div class="lg:w-1/2 bg-neutral-800 border border-neutral-700 rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary-600 px-6 py-5">
+                        <h3 class="text-xl text-white font-space-grotesk font-semibold flex items-center gap-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M4 4h16v16H4V4zm2 4v8h12V8H6z" />
+                            </svg>
+                            Sign up with your email
+                        </h3>
+                        <p class="text-sm text-white opacity-80 mt-1">We'll send you the most important updates, no noise.</p>
+                    </div>
+                    <form id="newsletter-form" class="px-6 py-8 space-y-6">
+                        <input type="email" name="email" placeholder="Your email address" required class="w-full border border-neutral-600 bg-neutral-50 text-neutral-900 placeholder-neutral-500 rounded p-3" />
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium transition">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("newsletter-form").addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const form = this;
+                const email = form.email.value.trim();
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    addToast({
+                        title: "Error!",
+                        message: "Please enter a valid email address.",
+                        iconHTML: `<svg class=\"h-6 w-6 text-red-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18L18 6M6 6l12 12\"/></svg>`,
+                        duration: 5000
+                    });
+                    return;
+                }
+
+                const portalId = "48034556";
+                const formId = "a65a0673-a43b-41cc-ba1c-a7084f704685";
+                const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+                const payload = {
+                    fields: [{ name: "email", value: email }]
+                };
+
+                try {
+                    const response = await fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        addToast({
+                            title: "Success!",
+                            message: "You're now subscribed to our newsletter.",
+                            duration: 5000
+                        });
+                        form.reset();
+                    } else {
+                        throw new Error("Subscription failed.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    addToast({
+                        title: "Error!",
+                        message: "Something went wrong. Please try again later.",
+                        iconHTML: `<svg class=\"h-6 w-6 text-red-400\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" aria-hidden=\"true\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M6 18L18 6M6 6l12 12\"/></svg>`,
+                        duration: 5000
+                    });
+                }
+            });
+        });
+    </script>
+
+    {{/*<section class="py-12 bg-neutral-50" id="discord">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-neutral-200">
+                    <div class="p-8 md:p-12">
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-[#5865F2] rounded-xl flex items-center justify-center mr-4">
+                                        <svg class="w-7 h-7 text-white" viewBox="0 0 71 55" fill="currentColor">
+                                            <path d="M60.1045 4.8978C55.5792...Z" />
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-bold">Join our Discord community</h2>
+                                </div>
+                                <p class="text-neutral-600 mb-6">
+                                    Connect with the Plakar community on Discord. Get help from other users, share your experiences, and stay up to date with the latest developments.
+                                </p>
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
+                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C6.48...Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Real-time support</h3>
+                                            <p class="text-sm text-neutral-500">Get quick answers to your questions from the community</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
+                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C6.48...Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Release announcements</h3>
+                                            <p class="text-sm text-neutral-500">Be the first to know about new features and updates</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
+                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 2C6.48...Z"></path>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="font-medium">Contribute ideas</h3>
+                                            <p class="text-sm text-neutral-500">Share your feedback and help shape the future of Plakar</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 bg-neutral-50 rounded-xl p-6 border border-neutral-200">
+                                <div class="bg-[#36393F] rounded-xl p-6 shadow-lg">
+                                    <!-- Simulated Discord messages here -->
+                                    <!-- ...content intentionally shortened for clarity... -->
+                                    <div class="mt-6 text-center">
+                                        <a href="https://discord.gg/plakar" target="_blank" class="inline-flex items-center justify-center py-3 px-6 bg-[#5865F2] text-white rounded-lg font-medium hover:bg-[#4752C4] transition-colors shadow-sm">
+                                            <svg class="w-5 h-5 mr-2" viewBox="0 0 71 55" fill="currentColor">
+                                                <path d="M60.1045 4.8978C55.5792...Z"></path>
+                                            </svg>
+                                            Join our Discord server
+                                        </a>
+                                        <p class="mt-3 text-sm text-neutral-500">
+                                            Already a member? <a href="https://discord.gg/plakar" class="text-[#5865F2] hover:underline">Sign in</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*/}}
 
 {{ end }}
 

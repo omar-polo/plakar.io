@@ -149,7 +149,7 @@ parent = "engineering"
 [[main]]
 identifier = "engineering-community-join"
 name = "Join us"
-url = "#"
+url = "contact/#join-our-community"
 weight = 40
 parent = "engineering"
 [[main.params]]
@@ -160,6 +160,19 @@ parent = "engineering"
     icon = "team-line"
 
 [[main]]
+identifier = "contact-us"
+name = "Contact us"
+url = "/contact/#email-contact"
+weight = 50
+parent = "engineering"
+[[main.params]]
+    description = "How to contact Plakar team?"
+    enabled = true
+    section = "Community"
+    section_weight = 20
+    icon = "mail-line"
+
+[[main]]
 identifier = "engineering-community-events"
 name = "Incoming events"
 url = "#"
@@ -167,7 +180,7 @@ weight = 50
 parent = "engineering"
 [[main.params]]
     description = "Live events with Plakar team"
-    enabled = true
+    enabled = false
     section = "Community"
     section_weight = 20
     icon = "calendar-2-line"
@@ -175,7 +188,7 @@ parent = "engineering"
 [[main]]
 identifier = "engineering-community-newsletter"
 name = "Newsletter"
-url = "#"
+url = "contact/#newsletter-form"
 weight = 60
 parent = "engineering"
 [[main.params]]

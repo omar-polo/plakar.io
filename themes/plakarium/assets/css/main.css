@@ -207,7 +207,7 @@
     }
 
     .terminal {
-        @apply rounded-lg overflow-hidden text-xs md:text-sm text-neutral-300 bg-black;
+        @apply rounded-lg overflow-hidden text-xs md:text-sm text-neutral-300 bg-neutral-900;
     }
 
     .terminal::before {
@@ -241,7 +241,7 @@
     }
 
     .terminal .t-line .t-prompt {
-        @apply font-semibold text-cyan-200;
+        @apply font-semibold text-secondary-500;
     }
 
     .terminal .t-line .t-path {
