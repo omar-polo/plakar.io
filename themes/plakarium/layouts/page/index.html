@@ -1,0 +1,864 @@
+    {{ define "main" }}
+        {{ $riDatabaseLine := resources.Get "img/ri/database-line.svg" }}
+        {{ $riFlashlightLine := resources.Get "img/ri/flashlight-line.svg" }}
+        {{ $riListView := resources.Get "img/ri/list-view.svg" }}
+        {{ $riMenuSearchLine := resources.Get "img/ri/menu-search-line.svg" }}
+        {{ $riShieldCheckLine := resources.Get "img/ri/shield-check-line.svg" }}
+        {{ $riTerminalBoxLine := resources.Get "img/ri/terminal-box-line.svg" }}
+        {{ $riTerminalWindowLine := resources.Get "img/ri/terminal-window-line.svg" }}
+        {{ $riCheckLine := resources.Get "img/ri/check-line.svg" }}
+        {{ $testimonialJJ := resources.Get "img/testimonial/jj.jpeg" }}
+        {{ $gradientBlue := resources.Get "img/GRADIENT_BLUE.png" }}
+        {{ $nestorInline := resources.Get "img/nestor-inline.svg" }}
+        {{ $dockerLogo := resources.Get "img/docker-logo.svg" }}
+        {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
+        <!-- Title -->
+        <section class="section-light-2 grid-background px-4 pt-20 pb-7">
+            <div class="content flex flex-col justify-between items-start gap-8">
+                <div class="self-stretch text-center justify-start font-medium ~text-4xl/6xl">
+                    <h1><span class="text-primary-500">Backup</span>
+                        for <span class="line-through"> lazy</span> <span class="text-primary-500">smart</span> engineers.</h1>
+                </div>
+                <div class="self-stretch text-center justify-start text-neutral-600 ~text-lg/xl">
+                    Encrypted, queryable backups for engineers who value their time and data.<br/>
+                    CLI, API and UI interfaces. Clean defaults, easy to deploy. Just install and run.
+                </div>
+                <div class="self-stretch flex text-center items-center justify-center">
+                    {{ partial "cta/get-started-button.html" . }}
+                </div>
+            </div>
+        </section>
+
+        <!-- Get started section -->
+        <section class="section-light-2 grid-background pt-14 lg:pt-28"
+                 x-data="{
+                focus: window.innerWidth >= 1024 ? 'web' : '',
+                smallScreen: window.innerWidth < 1024,
+                handleResize() {
+                  this.focus = window.innerWidth >= 1024 ? 'web' : '';
+                  this.smallScreen = window.innerWidth < 1024;
+                }
+              }"
+                 @resize.window="handleResize"
+
+        >
+            <div class="bg-gradient-section">
+                <div class="content px-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
+
+                    <!-- Terminal block (left) -->
+                    <div
+                            @mouseenter="if (window.innerWidth >= 1024) focus = 'terminal'"
+                            class="transition-all duration-500 flex flex-col bg-neutral-700 text-neutral-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg"
+                            :class="focus === 'terminal' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
+                    >
+                        <!-- Inner flex with dynamic gap -->
+                        <div class="flex flex-col lg:flex-row transition-all duration-500 ease-in-out h-full "
+                             :class="focus === 'terminal' || smallScreen ? 'gap-6' : 'gap-0'">
+
+                            <!-- Terminal text container -->
+                            <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
+                                 :class="focus === 'terminal' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
+                            >
+                                <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
+                                    <div class="flex flex-col gap-4">
+                                        <h2 class="~text-xl/4xl font-space-grotesk leading-tight">
+                                            Your first backup in few seconds.
+                                        </h2>
+                                        <p class="font-space-grotesk ~text-base/xl leading-snug">
+                                            No setup hassle, no obscure commands, no reason not to protect your data.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        {{ partial "cta/get-started-button.html" . }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Terminal UI -->
+                            <div class="terminal-slim flex flex-col flex-1 h-full bg-black rounded-lg overflow-hidden p-0 order-1 lg:order-2">
+                                <div class="terminal-slim-body space-y-1">
+                                    <div class="t-line"><span class="t-prompt">$</span> go install
+                                        github.com/PlakarKorp/plakar/cmd/plakar@latest
+                                    </div>
+                                    <div class="t-line">&nbsp;</div>
+                                    <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups backup /etc
+                                    </div>
+                                    <div class="t-line text-green-400">backup: created 003affd1, 9.8 MB in 262ms</div>
+                                    <div class="t-line">&nbsp;</div>
+                                    <div class="t-line"><span class="t-prompt">$</span> plakar at ~/backups restore -to
+                                        /tmp/
+                                    </div>
+                                    <div class="t-line">backups 003affd1</div>
+                                    <div class="t-line text-green-400">restore completed</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Web interface block (right) -->
+                    <div
+                            @mouseenter="if (window.innerWidth >= 1024) focus = 'web'"
+                            class="lg:max-h-[600px] transition-all duration-500 flex flex-col bg-primary-50 outline outline-8 outline-neutral-900/20 shadow-xl rounded-lg overflow-hidden"
+                            :class="focus === 'web' || smallScreen ? 'lg:basis-2/3 p-4' : 'lg:basis-1/3 p-0'"
+                    >
+                        <!-- Inner flex row with dynamic spacing -->
+                        <div class="flex flex-col lg:flex-row items-stretch transition-all duration-500 ease-in-out overflow-hidden h-full"
+                             :class="focus === 'web' || smallScreen ? 'gap-6' : 'gap-0'">
+
+                            <!-- Web text container -->
+                            <div class="relative overflow-hidden transition-all duration-500 ease-in-out h-full order-2 lg:order-1"
+                                 :class="focus === 'web' || smallScreen ? 'lg:w-[200px] xl:w-[300px]' : 'lg:w-0 pl-0'"
+                            >
+                                <div class="flex flex-col justify-between gap-4 lg:w-[200px] xl:w-[300px]">
+                                    <div class="flex flex-col gap-4">
+                                        <h2 class="~text-xl/4xl font-space-grotesk text-neutral-900 leading-tight">
+                                            Browse your backups
+                                        </h2>
+                                        <p class="text-neutral-600 font-space-grotesk ~text-base/xl leading-snug">
+                                            With plakar embedded web interface, you can easily browse and manage your
+                                            backups.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        {{ partial "cta/demo-website-button.html" . }}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Image -->
+                            <div class="flex transition-all duration-500 ease-in-out lg:h-440 overflow-hidden ml-auto flex-1 items-stretch order-1 lg:order-2"
+                                 :class="focus === 'web' || smallScreen ? 'lg:w-1/2' : ''">
+                                {{ $dashboard5 := resources.Get "img/dashboard-5.png" }}
+                                <img src="{{ $dashboard5.RelPermalink }}" alt="Plakar dashboard"
+                                     class="w-full object-left-top object-cover transition-all duration-500 ease-in-out">
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial -->
+        <section class="section-light-1 py-14 lg:py-28">
+            <div class="content flex flex-col gap-12">
+
+                <!-- Testimonial section -->
+                <div class="flex flex-col gap-6 p-8 items-center">
+                    <div class="text-neutral-700 font-space-grotesk ~text-xl/3xl leading-tight text-center">
+                        "Plakar has completely transformed our backup strategy. What used to take hours now takes minutes at
+                        30% of the previous cost with more restore points."
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <img class="size-10 rounded-full outline outline-2 outline-primary-500 object-cover"
+                             src="{{ $testimonialJJ.RelPermalink }}" alt="John Jean profile picture"/>
+                        <div class="flex flex-col">
+                            <div class="text-neutral-900 font-space-grotesk text-lg font-semibold leading-normal">
+                                John JEAN
+                            </div>
+                            <div class="text-neutral-500 font-space-grotesk text-sm font-medium leading-tight">
+                                CTO Group at Wargan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Why engineers choose Plakar -->
+        <section class="section-light-2 overflow-hidden py-14 lg:py-28" x-data="progressScrollLine()" x-init="init()">
+            <div class="content flex flex-col gap-4 lg:gap-40 lg:p-4">
+
+                <!-- Title -->
+                <div class="text-center flex flex-col gap-8 max-w-4xl mx-auto">
+                    <h2 class="~text-4xl/6xl font-space-grotesk font-medium text-neutral-900 leading-tight">
+                        Why engineers choose <span class="text-secondary-500">Plakar</span>
+                    </h2>
+                    <p class="~text-xl font-space-grotesk text-neutral-600 leading-normal">
+                        Powerful technology designed for engineers who value <br> reliability, security, and efficiency.
+                    </p>
+                </div>
+
+                <!-- Steps -->
+                <div class="progress-scroll-line flex flex-col gap-12 relative h-full">
+
+                    <!-- Step 1 -->
+                    <div class="step flex flex-row items-start gap-2 md:gap-6">
+                        <div class="step-line-wrapper flex flex-col items-center gap-2 self-stretch relative flex-shrink-0">
+                            <div class="step-line-step w-10 h-10 rounded-full flex items-center justify-center font-bold text-base transition-all"
+                                 :class="currentStep >= 1 ? 'bg-primary-500 text-white' : 'bg-white text-neutral-700 border border-neutral-300'">
+                                1
+                            </div>
+                            <div class="step-line-line w-1 bg-primary-500 transition-all origin-top"
+                                 :style="`height: ${currentStep === 1 ? progress * getStepLineHeight(0) : currentStep > 1 ? getStepLineHeight(0) : 0}px`">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full p-2">
+                            <div class="flex-1 w-full lg:max-w-[30%]">
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900">
+                                        Confidence by Design
+                                    </h3>
+                                    <p class="text-neutral-500  ~text-lg">
+                                        Backup isn’t a priority, but it’s always on your mind.</p>
+                                    <p class="text-neutral-500 ~text-lg">In just 30 seconds, you have a setup reliable
+                                        enough to sleep soundly. And if anything goes wrong, you’ll be alerted. </p>
+                                </div>
+                            </div>
+                            <div x-data="{ showModal: false }" class="flex w-1/2 flex-1 h-full rounded-lg overflow-hidden">
+
+                                <!-- Small Preview Video (click to open modal) -->
+                                <div @click="showModal = true; $nextTick(() => $refs.modalVideo.play())"
+
+                                     class="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer group">
+                                    {{ $introVideo := resources.Get "video/plakar-intro-v14.m4v" }}
+                                    {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
+
+                                    <video poster="{{ $poster.RelPermalink }}"
+                                           class="object-cover w-full h-full rounded-lg"
+                                           preload="metadata"
+                                           playsinline>
+                                        <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+
+                                    <!-- Play icon on hover -->
+                                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor"
+                                             viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                  d="M14.752 11.168l-4.586-2.67A1 1 0 009 9.5v5a1 1 0 001.166.986l4.586-2.67a1 1 0 000-1.732z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- Modal Fullscreen Video -->
+                                <div x-show="showModal" x-transition.opacity
+                                     @click.away="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                                     @keydown.escape.window="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                                     class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
+
+                                    <div class="relative w-full max-w-5xl">
+                                        <video x-ref="modalVideo" class="rounded-lg w-full h-auto" controls
+                                               preload="metadata">
+                                            <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+
+                                        <!-- Close button -->
+                                        <button @click="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
+                                                class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition">
+                                            ✕
+                                        </button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step flex flex-row items-start gap-2 md:gap-6 h-full">
+                        <div class="step-line-wrapper flex flex-col items-center gap-2 self-stretch relative flex-shrink-0">
+                            <div class="step-line-step w-10 h-10 rounded-full flex items-center justify-center font-bold text-base transition-all"
+                                 :class="currentStep >= 2 ? 'bg-primary-500 text-white' : 'bg-white text-neutral-700 border border-neutral-300'">
+                                2
+                            </div>
+                            <div class="step-line-line w-1 bg-primary-500 transition-all origin-top"
+                                 :style="`height: ${currentStep === 2 ? progress * getStepLineHeight(1) : currentStep > 2 ? getStepLineHeight(1) : 0}px`">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full p-2">
+                            <div class="flex-1 w-full lg:max-w-[30%]">
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">
+                                        Engineered for excellence
+                                    </h3>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-lg leading-normal">
+                                        Secure by design with end-to-end encryption, Plakar can store massive volumes of
+                                        data from multiple sources and formats.</p>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-lg leading-normal">
+                                        Increase your restore points without increasing costs, thanks to Plakar’s unmatched
+                                        deduplication and compression algorithms.
+
+
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- Features grid -->
+                            <div class="flex-1 flex flex-wrap gap-2 lg:gap-6">
+                                <!-- Feature card -->
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">
+                                            {{ $riMenuSearchLine.Content | safeHTML }}
+                                        </div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">
+                                            Searchable
+                                        </h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Browse your backups without restoring.
+                                    </p>
+                                </div>
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">{{ $riDatabaseLine.Content | safeHTML }}</div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Exo bytes
+                                            ready</h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Support massive data with little RAM.
+                                    </p>
+                                </div>
+
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">{{ $riListView.Content | safeHTML }}</div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">
+                                            Extensible</h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Easily add integration for new sources.
+                                    </p>
+                                </div>
+
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">{{ $riShieldCheckLine.Content | safeHTML }}</div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Threat
+                                            Detection</h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Detect and alert on suspicious activity.
+                                    </p>
+                                </div>
+
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">{{ $riTerminalBoxLine.Content | safeHTML }}</div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">
+                                            Lock-free</h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Use one repository for several sources.
+                                    </p>
+                                </div>
+
+                                <div class="w-80 bg-white p-2 lg:p-6 rounded-lg flex flex-col gap-2 shadow-sm">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-5 h-4">{{ $riFlashlightLine.Content | safeHTML }}</div>
+                                        <h4 class="font-space-grotesk text-neutral-900 ~text-xl font-semibold">Super
+                                            fast</h4>
+                                    </div>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-base leading-normal">
+                                        Backup >1M files in under 3 min.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step flex flex-row items-start gap-2 md:gap-6 h-full">
+                        <div class="step-line-wrapper flex flex-col items-center gap-2 self-stretch relative flex-shrink-0">
+                            <div class="step-line-step w-10 h-10 rounded-full flex items-center justify-center font-bold text-base transition-all"
+                                 :class="currentStep >= 3 ? 'bg-primary-500 text-white' : 'bg-white text-neutral-700 border border-neutral-300'">
+                                3
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full">
+                            <div class="flex-1 w-full lg:max-w-[30%]">
+                                <div class="flex flex-col gap-2">
+                                    <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">
+                                        Store everything, anywhere
+                                    </h3>
+                                    <p class="text-neutral-500 font-space-grotesk ~text-lg leading-normal">
+                                        From cloud to on-prem, from databases to SaaS and object storage, your backups are
+                                        unified, secure, and ready to restore.
+                                    </p>
+                                </div>
+                                <div class="hidden lg:flex gap-4 mt-8 ">
+                                    {{ partial "cta/see-it-in-action.html" . }}
+                                </div>
+
+                            </div>
+                            <!-- Integrations and  storage -->
+                            {{ partial "schema/kloset-integrations-connectors.html" . }}
+                            <div class="flex lg:hidden gap-4 mt-8 ">
+                                {{ partial "cta/see-it-in-action.html" . }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function progressScrollLine() {
+                return {
+                    currentStep: 0,
+                    progress: 0,
+                    steps: [],
+                    sectionTop: 0,
+                    init() {
+                        const section = document.querySelector('.progress-scroll-line');
+
+                        // Function to update the vertical positions of all steps
+                        const updateSteps = () => {
+                            // Select all elements with the "step" class
+                            const stepContainers = section.querySelectorAll('.step');
+                            this.sectionTop = section.getBoundingClientRect().top + window.scrollY;
+
+                            // Calculate the Y-position of each step relative to the section top
+                            this.steps = Array.from(stepContainers).map(container =>
+                                container.getBoundingClientRect().top + window.scrollY - this.sectionTop
+                            );
+                        };
+
+                        updateSteps();
+                        console.log(this.steps);
+                        window.addEventListener('resize', updateSteps);
+
+                        window.addEventListener('scroll', () => {
+                            const scrollY = window.scrollY + window.innerHeight / 2;
+
+                            // Determine which step is currently active based on scroll position
+                            this.currentStep = this.steps.reduce((acc, stepTop, idx) => {
+                                return scrollY >= (this.sectionTop + stepTop) ? idx + 1 : acc;
+                            }, 0);
+
+                            // Calculate the progress between the current step and the next one
+                            const currentStepIndex = this.currentStep - 1;
+                            if (currentStepIndex >= 0 && currentStepIndex < this.steps.length - 1) {
+                                const currentStepTop = this.sectionTop + this.steps[currentStepIndex];
+                                const nextStepTop = this.sectionTop + this.steps[currentStepIndex + 1];
+                                this.progress = (scrollY - currentStepTop) / (nextStepTop - currentStepTop);
+                                this.progress = Math.min(Math.max(this.progress, 0), 1);
+                            } else {
+                                this.progress = 0;
+                            }
+                        });
+                    },
+                    getStepLineHeight(index) {
+                        // Select all step containers
+                        const section = document.querySelector('.progress-scroll-line');
+                        const stepContainers = section.querySelectorAll('.step');
+
+                        // Return 0 if there is no next step
+                        if (!stepContainers[index] || !stepContainers[index + 1]) return 0;
+
+                        // Select the circle elements inside the current and next steps
+                        const stepCircle = stepContainers[index].querySelector('.step-line-step');
+                        const nextStepCircle = stepContainers[index + 1].querySelector('.step-line-step');
+
+                        if (!stepCircle || !nextStepCircle) return 0;
+
+                        // Measure the distance between the bottom of the current circle and the top of the next one
+                        const currentCircle = stepCircle.getBoundingClientRect();
+                        const nextCircle = nextStepCircle.getBoundingClientRect();
+
+                        // Get the vertical gap value between the steps
+                        const styles = window.getComputedStyle(section);
+                        const gapValue = parseInt(styles.gap, 10);
+
+                        // Calculate available vertical space (distance between circles minus gap)
+                        const availableHeight = nextCircle.top - currentCircle.bottom - gapValue;
+
+                        // Always return a positive height
+                        return Math.max(availableHeight, 0);
+                    }
+                };
+            }
+        </script>
+
+        <!-- Kloset section -->
+        <section class="section-dark bg-neutral-900 overflow-hidden py-14 lg:py-28">
+            <div class="content flex flex-col gap-24 ">
+
+                <!-- Top Block: Title + Description + CTA -->
+                <div class="flex flex-col lg:flex-row justify-between items-start gap-10 p-4">
+                    <div class="flex flex-col gap-6 max-w-2xl">
+                        <h2 class="~text-4xl/6xl font-space-grotesk font-medium leading-tight text-white">
+                            Built on top of the powerful <span class="text-secondary-500">Kloset</span>
+                        </h2>
+                    </div>
+                    <div class="flex flex-col gap-8 max-w-md">
+                        <p class="~text-lg/2xl font-space-grotesk text-zinc-200">
+                            Powerful technology designed for developers who value <span class="font-semibold text-white">reliability</span>,
+                            <span class="font-semibold text-white">security</span>, and <span
+                                class="font-semibold text-white">efficiency</span>.
+                        </p>
+                        <div class="flex gap-4">
+                            {{ partial "cta/learn-more-about-kloset.html" . }}
+                            {{ partial "cta/technical-docs.html" . }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Block: Illustration and Cards -->
+                <div class="flex flex-col gap-16">
+
+                    <!-- Illustration -->
+                    <div class="relative w-full h-[700px] lg:h-[600px] rounded-lg overflow-hidden">
+                        <div class="absolute inset-0 grid-cols-12 gap-2 bg-none bg-center bg-cover"
+                             style="background-image: url('{{ $gradientBlue.RelPermalink }}');">
+                        </div>
+                        <div class="absolute inset-0 flex justify-center items-center gap-6 translate-y-[-10%] lg:translate-y-[10%] p-4">
+                            <div class="flex flex-col bg-neutral-800 p-6 gap-6 rounded-lg shadow-lg">
+                                <div class="self-stretch bg-neutral-900 pt-8 pb-8 pl-8 pr-10 rounded-lg flex-col justify-center items-start gap-8 inline-flex">                                {{ $klosetSchema := resources.Get "img/kloset-schema.svg" }}
+
+                                    <p class="text-green-400 font-mono text-xs">
+                                        $ plakar inspect kloset://backup-2023-04-18<br>
+                                        • Integrity verified<br>
+                                        / 1,245 files, 26.8 GB, created Apr 18 2023
+                                    </p>
+                                </div>
+
+                                <!-- Kloset schema -->
+                                <div class="relative self-stretch rounded-lg flex-col justify-center items-start gap-8 inline-flex">
+                                    {{ $klosetSchema := resources.Get "img/kloset-schema.svg" }}
+                                    <img src="{{ $klosetSchema.RelPermalink }}" alt="Kloset schema" class="w-full h-auto"/>
+
+                                    <!-- This is Kloset -->
+                                    <div class="absolute z-10
+        bottom-0 left-1/2 transform -translate-x-1/2 translate-y-[95%]
+        lg:top-1/2 lg:right-0 lg:left-auto lg:-translate-y-1/2 lg:translate-x-2/3">
+                                        <div class="w-[343px] p-6 bg-neutral-900/80 rounded-lg outline outline-8 outline-neutral-900/20 backdrop-blur-xl flex flex-col gap-4 text-left text-neutral-50 font-space-grotesk">
+                                            <!-- Header -->
+                                            <div class="flex items-center gap-2">
+                                                <div class="w-6 h-6 relative overflow-hidden">
+                                                    <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-50">{{ $riCheckLine.Content | safeHTML }}</div>
+                                                </div>
+                                                <div class="~text-base/lg font-semibold">
+                                                    This is kloset
+                                                </div>
+                                            </div>
+
+                                            <!-- Body -->
+                                            <p class="text-neutral-300 ~text-sm/base font-medium leading-snug">
+                                                Kloset encapsulates each backup into a self-contained, immutable, structured
+                                                data asset. Like a container that packages an app with everything it needs,
+                                                Kloset packages data with context, structure, metadata, and integrity.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Features Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
+
+                        <!-- Card 1 -->
+                        <div class="p-6 bg-neutral-800/70 rounded-lg flex flex-col gap-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-500">{{ $riMenuSearchLine.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Self-contained</h4>
+                            </div>
+                            <p class="text-zinc-200 ~text-lg font-space-grotesk">
+                                Everything your data needs travels with it. No external dependencies.
+                            </p>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="p-6 bg-neutral-800/70 rounded-lg flex flex-col gap-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-500">{{ $riShieldCheckLine.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Immutable</h4>
+                            </div>
+                            <p class="text-zinc-200 ~text-lg font-space-grotesk">
+                                Once created, a Kloset never changes, ensuring data integrity and security.
+                            </p>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="p-6 bg-neutral-800/70 rounded-lg flex flex-col gap-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-500">{{ $riDatabaseLine.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Queryable</h4>
+                            </div>
+                            <p class="text-zinc-200 ~text-lg font-space-grotesk">
+                                Inspect and query snapshots without restoration. Instant access.
+                            </p>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="p-6 bg-neutral-800/70 rounded-lg flex flex-col gap-4">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-500">{{ $riListView.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Portable</h4>
+                            </div>
+                            <p class="text-zinc-200 ~text-lg font-space-grotesk">
+                                Move your Klosets anywhere. Same structure, everywhere.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Bottom Block: Comparison -->
+                <div class="flex flex-col gap-14 text-center items-center p-4">
+                    <h3 class="~text-2xl/4xl font-space-grotesk font-medium text-white">
+                        <span class="text-secondary-500">Kloset</span> does for data what <span class="text-secondary-500">Docker containers</span>
+                        did for compute
+                    </h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center ">
+
+                        <!-- Left Card: Kloset -->
+                        <div class="bg-neutral-800/70 rounded-lg flex flex-col gap-6 text-left p-8 md:px-8 md:py-16 h-full">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-4 h-4 md:w-6 md:h-6 text-neutral-500">{{ $nestorInline.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Kloset for Data</h4>
+                            </div>
+                            <ul class="flex flex-col gap-4 text-zinc-200 ~text-base font-space-grotesk">
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Packages data with all metadata and context
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Ensures consistent data integrity and structure
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Portable across different storage systems
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Standardized format for preservation
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Right Card: Docker -->
+                        <div class="border border-neutral-800/70 rounded-lg flex flex-col gap-6 text-left  p-4 md:p-8 h-full">
+                            <div class="flex flex-row gap-4">
+                                <div class="w-5 h-5 md:w-6 md:h-6 text-neutral-500">{{ $dockerLogo.Content | safeHTML }}</div>
+                                <h4 class="text-neutral-50 ~text-2xl font-space-grotesk">Docker for Applications</h4>
+                            </div>
+                            <ul class="flex flex-col gap-4 text-zinc-200 ~text-base font-space-grotesk">
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Packages application with all dependencies
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Ensures consistent execution environment
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Portable across systems
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <div class="w-5 h-5 shrink-0 text-primary-500">{{ $riCheckLine.Content | safeHTML }}</div>
+                                    Standardized format for distribution
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Open source section -->
+        <section class="section-light-2 py-14 lg:py-28">
+            <div class="content flex flex-col gap-16">
+
+                <!-- Title -->
+                <div class="flex flex-col justify-between items-center gap-10 p-4">
+                    <!-- Title -->
+                    <h2 class="font-space-grotesk font-medium ~text-4xl/6xl text-neutral-900 leading-tight text-center">
+                        Community <span class="text-[#FF8547]">powered</span>, trusted by teams
+                    </h2>
+
+                    <!-- Subtitle -->
+                    <p class="~text-base/lg text-neutral-600 font-space-grotesk font-medium leading-snug max-w-2xl text-center">
+                        There must be a way to ensure backups remain accessible 10 or 30 years from now.
+                        Built with transparency, tested by the community, and trusted for critical infrastructure.
+                    </p>
+                </div>
+
+                <!-- Open Source content -->
+                <div class="px-4 flex flex-col lg:flex-row">
+
+                    {{ $cellsNumber := 16 }}
+                    {{ $images := readDir "assets/img/contributors" }}
+                    {{ $paths := slice }}
+                    {{ range $images }}
+                        {{ $paths = $paths | append (printf "img/contributors/%s" .Name) }}
+                    {{ end }}
+
+                    {{/* 2. Fill with placeholders if needed */}}
+                    {{ $needed := sub (mul $cellsNumber 2) (len $paths) }}
+                    {{ if gt $needed 0 }}
+                        {{ range seq 1 $needed }}
+                            {{ $paths = $paths | append "img/placeholder-contributors.png" }}
+                        {{ end }}
+                    {{ end }}
+
+                    {{/* 3. Shuffle (optional) */}}
+                    {{ $shuffled := shuffle $paths }}
+
+                    {{/* 4. Get left and right images */}}
+                    {{ $leftImages := first $cellsNumber $shuffled }}
+                    {{ $rightImages := first $cellsNumber (after $cellsNumber $shuffled) }}
+
+                    <!-- Left Grid (4x6 images) -->
+                    <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                        <div class="w-full grid grid-cols-4 grid-rows-4 lg:grid-cols-4 lg:grid-rows-4 lg:gap-3">
+                            {{ range $leftImages }}
+                                {{ with resources.Get . }}
+                                    <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                        <img src="{{ .RelPermalink }}" alt="Contributor"
+                                             class="object-contain rounded-sm">
+                                    </div>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+
+                    {{ $gradientOrange := resources.Get "img/GRADIENT_ORANGE.png" }}
+
+                    <!-- Center Text Content -->
+                    <div class="lg:w-1/3 flex flex-col relative justify-center px-4 py-6 bg-cover bg-center"
+                         style="background-image: url('{{ $gradientOrange.RelPermalink }}')">
+                        <div class="relative flex flex-col z-10 items-center text-center gap-8 lg:gap-12 justify-center">
+                            <h2 class="~text-3xl/5xl font-medium font-space-grotesk leading-tight text-neutral-900">
+                                Open source
+                            </h2>
+                            <p class="text-lg font-medium font-space-grotesk text-neutral-900 opacity-70 leading-relaxed">
+                                Plakar is built by a global community<br/>of engaged developers, SREs, sysadmins and
+                                platform engineers.
+                            </p>
+                            <p class="text-lg font-medium font-space-grotesk text-neutral-900 opacity-70 leading-relaxed">
+                                Write your own plugins, contribute to the codebase, or just help us.
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-4 items-stretch">
+                                <div class="flex flex-col w-full">
+                                    {{ partial "cta/chat-with-us-button.html" . }}
+                                </div>
+                                <div class="flex flex-col w-full">
+                                    {{ partial "cta/start-contributing-button.html" . }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Grid (4x6 images) -->
+                    <div class="lg:w-1/3 flex justify-center border border-neutral-300 bg-neutral-100 lg:p-[0.75rem]">
+                        <div class="w-full grid grid-cols-4 grid-rows-4 lg:grid-cols-4 lg:grid-rows-4 lg:gap-3">
+                            {{ range $rightImages }}
+                                {{ with resources.Get . }}
+                                    <div class="border border-dashed border-zinc-300 p-1 flex items-center justify-center">
+                                        <img src="{{ .RelPermalink }}" alt="Contributor"
+                                             class="object-contain rounded-sm">
+                                    </div>
+                                {{ end }}
+                            {{ end }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Logos -->
+                <div class="px-4 flex flex-col xl:flex-row items-start justify-between gap-8">
+
+                    <!-- Heading -->
+                    <div class="flex flex-col gap-1 flex-[0_1_auto] max-w-fit ">
+                        <h2 class="~text-xl/3xl text-neutral-900 font-space-grotesk font-medium w-full">
+                            Trusted by great teams
+                        </h2>
+                        <p class="~text-base/lg text-neutral-600 font-space-grotesk font-medium opacity-70">
+                            Chosen by teams who can’t afford to lose data or sleep.
+                        </p>
+                    </div>
+
+                    <!-- Logos grid -->
+                    <div class="flex-1 grid justify-end grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-6">
+                        <!-- Item -->
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 shrink-0">
+                                {{ $logoHolberton := resources.Get "img/logo-client/holberton.png" }}
+                                <img src="{{ $logoHolberton.RelPermalink }}" alt="Holberton"
+                                     class="w-full h-full object-contain rounded-sm"/>
+                            </div>
+                            <span class="text-neutral-700 ~text-sm md:text-base font-medium font-space-grotesk">Holberton</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 shrink-0">
+                                {{ $logoRF := resources.Get "img/logo-client/republique-francaise-logo-black-and-white.png" }}
+                                <img src="{{ $logoRF.RelPermalink }}" alt="République Française"
+                                     class="w-full h-full object-contain rounded-sm"/>
+                            </div>
+                            <span class="text-neutral-700 ~text-sm md:text-base font-medium font-space-grotesk">République Française</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 shrink-0">
+                                {{ $logoSparkAngle := resources.Get "img/logo-client/spark-angle-logo-only.png" }}
+                                <img src="{{ $logoSparkAngle.RelPermalink }}" alt="Spark Angle"
+                                     class="w-full h-full object-contain rounded-sm"/>
+                            </div>
+                            <span class="text-neutral-700 ~text-sm md:text-base font-medium font-space-grotesk">Spark Angle</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 shrink-0">
+                                {{ $logoMooseAndToom := resources.Get "img/logo-client/moose-and-toom.png" }}
+                                <img src="{{ $logoMooseAndToom.RelPermalink }}" alt="Moose & Toom"
+                                     class="w-full h-full object-contain rounded-sm"/>
+                            </div>
+                            <span class="text-neutral-700 ~text-sm md:text-base font-medium font-space-grotesk">Moose & Toom</span>
+                        </div>
+
+                        <div class="flex items-center gap-3">
+                            <div class="w-9 shrink-0">
+                                {{ $logoHoodie := resources.Get "img/logo-client/hoodie.png" }}
+                                <img src="{{ $logoHoodie.RelPermalink }}" alt="Hoodie"
+                                     class="w-full h-full object-contain rounded-sm"/>
+                            </div>
+                            <span class="text-neutral-700 ~text-sm md:text-base font-medium font-space-grotesk">Hoodie</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plakar stories section -->
+        <section class="section-light-2 bg-gradient-section py-14 lg:py-28">
+            <div class="content flex flex-col gap-12 px-4" >
+                <div class="flex flex-col lg:flex-row justify-between gap-8 ">
+
+                    <!-- Left text block -->
+                    <div class="flex flex-col gap-4 max-w-4xl">
+                        <h2 class="~text-4xl/7xl font-space-grotesk font-medium text-neutral-900 leading-tight">
+                            <span class="text-neutral-900">Plakar </span>
+                            <span class="text-[#FF8547]">stories</span>
+                        </h2>
+                        <p class="~text-base/lg font-space-grotesk font-medium text-neutral-600">
+                            Engineers thought, release notes and data protection last news
+                        </p>
+                    </div>
+
+                    <!-- Right CTA -->
+                    {{ partial "cta/see-all-stories.html" . }}
+                </div>
+                {{ partial "article/posts/featured-list.html" . }}
+            </div>
+        </section>
+    {{ end }}
