@@ -76,9 +76,11 @@
                         <p class="~text-sm/base text-white opacity-80 mt-1">Fill out this form and we'll get back to you as soon as possible.</p>
                     </div>
 
-                    <form class="px-6 py-8 space-y-6" method="POST" netlify>
+                    <form id="contact-form" class="px-6 py-8 space-y-6" method="POST" netlify>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="name" placeholder="Full name" required
+                            <input type="text" name="firstname" placeholder="First Name" required
+                                   class="w-full border border-neutral-300 rounded p-2" />
+                            <input type="text" name="lastname" placeholder="Last Name" required
                                    class="w-full border border-neutral-300 rounded p-2" />
                             <input type="text" name="company" placeholder="Company"
                                    class="w-full border border-neutral-300 rounded p-2" />
@@ -128,4 +130,77 @@
         </div>
     </section>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("contact-form").addEventListener("submit", async function (event) {
+                event.preventDefault();
+
+                const form = this;
+                const formData = new FormData(form);
+                const data = {};
+
+                formData.forEach((value, key) => {
+                    data[key] = value;
+                });
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(data.email || "")) {
+                    addToast({
+                        title: "Error!",
+                        message: "Please enter a valid email address.",
+                        iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>`,
+                        duration: 5000
+                    });
+                    return;
+                }
+
+                const portalId = "48034556";
+                const formId = "3ac805bd-3625-455e-b8d4-f92316d1682e";
+                const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+                const payload = {
+                    fields: Object.keys(data).map(key => ({
+                        name: key,
+                        value: data[key]
+                    }))
+                };
+
+                try {
+                    const response = await fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (response.ok) {
+                        addToast({
+                            title: "Success!",
+                            message: "Your message has been sent successfully.",
+                            duration: 5000
+                        });
+                        form.reset();
+                    } else {
+                        throw new Error("Submission failed.");
+                    }
+                } catch (error) {
+                    console.error("Error:", error);
+                    addToast({
+                        title: "Error!",
+                        message: "An error occurred while submitting the form. Please try again.",
+                        iconHTML: `<svg class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+        </svg>`,
+                        duration: 5000
+                    });
+                }
+            });
+        });
+    </script>
+
+
 {{ end }}
+
