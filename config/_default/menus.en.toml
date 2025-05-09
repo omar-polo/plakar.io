@@ -1,46 +1,199 @@
+# ----------- Top-level items -----------
+
 [[main]]
-name = "Quickstart"
-url = "https://docs.plakar.io/en/quickstart/"
+identifier = "solutions"
+name = "Solution"
+url = "#"
 weight = 10
+[[main.params]]
+    enabled = true
 
 [[main]]
-name = "Documentation"
-url = "https://docs.plakar.io"
+identifier = "engineering"
+name = "Engineering"
+url = "#"
 weight = 20
+[[main.params]]
+    enabled = true
 
 [[main]]
-name = "Audits"
-pageRef = "docs/audits"
-weight = 25
-
-[[main]]
-name = "Articles"
-pageRef = "articles"
+identifier = "integrations"
+name = "Integrations"
+url = "/integrations/"
 weight = 30
+[[main.params]]
+    enabled = false
 
 [[main]]
-name = "Team"
-pageRef = "team"
+identifier = "pricing"
+name = "Pricing"
+url = "/pricing/"
 weight = 40
+[[main.params]]
+    enabled = false
 
+# ----------- Solutions > Use Cases -----------
 
-[[footersupport]]
-name = "Legal notice"
-pageRef = "legal"
+[[main]]
+identifier = "solutions-usecases-backup"
+name = "Backup & Restore"
+url = "/solutions/backup-and-restore/"
 weight = 10
+parent = "solutions"
+[[main.params]]
+    description = "Cross platform backup"
+    enabled = true
+    section = "Use cases"
+    section_weight = 10
+    icon = "refresh-line"
 
-[[footersupport]]
-name = "Cookies"
-url = "javascript:openAxeptioCookies();"
+[[main]]
+identifier = "solutions-usecases-aws"
+name = "Plakar for AWS"
+url = "#"
 weight = 20
+parent = "solutions"
+[[main.params]]
+    description = "Coming soon"
+    enabled = true
+    section = "Use cases"
+    section_weight = 10
+    icon = "amazon-line"
 
-[[footerresources]]
-name = "Articles"
-pageRef = "articles"
+[[main]]
+identifier = "solutions-usecases-notion"
+name = "Plakar for Notion"
+url = "#"
+weight = 30
+parent = "solutions"
+[[main.params]]
+    description = "Coming soon"
+    enabled = true
+    section = "Use cases"
+    section_weight = 10
+    icon = "notion-line"
+
+# ----------- Solutions > Resources -----------
+
+[[main]]
+identifier = "solutions-resources-compare"
+name = "Compare Plakar to Alternatives"
+url = "#"
+weight = 40
+parent = "solutions"
+[[main.params]]
+    description = "Discover Plakar strengths"
+    enabled = false
+    section = "Resources"
+    section_weight = 20
+    icon = "arrow-left-right-line"
+
+[[main]]
+identifier = "solutions-resources-review"
+name = "Product review"
+url = "#"
+weight = 50
+parent = "solutions"
+[[main.params]]
+    description = "Engineers feedback"
+    enabled = false
+    section = "Resources"
+    section_weight = 20
+    icon = "chat-quote-line"
+
+# ----------- Engineering > Learn -----------
+
+[[main]]
+identifier = "engineering-learn-quickstart"
+name = "Quick start"
+url = "https://docs.plakar.io/en/quickstart/index.html"
 weight = 10
+parent = "engineering"
+[[main.params]]
+    description = "Protect your data in a minute"
+    enabled = true
+    section = "Learn"
+    section_weight = 10
+    icon = "rocket-2-line"
+    target = "_blank"
 
-
-[[footerresources]]
-name = "Insights"
-pageRef = "Insights"
+[[main]]
+identifier = "engineering-learn-docs"
+name = "Documentation"
+url = "https://docs.plakar.io/en/index.html"
 weight = 20
+parent = "engineering"
+[[main.params]]
+    description = "How to use Plakar?"
+    enabled = true
+    section = "Learn"
+    section_weight = 10
+    icon = "book-open-line"
+    target = "_blank"
+
+[[main]]
+identifier = "engineering-learn-blog"
+name = "Plakar stories"
+url = "/posts/"
+weight = 30
+parent = "engineering"
+[[main.params]]
+    description = "Engineers thought & last news"
+    enabled = true
+    section = "Learn"
+    section_weight = 10
+    icon = "article-line"
+
+# ----------- Engineering > Community -----------
+
+[[main]]
+identifier = "engineering-community-join"
+name = "Join us"
+url = "contact/#join-our-community"
+weight = 40
+parent = "engineering"
+[[main.params]]
+    description = "How to join Plakar community?"
+    enabled = true
+    section = "Community"
+    section_weight = 20
+    icon = "team-line"
+
+[[main]]
+identifier = "contact-us"
+name = "Contact us"
+url = "/contact/#email-contact"
+weight = 50
+parent = "engineering"
+[[main.params]]
+    description = "How to contact Plakar team?"
+    enabled = true
+    section = "Community"
+    section_weight = 20
+    icon = "mail-line"
+
+[[main]]
+identifier = "engineering-community-events"
+name = "Incoming events"
+url = "#"
+weight = 50
+parent = "engineering"
+[[main.params]]
+    description = "Live events with Plakar team"
+    enabled = false
+    section = "Community"
+    section_weight = 20
+    icon = "calendar-2-line"
+
+[[main]]
+identifier = "engineering-community-newsletter"
+name = "Newsletter"
+url = "contact/#newsletter-form"
+weight = 60
+parent = "engineering"
+[[main.params]]
+    description = "Receive our monthly newsletter"
+    enabled = true
+    section = "Community"
+    section_weight = 20
+    icon = "mail-ai-line"

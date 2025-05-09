@@ -1,8 +1,0 @@
-
-{{ if .Site.Params.footer.showDiscordBadge | default false }}
-{{ $discordInviteCode := .Site.Params.discord.inviteCode | default "" }}
-<a class="flex items-center space-x-2" href="https://discord.gg/{{ $discordInviteCode }}" target="_blank"
-   aria-label="Visit us on Discord">
-    <i class="ri-discord-fill hover:text-gray-300 dark:hover:text-gray-700 discord-color"></i>
-</a>
-{{ end }}
