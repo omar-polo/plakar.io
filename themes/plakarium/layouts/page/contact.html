@@ -5,6 +5,13 @@
     {{ $riPriceTag3Line := resources.Get "img/ri/price-tag-3-line.svg" }}
     {{ $riQuestionnaireLine := resources.Get "img/ri/questionnaire-line.svg" }}
     {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
+    {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
+    {{ $riMegaphoneLine := resources.Get "img/ri/megaphone-line.svg" }}
+    {{ $riQuestionnaireLine := resources.Get "img/ri/questionnaire-line.svg" }}
+    {{ $riLightBulgLine := resources.Get "img/ri/lightbulb-line.svg" }}
+    {{ $riTimeLine := resources.Get "img/ri/time-line.svg" }}
+
+    {{ $nestorSupport := resources.Get "img/Nestor/Nestor-support.png" }}
 
 
     <!-- Page title -->
@@ -20,7 +27,7 @@
     </section>
 
     <!-- Contact form -->
-    <section class="section-light-1 py-14 lg:py-28 scroll-mb-20" id="email-contact">
+    <section class="section-light-1 py-14 lg:py-28 md:scroll-mb-20" id="email-contact">
         <div class="container max-w-7xl mx-auto px-4 py-16">
             <div class="flex flex-col lg:flex-row gap-10">
 
@@ -106,8 +113,8 @@
                         </div>
 
                         <div>
-    <textarea name="message" rows="5" placeholder="Your message"
-              class="w-full border border-neutral-400 rounded p-2"></textarea>
+                            <textarea name="message" rows="5" placeholder="Your message"
+                                      class="w-full border border-neutral-400 rounded p-2"></textarea>
                         </div>
 
                         <div class="text-sm text-neutral-500">
@@ -122,12 +129,10 @@
                             </button>
                         </div>
 
-                        <p class="flex items-center justify-center mt-4 text-sm text-neutral-500">
-                            <svg class="w-5 h-5 mr-2 text-primary-500" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0..." clip-rule="evenodd"/>
-                            </svg>
-                            We typically respond within 24 business hours
-                        </p>
+                        <div class="flex flex-row gap-2 items-center justify-center mt-4 text-sm text-neutral-500">
+                            <div class="w-6 h-6 mr-2">{{ $riTimeLine.Content | safeHTML }}</div>
+                        <div>We typically respond within 24 business hours </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -206,7 +211,7 @@
     </script>
 
     <!-- Technical Support & Security -->
-    <section class="section-light-2 py-14 lg:py-28 bg-white  scroll-mb-20" id="technical-contact">
+    <section class="section-light-2 py-14 lg:py-28 bg-white md:scroll-mt-20" id="technical-contact">
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
                 <h2 class="~text-xl/3xl font-semibold mb-12 text-center">Technical Support &amp; Security</h2>
@@ -267,10 +272,14 @@
                                 </li>
                             </ul>
                             <a href="https://github.com/PlakarKorp/plakar/issues/new" target="_blank" class="block w-full py-3 px-4 bg-neutral-800 text-white rounded-lg text-center font-medium hover:bg-black transition-colors flex items-center justify-center shadow-sm">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="..."></path>
-                                </svg>
-                                Submit an issue on GitHub
+                               <div class="flex flex-row">
+                                   <div class="w-6 h-6 mr-2">
+                                        {{ $riGithubFill.Content | safeHTML }}
+                                   </div>
+                                   <div>
+                                       Submit an issue on GitHub
+                                   </div>
+                               </div>
                             </a>
                         </div>
                     </div>
@@ -455,18 +464,18 @@
         });
     </script>
 
-    {{/*<section class="py-12 bg-neutral-50" id="discord">
+    <section class="py-12 bg-neutral-50 scroll-mt-20" id="join-our-community" >
         <div class="container mx-auto px-4">
             <div class="max-w-6xl mx-auto">
                 <div class="bg-white rounded-lg shadow-md overflow-hidden border border-neutral-200">
                     <div class="p-8 md:p-12">
-                        <div class="flex flex-col md:flex-row items-center">
+                        <div class="flex flex-col md:flex-row items-stretch">
                             <div class="md:w-1/2 mb-8 md:mb-0 md:pr-12">
                                 <div class="flex items-center mb-6">
-                                    <div class="w-12 h-12 bg-[#5865F2] rounded-xl flex items-center justify-center mr-4">
-                                        <svg class="w-7 h-7 text-white" viewBox="0 0 71 55" fill="currentColor">
-                                            <path d="M60.1045 4.8978C55.5792...Z" />
-                                        </svg>
+                                    <div class="w-12 h-12 bg-primary-500 text-neutral-50 rounded-xl flex items-center justify-center mr-4">
+                                        <div class="w-8 h-8">
+                                            {{ $riDiscordFill.Content | safeHTML }}
+                                        </div>
                                     </div>
                                     <h2 class="text-2xl font-bold">Join our Discord community</h2>
                                 </div>
@@ -474,33 +483,27 @@
                                     Connect with the Plakar community on Discord. Get help from other users, share your experiences, and stay up to date with the latest developments.
                                 </p>
                                 <div class="space-y-4">
-                                    <div class="flex items-start">
-                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
-                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M12 2C6.48...Z"></path>
-                                            </svg>
+                                    <div class="flex items-start gap-4">
+                                        <div class="h-7 w-7 text-primary-500">
+                                            {{ $riQuestionnaireLine.Content | safeHTML }}
                                         </div>
                                         <div>
                                             <h3 class="font-medium">Real-time support</h3>
                                             <p class="text-sm text-neutral-500">Get quick answers to your questions from the community</p>
                                         </div>
                                     </div>
-                                    <div class="flex items-start">
-                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
-                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M12 2C6.48...Z"></path>
-                                            </svg>
+                                    <div class="flex items-start gap-4">
+                                        <div class="h-7 w-7 text-primary-500">
+                                            {{ $riMegaphoneLine.Content | safeHTML }}
                                         </div>
                                         <div>
                                             <h3 class="font-medium">Release announcements</h3>
                                             <p class="text-sm text-neutral-500">Be the first to know about new features and updates</p>
                                         </div>
                                     </div>
-                                    <div class="flex items-start">
-                                        <div class="bg-[#5865F2]/10 p-2 rounded-md mr-3 mt-0.5">
-                                            <svg class="w-5 h-5 text-[#5865F2]" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M12 2C6.48...Z"></path>
-                                            </svg>
+                                    <div class="flex items-start gap-4">
+                                        <div class="h-7 w-7 text-primary-500">
+                                            {{ $riLightBulgLine.Content | safeHTML }}
                                         </div>
                                         <div>
                                             <h3 class="font-medium">Contribute ideas</h3>
@@ -509,20 +512,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="md:w-1/2 bg-neutral-50 rounded-xl p-6 border border-neutral-200">
-                                <div class="bg-[#36393F] rounded-xl p-6 shadow-lg">
+                            <div class="md:w-1/2 bg-neutral-50 rounded-xl flex flex-col justify-end">
+                                <div class="flex flex-row gap-2 items-stretch justify-center">
                                     <!-- Simulated Discord messages here -->
-                                    <!-- ...content intentionally shortened for clarity... -->
-                                    <div class="mt-6 text-center">
-                                        <a href="https://discord.gg/plakar" target="_blank" class="inline-flex items-center justify-center py-3 px-6 bg-[#5865F2] text-white rounded-lg font-medium hover:bg-[#4752C4] transition-colors shadow-sm">
-                                            <svg class="w-5 h-5 mr-2" viewBox="0 0 71 55" fill="currentColor">
-                                                <path d="M60.1045 4.8978C55.5792...Z"></path>
-                                            </svg>
-                                            Join our Discord server
-                                        </a>
-                                        <p class="mt-3 text-sm text-neutral-500">
-                                            Already a member? <a href="https://discord.gg/plakar" class="text-[#5865F2] hover:underline">Sign in</a>
-                                        </p>
+                                    <div class="flex">
+                                    <img src="{{ $nestorSupport.RelPermalink }}" alt="Nestor support"
+                                         class="max-h-[250px]">
+                                    </div>
+                                    <div class="flex flex-col items-end min-h-max justify-end">
+                                        {{ partial "cta/join-us-on-discord.html" . }}
                                     </div>
                                 </div>
                             </div>
@@ -531,7 +529,7 @@
                 </div>
             </div>
         </div>
-    </section>*/}}
+    </section>
 
 {{ end }}
 
