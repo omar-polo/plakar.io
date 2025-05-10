@@ -50,10 +50,9 @@
         fetchGitHubStars();
     </script>
 {{ end }}
-<script>
-    console.log("Axpetio enabled: {{ .Params.axeptio.enabled  }}" );
-
-</script>
+{{ if .Site.Params.GoogleAnalytics.enabled | default false }}
+    {{ partial "analytics/ga.html" . }}
+{{ end }}
 {{ if .Site.Params.axeptio.enabled | default false }}
     <script>
         window.axeptioSettings = {
