@@ -188,7 +188,7 @@ parent = "engineering"
 [[main]]
 identifier = "engineering-community-newsletter"
 name = "Newsletter"
-url = "contact/#newsletter-form"
+url = "contact/#newsletter-signup"
 weight = 60
 parent = "engineering"
 [[main.params]]

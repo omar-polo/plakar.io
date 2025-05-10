@@ -42,7 +42,7 @@
                  @resize.window="handleResize"
 
         >
-            <div class="bg-gradient-section">
+            <div class="bg-gradient-section pb-4">
                 <div class="content px-4 flex flex-col lg:flex-row gap-6 transition-all duration-500 lg:h-[600px]">
 
                     <!-- Terminal block (left) -->
@@ -166,6 +166,44 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- What's new -->
+        <section class="section-dark-1 py-14 lg:py-28">
+            <div class="content flex flex-col gap-12 px-4 items-start">
+                <div class="text-center">
+                    <h2 class="~text-4xl/6xl font-space-grotesk font-medium">
+                        What's new at <span class="text-secondary-500">Plakar</span>?
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="group/link flex items-start gap-4 p-4 border bg-neutral-50 border-neutral-300 rounded-lg hover:bg-neutral-300 transition">
+                        <div class="w-10 h-10 rounded-lg  text-primary-500 flex items-strech justify-center">
+                            <!-- Icon: Shield -->
+                            {{ $riShieldCheckLine.Content | safeHTML }}
+                        </div>
+                        <div>
+                            <h3 class="font-space-grotesk text-lg font-semibold text-neutral-900">Cryptography audit: ✅ passed</h3>
+                            <p class="text-neutral-600 ~text-sm/base font-space-text mt-1">Before releasing Plakar, we commissioned a cryptographic review from Jean-Philippe Aumasson, the author of multiple widely-used algorithms and seminal books on cryptography.</p>
+                            <a href="/posts/2025-02-28/audit-of-plakar-cryptography/" class="text-primary-500 text-sm font-medium hover:underline">Read the report</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: New UI version -->
+                    <div class="group/link flex items-start gap-4 p-4 border bg-neutral-50 border-neutral-300 rounded-lg hover:bg-neutral-300 transition">
+                        <div class="w-10 h-10 rounded-lg text-primary-500 flex items-strech justify-center">
+                            <!-- Icon: Window -->
+                            {{ $riTerminalWindowLine.Content | safeHTML }}
+                        </div>
+                        <div>
+                            <h3 class="font-space-grotesk text-lg font-semibold text-neutral-900">New plakar UI available</h3>
+                            <p class="text-neutral-600 ~text-sm/base font-space-text mt-1">Introducing the new UI: more responsive, faster, and better structured for large-scale browsing.</p>
+                            <a href="https://demo.plakar.io" target="_blank" class="text-primary-500 text-sm font-medium hover:underline">Visit demo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -749,7 +787,7 @@
                             </p>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 2xl:grid-cols-2 gap-4 items-stretch">
                                 <div class="flex flex-col w-full">
-                                    {{ partial "cta/chat-with-us-button.html" . }}
+                                    {{ partial "cta/chat-with-us-button.html" .}}
                                 </div>
                                 <div class="flex flex-col w-full">
                                     {{ partial "cta/start-contributing-button.html" . }}
