@@ -1,0 +1,61 @@
+{{ $logoLight := resources.Get .Site.Params.logoLight }}
+{{ $logoDark := resources.Get .Site.Params.logoDark }}
+{{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
+{{ $riAmazonLine := resources.Get "img/ri/amazon-line.svg" }}
+{{ $riNotionLine := resources.Get "img/ri/notion-line.svg" }}
+{{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+
+<!-- Fixed Navbar -->
+<header id="site-header"
+        class="fixed w-full flex px-2 py-2 md:px-4 z-50 bg-neutral-50 border-b border-l border-r border-neutral-300">
+    <div class="flex mx-auto w-full justify-between relative">
+        <div class="flex mx-auto items-center w-full space-x-4 lg:space-x-16">
+            <!-- Logo -->
+            <a href="/" class="block md:w-32 w-28 pb-[2px] items-center">
+                <!--span class="block dark:hidden">
+                        {{ $logoLight.Content | safeHTML }}
+                    </span-->
+
+                <span class="block">
+                        {{ $logoDark.Content | safeHTML }}
+                    </span>
+            </a>
+
+            {{ partial "header/menu-desktop.html" (dict "menu" "main_docs" "context" .) }}
+
+        </div>
+
+        <!-- Right-side buttons (GitHub + Actions) -->
+        <div class="flex flex-row items-center space-x-2 w-full justify-end">
+            <!-- GitHub link -->
+            <div class="hidden min-h-[48px] items-stretch lg:flex gap-2 pr-4 p-[1px] border border-neutral-300 bg-neutral-50 rounded-lg font-space-text">
+                {{ partial "social/github-badge.html" (dict
+                        "badgeSize" "5"
+                        "format" "star_light"
+                        "ctx" .
+                        ) }}
+            </div>
+            {{ partial "cta/book-a-demo-button.html" . }}
+            <!-- Mobile menu icon -->
+            <button id="menu-button"
+                    class="min-h-[24px] md:hidden border border-neutral-900 rounded-lg text-neutral-900 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+
+    </div>
+
+    <!-- Mobile dropdown menu -->
+    {{ partial "header/menu-mobile.html" (dict "menu" "main_docs" "context" .) }}
+</header>
+
+<!-- Navbar placeholder -->
+<section class="section-light grid-background">
+    <div class="content md:px-12 h-12 md:h-[88px] ">
+    </div>
+</section>

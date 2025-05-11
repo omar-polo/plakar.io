@@ -1,0 +1,42 @@
+<nav class="flex flex-col gap-2 p-4">
+    {{ $currentPage := . }}
+    {{ $docsSection := .Site.GetPage "section" "docs" }}
+
+    {{ if $docsSection }}
+        {{ template "section-tree-nav" dict "sect" $docsSection "currentPage" $currentPage "depth" 0 }}
+    {{ end }}
+</nav>
+
+{{ define "section-tree-nav" }}
+    {{ $currentPage := .currentPage }}
+    {{ $section := .sect }}
+    {{ $depth := .depth }}
+
+    {{ $indent := mul $depth 1 }}
+    {{ $marginClass := printf "ml-%d" $indent }}
+
+    {{ range $section.Pages.ByWeight }}
+        {{ if .IsPage }}
+            <a href="{{ .RelPermalink }}"
+               class="block px-2 py-1 rounded font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
+                {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
+                {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
+                {{ .Title }}
+            </a>
+        {{ end }}
+    {{ end }}
+
+    {{ range $section.Sections.ByWeight }}
+        <div class="my-1">
+            {{ if gt (len .Pages) 0 }}
+                <div class="font-semibold px-2 py-1 text-neutral-800 flex items-center gap-1">
+                    {{ if and (gt $depth 0) (gt (len .Pages) 0) }}
+                        <span class="ri-folder-line text-neutral-500"></span>
+                    {{ end }}
+                    {{ .Title }}
+                </div>
+                {{ template "section-tree-nav" dict "sect" . "currentPage" $currentPage "depth" (add $depth 1) }}
+            {{ end }}
+        </div>
+    {{ end }}
+{{ end }}

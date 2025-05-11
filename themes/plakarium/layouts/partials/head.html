@@ -23,6 +23,9 @@
 <link rel="stylesheet" href="/vendor/basiclightbox/basicLightbox.min.css">
 <script src="/vendor/basiclightbox/basicLightbox.min.js"></script>
 
+<style>
+    [x-cloak] { display: none !important; }
+</style>
 
 {{ if .Site.Params.github.enabled | default false }}
     {{ $githubOrganization := .Site.Params.github.organization | default "" }}

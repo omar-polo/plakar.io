@@ -1,0 +1,17 @@
+{{ define "main" }}
+    <section class="section-light-2 grid-background  ">
+        <div class="bg-gradient-section-light-2 pt-28 lg:pt-40 pb-7 lg:pb-14 p-4">
+            <div class="content flex flex-col justify-center gap-8 h-full p-8">
+                <h1 class="~text-4xl/6xl text-neutral-900 ">Doc: {{ .Title }}</h1>
+            </div>
+        </div>
+    </section>
+    <section class="section-light-2 pb-14 lg:pb-28">
+        <div class="content flex flex-col item-start gap-8 p-4">
+            <div class="prose p-8">
+                {{ .Content }}
+            </div>
+            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+        </div>
+    </section>
+{{ end }}

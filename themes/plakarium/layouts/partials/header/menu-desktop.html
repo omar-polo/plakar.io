@@ -1,7 +1,12 @@
-<nav id="main-nav" class="hidden md:flex relative items-center h-[62px]">
-    {{ $currentPage := . }}
+{{ $ctx := .context }}
+{{ $menu := .menu | default "main" }}
+{{ $menuItems := index .context.Site.Menus $menu | default slice }}
+{{ $topLevelItems := where $menuItems "Parent" "" }}
 
-    {{ range where .Site.Menus.main "Parent" "" }}
+
+<nav id="main-nav" class="hidden md:flex relative items-center h-[62px]">
+
+    {{ range $topLevelItems }}
         {{ if eq .Params.enabled true }}
             {{ $top := . }}
             <div class="group/btn relative dropdown-group">
@@ -72,7 +77,7 @@
                                     </div>
                                 </div>
                             {{ end }}
-                            {{ partial "header/menu-featured-article.html" $currentPage }}
+                            {{ partial "header/menu-featured-article.html" $ctx }}
                         </div>
                     </div>
                 {{ end }}
@@ -153,7 +158,6 @@
             const headerRect = header.getBoundingClientRect();
             const navRect = nav.getBoundingClientRect();
             const headerWidth = header.getBoundingClientRect().width;
-            const deltaLeft = navRect.left - headerRect.left;
 
             dropdownMenus.forEach(menu => {
                 const dropdownGroup = menu.closest('.dropdown-group');
