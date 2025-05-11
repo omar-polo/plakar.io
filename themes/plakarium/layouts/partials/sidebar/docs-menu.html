@@ -1,5 +1,45 @@
-<nav class="flex flex-col gap-2 p-4" x-data="{ openSections: {} }">
-    {{ $currentPage := . }}
+{{ $currentPage := . }}
+<nav class="flex flex-col gap-2 p-4" x-data="{
+    openSections: {},
+    initializeSections() {
+        // Find the active page
+        const currentPath = {{ .RelPermalink | jsonify }};
+
+        // Set a flag to track if we need to scroll
+        let needToScroll = false;
+
+        // Function to determine ancestors of the active page
+        const findAncestors = () => {
+            const activeLink = document.querySelector('a[href=' + JSON.stringify(currentPath) + ']');
+            if (!activeLink) return;
+
+            needToScroll = true;
+
+            // Find all parent sections
+            let element = activeLink.parentElement;
+            while (element && element.tagName !== 'NAV') {
+                const sectionContainer = element.querySelector('[x-show]');
+                if (sectionContainer) {
+                    const match = sectionContainer.getAttribute('x-show').match(/openSections\['([^']+)'\]/);
+                    if (match && match[1]) {
+                        this.openSections[match[1]] = true;
+                    }
+                }
+                element = element.parentElement;
+            }
+
+            // Scroll the active link into view after sections are opened
+            if (needToScroll) {
+                setTimeout(() => {
+                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        };
+
+        // Execute after complete DOM rendering
+        setTimeout(findAncestors, 50);
+    }
+}" x-init="initializeSections()">
     {{ $docsSection := .Site.GetPage "section" "docs" }}
 
     {{ if $docsSection }}
@@ -27,13 +67,13 @@
     {{ range $index, $subsection := $section.Sections.ByWeight }}
         {{ $uniquePath := printf "%s-%s-%d" $path $subsection.Title $index }}
         {{ $sectionId := replace $uniquePath " " "-" | lower }}
+
         <div class="my-1">
             {{ if gt (len .Pages) 0 }}
                 <div
-                        class="font-semibold px-2 py-1 text-neutral-800 flex items-center justify-between cursor-pointer hover:bg-neutral-200 rounded
-                    {{ if gt $depth 0 }}ml-4{{ end }}"
-                        @click="openSections['{{ $sectionId }}'] = !openSections['{{ $sectionId }}']"
-                        :class="openSections['{{ $sectionId }}'] ? 'bg-neutral-100' : ''">
+                        class="font-semibold px-2 py-1 text-neutral-800 flex items-center justify-between cursor-pointer hover:bg-neutral-200 rounded {{ if gt $depth 0 }}ml-4{{ end }}"
+                        x-on:click="openSections['{{ $sectionId }}'] = !openSections['{{ $sectionId }}']"
+                        :class="{ 'bg-neutral-100': openSections['{{ $sectionId }}'] }">
                     <div class="flex items-center gap-1">
                         <span class="ri-folder-line text-neutral-500"></span>
                         {{ .Title }}
