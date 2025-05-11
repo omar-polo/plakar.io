@@ -14,16 +14,16 @@
         <div class="relative z-10 bg-neutral-100 flex flex-row">
             <aside :class="sidebarOpened ? 'w-64' : 'w-0'"
                    class="fixed top-20 left-0 h-screen transition-all duration-300 bg-white border-r border-neutral-300 flex flex-col">
-                <button @click="sidebarOpened = !sidebarOpened"
+{{/*                <button @click="sidebarOpened = !sidebarOpened"
                         class="p-2 focus:outline-none hover:bg-neutral-200 transition">
-                    <svg x-show="!open" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <svg x-show="!sidebarOpened" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M3 5h14M3 10h14M3 15h14"></path>
                     </svg>
-                    <svg x-show="open" x-cloak class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <svg x-show="sidebarOpened" x-cloak class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M6 6L14 10L6 14V6Z"></path>
                     </svg>
                 </button>
-                <div class="overflow-y-auto flex-grow">
+*/}}                <div class="overflow-y-auto flex-grow">
                     {{ partial "sidebar/docs-menu.html" . }}
                 </div>
             </aside>
