@@ -3,7 +3,7 @@
 {{ $defaultVersionId := "" }}
 
 {{ range $index, $subsection := $docsSection.Sections }}
-    {{ if $subsection.IsAncestor $currentPage }}
+    {{ if or ($subsection.IsAncestor $currentPage) (eq $subsection.RelPermalink $currentPage.RelPermalink) }}
         {{ $defaultVersionId = partial "sidebar/version-id" (dict "title" $subsection.Title "index" $index) }}
     {{ end }}
 {{ end }}
@@ -24,12 +24,11 @@
             needToScroll = true;
 
              if (this.isSectionPage) {
-    // Ne pas dérouler automatiquement
-    setTimeout(() => {
-        activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 300);
-    return;
-}
+                setTimeout(() => {
+                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+                return;
+            }
 
             let element = activeLink.parentElement;
             while (element && element.tagName !== 'NAV') {
