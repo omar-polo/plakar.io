@@ -4,42 +4,47 @@
     {{ $riLinkedInBoxFill := resources.Get "img/ri/linkedin-box-fill.svg" }}
     {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
 
+    <!-- Navbar placeholder -->
+    <section class="section-light-2 grid-background">
+        <div class="content md:px-12 h-[67px] md:h-[98px] ">
+        </div>
+    </section>
 
     <!-- Title -->
     <section class="section-light-2 grid-background px-4 pt-10 pb-7">
-        <div class="content flex flex-col items-center gap-2 text-center ">
+            <div class="content flex flex-col items-center gap-2 text-center ">
+                <div class="flex flex-col items-start text-start gap-2 max-w-[calc(680px+32px)]">
+                    <!-- Title -->
+                    <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
+                        {{ .Title | emojify }}
+                    </h1>
 
-
-            <div class="flex flex-col items-start text-start gap-2 max-w-[calc(680px+32px)]">
-                <!-- Title -->
-                <h1 class="font-space-grotesk font-medium leading-tight ~text-2xl/5xl">
-                    {{ .Title | emojify }}
-                </h1>
-
-                <!-- Metadata -->
-                <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
-                    <!-- Category -->
-                    <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono capitalize ~text-xs/sm">
-                            <span>    {{ $categories := .GetTerms "categories" }}
-                                {{ range $i, $category := $categories }}
-                                    {{ if eq $i 0 }}{{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
-                                {{ end }}
-                            </span>
+                    <!-- Metadata -->
+                    <div class="flex flex-wrap justify-center items-center gap-2 font-dm-mono uppercase text-neutral-400 ~text-xs/sm">
+                        <!-- Category -->
+                        <div class="inline-flex items-center gap-2 text-primary-500 font-dm-mono capitalize ~text-xs/sm">
+                                <span>    {{ $categories := .GetTerms "categories" }}
+                                    {{ range $i, $category := $categories }}
+                                        {{ if eq $i 0 }}{{ end }}{{ $category.LinkTitle }}{{ if lt $i (sub (len $categories) 1) }} {{ end }}
+                                    {{ end }}
+                                </span>
+                        </div>
+                        <span>{{ partial "functions/date.html" .Lastmod }}</span>
+                        <span>•</span>
+                        <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
+                        <span>•</span>
+                        <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
                     </div>
-                    <span>{{ partial "functions/date.html" .Lastmod }}</span>
-                    <span>•</span>
-                    <span>{{- i18n "article.word_count" .WordCount | markdownify -}}</span>
-                    <span>•</span>
-                    <span>{{- i18n "article.reading_time" .ReadingTime | markdownify | emojify -}}</span>
                 </div>
             </div>
-        </div>
     </section>
     </div>
 
 
     <!-- Illustration -->
-    <section class="section-light-2 grid-background px-4 py-2">
+    <section class="section-light-2 grid-background  ">
+        <div class="bg-gradient-section-light-1 px-4 py-2">
+
         <div class="content flex flex-col items-center gap-8 text-center">
                 <div class="max-w-[calc(680px+32px)] rounded-lg bg-white border border-neutral-300 relative">
                     <!-- Top bar with dots -->
@@ -57,19 +62,18 @@
                              alt="Article image">
                     </div>
                 </div>
+        </div>
 
         </div>
     </section>
 
-    <section class="section-light-2 px-4 py-7">
+    <section class="section-light-1 px-4 py-7">
         <div class="content flex flex-col xl:flex-row items-start">
                 <!-- Sidebar (left) -->
-                <aside class="xl:left-0 xl:sticky w-full xl:w-[calc((100%-680px+32px)/2)] max-w-[calc(680px+32px)] xl:max-w-[calc((100%-680px-32px)/2)] pb-4 xl:pe-4 lg:top-24 flex flex-col bg-neutral-100 mx-auto xl:mx-0">
-                    <div class="text-sm font-prose flex flex-col gap-6 border-t border-b border-neutral-200">
+                <aside class="xl:left-0 xl:sticky w-full h-full xl:w-[calc((100%-680px+32px)/2)] max-w-[calc(680px+32px)] xl:max-w-[calc((100%-680px-32px)/2)] pb-4 xl:pe-4 lg:top-28 flex flex-col  mx-auto xl:mx-0">
+                    <div class="text-xs font-prose flex flex-col gap-6 p-4 bg-neutral-50 xl:border-r border-dotted ">
                         {{ partial "toc.html" . }}
                     </div>
-
-
                 </aside>
 
                 <!-- Article content (right)  -->
