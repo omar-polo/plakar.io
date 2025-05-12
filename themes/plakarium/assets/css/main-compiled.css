@@ -2068,6 +2068,14 @@ video {
   max-width: 36rem;
 }
 
+.\!max-w-full {
+  max-width: 100% !important;
+}
+
+.\!max-w-none {
+  max-width: none !important;
+}
+
 .flex-1 {
   flex: 1 1 0%;
 }
@@ -2085,6 +2093,10 @@ video {
 }
 
 .flex-grow {
+  flex-grow: 1;
+}
+
+.grow {
   flex-grow: 1;
 }
 

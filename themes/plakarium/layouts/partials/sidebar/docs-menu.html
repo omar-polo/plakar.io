@@ -15,38 +15,48 @@
     isSectionPage: {{ if .IsSection }}true{{ else }}false{{ end }},
     initializeSections() {
         const currentPath = {{ $currentPage.RelPermalink | jsonify }};
-        let needToScroll = false;
 
         const findAncestors = () => {
             const activeLink = document.querySelector(`a[href='${currentPath}']`);
             if (!activeLink) return;
 
-            needToScroll = true;
-
-             if (this.isSectionPage) {
-                setTimeout(() => {
-                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-                return;
+            // Reset all sections to closed
+            for (const key in this.openSections) {
+                if (Object.prototype.hasOwnProperty.call(this.openSections, key)) {
+                    this.openSections[key] = false;
+                }
             }
 
             let element = activeLink.parentElement;
+            console.log('active link element', element, 'openSections:', this.openSections);
+
             while (element && element.tagName !== 'NAV') {
-                const sectionContainer = element.querySelector('[x-show][x-transition\\:enter]');
-                if (sectionContainer) {
+                let sectionContainer = null;
+
+                // Try to find a section container with Alpine directives
+                if (element.hasAttribute('x-show') && element.hasAttribute('x-transition:enter')) {
+                    sectionContainer = element;
+                } else {
+                    // Fallback: look for the closest parent with the right Alpine setup
+                    sectionContainer = element.closest('[x-show][x-transition\\:enter]');
+                }
+
+                if (sectionContainer && !sectionContainer.dataset.checked) {
+                    console.log('level element', element)
+
                     const match = sectionContainer.getAttribute('x-show').match(/openSections\['([^']+)'\]/);
                     if (match && match[1]) {
+                        console.log('match: ', match, 'match[1]', match[1],'element', element, this.openSections);
                         this.openSections[match[1]] = true;
                     }
                 }
+
                 element = element.parentElement;
             }
 
-            if (needToScroll) {
-                setTimeout(() => {
-                    activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            }
+            setTimeout(() => {
+                activeLink.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 300);
         };
 
         setTimeout(findAncestors, 200);
@@ -79,7 +89,7 @@
 
     initializeSections();
 ">
-    <!-- Version Selector généré par Hugo -->
+    <!-- Version selector rendered by Hugo -->
     <div class="mb-4">
         <label for="version-select" class="block text-sm font-medium text-gray-700 mb-1">Version</label>
         <select
@@ -96,10 +106,10 @@
         </select>
     </div>
 
-    <!-- Navigation pour chaque version -->
+    <!-- Navigation for each version -->
     {{ range $index, $subsection := $docsSection.Sections }}
         {{ $versionId := partial "sidebar/version-id" (dict "title" $subsection.Title "index" $index) }}
-        <div x-show="selectedVersion === '{{ $versionId }}'" x-cloak>
+        <div x-show="selectedVersion === '{{ $versionId }}'" x-cloak data-version-container='{{ $versionId }}'>
             {{ template "section-tree-nav" dict "sect" $subsection "currentPage" $currentPage "depth" 0 "path" $versionId }}
         </div>
     {{ end }}
@@ -111,17 +121,17 @@
     {{ $depth := .depth }}
     {{ $path := .path }}
 
-    <!-- Fusion et tri des pages et sections -->
+    <!-- Merge and sort pages and sections -->
     {{ $pagesAndSections := slice }}
 
-    <!-- Ajouter toutes les pages régulières (non sections) -->
+    <!-- Add all regular (non-section) pages -->
     {{ range $section.Pages }}
         {{ if not .IsSection }}
             {{ $pagesAndSections = $pagesAndSections | append (dict "Title" .Title "RelPermalink" .RelPermalink "IsPage" true "Item" .) }}
         {{ end }}
     {{ end }}
 
-    <!-- Ajouter toutes les sections -->
+    <!-- Add all subsections -->
     {{ range $index, $subsection := $section.Sections }}
         {{ $hasPagesOrSubsections := false }}
         {{ if or (gt (len $subsection.Pages) 0) (gt (len $subsection.Sections) 0) }}
@@ -137,36 +147,36 @@
                 "HasChildren" $hasPagesOrSubsections) }}
     {{ end }}
 
-    <!-- Trier par titre -->
-    {{ $sortedItems := sort $pagesAndSections "Title" }}
+    <!-- Sort all items by title -->
+    {{ $sortedItems := sort $pagesAndSections "Item.Weight" "asc" }}
 
-    <!-- Afficher tout dans l'ordre -->
+    <!-- Render all sorted items -->
     {{ range $sortedItems }}
         {{ if .IsPage }}
-            <!-- C'est une page normale -->
+            <!-- Render a regular page -->
             <a href="{{ .RelPermalink }}"
                class="block px-2 py-1 rounded font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
-                {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
-                {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
+               {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
+               {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
                 {{ .Title }}
             </a>
         {{ else }}
-            <!-- C'est une section -->
+            <!-- Render a section -->
             {{ $subsection := .Item }}
             {{ $index := .Index }}
             {{ $uniquePath := printf "%s-%s-%d" $path $subsection.Title $index }}
             {{ $sectionId := replace $uniquePath " " "_" | lower }}
 
             {{ if not .HasChildren }}
-                <!-- Section sans enfants, l'afficher comme une page simple -->
+                <!-- Section without children, render as a simple page link -->
                 <a href="{{ .RelPermalink }}"
                    class="block px-2 py-1 rounded font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
-                    {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
-                    {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
+                   {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
+                   {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
                     {{ .Title }}
                 </a>
             {{ else }}
-                <!-- Section avec enfants, afficher avec accordéon -->
+                <!-- Section with children, render with accordion -->
                 <div class="my-1">
                     <div class="font-semibold px-2 py-1 text-neutral-800 flex items-center justify-between cursor-pointer hover:bg-neutral-200 rounded {{ if gt $depth 0 }}ml-4{{ end }}"
                          :class="{ 'bg-neutral-100': openSections['{{ $sectionId }}'] }">
