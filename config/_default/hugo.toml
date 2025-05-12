@@ -34,6 +34,8 @@ enabled = true
 clientId = "670b04f487d8b40de2e7f22c"
 cookiesVersion = "plakar-fr-EU-2"
 
-
+[Params.googleAnalytics]
+enabled = true
+id = "G-4EJ3HLL4HS"
 
 

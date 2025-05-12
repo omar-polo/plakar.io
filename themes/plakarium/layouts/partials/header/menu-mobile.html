@@ -1,3 +1,8 @@
+{{ $ctx := .context }}
+{{ $menu := .menu | default "main" }}
+{{ $menuItems := index .context.Site.Menus $menu | default slice }}
+{{ $topLevelItems := where $menuItems "Parent" "" }}
+
 {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
 {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
 
@@ -9,7 +14,7 @@
     </div>
 
     <nav class="mt-6 px-4 flex flex-col text-left divide-y divide-neutral-300">
-        {{ range where .Site.Menus.main "Parent" "" }}
+        {{ range $topLevelItems }}
             {{ if eq .Params.enabled true }}
                 {{ if .HasChildren }}
                     <div class="accordion-item">

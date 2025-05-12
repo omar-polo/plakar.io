@@ -12,6 +12,13 @@
         {{ $nestorInline := resources.Get "img/nestor-inline.svg" }}
         {{ $dockerLogo := resources.Get "img/docker-logo.svg" }}
         {{ $prompt := "<span class=\"t-path\">$ </span>" | safeHTML }}
+
+        <!-- Navbar placeholder -->
+        <section class="section-light-2 grid-background">
+            <div class="content md:px-12 h-[67px] md:h-[98px] ">
+            </div>
+        </section>
+
         <!-- Title -->
         <section class="section-light-2 grid-background px-4 pt-20 pb-7">
             <div class="content flex flex-col justify-between items-start gap-8">
@@ -209,7 +216,7 @@
 
         <!-- Why engineers choose Plakar -->
         <section class="section-light-2 overflow-hidden py-14 lg:py-28" x-data="progressScrollLine()" x-init="init()">
-            <div class="content flex flex-col gap-4 lg:gap-40 lg:p-4">
+            <div class="content flex flex-col gap-10 lg:gap-40 lg:p-4">
 
                 <!-- Title -->
                 <div class="text-center flex flex-col gap-8 max-w-4xl mx-auto">
@@ -217,12 +224,12 @@
                         Why engineers choose <span class="text-secondary-500">Plakar</span>
                     </h2>
                     <p class="~text-xl font-space-grotesk text-neutral-600 leading-normal">
-                        Powerful technology designed for engineers who value <br> reliability, security, and efficiency.
+                        Powerful technology designed for engineers who value <br class="hidden md:block"/> reliability, security, and efficiency.
                     </p>
                 </div>
 
                 <!-- Steps -->
-                <div class="progress-scroll-line flex flex-col gap-12 relative h-full">
+                <div class="progress-scroll-line flex flex-col gap-1 relative h-full p-1">
 
                     <!-- Step 1 -->
                     <div class="step flex flex-row items-start gap-2 md:gap-6">
@@ -236,7 +243,7 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full p-2">
+                        <div class="flex flex-col lg:flex-row items-start gap-1 md:gap-6 h-full pb-6 md:pb-20 px-2 pt-2">
                             <div class="flex-1 w-full lg:max-w-[30%]">
                                 <div class="flex flex-col gap-2">
                                     <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900">
@@ -303,7 +310,7 @@
 
                     <!-- Step 2 -->
                     <div class="step flex flex-row items-start gap-2 md:gap-6 h-full">
-                        <div class="step-line-wrapper flex flex-col items-center gap-2 self-stretch relative flex-shrink-0">
+                        <div class="step-line-wrapper flex flex-col items-center gap-1 self-stretch relative flex-shrink-0">
                             <div class="step-line-step w-10 h-10 rounded-full flex items-center justify-center font-bold text-base transition-all"
                                  :class="currentStep >= 2 ? 'bg-primary-500 text-white' : 'bg-white text-neutral-700 border border-neutral-300'">
                                 2
@@ -313,7 +320,7 @@
                             </div>
                         </div>
 
-                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full p-2">
+                        <div class="flex flex-col lg:flex-row items-start gap-2 md:gap-6 h-full pb-6 md:pb-20 px-2 pt-2">
                             <div class="flex-1 w-full lg:max-w-[30%]">
                                 <div class="flex flex-col gap-2">
                                     <h3 class="~text-xl/3xl font-space-grotesk text-neutral-900 leading-tight">

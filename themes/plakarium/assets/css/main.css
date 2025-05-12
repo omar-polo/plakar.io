@@ -79,7 +79,6 @@
 
 @layer utilities {
     .grid-background {
-        background-color: theme('colors.neutral.100');
         background-image:
                 linear-gradient(to right, theme('colors.neutral.200') 1px, transparent 1px),
                 linear-gradient(to bottom, theme('colors.neutral.200') 1px, transparent 1px);
@@ -98,7 +97,8 @@
         background-size: 100% auto;
         background-attachment: scroll;
     }
-    .bg-gradient-section-light {
+    .bg-gradient-section-light,
+    .bg-gradient-section-light-1 {
         background-image: linear-gradient(
                 transparent 0%,
                 transparent 25%,
