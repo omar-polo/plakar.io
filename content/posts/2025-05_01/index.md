@@ -261,13 +261,17 @@ We're actively working to enhance Plakar with new features and capabilities.
 Our immediate roadmap includes:
 
 - Releasing an SDK so you can easily bring support to new storage and integrations effortlessly.
+
 - Extended support for import/export plugins.
 
 - Enhanced performance and incremental indexing for even faster backups and restores.
 
 - Advanced diffing and snapshot browsing interfaces.
 
+- Dashboards for better visualization of repository content and activity.
+
 - A first batch of enterprise features: snapshots signing, multi-user with ACL support, ...
+
 
 We value community involvement highly and welcome your ideas, feedback, and contributions. Please join us by participating in GitHub issues, discussions, or our community forums.
 
