@@ -55,9 +55,9 @@
                     </div>
 
                     <!-- Image -->
-                    <div class="p-4 md:p-6">
+                    <div class="p-4">
                         {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
-                        <img class="w-full h-auto object-cover rounded-sm max-h-[550px]"
+                        <img class="h-auto object-cover rounded-sm max-h-[300px]"
                              src="{{ or $image.RelPermalink (resources.Get "img/placeholder-1600x1200.png").RelPermalink }}"
                              alt="Article image">
                     </div>
