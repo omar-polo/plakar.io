@@ -1,17 +1,58 @@
 {{ define "main" }}
-    <section class="section-light-2 grid-background  ">
-        <div class="bg-gradient-section-light-2 p-4">
-            <div class="content flex flex-col justify-center gap-8 h-full p-8">
-                <h1 class="~text-4xl/6xl text-neutral-900 ">D: {{ .Title }}</h1>
+    {{ $riCornerDownRightLine := resources.Get "img/ri/corner-down-right-line.svg" }}
+    {{ $riGithubFill := resources.Get "img/ri/github-fill.svg" }}
+    {{ $riLinkedInBoxFill := resources.Get "img/ri/linkedin-box-fill.svg" }}
+    {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
+
+
+    <!-- Title -->
+    <section class="section-light-1 px-4 pt-10">
+        <div class="content flex flex-col items-start gap-2 ">
+            <div class="flex flex-col items-start text-start gap-2">
+                <!-- Title -->
+                <h1 class="font-prose font-bold leading-tight ~text-3xl/4xl">
+                    {{ .Title | emojify }}
+                </h1>
             </div>
         </div>
     </section>
-    <section class="section-light-2 pb-14 lg:pb-28">
-        <div class="content flex flex-col item-start gap-8 p-4">
-            <div class="prose p-8">
-                {{ .Content }}
-            </div>
-            {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+
+    <section class="section-light-1 px-4 pb-7">
+        <div class="content flex flex-col-reverse xl:flex-row items-start">
+            <!-- Article content (right)  -->
+            <article class="max-w-full flex flex-col gap-16 bg-neutral-50 overflow-hidden">
+
+                <!-- Content blocks -->
+                <div class="article-content font-prose prose text-base">
+                    {{ .Content }}
+                </div>
+                <div class="bg-neutral-200 border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
+                    <div class="flex gap-4 items-center">
+                        {{ partial "social/bluesky-badge.html" . }}
+                        {{ partial "social/discord-badge.html" . }}
+                        {{ partial "social/linkedin-badge.html" . }}
+                        {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
+                    </div>
+                </div>
+            </article>
+
+            <!-- Sidebar (right) -->
+
+            <aside class="xl:right-0 xl:sticky w-full pt-10 xl:pt-2 xl:w-1/4 pb-4 xl:pe-4 lg:top-24 flex flex-col mx-auto xl:mx-0">
+                <div class="text-xs font-prose flex flex-col gap-6">
+                    {{ partial "toc-docs.html" . }}
+                </div>
+
+
+            </aside>
         </div>
     </section>
+
+    <script>
+        document.querySelectorAll('.article-content img').forEach(img => {
+            img.addEventListener('click', () => {
+                basicLightbox.create(`<img src="${img.src}" />`).show();
+            });
+        });
+    </script>
 {{ end }}

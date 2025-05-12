@@ -11,9 +11,9 @@
 <div x-data="{ sidebarOpened: true }" class="relative w-full bg-neutral-100">
     {{- if eq .Section "docs" -}}
         {{ partial "header/docs/header.html" . }}
-        <div class="relative z-10 bg-neutral-100 flex flex-row">
+        <div class="relative z-10 bg-neutral-50 flex flex-row">
             <aside :class="sidebarOpened ? 'w-64' : 'w-0'"
-                   class="fixed top-20 left-0 h-screen transition-all duration-300 bg-white border-r border-neutral-300 flex flex-col">
+                   class="fixed left-0 h-[calc(100vh-50px)] md:h-[calc(100vh-88px)] transition-all duration-300 bg-white border-r border-neutral-300 flex flex-col">
 {{/*                <button @click="sidebarOpened = !sidebarOpened"
                         class="p-2 focus:outline-none hover:bg-neutral-200 transition">
                     <svg x-show="!sidebarOpened" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -23,12 +23,17 @@
                         <path d="M6 6L14 10L6 14V6Z"></path>
                     </svg>
                 </button>
-*/}}                <div class="overflow-y-auto flex-grow">
+*/}}            <div class="overflow-y-auto flex-grow">
                     {{ partial "sidebar/docs-menu.html" . }}
                 </div>
             </aside>
-            <div :class="sidebarOpened ? 'ml-64' : 'ml-0'" class=" flex flex-col">
-                {{ block "main" . }}{{ end }}
+            <div class="flex flex-row w-full">
+                <!-- aside placeholder -->
+                <div :class="sidebarOpened ? 'w-64' : 'w-0'" class="h-[calc(100vh-50px)] md:h-[calc(100vh-88px)]">
+                </div>
+                <div class="relative max-w-[1280px] mx-auto">
+                        {{ block "main" . }}{{ end }}
+                </div>
 
             </div>
 
