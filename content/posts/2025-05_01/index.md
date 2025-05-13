@@ -51,8 +51,9 @@ Our optional enterprise-grade features will provide the long-term financing need
 Plakar is a next-generation, snapshot-based backup and archiving solution built for today’s data-driven workflows,
 built upon [Kloset, our immutable data store](/posts/2025-04-29/kloset-the-immutable-data-store/).
 
-By combining an intuitive snapshot model with a custom virtual filesystem (VFS),
-it lets you take fast incremental backups and roam through past versions of your data as easily as browsing files on your desktop.
+It is built on top of our [Kloset immutable store engine](/posts/2025-04-29/kloset-the-immutable-data-store/)
+which provides it with an intuitive snapshot model and a custom virtual filesystem (VFS),
+that lets you take fast incremental backups and roam through past versions of your data as easily as browsing files on your desktop.
 
 Whether you’re protecting personal projects or enterprise-scale datasets, Plakar delivers portability, performance, and security without the typical headaches of traditional backup tools.
 
