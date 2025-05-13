@@ -1,9 +1,10 @@
 {{/* Get all pages from the current section */}}
 {{/* Récupérer tous les articles de la section */}}
 {{ $all := .Pages }}
-{{ $featured := first 1 (where $all "Params.featured" true) }}
+{{ $allVisible := where $all "Params.hidden" "ne" true }}
+{{ $featured := first 1 (where $allVisible "Params.featured" true) }}
 {{ if not (gt (len $featured) 0) }}
-    {{ $featured = first 1 (sort $all "Date" "desc") }}
+    {{ $featured = first 1 (sort $allVisible "Date" "desc") }}
 {{ end }}
 
 {{ with index $featured 0 }}

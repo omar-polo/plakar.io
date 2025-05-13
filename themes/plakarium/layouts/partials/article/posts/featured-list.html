@@ -1,5 +1,7 @@
 {{ $posts := where .Site.RegularPages "Section" "posts" }}
-{{ $filtered := where $posts "Params.featured-scope" "intersect" (slice "hero-page") }}
+{{ $visiblePosts := where $posts "Params.hidden" "ne" true }}
+{{ $filtered := where $visiblePosts "Params.featured-scope" "intersect" (slice "hero-page") }}
+{{ $limitedRecent := first 3 (sort $filtered "Date" "desc") }}
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {{ if gt (len $filtered) 0 }}

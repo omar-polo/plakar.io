@@ -1,7 +1,8 @@
 {{ $allNews := where .Site.RegularPages "Section" "posts" }}
-{{ $featured := first 1 (where $allNews "Params.featured" true) }}
+{{ $visibleNews := where $allNews "Params.hidden" "ne" true }}
+{{ $featured := first 1 (where $visibleNews "Params.featured" true) }}
 {{ if not (gt (len $featured) 0) }}
-    {{ $featured = first 1 (sort $allNews "Date" "desc") }}
+    {{ $featured = first 1 (sort $visibleNews "Date" "desc") }}
 {{ end }}
 
 {{ with index $featured 0 }}
