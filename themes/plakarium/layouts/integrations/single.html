@@ -4,9 +4,17 @@
     {{ $riLinkedInBoxFill := resources.Get "img/ri/linkedin-box-fill.svg" }}
     {{ $riDiscordFill := resources.Get "img/ri/discord-fill.svg" }}
 
+    <!-- Navbar placeholder -->
+    <section class="section-light-2 grid-background">
+        <div class="content md:px-12 h-[67px] md:h-[98px] ">
+        </div>
+    </section>
+
     <!-- Title -->
-    <section class="section-light-2 grid-background py-14 lg:py-28">
-            <div class="content flex flex-row items-start text-center px-4 gap-8">
+    <section class="section-light-2 grid-background">
+        <div class="bg-gradient-section-light-1 pt-28 lg:pt-40 pb-7 lg:pb-14 p-4">
+
+        <div class="content flex flex-row items-start text-center p-4 gap-8">
 
             <div class="h-32 w-32">
                 {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
@@ -29,11 +37,12 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
 
     <!-- Intro -->
     <section class="section-light-1 text-neutral-900 py-14 lg:py-28">
-        <div class="content">
+        <div class="content px-4">
             <div class="flex flex-col gap-8 items-start w-full">
                 <h2 class="~text-2xl/5xl font-space-grotesk font-medium text-center lg:text-left w-full">
                     {{ .Params.subtitle }}
@@ -47,7 +56,7 @@
 
     <!-- Article body -->
     <section class="section-light-2 py-14 lg:py-28">
-        <div class="content flex flex-col lg:flex-row gap-12 items-start">
+        <div class="content flex flex-col lg:flex-row gap-12 items-start px-4">
 
             <!-- Article content -->
             <article class="w-full flex flex-col gap-16">

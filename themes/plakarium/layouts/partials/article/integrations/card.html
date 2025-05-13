@@ -5,7 +5,7 @@
     <div class="border border-neutral-300 p-4 flex flex-col gap-4 hover:shadow-md transition-all duration-200 outline outline-8 outline-neutral-400/20 shadow-xl rounded-lg">
 
         <!-- Image -->
-        <div class="relative h-16 w-16 bg-neutral-50 rounded-sm overflow-hidden">
+        <div class="relative h-16 w-16 rounded-sm overflow-hidden">
             {{ $image := or (.Resources.GetMatch "featured.webp") (index (.Resources.Match "featured.*") 0) }}
             {{ if $image }}
                 <img src="{{ $image.RelPermalink }}" alt="Integration preview" class="w-full h-full object-cover rounded-lg" />
