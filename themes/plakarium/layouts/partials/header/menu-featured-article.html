@@ -10,7 +10,7 @@
         {{ $image = resources.Get "img/placeholder-400x254.png" }}
     {{ end }}
 
-    <div class="group/link xl:ml-auto mt-4 h-auto border border-neutral-200 rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch ">
+    <div class="group/link xl:ml-auto mt-4 h-auto border border-neutral-200 rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch max-w-1/4 ">
         <!-- Image -->
         <div class="shrink-0">
             <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="object-cover w-[200px] max-h-[200px] h-full">
@@ -29,8 +29,11 @@
             {{ end }}
 
             <!-- Title -->
-            <div class="font-space-grotesk text-neutral-900 text-base font-medium">
-                {{ .Title | emojify }}
+            <div class="font-space-grotesk text-neutral-900 text-base font-medium ">
+                {{ $words := split .Title " " }}
+                {{ range $i, $word := $words }}
+                    {{ if ne $i 0 }}{{ if modBool $i 6 }}<br>{{ else }} {{ end }}{{ end }}{{ $word }}
+                {{ end }}
             </div>
 
             <!-- Read more -->
