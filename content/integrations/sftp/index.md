@@ -4,7 +4,7 @@ subtitle: Securely back up remote servers over SFTP with Plakar
 description: Backup your remote directories over the secure SFTP protocol.
 categories:
 - integration
-stage: beta
+stage: stable
 tags:
 - SFTP
 - Linux
@@ -31,14 +31,14 @@ You can configure a remote called `mysftp` to connect to your SFTP server:
 
 ```bash
 $ plakar config remote create mysftp
-$ plakar config remote set mysftp location s3://<IP_address_or_hostname>/<path>
+$ plakar config remote set mysftp location sftp://<IP_address_or_hostname>/<path>
 ```
 
 To refer to this remote in Plakar commands, use the syntax `@mysftp`, for example `plakar backup @mysftp`.
 
 #### Remote Configuration Options
 
-- **`location`**: SFTP URL. Format: `s3://<endpoint>/<optional_path>`. To specify the username, port or identity file path, use the SSH configuration file `~/.ssh/config`.
+- **`location`**: SFTP URL. Format: `sftp://<endpoint>/<optional_path>`. To specify the username, port or identity file path, use the SSH configuration file `~/.ssh/config`.
 - `insecure_ignore_host_key`: Ignore host key verification (default: false).
 - `identity_file`: Path to the SSH identity file. By default, Plakar reads the file `~/.ssh/config` for the identity file. If not present, it falls back to the default SSH identity files `~/.ssh/id_rsa`, `~/.ssh/id_ed25519`, `~/.ssh/id_ecdsa` and `~/.ssh/id_dsa`.
 
@@ -74,7 +74,7 @@ You can use the remote configuration for convenience:
 
 ```bash
 $ plakar config remote create mysftp
-$ plakar config remote set mysftp location s3://myserver
+$ plakar config remote set mysftp location sftp://myserver
 
 $ plakar at /var/backups create
 $ plakar at /var/backups backup @mysftp

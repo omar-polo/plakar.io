@@ -17,8 +17,7 @@ tags:
   - Scaleway
   - Blackblaze
   - OVH
-stage:
-  - stable
+stage: stable
 date: 2025-05-13
 ---
 
