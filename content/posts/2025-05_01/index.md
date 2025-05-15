@@ -103,7 +103,7 @@ you don't have to worry about backing up "too much" or "too frequently":
 ![](restore-points.png)
 
 
-### **3-2-1 Backups With Alerting Out Of The Box:**
+### **3-2-1 Backups With Alerting Out Of The Box**
 Without the need for other external tool,
 **setup right away a 3-2-1 backup strategy**:
 backup a local copy,
@@ -146,7 +146,7 @@ detect corruption and attempts at altering data by a third-party,
 and to some extent hide the knowledge of what kind of data is being backed up.
 
 
-### **An awesome and snappy UI:**
+### **An awesome and snappy UI**
 Use our UI to browsing any kloset repository,
 local or remote,
 inspect differences,
