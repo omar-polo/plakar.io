@@ -251,59 +251,25 @@
                                     </h3>
                                     <p class="text-neutral-500  ~text-lg">
                                         Backup isn’t a priority, but it’s always on your mind.</p>
-                                    <p class="text-neutral-500 ~text-lg">In just 30 seconds, you have a setup reliable
+                                    <p class="text-neutral-500 ~text-lg">In 10 minutes, you have a setup reliable
                                         enough to sleep soundly. And if anything goes wrong, you’ll be alerted. </p>
                                 </div>
                             </div>
-                            <div x-data="{ showModal: false }" class="flex w-1/2 flex-1 h-full rounded-lg overflow-hidden">
+                            <div  class="flex w-full lg:w-1/2 h-full p-4 rounded-lg overflow-hidden">
 
                                 <!-- Small Preview Video (click to open modal) -->
-                                <div @click="showModal = true; $nextTick(() => $refs.modalVideo.play())"
+                                <div class="relative flex flex-col aspect-[16/9] h-full min-h-[150px] md:min-h-[200px] lg:min-h-[300px] bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer group">
 
-                                     class="relative bg-white rounded-2xl shadow-lg overflow-hidden cursor-pointer group">
-                                    {{ $introVideo := resources.Get "video/plakar-intro-v14.m4v" }}
-                                    {{ $poster := resources.Get "video/plakar-intro-poster.png" }}
 
-                                    <video poster="{{ $poster.RelPermalink }}"
-                                           class="object-cover w-full h-full rounded-lg"
-                                           preload="metadata"
-                                           playsinline>
-                                        <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-
-                                    <!-- Play icon on hover -->
-                                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor"
-                                             viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M14.752 11.168l-4.586-2.67A1 1 0 009 9.5v5a1 1 0 001.166.986l4.586-2.67a1 1 0 000-1.732z"/>
-                                        </svg>
-                                    </div>
+                                        <iframe
+                                                class="h-full w-full top-0 left-0  rounded-lg"
+                                                src="https://www.youtube.com/embed/pY6CGkEQHhQ?rel=0&modestbranding=1"
+                                                title="Vidéo de présentation Plakar"
+                                                frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen>
+                                        </iframe>
                                 </div>
-
-                                <!-- Modal Fullscreen Video -->
-                                <div x-show="showModal" x-transition.opacity
-                                     @click.away="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
-                                     @keydown.escape.window="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
-                                     class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4">
-
-                                    <div class="relative w-full max-w-5xl">
-                                        <video x-ref="modalVideo" class="rounded-lg w-full h-auto" controls
-                                               preload="metadata">
-                                            <source src="{{ $introVideo.RelPermalink }}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-
-                                        <!-- Close button -->
-                                        <button @click="showModal = false; $refs.modalVideo.pause(); $refs.modalVideo.currentTime = 0"
-                                                class="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-80 transition">
-                                            ✕
-                                        </button>
-                                    </div>
-
-                                </div>
-
                             </div>
                         </div>
                     </div>
