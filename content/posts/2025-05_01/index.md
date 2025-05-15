@@ -197,7 +197,7 @@ which we can then monitor to notify them if tasks start failing.
 The alerting can be done through the UI,
 but optionally an alert can also be sent to the e-mail address that backs their identity:
 
-![mail alert](mail-alerting.png)
+![mail alert](mail-alerting.webp)
 
 
 --- 
