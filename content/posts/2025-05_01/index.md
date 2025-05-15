@@ -13,7 +13,6 @@ tags:
  - plakar
  - kloset
  - backups
-hidden: true
 ---
 
 In February,
