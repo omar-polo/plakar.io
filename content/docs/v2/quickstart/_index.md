@@ -79,7 +79,7 @@ repository passphrase (confirm):
 ```
 
 {{% notice style="warning" title="Your passphrase is important" icon="triangle-exclamation" %}}
-Be extra careful when chosing the passphrase:
+Be extra careful when choosing the passphrase:
 it is the secret protecting your data.
 People with both access to the repository and knowledge of the passphrase can read your backups.
 
@@ -219,7 +219,7 @@ We could simply do a new backup to it, but this might produce different snapshot
 
 Instead, we can perform a repository synchronization.
 
-A repository synchronization ensures that backups are transfered from a repository to another, using the recorded data,and performing necessary decryption and encryption to produce a similar copy:
+A repository synchronization ensures that backups are transferred from a repository to another, using the recorded data,and performing necessary decryption and encryption to produce a similar copy:
 
 ```bash
 $ plakar at /var/backups sync to sftp://gilles@nas.plakar.io/var/backups
@@ -296,7 +296,7 @@ check: verification of 9abc3294:/private/etc completed successfully
 ## A few additional words on synchronization
 
 Repository synchronization is slightly more advanced than what was shown,
-and you are encouraged to experiment with it to find the best worflow for your use-case.
+and you are encouraged to experiment with it to find the best workflow for your use-case.
 
 This first command locates snapshots that exist in my local repository but not in the remote one,
 then sends them over:
@@ -317,4 +317,4 @@ And this last command does it both ways, pushing to the remote repositories snap
 $ plakar at /var/backups sync with @s3
 ```
 
-In addition, all these commands support passing snapshot identifiers and various options to perform partial synchronizations, only exchanging snapshots that match certain criterias. More information can be found in the [documentation](/docs/commands/sync/).
+In addition, all these commands support passing snapshot identifiers and various options to perform partial synchronizations, only exchanging snapshots that match certain criteria. More information can be found in the [documentation](/docs/commands/sync/).
