@@ -47,7 +47,7 @@ This post introduces the **Kloset architecture**, explains its design decisions,
 
 ## Core Architecture & Principles of Kloset
 
-Kloset was built with a clear set of non-negotiable goals: backups must be **immutable**, **fully encrypted at the source**, **efficient** even at scale or over slow links, **browseable without full restores**, **portable**, and **verifiable** without relying on external metadata.
+Kloset was built with a clear set of non-negotiable goals: backups must be **immutable**, **fully encrypted at the source**, **efficient** even at scale or over slow links, **browsable without full restores**, **portable**, and **verifiable** without relying on external metadata.
 
 
 | console | browser |
@@ -61,7 +61,7 @@ Kloset was built with a clear set of non-negotiable goals: backups must be **imm
 | Incremental Efficiency | ✅ | ✅ (suboptimal) | ❌ | ✅ | ✅ |
 | Granular Restore | ✅ | ✅ (partial) | ❌ | ✅ (limited) | ✅ |
 | Data context | ✅ | ❌ | ❌ | ✅  | ✅ |
-| Browseable | ✅ | ✅ | ❌ |  ✅  | ✅ (limited for some) |
+| Browsable | ✅ | ✅ | ❌ |  ✅  | ✅ (limited for some) |
 | Encryption | ✅ Built-in | ❌ (manual) | ❌ (manual) | ❌ (manual)  | ✅ (limited for some) |
 | Self-contained | ✅ | ❌ | ✅ | ❌ | ✅ (limited for some) |
 | Data indexing | ✅ | ❌ | ❌ | ❌ | ❌ |
@@ -98,7 +98,7 @@ Everything in Kloset is structured around this model, and the system is guided b
    Data is split into deduplicated, compressed, encrypted chunks and stored by content hash. Once written, it’s never modified.
 
 2. **Self-Describing Snapshots**  
-   Snapshots include all the metadata needed to understand the structure and context of the backup. They’re portable and browseable without external dependencies.
+   Snapshots include all the metadata needed to understand the structure and context of the backup. They’re portable and browsable without external dependencies.
 
 3. **Pluggable Connectors**  
    Sources and targets are modular. Kloset doesn’t care what it’s backing up — only that the data can be listed and read.
@@ -156,7 +156,7 @@ While the repository layer provides access to decoded but unstructured data chun
 
 - Snapshot type (filesystem, database, application, ...)
 - Indexing for faster search
-- Tree hierarchy for browseable objects, files, directories, ...
+- Tree hierarchy for browsable objects, files, directories, ...
 - Metadata (timestamps, permissions, ownership, etc.)  
 - Content hashes for deduplication and integrity  
 - Logical relationships and structure reconstructed from the raw data
@@ -314,7 +314,7 @@ By combining snapshot immutability, content-addressing, and portable metadata, K
 
 Kloset is designed with **security as a foundational, non-optional feature**.
 Its security layer is **always enabled**, woven directly into the architecture, not layered on top as an afterthought.
-Its cryptographic design has been [reviewed by an independant auditor](/docs/audits/) and project is maintained by developers with strong understanding of security concepts.
+Its cryptographic design has been [reviewed by an independent auditor](/docs/audits/) and project is maintained by developers with strong understanding of security concepts.
 
 
 The system guarantees **confidentiality, integrity, and traceability** for all data at all times — during backup, storage, and restore.
