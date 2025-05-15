@@ -22,7 +22,7 @@ date: 2025-05-13
 
 ## Overview
 
-The **Plakar Filesystem integration** enables seamless backup and restoration of filesystems to and from a **Kloset repository**.
+The **Plakar Filesystem integration** enables seamless backup and restoration of filesystems to and from a [Kloset repository](/posts/2025-04-29/kloset-the-immutable-data-store/).
 
 This integration is designed to protect the data on your local hard drives, mounted NAS volumes, and SANs.
 

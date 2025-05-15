@@ -19,7 +19,7 @@ date: 2025-05-13
 
 ## Overview
 
-SFTP is the protocol for secure file transfer over SSH. The SFTP integration in Plakar allows you to back up servers, NAS devices, and other remote systems securely. If you can SSH into a machine, you can use Plakar to back it up securely.
+The Plakar SFTP integration enables backup and restoration of remote filesystems over SSH to and from a [Kloset repository](/posts/2025-04-29/kloset-the-immutable-data-store/).
 
 ## Configuration
 

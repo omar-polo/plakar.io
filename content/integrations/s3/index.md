@@ -25,7 +25,7 @@ date: 2025-05-13
 
 ## Overview
 
-The **Plakar S3 integration** enables seamless backup and restoration of **S3-compatible object storage buckets** to and from a [Kloset repository](http://localhost:1313/posts/2025-04-29/kloset-the-immutable-data-store/).
+The **Plakar S3 integration** enables seamless backup and restoration of **S3-compatible object storage buckets** to and from a [Kloset repository](/posts/2025-04-29/kloset-the-immutable-data-store/).
 
 > **Why back up your S3 buckets?**
 >
