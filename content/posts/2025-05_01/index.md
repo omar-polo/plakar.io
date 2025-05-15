@@ -90,7 +90,7 @@ And coming soon—**watch for PlaSQL**, our interactive query layer that lets yo
 ---
 ## Key Features of Plakar v1.0.1
 
-### **Snapshots With Efficient Deduplication**
+### Snapshots With Efficient Deduplication
 
 Quick, incremental, and reliable backups powered by Plakar’s built-in virtual filesystem (VFS) and indexes.
 
@@ -103,7 +103,7 @@ you don't have to worry about backing up "too much" or "too frequently":
 ![](restore-points.png)
 
 
-### **3-2-1 Backups With Alerting Out Of The Box**
+### 3-2-1 Backups With Alerting Out Of The Box
 Without the need for other external tool,
 **setup right away a 3-2-1 backup strategy**:
 backup a local copy,
@@ -115,7 +115,7 @@ If you don't have the instrastructure for alerting,
 we also have you covered with our own alerting service provided for free to registered users.
 
 
-### **Portable Archives (.ptar)**
+### Portable Archives (.ptar)
 
 PTAR is our immutable archive format engineered for effortless transfer, dependable storage, and straightforward restoration across any environment.
 
@@ -127,17 +127,17 @@ You can package data from any supported source (filesystem, S3, SFTP, etc.) or f
 After creation, you can use `plakar` to interact with a `.ptar` archive exactly like any other repository (read-only), including through our UI for browsing, searching, and previewing !
 
 
-### **Multiple Storage Backends**
+### Multiple Storage Backends
 Flexible support for various storage options, including local disk, SQLite, SFTP, S3, and more—enabling you to adapt Plakar to your existing infrastructure effortlessly.
 
-### **Powerful Data Integrations**
+### Powerful Data Integrations
 Easily import and export data from multiple sources and to multiple destinations such as FTP and SFTP servers, S3, and others, simplifying data migration and interoperability.
 
 
 ![](snapshots-browsing.png)
 
 
-### **Security & Encryption**
+### Security & Encryption
 Built-in [audited](/posts/2025-02-28/audit-of-plakar-cryptography/) encryption mechanisms ensure robust data protection, maintaining the confidentiality and integrity of your backups, whether stored locally or remotely.
 
 Not only `plakar` uses encryption to protect the data within a repository,
@@ -146,7 +146,7 @@ detect corruption and attempts at altering data by a third-party,
 and to some extent hide the knowledge of what kind of data is being backed up.
 
 
-### **An awesome and snappy UI**
+### An awesome and snappy UI
 Use our UI to browsing any kloset repository,
 local or remote,
 inspect differences,
@@ -213,38 +213,40 @@ We will rely on the community to propose new integrations and setup a voting sys
 
 ### Kloset Storage Connectors
 
-#### **Rclone**
+#### Rclone
 An kloset storage connector that uses the [rclone](https://github.com/rclone/rclone) project as **its transport layer**,
 allowing `plakar` to host klosets on a variety of popular services.
 
 
 ### Kloset Data Integrations
 
-#### **Stdio**
+![](nestor-juggling.png)
+
+#### Stdio
 An integration that imports data from standard input and/or exports data to standard output.
 It is suitable to ingest database dumps (ie: `pg_dump`, `mysqldump`, `mongodump`, ...) and restore back to an ingestion tool.
 
 
-#### **IMAP**
+#### IMAP
 An integration that imports/exports mail from/to an IMAP server.
 Suitable to backup your mail server or mail account at your mail provider.
 
 
-#### **Notion**
+#### Notion
 An integration that backs up and restores the content of a `notion.so` accounts,
 saving your precious data.
 
 
-#### **Rclone**
+#### Rclone
 An integration that uses the [rclone](https://github.com/rclone/rclone) project as **its transport layer**,
 allowing `plakar` to import and export data to several popular services,
 including Google Drive, Google Photos, OneDrive, ....
 
-#### **iPhoto**
+#### iPhoto
 An integration currently limited to importing photos from iPhoto.
 This is a work in progress in early stage despite having a functional proof of concept.
 
-#### **Multi**
+#### Multi
 The multi integration chains multiple integrations,
 allowing to bundle into a single snapshot data coming from several sources,
 and restoring them together.
