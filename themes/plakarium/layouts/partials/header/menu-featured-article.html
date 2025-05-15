@@ -33,7 +33,7 @@
             <div class="font-space-grotesk text-neutral-900 text-base font-medium ">
                 {{ $words := split .Title " " }}
                 {{ range $i, $word := $words }}
-                    {{ if ne $i 0 }}{{ if modBool $i 6 }}<br>{{ else }} {{ end }}{{ end }}{{ $word }}
+                    {{ if ne $i 0 }}{{ if modBool $i 4 }}<br>{{ else }} {{ end }}{{ end }}{{ $word }}
                 {{ end }}
             </div>
 
