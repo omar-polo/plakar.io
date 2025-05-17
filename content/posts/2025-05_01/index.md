@@ -287,7 +287,7 @@ Get started with Plakar today and become part of our community:
 
 - Try Plakar now with [our quickstart](https://docs.plakar.io/en/quickstart/index.html)
 
-- <a class="github-button" href="https://github.com/buttons/github-buttons" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" aria-label="Star buttons/github-buttons on GitHub">Star</a> us on Github
+- <a class="github-button" href="https://github.com/PlakarKorp/plakar" data-color-scheme="no-preference: light; light: light; dark: light;" data-icon="octicon-star" aria-label="Star PlakarKorp/plakar on GitHub">Star</a> us on Github
 
 - Join our developers and users on [Discord](https://discord.gg/uuegtnF2Q5)
 
