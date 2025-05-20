@@ -121,6 +121,5 @@ Host myserver
 
 **How can I prevent Plakar from prompting for my SSH passphrase?**
 
-If your SSH key is protected by a passphrase, Plakar will prompt you for it. Currently, there is no way to bypass this prompt.
-
-As an alternative, configure a passphrase-less SSH key for the user you are using to connect to the remote server.
+You can use your local ssh-agent(1) to memoize the passphrase. Plakar will try
+to connect to the ssh-agent socket at $SSH_AUTH_SOCK.
