@@ -69,45 +69,45 @@ While some providers display the `s3://` URL in their web UI, most do not, and y
 #### [AWS S3](https://aws.amazon.com/s3/)
 
 ```bash
-$ plakar config repository set mys3 location s3://s3.<region>.amazonaws.com/<bucket>
+$ plakar config remote set mys3 location s3://s3.<region>.amazonaws.com/<bucket>
 # Example
-$ plakar config repository set mys3 location s3://s3.us-east-1.amazonaws.com/mybucket
+$ plakar config remote set mys3 location s3://s3.us-east-1.amazonaws.com/mybucket
 ```
 
 #### [MinIO](https://min.io/)
 
 ```bash
-$ plakar config repository set mys3 location s3://<minio-host>:<port>/<bucket>
+$ plakar config remote set mys3 location s3://<minio-host>:<port>/<bucket>
 # Example
-$ plakar config repository set mys3 location s3://localhost:9000/mybucket
+$ plakar config remote set mys3 location s3://localhost:9000/mybucket
 
 # If you are running MinIO locally, you may need to set the following configuration to disable TLS verification:
-$ plakar config repository set mys3 use_tls false
+$ plakar config remote set mys3 use_tls false
 ```
 When running MinIO locally without TLS, explicitly disable `use_tls`.
 
 #### [Scaleway](https://www.scaleway.com/en/object-storage/)
 
 ```bash
-$ plakar config repository set mys3 location s3://s3.<region>.scw.cloud/<bucket>
+$ plakar config remote set mys3 location s3://s3.<region>.scw.cloud/<bucket>
 # Example
-$ plakar config repository set mys3 location s3://s3.fr-par.scw.cloud/mybucket
+$ plakar config remote set mys3 location s3://s3.fr-par.scw.cloud/mybucket
 ```
 
 #### [Backblaze](https://www.backblaze.com/cloud-storage)
 
 ```bash
-$ plakar config repository set mys3 location s3://<minio-host>:<port>/<bucket>
+$ plakar config remote set mys3 location s3://<minio-host>:<port>/<bucket>
 # Example
-$ plakar config repository set mys3 location s3://localhost:9000/mybucket
+$ plakar config remote set mys3 location s3://localhost:9000/mybucket
 ```
 
 #### [CleverCloud](https://www.clever-cloud.com/developers/doc/addons/cellar/)
 
 ```bash
-$ plakar config repository set mys3 location s3://cellar-c2.services.clever-cloud.com/<bucket>
+$ plakar config remote set mys3 location s3://cellar-c2.services.clever-cloud.com/<bucket>
 # Example
-$ plakar config repository set mys3 location s3://cellar-c2.services.clever-cloud.com/mybucket
+$ plakar config remote set mys3 location s3://cellar-c2.services.clever-cloud.com/mybucket
 ```
 
 ## Example Usage
