@@ -31,7 +31,7 @@
                     Plakar is <span class="text-secondary-500 font-medium">cross-platform</span>
                 </div>
                 <div class="grid grid-cols-2 gap-x-6 gap-y-4 md:flex md:justify-start md:items-center md:gap-6">
-                    {{ range $brands := (slice "Linux" "Windows" "MacOS" "Redhat" "OpenBSD") }}
+                    {{ range $brands := (slice "Linux" "MacOS" "OpenBSD" "FreeBSD" "Windows") }}
 
                         {{ $logoPath := printf "img/logo-technologies/logo-%s.png" (lower .) }}
                         {{ $logo := resources.Get $logoPath }}
