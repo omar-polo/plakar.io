@@ -1,19 +1,17 @@
 ---
 title: Filesystem
-subtitle: Protect your local files and folders with immutable, encrypted, verifiable backups
-description: Back up and restore directories from local or mounted filesystems, with full integrity and metadata preservation.
-technology_description: A filesystem stores and organizes files on devices like hard drives or mounted NAS volumes.
+subtitle: Store your kloset on a local or mounted filesystem.
+description: Host your kloset on a local or mounted filesystem.
 categories: 
-- integration
+- storage
 tags:
 - Filesystem
-- Local Backup
 - NFS
-- Samba
+- SMB
 - NAS
 - SAN
 - NTFS
-- ext4
+- EXT4
 stage: stable
 date: 2025-05-13
 ---

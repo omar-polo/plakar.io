@@ -1,10 +1,9 @@
 ---
 title: S3
 subtitle: Protect your S3 buckets from rogue deletion, ransomware, and silent corruption.
-description: Back up, restore, or replicate your object storage buckets from any S3-compatible service.
-technology_description: S3 is a scalable object storage service commonly used for data archiving, backup, analytics, and cloud-native applications. It is accessible via a RESTful API and widely supported across public cloud providers and self-hosted solutions.
+description: Host your kloset on a local or remote S3 bucket.
 categories: 
-  - integration
+  - storage
 tags:
   - S3
   - Object Storage
@@ -21,36 +20,37 @@ stage: stable
 date: 2025-05-13
 ---
 
-# S3 Integration
+# S3 storage connector
 
-## Overview
-
-The **Plakar S3 integration** enables seamless backup and restoration of **S3-compatible object storage buckets** to and from a [Kloset repository](/posts/2025-04-29/kloset-the-immutable-data-store/).
-
-> **Why back up your S3 buckets?**
->
-> S3 providers *do not* back up your data by default. This makes your data vulnerable to accidental deletion, ransomware, and silent corruption.
->
-> Plakar lets you implement a reliable [3-2-1 backup strategy](https://docs.plakar.io/en/quickstart/probabilities/index.html) with minimal effort.
+The **Plakar S3 storage connector** enables creation of a plakar [Kloset
+repository](/posts/2025-04-29/kloset-the-immutable-data-store/) on any
+**S3-compatible object storage buckets**
 
 ## Configuration
 
-The S3 integration requires to set up a remote configuration to provide the necessary credentials and endpoint information for your S3-compatible provider.
+Since S3 uses API keys, sensitive piece of information, you can only address it
+through the usage of a configuration entry.
 
-### Setting Up a Remote
+### Setting up a repository
 
-You can configure a remote called `mys3` to connect to your S3-compatible provider:
+You can configure a repository aptly called `s3-krepository` to point to your
+S3-compatible bucket like this :
+
 
 ```bash
-$ plakar config remote create mys3
-# For AWS S3 (see below for other providers):
-$ plakar config remote set mys3 location s3://s3.<region>.amazonaws.com/<bucket>
-
-$ plakar config remote set mys3 access_key <ACCESS_KEY>
-$ plakar config remote set mys3 secret_access_key <SECRET_KEY>
+$ plakar config repository create s3-krepository
+$ plakar config repository set s3-krepository  s3://s3.fr-par.scw.cloud/mysuperbucket
+$ plakar config repository set s3-krepository access_key <ACCESS_KEY>
+$ plakar config repository set s3-krepository secret_access_key <SECRET_KEY>
 ```
 
-To refer to this remote in Plakar commands, use the syntax `@mys3`, for example `plakar backup @mys3`.
+From now on you can refer to your S3 repository through the short-hand syntax `@s3-krepository.`
+
+For example to backup some local folder:
+
+```bash
+$ plakar at @s3-krepository backup /etc/
+```
 
 #### Remote Configuration Options
 
@@ -112,42 +112,37 @@ $ plakar config repository set mys3 location s3://cellar-c2.services.clever-clou
 
 ## Example Usage
 
-Once configured, you can back up or restore your S3 bucket using standard Plakar commands.
+Once configured, you can now use your repository with any command using the plakar(1) -at option.
 
 To create the Kloset repository at `/var/backups` and back up the S3 bucket previously configured as `mys3`, run the following command:
 
 ```bash
-$ plakar at /var/backups create
-$ plakar at /var/backups backup @mys3
+$ plakar at @s3-krepository create
+$ plakar at @s3-krepository backup @mys3
 ```
 
-To restore the data from the same Kloset repository to the S3 bucket, use the following commands:
+You can then list snapshots and open the UI to browse content of snapshots
 
 ```bash
 # List available backups
-$ plakar at /var/backups ls
+$ plakar at @s3-krepository ls
 
-# Restore a specific file
-$ plakar at /var/backups restore -to @mys3 fc1b1e94:path/to/file.docx
-
-# Restore the full backup
-$ plakar at /var/backups restore -to @mys3 fc1b1e94
+# Launch (locally) the UI server and open a browser pointing to it.
+$ plakar at @s3-krepository ui
 ```
 
 See the [QuickStart guide](https://docs.plakar.io/en/quickstart/index.html) for more examples.
 
 ## Questions, Feedback, and Support
+## Supported features
 
-Found a bug? [Open an issue on GitHub](https://github.com/PlakarKorp/plakar/issues/new?title=Bug%20report%20on%20S3%20integration&body=Please%20provide%20a%20detailed%20description%20of%20the%20issue.%0A%0A**Plakar%20version**)
+## Limitation
 
-Join our [Discord community](https://discord.gg/uuegtnF2Q5) for real-time help and discussions.
+## Future improvements
 
-## Q&A
+## Screenshots
 
-**Do you support other S3-compatible providers?**
+## Threats
+- List the main threats related to the technology
+- 
 
-Yes! Plakar supports any S3-compatible provider. If the provider is not listed in this page, please join our [Discord](https://discord.gg/uuegtnF2Q5) for help configuring it. We will update this page with the configuration details.
-
-**When versioning is enabled, do you back up all versions of the files?**
-
-No, only the latest version of the objects is backed up.

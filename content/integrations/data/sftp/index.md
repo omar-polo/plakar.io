@@ -3,7 +3,7 @@ title: SFTP
 subtitle: Securely back up remote servers over SFTP with Plakar
 description: Backup your remote directories over the secure SFTP protocol.
 categories:
-- integration
+- data
 stage: stable
 tags:
 - SFTP

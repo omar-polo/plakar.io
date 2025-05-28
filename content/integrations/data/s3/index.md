@@ -4,7 +4,7 @@ subtitle: Protect your S3 buckets from rogue deletion, ransomware, and silent co
 description: Back up, restore, or replicate your object storage buckets from any S3-compatible service.
 technology_description: S3 is a scalable object storage service commonly used for data archiving, backup, analytics, and cloud-native applications. It is accessible via a RESTful API and widely supported across public cloud providers and self-hosted solutions.
 categories: 
-  - integration
+  - data
 tags:
   - S3
   - Object Storage
