@@ -1,5 +1,4 @@
 {{/* Get all pages from the current section */}}
-{{/* Récupérer tous les articles de la section */}}
 {{ $all := .Pages }}
 {{ $allVisible := where $all "Params.hidden" "ne" true }}
 {{ $featured := first 1 (where $allVisible "Params.featured" true) }}
