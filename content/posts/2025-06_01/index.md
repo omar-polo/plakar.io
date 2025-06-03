@@ -3,7 +3,7 @@ title: "Plakar v1.0.2 was released: mostly S3 improvements !"
 date: 2025-06-03 08:00:00 +0100
 authors:
 - "gilles"
-summary: "Plakar v1.0.2 introduces an automatic security check for new critical releases, fixes relative path resolution through the agent, and delivers dramatic S3 performance and memory improvements for faster, more reliable backups."
+summary: "Plakar v1.0.2 adds an automatic security check for new critical releases. It also fixes relative-path resolution when using an agent, plus delivers dramatic S3 performance and memory improvements for faster, more reliable backups."
 categories:
  - technology
  - release notes
@@ -17,23 +17,22 @@ tags:
 
 Hello everyone,
 
-Just a quick blog post to let you know that we have just released a new minor version of plakar,
-`v1.0.2`, a very small incremental update over the latest stable release that happened early May.
+Today we’re shipping a small minor release: `v1.0.2`.
 
-> Why do we want to make such a small release ?
+It brings an automatic security-update checker,
+fixes a relative-path bug when using your agent,
+and delivers a 60× speed boost + lower memory usage on S3 backups.
 
-Well,
-a huge improvement in S3 performances and memory consumption was too nice to delay further,
-considering it is quite a common use case.
+Since many of you rely on S3 daily, we couldn’t wait until a larger release—here’s how to grab it.
 
 --- 
-You can install or update using:
+Via Go:
 
 ```sh
 $ go install github.com/PlakarKorp/plakar@v1.0.2
 ```
 
-Or using our installer:
+Via installer:
 
 ```sh
 $ curl https://plakar.io/install.sh | sh
@@ -72,7 +71,7 @@ you can turn it off permanently using `plakar -disable-security-check` and live 
 We spotted a small bug when using relative paths _for a repository_ through the agent.
 
 Plakar has no problem resolving relative paths for backups,
-however if the path of the repository was relative **_AND_** the CLI was executed from a directory different than the agent,
+however if the path of the repository was relative **_AND_** the CLI was executed from a directory different from the agent,
 then the CWD was incorrectly resolved and the relative path resolution failed.
 
 For example, `plakar at ./foobar backup` could mean `/tmp/foobar` on the CLI but `~gilles/foobar` on the agent.
@@ -87,8 +86,8 @@ Long story short,
 in S3 there's no concept of directories:
 we use the `/` character as a path separator and pretend that it creates nested objects when they are really flat at the top level.
 
-What was overseen is that the _minio_ client supports a `recursive` option in its listing function...
-that does all this pretending that directories exist at a better level than us.
+What we had initially overlooked is that the MinIO client supports a recursive listing option,
+which handles the prefix-based “directory” emulation more efficiently than our custom logic.
 This drastically improves the performances of listing resources.
 
 In his test case,
