@@ -97,9 +97,9 @@ $ plakar config remote set mys3 location s3://s3.fr-par.scw.cloud/mybucket
 #### [Backblaze](https://www.backblaze.com/cloud-storage)
 
 ```bash
-$ plakar config remote set mys3 location s3://<minio-host>:<port>/<bucket>
+$ plakar config remote set mys3 location s3://s3.<region>/<bucket>
 # Example
-$ plakar config remote set mys3 location s3://localhost:9000/mybucket
+$ plakar config remote set mys3 location s3://s3.eu-central-003.backblazeb2.com/mybucket
 ```
 
 #### [CleverCloud](https://www.clever-cloud.com/developers/doc/addons/cellar/)
