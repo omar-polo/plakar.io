@@ -1,5 +1,6 @@
 {{ $debug := false }}
 
+
 <!-- Article categories navigation -->
 
     {{ $currentSection := "unknown" }}
@@ -16,7 +17,7 @@
         {{ $postCategories := slice }}
         {{ range $postPages }}
             {{ range .Params.categories }}
-                {{ if not (in $postCategories .) }}
+                {{ if not (in $postCategories (. | urlize)) }}
                     {{ $postCategories = $postCategories | append (. | urlize)  }}
                 {{ end }}
             {{ end }}
@@ -25,7 +26,7 @@
         {{ $integrationCategories := slice }}
         {{ range $integrationPages }}
             {{ range .Params.categories }}
-                {{ if not (in $integrationCategories .) }}
+                {{ if not (in $integrationCategories (. | urlize)) }}
                     {{ $integrationCategories = $integrationCategories | append (. | urlize)  }}
                 {{ end }}
             {{ end }}
@@ -43,8 +44,8 @@
             <!-- Did you add a new section ? -->
         {{ end }}
     {{ if eq $debug true }}
-        <p>$postCategories: {{$postCategories}}</p>
-        <p>$integrationCategories: {{$integrationCategories}}</p>
+        <p>$postCategories: {{ uniq $postCategories}}</p>
+        <p>$integrationCategories: {{ uniq $integrationCategories }}</p>
     {{ end }}
     {{ else }}
         <!-- We are in a section page -->
@@ -53,7 +54,7 @@
         {{ $pages := where .Site.RegularPages "Section" $currentSection }}
         {{ range $pages }}
             {{ range .Params.categories }}
-                {{ if not (in $categories .) }}
+                {{ if not (in $categories (. | urlize)) }}
                     {{ $categories = $categories | append (. | urlize)}}
                 {{ end }}
             {{ end }}

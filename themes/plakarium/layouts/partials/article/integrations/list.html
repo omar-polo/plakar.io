@@ -28,7 +28,7 @@
 
                 <!-- Card 1 -->
                 <div class="w-1/4 h-[200px] md:h-[250px] lg:h-[300px] shrink-0 p-2 md:p-6 bg-neutral-50/70 backdrop-blur-[17px] rounded-lg outline outline-[8px] outline-neutral-50/60 flex flex-col gap-4 shadow-xl rotate-[-8deg] items-center">
-                    <div class="~text-2xl/6xl font-bold text-neutral-900">6+</div>
+                    <div class="~text-2xl/6xl font-bold text-neutral-900">{{ len (where (where .Site.RegularPages "Section" "integrations") "Params.categories" "intersect" (slice "integrations")) }}+</div>
                     <div class="~text-xs/2xl font-medium text-neutral-700 text-center">
                         Integrations
                     </div>
@@ -44,7 +44,7 @@
 
                 <!-- Card 3 -->
                 <div class="w-1/4 h-[200px] md:h-[250px] lg:h-[300px] shrink-0 p-2 md:p-6 bg-neutral-50/70 backdrop-blur-[17px] rounded-lg outline outline-[8px] outline-neutral-50/60 flex flex-col gap-4 shadow-xl rotate-[8deg] items-center">
-                    <div class="~text-2xl/6xl font-bold text-neutral-900">3+</div>
+                    <div class="~text-2xl/6xl font-bold text-neutral-900">{{ len (where (where .Site.RegularPages "Section" "integrations") "Params.categories" "intersect" (slice "storage connectors")) }}+</div>
                     <div class="~text-xs/2xl font-medium text-neutral-700 text-center">
                         Storage connectors
                     </div>

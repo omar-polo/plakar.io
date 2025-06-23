@@ -4,7 +4,7 @@ subtitle: Import content from tarball files, produce tarballs from snapshots and
 description: Import content from tarball files, produce tarballs from snapshots and klosets
 technology_description: A filesystem stores and organizes files on devices like hard drives or mounted NAS volumes.
 categories: 
-- data
+- integrations
 tags:
 - stdio
 stage: "coming soon"

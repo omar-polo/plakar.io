@@ -3,7 +3,7 @@ title: Filesystem
 subtitle: Store your kloset on a local or mounted filesystem.
 description: Host your kloset on a local or mounted filesystem.
 categories: 
-- storage
+- storage connectors
 tags:
 - Filesystem
 - NFS

@@ -4,7 +4,7 @@ subtitle: Protect any data exposed through standard input
 description: Backup from your stdin, restore to your stdout !
 technology_description: A filesystem stores and organizes files on devices like hard drives or mounted NAS volumes.
 categories: 
-- data
+- integrations
 tags:
 - stdio
 stage: "coming soon"

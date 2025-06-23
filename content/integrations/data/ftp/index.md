@@ -4,7 +4,7 @@ subtitle: Protect your FTP servers
 description: Backup from a remote FTP server, restore to a remote FTP server !
 technology_description: A filesystem stores and organizes files on devices like hard drives or mounted NAS volumes.
 categories: 
-- data
+- integrations
 tags:
 - ftp
 stage: "stable"

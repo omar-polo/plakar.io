@@ -3,7 +3,7 @@ title: Filesystem
 subtitle: Protect your local files and folders with immutable, encrypted, verifiable backups
 description: Back up and restore directories from local or mounted filesystems.
 categories: 
-- data
+- integrations
 tags:
 - Filesystem
 - NFS

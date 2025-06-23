@@ -3,7 +3,7 @@ title: SFTP
 subtitle: Securely back up remote servers over SFTP with Plakar
 description: Host your kloset on a remote server over the SFTP protocol.
 categories:
-- storage
+- storage connectors
 stage: stable
 tags:
 - SFTP

@@ -3,7 +3,7 @@ title: S3
 subtitle: Protect your S3 buckets from rogue deletion, ransomware, and silent corruption.
 description: Host your kloset on a local or remote S3 bucket.
 categories: 
-  - storage
+  - storage connectors
 tags:
   - S3
   - Object Storage

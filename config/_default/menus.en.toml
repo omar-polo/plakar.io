@@ -22,7 +22,7 @@ name = "Integrations"
 url = "/integrations/"
 weight = 30
 [[main.params]]
-    enabled = false
+    enabled = true
 
 [[main]]
 identifier = "pricing"
