@@ -3701,6 +3701,12 @@ section .content {
 
 @plugin "@tailwindcss/typography";
 
+/* Fix for the open class in the docs sidebar */
+
+.open .pl-2 {
+  display: block !important;
+}
+
 .not-ready {
   animation: none !important;
   opacity: 1 !important;
@@ -4456,6 +4462,14 @@ section .content {
 
   .lg\:pt-40 {
     padding-top: 10rem;
+  }
+
+  .lg\:pe-4 {
+    padding-inline-end: 1rem;
+  }
+
+  .lg\:ps-4 {
+    padding-inline-start: 1rem;
   }
 
   .lg\:text-left {

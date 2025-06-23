@@ -155,7 +155,7 @@
         {{ if .IsPage }}
             <!-- Render a regular page -->
             <a href="{{ .RelPermalink }}"
-               class="block px-2 py-1 rounded font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
+               class="block px-2 py-1 font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
                {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
                {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
                 {{ .Title }}
@@ -170,14 +170,14 @@
             {{ if not .HasChildren }}
                 <!-- Section without children, render as a simple page link -->
                 <a href="{{ .RelPermalink }}"
-                   class="block px-2 py-1 rounded font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
+                   class="block px-2 py-1 font-space-text ~text-sm text-neutral-700 hover:text-primary-500 hover:bg-neutral-200
                    {{ if gt $depth 0 }}ml-4 pl-2 border-l border-neutral-300{{ end }}
                    {{ if eq $currentPage.RelPermalink .RelPermalink }}text-primary-600 bg-neutral-200 font-semibold{{ end }}">
                     {{ .Title }}
                 </a>
             {{ else }}
                 <!-- Section with children, render with accordion -->
-                <div class="my-1">
+                <div class="my-1 {{ if $subsection.IsAncestor $currentPage }}open{{ end }}">
                     <div class="font-semibold px-2 py-1 text-neutral-800 flex items-center justify-between cursor-pointer hover:bg-neutral-200 rounded {{ if gt $depth 0 }}ml-4{{ end }}"
                          :class="{ 'bg-neutral-100': openSections['{{ $sectionId }}'] }">
                         <a href="{{ $subsection.RelPermalink }}"
