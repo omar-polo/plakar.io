@@ -7,10 +7,12 @@
 
 {{ $currentPage := . }}
 {{ $versionId := "" }}
+{{ $versionName := "" }}
 {{ $docsSection := .Site.GetPage "section" "docs" }}
 {{ range $index, $subsection := $docsSection.Sections }}
     {{ if $subsection.IsAncestor $currentPage }}
         {{ $versionId = partial "sidebar/version-id" (dict "title" $subsection.Title "index" $index) }}
+        {{ $versionName = $subsection.Title }}
     {{ end }}
 {{ end }}
 
@@ -58,7 +60,7 @@
             </div>
 
             <div class="inline-flex w-max px-2 py-1 rounded-md text-xs font-space-grotesk  text-neutral-900 border border-neutral-900">
-                <span>Version {{ $versionId | default "latest" }}</span>
+                <span>Version {{ $versionName | default "latest" }}</span>
             </div>
 
             <h1 class="font-prose font-bold leading-tight ~text-3xl/4xl">
@@ -67,7 +69,7 @@
 
             <!-- Content blocks -->
             <div class="article-content font-prose prose !max-w-none text-base">
-                {{ .Content }}
+                {{ .Content | safeHTML }}
             </div>
             <div class="bg-neutral-200 border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
                 <div class="flex gap-4 items-center">
