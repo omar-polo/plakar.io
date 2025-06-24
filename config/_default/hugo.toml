@@ -3,6 +3,14 @@ languageCode = 'en-us'
 theme = "plakarium"
 title = "Plakar - Effortless backup"
 
+[goldmark]
+[goldmark.renderer]
+  unsafe = true
+
+[highlight]
+  noClasses = false
+
+
 [permalinks]
 posts = "/posts/:year-:month-:day/:slug"
 
