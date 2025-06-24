@@ -187,7 +187,7 @@ You've completed a backup, which is great. However, if you'll allow me, I'd like
 
 A local backup, as we just did, is helpful in case of accidental removal of the original data...  but not so much if the storage is entirely lost.
 
-As explained in the page [One repository is not enough](/docs/probabilities/), the probability of losing data is as follows:
+As explained in the page [One repository is not enough](./probabilities/), the probability of losing data is as follows:
 
 * For a single set of data: 5% per year (1 in 20 chance)
 * For two copies at distinct sites: 0.00069% per year (1 in 145,000 chance)

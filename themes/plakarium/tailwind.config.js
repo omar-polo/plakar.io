@@ -80,9 +80,6 @@ module.exports = {
                         "--tw-prose-quotes": theme("colors.neutral.700 / 1"),
                         "--tw-prose-quote-borders": theme("colors.primary.200 / 1"),
                         "--tw-prose-captions": theme("colors.neutral.500 / 1"),
-                        "--tw-prose-code": theme("colors.secondary.700 / 1"),
-                        "--tw-prose-pre-code": theme("colors.neutral.700 / 1"),
-                        "--tw-prose-pre-bg": theme("colors.neutral.50 / 1"),
                         "--tw-prose-th-borders": theme("colors.neutral.500 / 1"),
                         "--tw-prose-td-borders": theme("colors.neutral.300 / 1"),
                         "--tw-prose-invert-body": theme("colors.neutral.300 / 1"),
@@ -97,8 +94,6 @@ module.exports = {
                         "--tw-prose-invert-quote-borders": theme("colors.primary.900 / 1"),
                         "--tw-prose-invert-captions": theme("colors.neutral.400 / 1"),
                         "--tw-prose-invert-code": theme("colors.secondary.400 / 1"),
-                        "--tw-prose-invert-pre-code": theme("colors.neutral.200 / 1"),
-                        "--tw-prose-invert-pre-bg": theme("colors.neutral.700 / 1"),
                         "--tw-prose-invert-th-borders": theme("colors.neutral.500 / 1"),
                         "--tw-prose-invert-td-borders": theme("colors.neutral.700 / 1"),
                         a: {
@@ -127,8 +122,7 @@ module.exports = {
                             padding: "0.1rem 0.2rem",
                             borderRadius: "0.25rem",
                         },
-                        code:{
-                            backgroundColor: theme("colors.neutral.50 / 1"),
+                        'pr code': {
                             paddingTop: "3px",
                             paddingBottom: "3px",
                             paddingLeft: "5px",

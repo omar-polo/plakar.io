@@ -872,12 +872,6 @@ video {
   color: var(--tw-prose-code);
   font-weight: 600;
   font-size: 0.875em;
-  background-color: rgb(255 255 255 / 1);
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 0.25rem;
 }
 
 .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
@@ -1031,9 +1025,9 @@ video {
   --tw-prose-captions: rgb(146 145 176 / 1);
   --tw-prose-kbd: #111827;
   --tw-prose-kbd-shadows: 17 24 39;
-  --tw-prose-code: rgb(217 79 44 / 1);
-  --tw-prose-pre-code: rgb(79 78 102 / 1);
-  --tw-prose-pre-bg: rgb(255 255 255 / 1);
+  --tw-prose-code: #111827;
+  --tw-prose-pre-code: #e5e7eb;
+  --tw-prose-pre-bg: #1f2937;
   --tw-prose-th-borders: rgb(146 145 176 / 1);
   --tw-prose-td-borders: rgb(220 217 227 / 1);
   --tw-prose-invert-body: rgb(220 217 227 / 1);
@@ -1050,8 +1044,8 @@ video {
   --tw-prose-invert-kbd: #fff;
   --tw-prose-invert-kbd-shadows: 255 255 255;
   --tw-prose-invert-code: rgb(255 156 65 / 1);
-  --tw-prose-invert-pre-code: rgb(231 230 240 / 1);
-  --tw-prose-invert-pre-bg: rgb(79 78 102 / 1);
+  --tw-prose-invert-pre-code: #d1d5db;
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
   --tw-prose-invert-th-borders: rgb(146 145 176 / 1);
   --tw-prose-invert-td-borders: rgb(79 78 102 / 1);
   font-size: 1rem;
@@ -1168,6 +1162,14 @@ video {
   color: rgb(45 44 58 / 1);
   background-color: rgb(62 56 234 / 1);
   padding: 0.1rem 0.2rem;
+  border-radius: 0.25rem;
+}
+
+.prose :where(pr code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-radius: 0.25rem;
 }
 
@@ -4448,6 +4450,10 @@ section .content {
     padding-bottom: 7rem;
   }
 
+  .lg\:ps-4 {
+    padding-inline-start: 1rem;
+  }
+
   .lg\:pt-14 {
     padding-top: 3.5rem;
   }
@@ -4462,14 +4468,6 @@ section .content {
 
   .lg\:pt-40 {
     padding-top: 10rem;
-  }
-
-  .lg\:pe-4 {
-    padding-inline-end: 1rem;
-  }
-
-  .lg\:ps-4 {
-    padding-inline-start: 1rem;
   }
 
   .lg\:text-left {
