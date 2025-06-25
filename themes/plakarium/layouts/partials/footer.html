@@ -3,26 +3,27 @@
      style="--pattern-fg: var(--color-neutral-500); --border-color: var(--color-neutral-500);">
     <section class="section-decorated bg-primary-500 text-neutral-100 mx-auto max-w-[1400px]">
         <div class="content px-6 md:px-12 py-8">
-            <div class="grid grid-cols-2 md:grid-cols-6 text-sm">
+            <div class="grid grid-cols-2 xl:grid-cols-12 text-sm gap-4">
 
-                <!-- Pages (col-start-1 col-span-1 @md) -->
-                <div class="col-span-1 md:col-start-1 md:col-span-2 flex flex-col gap-3 pl-4">
+                <!-- Pages (col-start-1 col-span-1 @lg) -->
+                <div class="col-span-1 xl:col-start-1 xl:col-span-2 flex flex-col gap-3 pl-4">
                     <h3 class="font-semibold text-base">Pages</h3>
                     <ul class="flex flex-col gap-1">
                         <li><a href="/" class="hover:underline">Home</a></li>
+                        <li><a href="{{ relref . "/contact/"}}" class="hover:underline">Contact</a></li>
                     </ul>
                 </div>
 
-                <!-- Solutions (col-start-2 @md) -->
-                <div class="col-span-1 md:col-start-3 md:col-span-2 flex flex-col gap-3 pl-4">
+                <!-- Solutions (col-start-4 @lg) -->
+                <div class="col-span-1 xl:col-start-4 xl:col-span-2 flex flex-col gap-3 pl-4">
                     <h3 class="font-semibold text-base">Solutions</h3>
                     <ul class="flex flex-col gap-1">
                         <li><a href="#" class="hover:underline">Backup & Restore</a></li>
                     </ul>
                 </div>
 
-                <!-- Resources (col-start-5 @md) -->
-                <div class="col-span-1 md:col-start-5 md:col-span-2 flex flex-col gap-3 pl-4">
+                <!-- Resources (col-start-7 @lg) -->
+                <div class="col-span-1 xl:col-start-7 xl:col-span-2 flex flex-col gap-3 pl-4">
                     <h3 class="font-semibold text-base">Resources</h3>
                     <ul class="flex flex-col gap-1">
                         <li><a href="{{ relref . "/categories/release-notes/"}}" class="hover:underline">Release notes</a></li>
@@ -31,10 +32,28 @@
                     </ul>
                 </div>
 
+                <!-- Simple footer newsletter form -->
+                <div class="col-span-1 xl:col-start-10 xl:col-span-3 flex flex-col gap-3 pl-4">
+                    <h3 class="font-semibold text-base">Newsletter</h3>
+                    <form id="footer-newsletter-form" class="relative">
+                        <input type="email" name="email" id="footer-newsletter" placeholder="Your email..." required
+                               class="w-full p-4 pr-14 rounded-xl border border-transparent bg-white text-neutral-900 placeholder-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400 transition" />
+                        <button type="submit" class="absolute top-1/2 right-4 transform -translate-y-1/2 text-neutral-500 hover:text-neutral-900 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        handleSubmit("footer-newsletter-form", "48034556", "a65a0673-a43b-41cc-ba1c-a7084f704685");
+    });
+</script>
 
 <!-- Footer Bottom -->
 <footer class="section-blue bg-primary-500 text-neutral-100">
@@ -65,4 +84,8 @@
         </div>
     </div>
 </footer>
+
+
+
+
 {{ partial "toast.html" . }}

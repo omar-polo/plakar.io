@@ -79,3 +79,42 @@
         })(document, "script");
     </script>
 {{ end }}
+
+<!-- Newsletter Subscription Forms -->
+<script>
+    const handleSubmit = async function (formId, portalId, hubspotFormId) {
+        const form = document.getElementById(formId);
+        form.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = form.email.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailRegex.test(email)) {
+                addToast({ title: "Error!", message: "Please enter a valid email address.", duration: 5000 });
+                return;
+            }
+
+            const url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${hubspotFormId}`;
+            const payload = { fields: [{ name: "email", value: email }] };
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                if (response.ok) {
+                    addToast({ title: "Success!", message: "You're now subscribed.", duration: 5000 });
+                    form.reset();
+                } else {
+                    throw new Error("Subscription failed.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                addToast({ title: "Error!", message: "Something went wrong. Please try again later.", duration: 5000 });
+            }
+        });
+    }
+</script>

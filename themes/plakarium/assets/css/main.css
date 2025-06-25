@@ -144,6 +144,13 @@
     section.section-primary-1 {
         @apply bg-primary-500 text-neutral-50;
     }
+    section.section-gradient-blue-1 {
+        @apply text-neutral-50;
+        background-image: url(/img/GRADIENT_BLUE.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
     footer.section-blue {
         @apply bg-primary-500 text-neutral-50;
     }
