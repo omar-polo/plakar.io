@@ -11,7 +11,7 @@
         {{ $image = resources.Get "img/placeholder-400x254.png" }}
     {{ end }}
 
-    <div class="group/link xl:ml-auto mt-4 h-auto border border-neutral-200 rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch max-w-1/4 ">
+    <a href="{{ .RelPermalink }}" class="group/link xl:ml-auto mt-4 h-auto border border-neutral-200 rounded-sm overflow-hidden hover:bg-neutral-100 flex items-stretch max-w-1/4 no-underline">
         <!-- Image -->
         <div class="shrink-0">
             <img src="{{ $image.RelPermalink }}" alt="{{ .Title }}" class="object-cover w-[200px] max-h-[200px] h-full">
@@ -38,10 +38,10 @@
             </div>
 
             <!-- Read more -->
-            <a href="{{ .RelPermalink }}"
+            <span
                class="flex items-center gap-1 uppercase text-neutral-900 font-dm-mono text-xs hover:underline group-hover/link:text-primary-500">
                 Read more
-            </a>
+            </span>
         </div>
-    </div>
+    </a>
 {{ end }}

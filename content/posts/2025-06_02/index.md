@@ -1,6 +1,6 @@
 ---
 title: "It doesn't make sense to wrap modern data in a 1979 format, introducing .ptar"
-date: 2025-06-23 08:00:00 +0100
+date: 2025-06-26 08:00:00 +0100
 authors:
 - "gilles"
 summary: ".ptar is our own archive format, a self-contained kloset, a container for your data. You end up with a standalone file that provides deduplication, compression, encryption, with all of the fancy features of a kloset store !"
@@ -68,7 +68,7 @@ $
 The resulting file contains all of `~/Downloads`,
 deduplicated,
 compressed,
-encrypted
+encrypted, 
 cryptographically authenticated,
 easily transportable and immediately usable for restore:
 
@@ -112,7 +112,7 @@ They manipulate their archives in a non-sequential pattern extracting them to br
 So,
 not only do they no care about the benefits of sequential I/O patterns for tapes,
 but they also miss a ton of nice features that are hard/impossible to obtain with a linear structure,
-like for example, deduplication, restore-less browsing, fast searching, ...
+like for example, deduplication, restore-less browsing, fast searching, and more ...
 
 Does that mean that `.ptar` is superior to `.tar` ?
 
@@ -158,32 +158,33 @@ $
 As seen above,
 `.tar` is not a dedup-aware archiver and if a file is passed twice, it is archived twice.
 The compression doesn't cancel that because compression algorithms use a sliding window that can only "see" so far at a time.
-The very common `gzip` used here can only see 32KB,
+The very common `gzip` algorithm used here can only see 32KB,
 other algorithms may "see" up to several MB but still...
 if the archive is several GB or several TB and the redundancy occurs further than the sliding window,
 the compression won't cancel duplicate data.
 
 That topic would require a deep-dive into how compression works,
 something a bit off-topic for this article,
-but let me know if you're interested in such readings :-)
+but let me know if you're interested in such readings,
+me likey writing :-)
 
 
 Anyways,
 that's a sharp contrast with `.ptar`:
 
 ```sh
-$ time plakar ptar -no-encryption -p ~/Downloads test.ptar
+$ time plakar ptar -plaintext -o test.ptar ~/Downloads
 [...] 135.80s user 31.42s system 439% cpu 38.073 total
 $ du -sh test.ptar
 8.2G    test.ptar
 
-$ time plakar ptar -no-encryption -p ~/Downloads -p ~/Downloads test.ptar
+$ time plakar ptar -plaintext -o test.ptar ~/Downloads ~/Downloads
 [...] 134.91s user 31.09s system 438% cpu 37.892 total
 $ du -sh test.ptar                                                     
 8.2G    test.ptar
 $ 
 
-$ time plakar ptar -no-encryption -p ~/Downloads -p ~/Downloads -p ~/Downloads test.ptar
+$ time plakar ptar -plaintext -o test.ptar ~/Downloads ~/Downloads ~/Downloads
 [...] 134.60s user 30.74s system 438% cpu 37.727 total
 $ du -sh test.ptar                                                                    
 8.2G    test.ptar
@@ -212,7 +213,7 @@ an archive with absolutely no redundancy is going to generate a bigger archive t
 However, the overhead is small enough that considering all the features it brings with it, I'd take the overhead anyday:
 
 - ability to serve the archive remotely with random seeks without full download
-- a virtal filesystem navigation (mount with fuse, webdav, ...)
+- a virtual filesystem navigation (mount with fuse, webdav, ...)
 - a UI with preview, search and categorization for easy locating of content
 - very granular restore and diff-ing at snapshot and file levels
 - synchronization capabilities with other klosets...
@@ -239,11 +240,11 @@ $ ./plakar at ptar+https://plakar.io/test.ptar ls
 ```
 
 
-### Encryption
+### About encryption
 
 `.zip` supports encryption,
-either through a widely supporter legacy algorithm that has shown its weaknesses,
-or through strong AES256... that's not supported by all `.zip` readers.
+either through a widely supported legacy algorithm that has shown its weaknesses,
+or through the strong AES256... that's not supported by all `.zip` readers.
 
 Not much more to say about `.tar` except that it doesn't have any provision for encryption,
 the common way to send encrypted tarballs is to use GPG...
@@ -274,36 +275,41 @@ Here’s how it stacks up:
 
 | Feature                | ptar                        | tar.gz / zip              |
 | ---------------------- | --------------------------- | ------------------------- |
-| **Encryption**         | End-to-end (client-side)    | None or bolt-on           |
+| **Encryption**         | Strong by default     | None or bolt-on           |
 | **Deduplication**      | Native, content-addressed   | Not supported             |
 | **Versioning**         | Snapshot-aware              | Not supported             |
 | **Tamper Resistance**  | Cryptographically signed    | No integrity model or simple CRC |
 | **Restoration**        | Selective, no extraction    | Full read or extraction required  |
-| **Portability**        | Self-contained `.ptar` file | Can require tools (ie: gpg for encryption) |
-| **Offline Usability**  | Fully offline, no runtime   | Depends on tooling really |
+| **Portability**        | Self-contained `.ptar` file | Can require additional tools (ie: gpg) |
+| **Offline Usability**  | Fully offline   | Fully offline |
 | **Storage Efficiency** | High (dedup + compression)  | Linear, redundant         |
 
 Bottom line: `.ptar` is built for environments where trust is minimal, bandwidth is constrained, and storage needs to be smart. If you're archiving for compliance or disaster recovery, **it doesn't make sense to wrap modern data in a 1979 format**.
-(yeah ! I plugged the catchphrase 💪)
+(ouh yeah, I plugged my catchphrase 💪).
 
 ---
 ## Technical Architecture
 
 A `.ptar` archive is a fully self-contained container.
 
-Internally, it’s structured to preserve everything needed to inspect, verify, and restore one or more Kloset snapshots — even without network access.
+Internally, it’s structured to preserve everything needed to inspect, verify, and restore one or more Kloset snapshots — without external resources.
 
 At a low level, a `.ptar` consists of:
 
-* **Configuration**: kloset version and parameters for deduplication, compression and encryption.
-* **Packfile**: encrypted blobs storing the actual chunked data. These are content-addressed, deduplicated, compressed and encrypted.
-* **State**: fast-lookup tables to avoid scanning packfiles during navigation.
-* **Footer**: fast-lookup table to locate any PTAR section.
+* **a configuration**: version and params for dedup, compression and encryption.
+* **a data section**: blobs storing the archive structure, metadata and data: content-addressed, deduplicated, compressed and encrypted. This section has an index of MAC for all its blobs to provide integrity checking at blob level.
+* **an index section**: lookup tables to provide fast inspection.
+* **a footer**: offsets to relevant sections of the archive for immediate seek.
+* **MAC**: MAC of the entire archive for overall integrity check.
+
+Here's a simplified overview:
+
+![](ptar-format.png)
 
 All content inside a `.ptar` is:
 
-* **End-to-end encrypted** using the same encryption keys and schema as live Kloset stores.
-* **Integrity-checked** — any corruption or tampering is detectable before extraction.
+* **encrypted** using the same encryption keys and schema as "regular" Kloset stores.
+* **integrity-checked** — any corruption or tampering is detectable before extraction.
 
 The archive is designed for **streaming** and **partial access**:
 
@@ -315,7 +321,7 @@ This makes `.ptar` not just a backup format — but a reliable container for lon
 
 ---
 
-## Real-World Use Cases
+## Some Real-World Use Cases
 
 The `.ptar` format isn’t just a theoretical improvement over `.tar.gz`.
 It solves concrete problems in modern backup and archival workflows — especially where trust boundaries, compliance, or long-term durability are involved.
@@ -332,7 +338,7 @@ When you need it, everything — metadata, snapshots, file content — is inside
 
 ### Cold Storage
 
-PTAR is optimized for random reads and high-density archiving. Snapshots remain deduplicated, compressed, and inspectable without restoring the full payload.
+`.ptar` is optimized for random reads and high-density archiving. Snapshots remain deduplicated, compressed, and inspectable without restoring the full payload.
 
 
 ### Disaster Recovery
@@ -342,15 +348,18 @@ You can generate `.ptar` files as part of your offsite rotation. In a worst-case
 
 ### Compliance and Legal Retention
 
-Each `.ptar` is immutable, signed, and traceable. Snapshots inside the archive retain their metadata, timestamp, and audit trail — making PTAR a strong fit for GDPR, HIPAA, and internal data retention policies. It's a legally-verifiable record of state.
+Each `.ptar` is immutable (tamper-evident), signed, and traceable. Snapshots inside the archive retain their metadata, timestamp, and audit trail — making `.ptar` a strong fit for GDPR, HIPAA, and internal data retention policies.
+It could become a legally-verifiable record of state.
 
 
 ### Distribution and Transfer
 
-Need to ship a dataset or backup across environments, air gaps, or legal zones? PTAR packages it up in a single file, preserving structure, permissions, and history. You can hand it over safely, knowing the contents can be validated — but not altered.
+Need to ship a dataset or backup across environments, air gaps, or legal zones?
+
+`.ptar` packages it up in a single file, preserving structure, permissions, and history. You can hand it over safely, knowing the contents can be validated — but not altered.
 
 
-## How to Create and Use a PTAR
+## How to Create and Use a `.ptar` (hand-holding)
 
 A `.ptar` builder and reader are implemented into `plakar`, so creating and interacting with archives doesn’t require extra tooling. Everything happens via the CLI.
 
@@ -359,19 +368,19 @@ A `.ptar` builder and reader are implemented into `plakar`, so creating and inte
 The following command creates an encrypted snapshot of my `~/Downloads` directory into the file `downloads.ptar`:
 
 ```sh
-$ plakar ptar -p ~/Downloads downloads.ptar
-repository passphrase: 
-repository passphrase (confirm): 
+$ plakar ptar -o downloads.ptar ~/Downloads
+passphrase: 
+passphrase (confirm): 
 $
 ```
 
 The resulting file has its content deduplicated, compressed, encrypted and is self-verifying. No need to bundle external metadata or config files.
 
 
-A non-encrypted version can be produced by passing the `-no-encryption` option:
+A non-encrypted version can be produced by passing the `-plaintext` option:
 
 ```sh
-$ plakar ptar -no-encryption -p ~/Downloads downloads.ptar
+$ plakar ptar -plaintext -o downloads.ptar ~/Downloads
 $
 ```
 
@@ -379,7 +388,9 @@ $
 
 ### Browse archive contents (no extraction needed)
 
-```bash
+A `.ptar` can be browsed without extracting the actual data.
+
+```sh
 $ plakar at downloads.ptar ls
 repository passphrase: 
 repository passphrase (confirm): 
@@ -396,7 +407,9 @@ $
 
 This gives you a tree view of all files, snapshot info, timestamps, and version diffs — similar to `ls`, but scoped inside the archive.
 
-Of course you can also use the UI:
+Of course,
+you can also use the UI,
+providing you with a **local** web-based filesystem browser, preview, search and more:
 
 ```sh
 $ plakar at downloads.ptar ui
@@ -407,12 +420,15 @@ repository passphrase (confirm):
 ![](ui.png)
 
 
-
 ---
 
 ### Inspect a single file
 
-```bash
+Inspecting a single file is as simple as using `cat` on a specific snapshot:file,
+as shown below:
+
+
+```sh
 $ plakar at downloads.ptar cat 3055ddc3:dragon.txt
 repository passphrase: 
 repository passphrase (confirm):
@@ -448,7 +464,7 @@ Useful for quickly validating what’s in a backup without extracting or restori
 $ plakar at test.ptar restore -to ./recovery /etc/nginx/nginx.conf 
 ```
 
-You can restore full trees, single files, or even just metadata. Works offline and doesn’t require a running Plakar server.
+You can restore full trees, subdirectories or single files.
 
 ---
 
@@ -466,79 +482,22 @@ then use that `.ptar` as a sync source for the target machine.
 
 ---
 
-Everything about the `.ptar` format is designed for automation and reliability — predictable exit codes, error reporting, and structural validation come built in. It’s safe to run unattended in CI, cron, or recovery scripts.
-
----
-
-## Security Considerations
-
-`.ptar` is designed for zero-trust environments,
-the security model inherits everything from Kloset — with no shortcuts.
-
-### End-to-End Encryption by Default
-
-Every `.ptar` file is encrypted **before** it touches disk.
-Encryption happens client-side using authenticated cryptography.
-There is no unencrypted intermediate state.
-
-The cryptography is the exact same as that of a regular kloset,
-no ptar-specific code was introduced,
-meaning that our [Audit of Plakar Cryptography](/posts/2025-02-28/audit-of-plakar-cryptography/) is just as relevant.
-
-
-### Content-Addressed and Tamper-Evident
-
-All content — files, metadata, manifests — is addressed by cryptographic MAC.
-If a single bit is altered (accidentally or maliciously),
-the archive fails verification.
-`.ptar` doesn’t rely on external checksums or tools — integrity is embedded.
-
-
-### Signature and Provenance
-
-Snapshots inside a `.ptar`,
-as well as the `.ptar` itself,
-are **_ready_ for cryptographic signatures**.
-
-That means that once we release signing/verifying support:
-
-* You'll be able to verify *who* created it (with a public key).
-* You'll be able to prove *when* it was created (timestamped and non-editable).
-* You'll be able to audit what was stored without needing to trust the machine that runs the restore.
-
-This is crucial for legal retention, regulatory compliance, or internal forensics.
-
-### No Server-Side Keys, Ever
-
-PTAR follows a strict **no backend trust** model:
-
-* No key escrow
-* No central authority
-* No decryption APIs
-
-If you have the archive and the key, you can read it. If not, you can't — period.
-
-### Metadata Privacy
-
-All metadata inside `.ptar` is encrypted. That includes file names, paths, and timestamps. Nothing leaks unless explicitly decrypted. This makes `.ptar` safe for offsite storage, even in hostile environments.
-
----
-
-If you're archiving sensitive environments — production configs, logs, legal data — `.ptar` ensures the archive is **both safe to store and safe to move**, even across untrusted systems.
-
-
 ## Conclusion
 
-The `.ptar` format was built because we needed to be able to export Kloset stores and traditional archive formats didn't do the job for us.
-They weren’t designed for encrypted, deduplicated, or versioned data — and they break down in zero-trust or long-term storage environments.
+The `.ptar` format was built because we needed to be able to export Kloset stores,
+and traditional archive formats weren’t designed for encrypted, deduplicated, or versioned data.
 
 With `.ptar`,
 you get a single file that’s encrypted, immutable, portable, and fully self-contained.
 You can inspect it, restore from it, verify it — without needing a running server, a database, or even internet access.
 It works offline, across systems, and under stress.
+If you're archiving sensitive environments — production configs, logs, legal data — `.ptar` ensures the archive is **both safe to store and safe to move**, even across untrusted systems.
+
 
 It is more than just a backup format. It’s shaping up to be a foundation for portable, secure data packaging — usable in CI/CD, air-gapped delivery, or regulatory environments where traditional tooling just can’t keep up.
 
 If you're already using Plakar, generating a `.ptar` is one CLI call. If you're building disaster recovery workflows, compliance retention, or cold storage pipelines, `.ptar` gives you a format you can trust — ten years from now, on any machine, without any surprises.
 
-This isn't a better `.tar`, it's a new tool, for a different era.
+This isn't a better `.tar`, it's a new tool, for a different era (another catchy phrase !).
+
+![](BYE.png)

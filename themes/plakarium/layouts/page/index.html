@@ -491,8 +491,56 @@
             }
         </script>
 
+        <!-- Newsletter section -->
+        <section class="section-gradient-blue-1 overflow-hidden py-14 lg:py-28">
+            <div class="content flex flex-col lg:flex-row-reverse gap-16 items-start px-4">
+
+                <!-- Text Block -->
+                <div class="lg:w-1/2 flex flex-col gap-8 text-white">
+                    <h2 class="~text-4xl/6xl font-space-grotesk font-medium leading-tight text-primary-900">
+                        Stay ahead of <span class="text-secondary-500">data resilience</span>
+                    </h2>
+                    <p class="~text-xl font-space-grotesk text-neutral-100 leading-normal">
+                        Get exclusive insights, new features, and expert tips on backup, storage and immutability.<br/> No spam, ever.
+                    </p>
+                    <ul class="space-y-4 text-neutral-100 text-sm">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-1 text-neutral-50" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Only relevant technical content.
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 mt-1 text-neutral-50" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                            Unsubscribe anytime.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Form Block -->
+                <div class="lg:w-1/2 bg-neutral-800 border border-neutral-700 rounded-2xl shadow-sm overflow-hidden">
+                    <div class="bg-primary-600 px-6 py-5">
+                        <h3 class="~text-xl text-white font-space-grotesk font-semibold">Sign up with your email</h3>
+                        <p class="~text-sm text-white opacity-80 mt-1">We’ll send you major product updates, no noise.</p>
+                    </div>
+                    <form id="newsletter-form-home" class="px-6 py-8 space-y-6">
+                        <input type="email" name="email" placeholder="Your email address" required class="w-full border border-neutral-600 bg-neutral-50 text-neutral-900 placeholder-neutral-500 rounded p-3" />
+                        <div class="flex justify-end">
+                            <button type="submit" class="bg-primary-500 hover:bg-primary-600 text-white px-6 py-2 rounded-lg font-medium transition">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                handleSubmit("newsletter-form-home", "48034556", "a65a0673-a43b-41cc-ba1c-a7084f704685");
+            });
+        </script>
+
         <!-- Kloset section -->
-        <section class="section-dark bg-neutral-900 overflow-hidden py-14 lg:py-28">
+        <section class="section-dark-1 overflow-hidden py-14 lg:py-28">
             <div class="content flex flex-col gap-24 ">
 
                 <!-- Top Block: Title + Description + CTA -->

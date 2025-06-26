@@ -209,7 +209,7 @@ enabled = true
 [[main_docs]]
 identifier = "quickStart"
 name = "Quick start"
-url = "/docs/quickstart/"
+url = "/docs/main/quickstart/"
 weight = 20
 [[main_docs.params]]
 enabled = true

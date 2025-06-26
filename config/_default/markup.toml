@@ -3,4 +3,8 @@
   unsafe = true
 
 [highlight]
+  style = "dracula"
+  lineNos = false
+  lineNumbersInTable = false
   noClasses = false
+  tabWidth = 4

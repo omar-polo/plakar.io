@@ -872,12 +872,6 @@ video {
   color: var(--tw-prose-code);
   font-weight: 600;
   font-size: 0.875em;
-  background-color: rgb(255 255 255 / 1);
-  padding-top: 3px;
-  padding-bottom: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 0.25rem;
 }
 
 .prose :where(code):not(:where([class~="not-prose"],[class~="not-prose"] *))::before {
@@ -1031,9 +1025,9 @@ video {
   --tw-prose-captions: rgb(146 145 176 / 1);
   --tw-prose-kbd: #111827;
   --tw-prose-kbd-shadows: 17 24 39;
-  --tw-prose-code: rgb(217 79 44 / 1);
-  --tw-prose-pre-code: rgb(79 78 102 / 1);
-  --tw-prose-pre-bg: rgb(255 255 255 / 1);
+  --tw-prose-code: #111827;
+  --tw-prose-pre-code: #e5e7eb;
+  --tw-prose-pre-bg: #1f2937;
   --tw-prose-th-borders: rgb(146 145 176 / 1);
   --tw-prose-td-borders: rgb(220 217 227 / 1);
   --tw-prose-invert-body: rgb(220 217 227 / 1);
@@ -1050,8 +1044,8 @@ video {
   --tw-prose-invert-kbd: #fff;
   --tw-prose-invert-kbd-shadows: 255 255 255;
   --tw-prose-invert-code: rgb(255 156 65 / 1);
-  --tw-prose-invert-pre-code: rgb(231 230 240 / 1);
-  --tw-prose-invert-pre-bg: rgb(79 78 102 / 1);
+  --tw-prose-invert-pre-code: #d1d5db;
+  --tw-prose-invert-pre-bg: rgb(0 0 0 / 50%);
   --tw-prose-invert-th-borders: rgb(146 145 176 / 1);
   --tw-prose-invert-td-borders: rgb(79 78 102 / 1);
   font-size: 1rem;
@@ -1168,6 +1162,14 @@ video {
   color: rgb(45 44 58 / 1);
   background-color: rgb(62 56 234 / 1);
   padding: 0.1rem 0.2rem;
+  border-radius: 0.25rem;
+}
+
+.prose :where(pr code):not(:where([class~="not-prose"],[class~="not-prose"] *)) {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
   border-radius: 0.25rem;
 }
 
@@ -1577,6 +1579,10 @@ video {
   top: 100%;
 }
 
+.top-1\/2 {
+  top: 50%;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1615,6 +1621,14 @@ video {
 
 .col-start-5 {
   grid-column-start: 5;
+}
+
+.col-start-4 {
+  grid-column-start: 4;
+}
+
+.col-start-7 {
+  grid-column-start: 7;
 }
 
 .mx-auto {
@@ -2124,6 +2138,11 @@ video {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.-translate-y-1\/2 {
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -2527,6 +2546,10 @@ video {
 .border-zinc-300 {
   --tw-border-opacity: 1;
   border-color: rgb(212 212 216 / var(--tw-border-opacity, 1));
+}
+
+.border-transparent {
+  border-color: transparent;
 }
 
 .bg-\[\#E8E8F5\] {
@@ -2939,6 +2962,10 @@ video {
   padding-top: 60px;
 }
 
+.pr-14 {
+  padding-right: 3.5rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -3235,12 +3262,21 @@ video {
   color: rgb(24 24 27 / var(--tw-text-opacity, 1));
 }
 
+.text-primary-900 {
+  --tw-text-opacity: 1;
+  color: rgb(17 17 51 / var(--tw-text-opacity, 1));
+}
+
 .underline {
   text-decoration-line: underline;
 }
 
 .line-through {
   text-decoration-line: line-through;
+}
+
+.no-underline {
+  text-decoration-line: none;
 }
 
 .placeholder-neutral-500::-moz-placeholder {
@@ -3251,6 +3287,16 @@ video {
 .placeholder-neutral-500::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(146 145 176 / var(--tw-placeholder-opacity, 1));
+}
+
+.placeholder-neutral-400::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(178 177 199 / var(--tw-placeholder-opacity, 1));
+}
+
+.placeholder-neutral-400::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(178 177 199 / var(--tw-placeholder-opacity, 1));
 }
 
 .opacity-0 {
@@ -3676,6 +3722,15 @@ section.section-primary-1 {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+section.section-gradient-blue-1 {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+  background-image: url(/img/GRADIENT_BLUE.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 footer.section-blue {
   --tw-bg-opacity: 1;
   background-color: rgb(82 76 255 / var(--tw-bg-opacity, 1));
@@ -3700,6 +3755,12 @@ section .content {
 }
 
 @plugin "@tailwindcss/typography";
+
+/* Fix for the open class in the docs sidebar */
+
+.open .pl-2 {
+  display: block !important;
+}
 
 .not-ready {
   animation: none !important;
@@ -3850,6 +3911,16 @@ section .content {
   background-color: rgb(245 243 255 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-neutral-800:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(45 44 58 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-neutral-50:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-blue-800:hover {
   --tw-text-opacity: 1;
   color: rgb(30 64 175 / var(--tw-text-opacity, 1));
@@ -3921,6 +3992,11 @@ section .content {
   --tw-ring-color: rgb(82 76 255 / var(--tw-ring-opacity, 1));
 }
 
+.focus\:ring-primary-400:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(103 96 255 / var(--tw-ring-opacity, 1));
+}
+
 .focus\:ring-offset-2:focus {
   --tw-ring-offset-width: 2px;
 }
@@ -3975,6 +4051,10 @@ section .content {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
   .sm\:items-start {
     align-items: flex-start;
   }
@@ -4004,6 +4084,26 @@ section .content {
 
   .md\:col-start-5 {
     grid-column-start: 5;
+  }
+
+  .md\:col-start-10 {
+    grid-column-start: 10;
+  }
+
+  .md\:col-start-4 {
+    grid-column-start: 4;
+  }
+
+  .md\:col-start-8 {
+    grid-column-start: 8;
+  }
+
+  .md\:col-start-6 {
+    grid-column-start: 6;
+  }
+
+  .md\:col-start-7 {
+    grid-column-start: 7;
   }
 
   .md\:mb-0 {
@@ -4143,6 +4243,10 @@ section .content {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
+  .md\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -4269,9 +4373,34 @@ section .content {
     order: 2;
   }
 
+  .lg\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .lg\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .lg\:col-start-10 {
+    grid-column-start: 10;
+  }
+
+  .lg\:col-start-4 {
+    grid-column-start: 4;
+  }
+
+  .lg\:col-start-7 {
+    grid-column-start: 7;
+  }
+
   .lg\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .lg\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .lg\:block {
@@ -4369,12 +4498,20 @@ section .content {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
+  .lg\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+  }
+
   .lg\:grid-rows-4 {
     grid-template-rows: repeat(4, minmax(0, 1fr));
   }
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .lg\:items-stretch {
@@ -4442,6 +4579,10 @@ section .content {
     padding-bottom: 7rem;
   }
 
+  .lg\:ps-4 {
+    padding-inline-start: 1rem;
+  }
+
   .lg\:pt-14 {
     padding-top: 3.5rem;
   }
@@ -4456,6 +4597,10 @@ section .content {
 
   .lg\:pt-40 {
     padding-top: 10rem;
+  }
+
+  .lg\:pl-4 {
+    padding-left: 1rem;
   }
 
   .lg\:text-left {
@@ -4476,9 +4621,38 @@ section .content {
     right: 0px;
   }
 
+  .xl\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:col-start-1 {
+    grid-column-start: 1;
+  }
+
+  .xl\:col-start-10 {
+    grid-column-start: 10;
+  }
+
+  .xl\:col-start-4 {
+    grid-column-start: 4;
+  }
+
+  .xl\:col-start-7 {
+    grid-column-start: 7;
+  }
+
   .xl\:mx-0 {
     margin-left: 0px;
     margin-right: 0px;
+  }
+
+  .xl\:mx-auto {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .xl\:ml-auto {
@@ -4524,6 +4698,10 @@ section .content {
 
   .xl\:max-w-\[calc\(\(100\%-680px-32px\)\/2\)\] {
     max-width: calc((100% - 680px - 32px) / 2);
+  }
+
+  .xl\:grid-cols-12 {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
   }
 
   .xl\:flex-row {
