@@ -25,6 +25,10 @@ inviteCode = "uuegtnF2Q5"
 enabled = true
 account = "plakar.bsky.social"
 
+[Params.X]
+enabled = true
+account = "PlakarKorp"
+
 [Params.linkedin]
 enabled = true
 companyID = "plakarkorp"

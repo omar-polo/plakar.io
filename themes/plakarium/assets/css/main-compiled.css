@@ -3054,6 +3054,10 @@ video {
   line-height: 1rem;
 }
 
+.text-xxs {
+  font-size: 0.625rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -3100,6 +3104,10 @@ video {
 
 .leading-tight {
   line-height: 1.25;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
 }
 
 .text-\[\#524CFF\] {
@@ -3613,6 +3621,11 @@ video {
 
 .\~text-xxs\/xs {
   font-size: clamp(0.625rem,0.536rem + 0.223vw,0.75rem)/* fluid type from 0.625rem at 40rem to 0.75rem at 96rem */;
+  line-height: /* error - Missing start value */;
+}
+
+.\~text-xxs\/sm {
+  font-size: clamp(0.625rem,0.446rem + 0.446vw,0.875rem)/* fluid type from 0.625rem at 40rem to 0.875rem at 96rem */;
   line-height: /* error - Missing start value */;
 }
 
