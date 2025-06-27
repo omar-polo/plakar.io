@@ -358,6 +358,7 @@ Need to ship a dataset or backup across environments, air gaps, or legal zones?
 
 `.ptar` packages it up in a single file, preserving structure, permissions, and history. You can hand it over safely, knowing the contents can be validated — but not altered.
 
+---
 
 ## How to Create and Use a `.ptar` (hand-holding)
 
