@@ -1,6 +1,6 @@
 ---
 title: "It doesn't make sense to wrap modern data in a 1979 format, introducing .ptar"
-date: 2025-06-26 08:00:00 +0100
+date: 2025-06-27 12:00:00 +0100
 authors:
 - "gilles"
 summary: ".ptar is our own archive format, a self-contained kloset, a container for your data. You end up with a standalone file that provides deduplication, compression, encryption, with all of the fancy features of a kloset store !"
@@ -19,6 +19,28 @@ tags:
 
 Now that I caught your attention with my mad clickbait skills...
 let me explain why this is not complete clickbait, ~~the last reason will surprise you~~ 😊
+
+---
+**Attention, Attention !**
+
+The feature described in this article is a _testing_ feature,
+meaning that it is stable enough to be tested by users but not yet available for general consumption.
+
+You will be able to test it right away by installing our latest development release:
+```sh
+$ go install github.com/PlakarKorp/plakar@v1.0.3-devel.c7a66f1
+```
+
+
+If you like this reading and want more of these tech articles about our work...
+
+Please share on social networks using the icons below the table of contents on your left,
+star our repo on Github and join us on Discord,
+where you can lurk to see what we're working on or discuss with our developers ;-)
+
+**This is very important for us if you want to see us succeed ! 🙏**
+
+---
 
 ## TL;DR:
 Backup archive formats haven't evolved much since the early days of `.tar` and `.zip`.
