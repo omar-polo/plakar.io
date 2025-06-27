@@ -20,26 +20,27 @@
     {{ $shareURL = $.shareURL }}
 {{ end }}
 
-{{ $riLinkedinFill := resources.Get "img/ri/linkedin-box-fill.svg" }}
-{{ if $ctx.Site.Params.linkedin.enabled  | default false }}
-    {{ $linkedinCompanyID := $ctx.Site.Params.linkedin.companyID | default "" }}
+{{ if $ctx.Site.Params.X.enabled | default false }}
+    {{ $riXFill := resources.Get "img/ri/twitter-x-fill.svg" }}
+    {{ $XAccount := $ctx.Site.Params.X.account | default "" }}
 
     {{ $href := "" }}
-    {{ if $shareURL }}
-        {{/* Avec URL de partage */}}
-        {{ $href = printf "https://www.linkedin.com/sharing/share-offsite/?url=%s" ($shareURL | urlquery) }}
+    {{ if $shareText }}
+        {{ $href = printf "https://x.com/intent/tweet?text=%s" ($shareText | urlquery) }}
+        {{ if $shareURL }}
+            {{ $href = printf "%s&url=%s" $href ($shareURL | urlquery) }}
+        {{ end }}
     {{ else }}
-        {{/* Sinon profil entreprise */}}
-        {{ $href = printf "https://www.linkedin.com/company/%s" $linkedinCompanyID }}
+        {{ $href = printf "https://x.com/%s" $XAccount }}
     {{ end }}
 
     <a class="flex items-center space-x-2"
        href="{{ $href }}"
        target="_blank"
        rel="noopener noreferrer"
-       aria-label="Visit us on LinkedIn">
+       aria-label="Visit us on X">
     <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">
-      {{ $riLinkedinFill.Content | safeHTML }}
+      {{ $riXFill.Content | safeHTML }}
     </span>
     </a>
 {{ end }}

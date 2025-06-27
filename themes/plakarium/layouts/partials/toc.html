@@ -60,6 +60,17 @@
             <p>{{ i18n "article.no_table_of_contents" }}</p>
         {{ end }}
     </div>
+    <div class="mt-4 flex flex-wrap gap-2 items-center border-t border-b pt-8 pb-8">
+        <span class="font-dm-mono text-xs text-neutral-500">Share wisdom:</span>
+        {{ partial "social/bluesky-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+        {{ partial "social/linkedin-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+        {{ partial "social/x-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+    </div>
+    <div class="flex flex-row items-left justify-left gap-1 pt-4 text-xs">
+        {{ partial "cta/star-us-on-github-neutral.html" . }}
+        {{ partial "cta/join-us-on-discord-neutral.html" . }}
+    </div>
+
 </details>
 <details class="toc-inside mt-0 overflow-hidden xl:hidden">
     <summary class="xl:hidden py-1  pl-4 rounded-lg text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800  dark:bg-primary-500 dark:text-neutral-100 ">
@@ -67,6 +78,16 @@
     </summary>
     <div class="py-2 px-4  border-dotted border-neutral-300   dark:border-neutral-600">
         {{ .TableOfContents | emojify }}
+    </div>
+    <div class="mt-4 flex flex-wrap gap-2 items-center border-t border-b pt-8 pb-8">
+        <span class="font-dm-mono ~text-xxs/sm text-neutral-500">Share wisdom:</span>
+        {{ partial "social/bluesky-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+        {{ partial "social/linkedin-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+        {{ partial "social/x-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+    </div>
+    <div class="flex flex-row items-left justify-left pt-4 text-xs">
+        {{ partial "cta/star-us-on-github.html" . }}
+        {{ partial "cta/join-us-on-discord.html" . }}
     </div>
 </details>
 

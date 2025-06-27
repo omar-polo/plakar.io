@@ -11,6 +11,40 @@
 <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
 <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
 
+
+<!-- Open Graph data -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{
+        with .Params.og_image
+}}{{ . | absURL }}{{
+else
+}}{{ with (or (.Resources.GetMatch "featured.*") (index (.Resources.Match "featured.*") 0))
+}}{{ .Permalink }}{{
+else
+}}{{ .Site.Params.default_og_image | absURL }}{{
+        end
+}}{{ end }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Twitter Card (optional) -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{
+        with .Params.og_image
+}}{{ . | absURL }}{{
+else
+}}{{ with (or (.Resources.GetMatch "featured.*") (index (.Resources.Match "featured.*") 0))
+}}{{ .Permalink }}{{
+else
+}}{{ .Site.Params.default_og_image | absURL }}{{
+        end
+}}{{ end }}">
+
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">

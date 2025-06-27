@@ -106,14 +106,17 @@
                         {{ .Content }}
                         <p></p>
                     </div>
-                    <div class="bg-neutral-200 border-b border-neutral-300 flex justify-center items-center gap-3 py-4 px-4 flex-wrap rounded-lg">
-                        <div class="flex gap-4 items-center">
-                            {{ partial "social/bluesky-badge.html" . }}
-                            {{ partial "social/discord-badge.html" . }}
-                            {{ partial "social/linkedin-badge.html" . }}
-                            {{ partial "social/github-badge.html" (dict "format" "icon" "context" .) }}
-                        </div>
+                    <div class="mt-4 flex flex-wrap gap-2 items-center border-t border-b pt-8 pb-8">
+                        <span class="font-dm-mono text-xs text-neutral-500">Share good vibes:</span>
+                        {{ partial "social/bluesky-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+                        {{ partial "social/linkedin-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
+                        {{ partial "social/x-badge.html" (dict "shareText" .Title "shareURL" .Permalink "context" .) }}
                     </div>
+                    <div class="flex flex-row items-left justify-left pt-4 text-xs">
+                        {{ partial "cta/star-us-on-github.html" . }}
+                        {{ partial "cta/join-us-on-discord.html" . }}
+                    </div>
+
                 </article>
 
         </div>

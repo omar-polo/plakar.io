@@ -10,12 +10,40 @@
     {{ $badgeSize = $.badgeSize }}
 {{ end }}
 
+{{ $shareText := "" }}
+{{ if isset . "shareText" }}
+    {{ $shareText = $.shareText }}
+{{ end }}
+
+{{ $shareURL := "" }}
+{{ if isset . "shareURL" }}
+    {{ $shareURL = $.shareURL }}
+{{ end }}
+
 {{ if $ctx.Site.Params.bluesky.enabled | default false }}
     {{ $riBlueskyFill := resources.Get "img/ri/bluesky-fill.svg" }}
     {{ $blueskyAccount := $ctx.Site.Params.bluesky.account | default "" }}
 
-    <a class="flex items-center space-x-2" href="https://bsky.app/profile/{{ $blueskyAccount }}" target="_blank"
+    {{/* Build the href */}}
+    {{ $href := "" }}
+    {{ if $shareText }}
+        {{/* Compose text with URL if defined */}}
+        {{ $fullText := $shareText }}
+        {{ if $shareURL }}
+            {{ $fullText = printf "%s %s" $shareText $shareURL }}
+        {{ end }}
+        {{ $href = printf "https://bsky.app/intent/compose?text=%s" ($fullText | urlquery) }}
+    {{ else }}
+        {{ $href = printf "https://bsky.app/profile/%s" $blueskyAccount }}
+    {{ end }}
+
+    <a class="flex items-center space-x-2"
+       href="{{ $href }}"
+       target="_blank"
+       rel="noopener noreferrer"
        aria-label="Visit us on Bluesky">
-        <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">{{ $riBlueskyFill.Content | safeHTML }}</span>
+    <span class="w-{{ $badgeSize }} h-{{ $badgeSize }}">
+      {{ $riBlueskyFill.Content | safeHTML }}
+    </span>
     </a>
 {{ end }}
