@@ -334,3 +334,11 @@
 .article-content h6 {
     @apply scroll-mt-28;
 }
+
+#logo-context-menu {
+    transition: opacity 0.15s ease;
+}
+#logo-context-menu.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

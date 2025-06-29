@@ -11,10 +11,25 @@
     <div class="flex mx-auto w-full justify-between relative">
         <div class="flex mx-auto items-center w-full space-x-4 lg:space-x-16">
             <!-- Logo -->
-            <a href="/" class="block md:w-32 w-28 pb-[2px] items-center">
+            <a href="/" id="logo-link" class="block md:w-32 w-28 pb-[2px] relative group">
                 <span class="block">
                     {{ $logoDark.Content | safeHTML }}
                 </span>
+                <!-- Context menu shown on right-click -->
+                <div id="logo-context-menu"
+                     class="hidden absolute top-full mt-2 left-0 bg-neutral-50 border border-neutral-300 rounded-lg shadow-lg z-50 w-56 flex flex-col">
+                    <a href="/branding/" class="px-4 py-2 hover:bg-neutral-100 text-neutral-900 font-space-text ~text-base">
+                        Brand Center
+                    </a>
+                    {{ $brandKit := resources.Get "distributed/logo.zip" }}
+                    <a href="{{ $brandKit.RelPermalink }}" download class="px-4 py-2 hover:bg-neutral-100 text-neutral-900 font-space-text ~text-base">
+                        Download logo kit
+                    </a>
+                    {{ $brandKit := resources.Get "/distributed/logo-plakar-mascot-circle.svg" }}
+                    <a href="{{ $brandKit.RelPermalink }}" download class="px-4 py-2 hover:bg-neutral-100 text-neutral-900 font-space-text ~text-base">
+                        Download this logo (svg)
+                    </a>
+                </div>
             </a>
 
             {{ partial "header/menu-desktop.html" (dict "menu" "main" "context" .) }}
@@ -47,3 +62,27 @@
     <!-- Mobile dropdown menu -->
     {{ partial "header/menu-mobile.html" (dict "menu" "main" "context" .) }}
 </header>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const logoLink = document.getElementById("logo-link");
+        const menu = document.getElementById("logo-context-menu");
+
+        // Hide the menu if the user clicks anywhere outside
+        document.addEventListener("click", function(e) {
+            if (!menu.contains(e.target) && !logoLink.contains(e.target)) {
+                menu.classList.add("hidden");
+            }
+        });
+
+        // Show the custom context menu on right-click
+        logoLink.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+            // Hide any other open menus
+            document.querySelectorAll("#logo-context-menu").forEach(m => m.classList.add("hidden"));
+            // Show this menu
+            menu.classList.remove("hidden");
+        });
+    });
+</script>
+
