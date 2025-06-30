@@ -2017,10 +2017,6 @@ video {
   width: max-content;
 }
 
-.min-w-\[3ch\] {
-  min-width: 3ch;
-}
-
 .min-w-\[4ch\] {
   min-width: 4ch;
 }
@@ -3888,6 +3884,20 @@ section .content {
 #logo-context-menu.hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+/* improvements for the manpages */
+
+table.Nm td {
+  white-space: normal;
+}
+
+code.Nm {
+  white-space: pre;
+}
+
+code.Fl {
+  white-space: pre;
 }
 
 @media (min-width: 48rem) {
