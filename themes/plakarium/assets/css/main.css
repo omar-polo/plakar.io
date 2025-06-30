@@ -342,3 +342,14 @@
     opacity: 0;
     pointer-events: none;
 }
+
+/* improvements for the manpages */
+table.Nm td {
+    white-space: normal;
+}
+code.Nm {
+    white-space: pre;
+}
+code.Fl {
+    white-space: pre;
+}
