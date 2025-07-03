@@ -51,5 +51,5 @@ Join our [Discord community](https://discord.gg/uuegtnF2Q5) for real-time help a
 **Do you store file metadata?**
 
 The **FTP integration** cannot guarantee preservation of metadata,
-as each FTP server may expose more or less informations,
+as each FTP server may expose more or less information,
 but will preserve all of the exposed metadata.
