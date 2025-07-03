@@ -21,3 +21,7 @@
 
     - (requires to `brew install fswatch` on MacOS)
     - `./scripts/watch-layouts-changes.sh`
+
+* **Change code highlight style**
+
+    - `hugo gen chromastyles --style=monokailight > assets/css/chroma.css`

@@ -3,7 +3,7 @@
   unsafe = true
 
 [highlight]
-  style = "dracula"
+  style = "monokai"
   lineNos = false
   lineNumbersInTable = false
   noClasses = false
