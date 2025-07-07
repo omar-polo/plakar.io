@@ -29,7 +29,7 @@ All content is fetched via the API and stored as structured JSON, including page
 
 ## Example Usage
 
-To create the Kloset repository at /var/backups and back up your Notion content, assuming the following env variable ```NOTION_API_TOKEN``` contained your shared API token, you can use the following command:
+To create the Kloset repository at ```/var/backups``` and back up your Notion content, assuming the following env variable ```NOTION_API_TOKEN``` contained your shared API token, you can use the following command:
 
 ```sh
 $ plakar at /var/backups create
