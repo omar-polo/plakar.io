@@ -19,24 +19,24 @@ date: 2025-05-13
 
 ## Overview
 
-The Plakar SFTP integration enables backup and restoration of remote filesystems over SSH to and from a [Kloset repository](/posts/2025-04-29/kloset-the-immutable-data-store/).
+The **Plakar SFTP storage connector** enables creation of a [Kloset store](/posts/2025-04-29/kloset-the-immutable-data-store/) on remote filesystems over SSH.
 
 ## Configuration
 
-The SFTP integration does not require any special configuration and you can use it directly with the `plakar` command. However, setting up a remote can make things more convenient.
+The SFTP storage connector does not require any special configuration and you can use it directly with the `plakar` command. However, setting up a source configuration can make things more convenient, and allows to specify additional options like ignoring host key verification or specifying an identity file.
 
-### Setting Up a Remote
+### Setting Up a source configuration
 
-You can configure a remote called `mysftp` to connect to your SFTP server:
+You can configure a source configuration `mysftp`:
 
 ```
-$ plakar config remote create mysftp
-$ plakar config remote set mysftp location sftp://<IP_address_or_hostname>/<path>
+$ plakar config repository create mysftp
+$ plakar config repository set mysftp location sftp://<IP_address_or_hostname>/<path>
 ```
 
-To refer to this remote in Plakar commands, use the syntax `@mysftp`, for example `plakar backup @mysftp`.
+To refer to this remote in Plakar commands, use the syntax `@mysftp`, for example `plakar at @mysftp ls`.
 
-#### Remote Configuration Options
+#### Storage Configuration Options
 
 - **`location`**: SFTP URL. Format: `sftp://<endpoint>/<optional_path>`. To specify the username, port or identity file path, use the SSH configuration file `~/.ssh/config`.
 - `insecure_ignore_host_key`: Ignore host key verification (default: false).
@@ -45,7 +45,7 @@ To refer to this remote in Plakar commands, use the syntax `@mysftp`, for exampl
 
 ## Example Usage
 
-Let's assume we have a remote server with the IP address `1.2.3.4` and we want to back up the `/etc` directory from that server.
+Let's assume we want to create a Kloset store to the remote server with the IP address `1.2.3.4`, and we want to back up the `/etc` directory to this Kloset store.
 
 First, create the SSH configuration file `~/.ssh/config` with the following content:
 
@@ -63,41 +63,31 @@ Ensure your public key is added to the remote server's `~/.ssh/authorized_keys` 
 ssh myserver
 ```
 
-Now create a Kloset repository at `/var/backups` and back up the `/etc` directory from the remote server:
+Now, let's configure the SFTP repository in Plakar:
 
-```bash
-$ plakar at /var/backups create
-$ plakar at /var/backups backup sftp://myserver/etc
+```
+$ plakar config repository create mysftp
+$ plakar config repository set mysftp location sftp://myserver/var/backups
 ```
 
-You can use the remote configuration for convenience:
+If it's not already done, start the agent:
 
 ```bash
-$ plakar config remote create mysftp
-$ plakar config remote set mysftp location sftp://myserver
-
-$ plakar at /var/backups create
-$ plakar at /var/backups backup @mysftp
+$ plakar agent start
 ```
 
-To restore data from the same Kloset repository to the SFTP server, use the following commands:
+Create a Kloset repository at `/var/backups`:
 
-```bash
-# List available backups
-$ plakar at /var/backups ls
-
-# Restore a specific file using the simple syntax
-$ plakar at /var/backups restore -to sftp://myserver/tmp fc1b1e94:path/to/file.docx
-# Restore the full backup using the simple syntax
-$ plakar at /var/backups restore -to sftp://myserver/tmp fc1b1e94
-
-# Restore a specific file using the remote syntax
-$ plakar at /var/backups restore -to @mysftp fc1b1e94:path/to/file.docx
-# Restore the full backup using the remote syntax
-$ plakar at /var/backups restore -to @mysftp fc1b1e94
+```
+$ plakar at @mysftp create
 ```
 
-See the [QuickStart guide](https://docs.plakar.io/en/quickstart/index.html) for more examples.
+Finally, let's backup the `/etc` directory to the Kloset repository and list the contents of the Kloset store:
+
+```
+$ plakar at @mysftp backup /etc
+$ plakar at @mysftp ls
+```
 
 ## Questions, Feedback, and Support
 
