@@ -29,7 +29,7 @@ The SFTP integration does not require any special configuration and you can use 
 
 You can configure a remote called `mysftp` to connect to your SFTP server:
 
-```bash
+```
 $ plakar config remote create mysftp
 $ plakar config remote set mysftp location sftp://<IP_address_or_hostname>/<path>
 ```
