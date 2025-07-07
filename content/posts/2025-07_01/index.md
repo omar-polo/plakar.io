@@ -3,7 +3,7 @@ title: "Kapsul: a tool to create and manage deduplicated, compressed and encrypt
 date: 2025-07-07T20:00:00+0100
 authors:
 - "gilles"
-summary: "want to craft a ptar archive but you don't need a full-fledge backup solution ? here comes kapsul, our ptar-specific tool, providing all you need from building to restoring and inspecting."
+summary: "want to craft a ptar archive but you don't need a full-fledged backup solution ? here comes kapsul, our ptar-specific tool, providing all you need from building to restoring and inspecting."
 categories:
  - technology
  - backup
@@ -13,8 +13,8 @@ tags:
  - plakar
  - ptar
  - backups
- - s3
  - archive
+ - kapsul
 ---
 
 ## TL;DR:
