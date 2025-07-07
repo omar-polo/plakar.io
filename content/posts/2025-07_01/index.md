@@ -1,5 +1,5 @@
 ---
-title: "Kapsul: a tool to create deduplicated, compressed and encrypted data vaults"
+title: "Kapsul: a tool to create and manage deduplicated, compressed and encrypted PTAR vaults"
 date: 2025-07-07T20:00:00+0100
 authors:
 - "gilles"
