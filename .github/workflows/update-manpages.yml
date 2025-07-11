@@ -20,7 +20,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: update
-        run: ./update-doc.sh ${{ github.event.inputs.plakar-ref }}
+        run: |
+          sudo apt install mandoc
+          ./update-doc.sh ${{ github.event.inputs.plakar-ref }}
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
