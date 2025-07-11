@@ -23,6 +23,7 @@ jobs:
         run: |
           sudo apt install mandoc
           ./update-doc.sh ${{ github.event.inputs.plakar-ref }}
+          git add content
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
